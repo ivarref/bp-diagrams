@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+svg {
+  font: 12px sans-serif;
+}
+
+</style>
+<body>
+<script src="d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 40, bottom: 30, left: 20},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+function parse(data) {
+  var parts = data.split('\n')
+  parts.splice(0,parts.indexOf("")+1) // skip header info
+  var labels = parts[0]
+    .split(",")
+    .map(function(d) { return d.substring(1, d.length-1) } )
+  parts.splice(0, 1) // remove labels from data
+  parts = parts.filter(function(d) { return d.length != 0 }) // remove empty lines
+
+  var prop = function(p) { 
+    return function(d) { return d.split(",")[labels.indexOf(p)] }
+  }
+  return parts.map(function(d) { 
+    var prop = function(p) {
+      return d.split(",")[labels.indexOf(p)]
+    }
+    return {'YEAR' : prop('YEAR'), 'val' : prop('DE')}
+  })
+}
+
+
+d3.text('data/BP_2014_coal_consumption_mtoe.csv', function(err, coal) {
+d3.text('data/BP_2014_gas_consumption_mtoe.csv', function(err, gas) {
+d3.text('data/BP_2014_hydro_consumption_mtoe.csv', function(err, hydro) {
+d3.text('data/BP_2014_nuclear_consumption_mtoe.csv', function(err, nuclear) {
+d3.text('data/BP_2014_oil_consumption_mtoe.csv', function(err, oil) {
+d3.text('data/BP_2014_other_renewables_consumption_mtoe.csv', function(err, other_renew) {
+d3.text('data/BP_2014_solar_consumption_mtoe.csv', function(err, solar) {
+d3.text('data/BP_2014_wind_consumption_mtoe.csv', function(err, wind) {
+
+var data = [coal, gas, hydro, nuclear, oil, other_renew, solar, wind]
+var resources = ['coal', 'gas', 'hydro', 'nuclear', 'oil', 'other_renew', 'solar', 'wind']
+var parsed = data.map(parse)
+var dat = parsed.map(function(d) { return d[48] })
+dat.forEach(function(d) { console.log(d) })
+
+})
+})
+})
+})
+})
+})
+})
+})
+
+
+//d3.json('data/slim-2.json', function(error, data) { })
+
+</script>
+</body>
