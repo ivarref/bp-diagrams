@@ -188,7 +188,6 @@ d3.json('data/slim-2.json', function(error, codes) {
 codes.forEach(function(d) {
   countrycodes[d['alpha-2']] = d.name
 })
-// "BP_EU2",
 // "BP_OAF",
 // "BP_OAP",
 // "BP_OEE",
@@ -196,10 +195,10 @@ codes.forEach(function(d) {
 // "BP_OSCA",
 countrycodes['BP_OECD'] = 'OECD'
 countrycodes['BP_NONOECD'] = 'Non OECD'
-countrycodes['BP_EU2'] = 'EU'
+countrycodes['BP_EU2'] = 'Eurozone'
 countrycodes['BP_FSU'] = 'Total Former Soviet Union'
 countrycodes['BP_TAF'] = 'Total Africa'
-countrycodes['BP_TAP'] = 'Total Asia Pacific'
+countrycodes['BP_TAP'] = 'Total Asia-Pacific'
 countrycodes['BP_TEE'] = 'Total Europe and Eurasia'
 countrycodes['BP_TME'] = 'Total Middle East'
 countrycodes['BP_TNA'] = 'Total North America'
