@@ -2,8 +2,23 @@
 <meta charset="utf-8">
 <style>
 
+body {
+  font: 12px sans-serif;
+}
 svg {
   font: 12px sans-serif;
+  border: 1px solid #000;
+}
+
+text.heading {
+  font: 22px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
 }
 
 </style>
@@ -11,57 +26,163 @@ svg {
 <script src="d3.v3.min.js"></script>
 <script>
 
-var margin = {top: 20, right: 40, bottom: 30, left: 20},
+var margin = {top: 55, right: 50, bottom: 50, left: 30},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-function parse(data) {
-  var parts = data.split('\n')
-  parts.splice(0,parts.indexOf("")+1) // skip header info
-  var labels = parts[0]
-    .split(",")
-    .map(function(d) { return d.substring(1, d.length-1) } )
-  parts.splice(0, 1) // remove labels from data
-  parts = parts.filter(function(d) { return d.length != 0 }) // remove empty lines
 
-  var prop = function(p) { 
-    return function(d) { return d.split(",")[labels.indexOf(p)] }
-  }
-  return parts.map(function(d) { 
-    var prop = function(p) {
-      return d.split(",")[labels.indexOf(p)]
-    }
-    return {'YEAR' : prop('YEAR'), 'val' : prop('DE')}
+var format = d3.time.format("%Y")
+
+var y = d3.scale.linear()
+    .range([height, 0])
+
+var x = d3.time.scale()
+    .range([0, width])
+
+var svg_root = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+var svg = svg_root.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+var color = d3.scale.category20();
+//color.values([rgb(24, 116, 24)]);
+
+var area = d3.svg.area()
+    .x(function(d) { return x(d.year); })
+    .y0(function(d) { return y(d.y0); })
+    .y1(function(d) { return y(d.y0 + d.y); });
+
+var stack = d3.layout.stack()
+  .values(function(d) { return d.values; });
+
+var countrycodes = {}
+d3.json('data/slim-2.json', function(error, codes) { 
+codes.forEach(function(d) {
+  countrycodes[d['alpha-2']] = d.name
+})
+
+countrycodes['BP_TNA'] = 'Total North America'
+countrycodes['BP_FSU'] = 'Former Soviet Union'
+countrycodes['BP_WORLD'] = 'World'
+
+d3.tsv('data/data.tsv', function(err, data) {
+  data = data.filter(function(d) { return d.country_code == 'BP_WORLD' })
+
+  var country_readable = countrycodes[data[0].country_code]
+
+  svg_root.append('g')
+  //.attr('transform', 'translate(' + (width/2) + ",0)")
+  .attr('transform', 'translate(' + (margin.left) + ",0)")
+  .append('text')
+  .attr('class', 'heading')
+  .attr('dy', '1.71em')
+  .text(country_readable + " Energy Consumption 1965 - 2013")
+
+  svg.append('text')
+  .attr('transform', 'translate(' + (width) + ",0)")
+  .style('text-anchor', 'middle')
+  .attr('dy', '-.29em')
+  .text('MTOE/a')
+
+  data.forEach(function(d) {
+    d.year = format.parse(d.year)
+    d.coal = +d.coal
+    d.gas = +d.gas
+    d.hydro = +d.hydro
+    d.nuclear = +d.nuclear
+    d.oil = +d.oil
+    d.other_renewables = +d.other_renewables
+    d.solar = +d.solar
+    d.wind = +d.wind
   })
-}
+
+  var resources = d3.keys(data[0]).filter(function(d) { return d!=="year" && d!=="country_code" })
+  resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
+  color.domain(resources)
+
+  //data = data.filter(function(d) { return d.year >= format.parse("1990") })
+  y.domain([0, d3.max(data.map(function(d) { return d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind }))])
+  x.domain(d3.extent(data.map(function(d) { return d.year })))
+
+  var br = stack(resources.map(function(resource) {
+    return {
+      name: resource,
+      values: data.map(function(d) { return { year: d.year, y: d[resource] } })
+      }
+  }))
+
+  var browser = svg.selectAll(".browser")
+        .data(br)
+      .enter().append("g")
+        .attr("class", "browser");
+
+    browser.append("path")
+        .attr("class", "area")
+        .attr("d", function(d) { return area(d.values); })
+        .style("fill", function(d) { return color(d.name); });
+
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.svg.axis()
+      .scale(x)
+      .orient("bottom"))
+
+  var infoheight = 8 + 16*resources.length
+
+  var info = svg.append("g")
+    .attr("transform", "translate(20," + (height-20-infoheight) + ")")
+
+  info.append('rect')
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('width', 130)
+    .attr('height', infoheight)
+    .style('fill', '#eee')
+    .style('fill-opacity', '80%')
+    .style('stroke', 'black')
+    .style('stroke-opacity', '100%')
 
 
-d3.text('data/BP_2014_coal_consumption_mtoe.csv', function(err, coal) {
-d3.text('data/BP_2014_gas_consumption_mtoe.csv', function(err, gas) {
-d3.text('data/BP_2014_hydro_consumption_mtoe.csv', function(err, hydro) {
-d3.text('data/BP_2014_nuclear_consumption_mtoe.csv', function(err, nuclear) {
-d3.text('data/BP_2014_oil_consumption_mtoe.csv', function(err, oil) {
-d3.text('data/BP_2014_other_renewables_consumption_mtoe.csv', function(err, other_renew) {
-d3.text('data/BP_2014_solar_consumption_mtoe.csv', function(err, solar) {
-d3.text('data/BP_2014_wind_consumption_mtoe.csv', function(err, wind) {
+  var resinfo = info.selectAll('g').data(resources)
 
-var data = [coal, gas, hydro, nuclear, oil, other_renew, solar, wind]
-var resources = ['coal', 'gas', 'hydro', 'nuclear', 'oil', 'other_renew', 'solar', 'wind']
-var parsed = data.map(parse)
-var dat = parsed.map(function(d) { return d[48] })
-dat.forEach(function(d) { console.log(d) })
+  resinfo = resinfo.enter()
+    .append('g')
+    //.attr('transform', function(d, i) { return 'translate(25,' + ((height/2) + 16*(resources.length-i - resources.length/2)) + ')' })
+    .attr('transform', function(d, i) { return 'translate(25,' + (16*(resources.length-i)) + ')' })
 
-})
-})
-})
-})
-})
-})
-})
-})
+  resinfo
+    .append('rect')
+    .attr('x', -16)
+    .attr('y', -10)
+    .attr('width', 12)
+    .attr('height', 12)
+    .style('fill', color)
+    .style('stroke', 'black')
+    .style('stroke-opacity', '100%')
 
 
-//d3.json('data/slim-2.json', function(error, data) { })
+  function name(d) {
+    if (d == "other_renewables") return "Other renewables"
+    else return d.charAt(0).toUpperCase() + d.slice(1);
+  }
+
+  resinfo
+    .append('text')
+    .text(name)
+    
+
+  svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(" + width + ",0)")
+    .call(d3.svg.axis()
+      .scale(y)
+      .orient("right"))
+
+  d3.select('body').append('div').text('refsdal.ivar@gmail.com')
+})
+})
 
 </script>
 </body>
