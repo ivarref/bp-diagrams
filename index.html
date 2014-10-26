@@ -189,14 +189,14 @@ codes.forEach(function(d) {
   countrycodes[d['alpha-2']] = d.name
 })
 // "BP_EU2",
-// "BP_FSU",
-// "BP_NONOECD",
 // "BP_OAF",
 // "BP_OAP",
-// "BP_OECD",
 // "BP_OEE",
 // "BP_OME",
 // "BP_OSCA",
+countrycodes['BP_OECD'] = 'OECD'
+countrycodes['BP_NONOECD'] = 'Non OECD'
+countrycodes['BP_EU2'] = 'EU'
 countrycodes['BP_FSU'] = 'Total Former Soviet Union'
 countrycodes['BP_TAF'] = 'Total Africa'
 countrycodes['BP_TAP'] = 'Total Asia Pacific'
@@ -246,6 +246,7 @@ d3.tsv('data/data.tsv', function(err, data) {
   update('BP_WORLD')
   //update('AZ')
 
+  d3.select('body').append('div').text('MTOE/a = Million Tonnes Oil Equivalents per annum.')
   d3.select('body').append('div').text('Based on data from BP Statistical Review 2014.')
   d3.select('body').append('div').text('refsdal.ivar@gmail.com')
 })
