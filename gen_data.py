@@ -24,6 +24,8 @@ groups = fields[1:]
 
 [fd.readline() for fd in fds[1:]] # skip groups
 
+seengroups = []
+
 while True:
   lines = [fd.readline().strip() for fd in fds]
   if not lines[0]:
@@ -35,6 +37,13 @@ while True:
   for group in groups:
     idx = fields.index(group)
     groupdata = [line.split(",")[idx] for line in lines]
+    if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups):
+      raise Error('Oops.')
+    if '"na"' in groupdata and len(Set(groupdata))==1:
+      continue
+    if '"na"' in groupdata and len(Set(groupdata))>1:
+      raise Error('Oops.')
+    seengroups.append(group)
     print "%s\t%s\t%s" % (years[0], group, "\t".join(groupdata))
 
 [fd.close() for fd in fds]

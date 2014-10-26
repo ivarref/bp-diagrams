@@ -117,8 +117,9 @@ var yAxis = svg.append("g")
 
 function update(cc) {
   var data = all_data.filter(function(d) { return d.country_code == cc })
+  var minyear = d3.min(data.map(function(d) { return d.year }))
   var country_readable = countrycodes[data[0].country_code]
-  heading.text(country_readable + " Energy Consumption 1965 - 2013")
+  heading.text(country_readable + " Energy Consumption " + minyear.getFullYear() + " - 2013")
 
   var resources = d3.keys(data[0]).filter(function(d) { return d!=="year" && d!=="country_code" })
   resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
@@ -133,14 +134,14 @@ function update(cc) {
       }
   }))
 
-  var browser = pal.selectAll(".browser")
+  var energy = pal.selectAll(".energy")
         .data(br)
-  browser.enter().append("g")
-        .attr("class", "browser")
+  energy.enter().append("g")
+        .attr("class", "energy")
         .append("path")
         .attr("class", "area")
 
-  browser.select('path')
+  energy.select('path')
         .attr("d", function(d) { return area(d.values); })
         .style("fill", function(d) { return color(d.name); });
 
@@ -208,19 +209,22 @@ var href = window.location.href
 
 d3.tsv('data/data.tsv', function(err, data) {
   var ccs = d3.set(data.map(function(d) { return d.country_code }))
-  ccs.values().forEach(function(d) {
-    if (d == "BP_WORLD" || d3.keys(countrycodes).indexOf(d) == -1) {
-      return;
-    }
-    var id = d.indexOf('BP_') == 0 ? "#groups" : "#countries"
+  var codes = ccs.values().filter(function(d) { return d!=='BP_WORLD' && d3.keys(countrycodes).indexOf(d) != -1 })
+  var rev = {}
+  codes.forEach(function(d) { return rev[countrycodes[d]] = d } )
+
+  var names = d3.keys(rev)
+  names.sort()
+
+  names.forEach(function(d) {
+    var code = rev[d]
+    var id = code.indexOf('BP_') == 0 ? "#groups" : "#countries"
     d3.select(id)
       .append('option')
-      .attr('value', d)
-      .text(countrycodes[d])
-      .on('change', function(d) {
-        console.log(d)
-      })
+      .attr('value', rev[d])
+      .text(d)
   })
+
   var cc = 'BP_WORLD'
   if (href.indexOf("cc=") != -1) {
     cc = href.split("cc=")[1].split('&')[0]
@@ -240,7 +244,9 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   all_data = data
   update('BP_WORLD')
+  //update('AZ')
 
+  d3.select('body').append('div').text('Based on data from BP Statistical Review 2014.')
   d3.select('body').append('div').text('refsdal.ivar@gmail.com')
 })
 })
