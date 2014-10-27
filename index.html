@@ -91,7 +91,7 @@ var heading = svg_root.append('g')
 svg.append('text')
 .attr('transform', 'translate(' + (width) + ",0)")
 .style('text-anchor', 'middle')
-.attr('dy', '-.39em')
+.attr('dy', '-.71em')
 .text('MTOE/a')
 
 var xAxis = svg.append("g")
@@ -247,7 +247,6 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   all_data = data
   update('BP_WORLD')
-  //update('AZ')
 
   d3.select('body').append('div').text('MTOE/a = Million Tonnes Oil Equivalents per annum.')
   d3.select('body').append('div').text('Based on data from BP Statistical Review 2014.')
