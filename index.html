@@ -40,6 +40,10 @@ Choose country or group of nations: <select id='ccselect' name='cc'>
 <script src="d3.v3.min.js"></script>
 <script>
 
+function mode(default_value, other) {
+    return window.location.href.indexOf('per_capita') == -1 ? default_value : other;
+}
+
 var margin = {top: 55, right: 55, bottom: 50, left: 30},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -82,17 +86,7 @@ var countrycodes = {}
 
 var all_data = null;
 
-var heading = svg_root.append('g')
-  .attr('transform', 'translate(' + (margin.left) + ",0)")
-  .append('text')
-  .attr('class', 'heading')
-  .attr('dy', '1.71em')
 
-svg.append('text')
-.attr('transform', 'translate(' + (width) + ",0)")
-.style('text-anchor', 'middle')
-.attr('dy', '-.71em')
-.text('MTOE/a')
 
 var xAxis = svg.append("g")
     .attr("class", "x axis")
@@ -119,14 +113,38 @@ var yAxis = svg.append("g")
     .style('stroke', 'black')
     .style('stroke-opacity', '100%')
 
+function selectSingle(root, id) {
+    var sel = root.selectAll(id).data([1]);
+    var t = {
+        'enter' : function(fn) { fn(sel.enter()); return t },
+        'update' : function(fn) { fn(sel); return t },
+        'selection' : function() { return sel },
+        'text' : function(txt) { sel.text(txt); return t }
+    }
+    return t
+}
+
 function update(cc) {
   var data = all_data.filter(function(d) { return d.country_code == cc })
   var minyear = d3.min(data.map(function(d) { return d.year }))
   var country_readable = countrycodes[data[0].country_code]
-  heading.text(country_readable + " Energy Consumption " + minyear.getFullYear() + " - 2013")
 
-  var resources = d3.keys(data[0]).filter(function(d) { return d!=="year" && d!=="country_code" })
-  resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
+  selectSingle(svg_root, '#heading')
+  .enter(function(sel) {
+       sel.append('g')
+      .attr('id', 'heading')
+      .attr('transform', 'translate(' + (margin.left) + ",0)")
+      .append('text')
+      .attr('class', 'heading')
+      .attr('dy', '1.71em')
+   })
+   .update(function(sel) {
+      var infotext = mode("Energy Consumption", "Energy Consumption per Capita")
+      sel.select('text').text(country_readable + " " + infotext + " " + minyear.getFullYear() + " - 2013")
+   })
+
+
+  var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
   color.domain(resources)
   y.domain([0, d3.max(data.map(function(d) { return d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind }))])
   x.domain(d3.extent(data.map(function(d) { return d.year })))
@@ -138,8 +156,17 @@ function update(cc) {
       }
   }))
 
-  var energy = pal.selectAll(".energy")
-        .data(br)
+  selectSingle(svg, '#yAxisLabel')
+    .enter(function(sel) { 
+      sel.append('text')
+      .attr('id', 'yAxisLabel')
+      .style('text-anchor', 'middle')
+      .attr('transform', 'translate(' + width + ',0)')
+      .attr('dy', '-.71em')
+      })
+    .text(mode('MTOE/a', 'TOE/a'))
+
+  var energy = pal.selectAll(".energy") .data(br)
   energy.enter().append("g")
         .attr("class", "energy")
         .append("path")
@@ -235,21 +262,36 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   data.forEach(function(d) {
     d.year = format.parse(d.year)
-    d.coal = +d.coal
-    d.gas = +d.gas
-    d.hydro = +d.hydro
-    d.nuclear = +d.nuclear
-    d.oil = +d.oil
-    d.other_renewables = +d.other_renewables
-    d.solar = +d.solar
-    d.wind = +d.wind
+    d.population = +d.population
+    var p = mode(1.0, (d.population / 1000000.0))
+    //p = 1.0
+    d.coal = +d.coal / p
+    d.gas = +d.gas / p
+    d.hydro = +d.hydro / p
+    d.nuclear = +d.nuclear / p
+    d.oil = +d.oil / p
+    d.other_renewables = +d.other_renewables / p
+    d.solar = +d.solar / p
+    d.wind = +d.wind / p
   })
 
   all_data = data
   update('BP_WORLD')
+  //update('NO')
+  //update('SE')
 
-  d3.select('body').append('div').text('MTOE/a = Million Tonnes Oil Equivalents per annum.')
+  var body = d3.select('body')
+
+  selectSingle(body, '#unitExplanation')
+  .enter(function(sel) { sel.append('div').attr('id', 'unitExplanation') })
+  .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum.',
+             'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
+
   d3.select('body').append('div').text('Based on data from BP Statistical Review 2014.')
+  selectSingle(body, '#populationExplanation')
+  .enter(function(sel) { sel.append('div').attr('id', 'unitExplanation') })
+  .text(mode('',
+             'Population data from World Bank.'))
   d3.select('body').append('div').text('refsdal.ivar@gmail.com')
 })
 })
