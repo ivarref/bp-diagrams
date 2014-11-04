@@ -40,15 +40,15 @@ Choose country or group of nations: <select id='ccselect' name='cc'>
 <script src="d3.v3.min.js"></script>
 <script>
 
+var format = d3.time.format("%Y")
+
 function getURLParameter(name, default_value) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||default_value
 }
 
 function mode(default_value, other) {
-    return window.location.href.indexOf('per_capita') == -1 ? default_value : other;
+    return getURLParameter('mode', 'default') === 'default' ? default_value : other
 }
-
-var format = d3.time.format("%Y")
 
 function since() { return format.parse(getURLParameter('since', '1965')) }
 
@@ -92,16 +92,6 @@ var countrycodes = {}
 
 var all_data = null;
 
-
-
-var xAxis = svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-
-var yAxis = svg.append("g")
-    .attr("class", "y axis")
-    .attr("transform", "translate(" + width + ",0)")
-
   var infoheight = 8 + 16*8
 
   var pal = svg.append('g')
@@ -124,6 +114,7 @@ function selectSingle(root, id) {
     var t = {
         'enter' : function(fn) { fn(sel.enter()); return t },
         'update' : function(fn) { fn(sel); return t },
+        'call' : function(fn) { sel.call(fn); return t },
         'selection' : function() { return sel },
         'text' : function(txt) { sel.text(txt); return t }
     }
@@ -155,7 +146,7 @@ function update(cc) {
   y.domain([0, d3.max(data.map(function(d) { return d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind }))])
   x.domain(d3.extent(data.map(function(d) { return d.year })))
 
-  var br = stack(resources.map(function(resource) {
+  var resource_stack = stack(resources.map(function(resource) {
     return {
       name: resource,
       values: data.map(function(d) { return { year: d.year, y: d[resource] } })
@@ -172,23 +163,31 @@ function update(cc) {
       })
     .text(mode('MTOE/a', 'TOE/a'))
 
-  var energy = pal.selectAll(".energy") .data(br)
+  var energy = pal.selectAll(".energy") .data(resource_stack)
   energy.enter().append("g")
-        .attr("class", "energy")
-        .append("path")
-        .attr("class", "area")
+  .attr("class", "energy")
+  .append("path")
+  .attr("class", "area")
 
   energy.select('path')
-        .attr("d", function(d) { return area(d.values); })
-        .style("fill", function(d) { return color(d.name); });
+  .attr("d", function(d) { return area(d.values); })
+  .style("fill", function(d) { return color(d.name); });
 
-  xAxis.call(d3.svg.axis()
-    .scale(x)
-    .orient("bottom"))
+  selectSingle(svg, '.x.axis')
+  .enter(function(sel) {
+    sel.append('g')
+    .attr('class', 'x axis')
+    .attr("transform", "translate(0," + height + ")")
+  })
+  .call(d3.svg.axis().scale(x).orient("bottom"))
 
-  yAxis.call(d3.svg.axis()
-      .scale(y)
-      .orient("right"))
+  selectSingle(svg, '.y.axis')
+  .enter(function(sel) {
+    sel.append('g')
+    .attr('class', 'y axis')
+    .attr("transform", "translate(" + width + ",0)")
+  })
+  .call(d3.svg.axis().scale(y).orient("right"))
 
   var resinfo = info.selectAll('g').data(resources)
     .enter()
@@ -283,8 +282,6 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   all_data = data
   update('BP_WORLD')
-  //update('NO')
-  //update('SE')
 
   var body = d3.select('body')
 
