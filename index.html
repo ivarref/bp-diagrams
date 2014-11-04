@@ -47,10 +47,13 @@ function getURLParameter(name, default_value) {
 }
 
 function mode(default_value, other) {
-    return getURLParameter('mode', 'default') === 'default' ? default_value : other
+  return getURLParameter('mode', 'default') === 'default' ? default_value : other
 }
 
 function since() { return format.parse(getURLParameter('since', '1965')) }
+
+function cc() { return getURLParameter('country_code', 'BP_WORLD') }
+
 
 var margin = {top: 55, right: 55, bottom: 50, left: 30},
     width = 960 - margin.left - margin.right,
@@ -260,11 +263,6 @@ d3.tsv('data/data.tsv', function(err, data) {
       .text(d)
   })
 
-  var cc = 'BP_WORLD'
-  if (href.indexOf("cc=") != -1) {
-    cc = href.split("cc=")[1].split('&')[0]
-  }
-
   data.forEach(function(d) {
     d.year = format.parse(d.year)
     d.population = +d.population
@@ -281,7 +279,7 @@ d3.tsv('data/data.tsv', function(err, data) {
   })
 
   all_data = data
-  update('BP_WORLD')
+  update(cc())
 
   var body = d3.select('body')
 
