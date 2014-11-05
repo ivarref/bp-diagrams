@@ -25,36 +25,85 @@ rect {
   shape-rendering: crispEdges;
 }
 
+span.advancedmode {
+  color: -webkit-link;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+tr.advancedmode {
+  display: none;
+}
+
 </style>
 <title>Energy Consumption</title>
 <body>
 <form method='GET' style='padding-bottom: 2px;'>
-Choose country or group of nations: <select id='ccselect' name='cc'>
-  <optgroup id='groups' label="Group of nations">
-    <option value='BP_WORLD'>World</option>
-  </optgroup>
-  <optgroup id='countries' label="Country">
-  </optgroup>
-</select>
+<table>
+  <tr>
+    <td>Choose country or group of nations: </td>
+    <td>
+      <select id='ccselect' name='cc'>
+        <optgroup id='groups' label="Group of nations">
+        </optgroup>
+        <optgroup id='countries' label="Country">
+        </optgroup>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Choose what to show:</td>
+    <td>
+      <select id='mode_select' name=''>
+        <option value='per_capita'>Per capita energy consumption</option>
+        <option value='total'>Total energy consumption</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Choose comparison country or group: </td>
+    <td>
+      <select id='vs_ccselect' name='vs_cc'>
+        <optgroup id='groups' label="Group of nations">
+          <option value='NONE'>None</option>
+        </optgroup>
+        <optgroup id='countries' label="Country">
+        </optgroup>
+      </select>
+    </td>
+  </tr>
+</table>
 </form>
 <script src="d3.v3.min.js"></script>
 <script>
 
 var format = d3.time.format("%Y")
 
+var config = {}
+
 function getURLParameter(name, default_value) {
+  if (name in config) {
+    return config[name]
+  }
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||default_value
 }
 
+function yaxismode() {
+  return getURLParameter('mode', 'per_capita')
+}
+
 function mode(other, default_value) {
-  var mode = getURLParameter('mode', 'per_capita')
-  return (mode === 'per_capita') ? default_value : other
+  return (yaxismode() === 'per_capita') ? default_value : other
 }
 
 function since() { return format.parse(getURLParameter('since', '1965')) }
 
 function cc() { return getURLParameter('country_code', 'BP_WORLD') }
 
+d3.select('#mode_select')
+.selectAll('option')
+.filter(function(d) { return this.value === yaxismode() })
+.attr('selected', 'selected')
 
 var margin = {top: 55, right: 55, bottom: 35, left: 30},
     width = 960 - margin.left - margin.right,
@@ -228,7 +277,8 @@ d3.select('#ccselect')
   .on('change', function() { 
     var sel = document.getElementById('ccselect');
     var selected = sel.options[sel.selectedIndex].value
-    update(selected)
+    config['country_code'] = selected
+    update(cc())
   })
 
 d3.json('data/slim-2.json', function(error, codes) { 
@@ -251,11 +301,10 @@ countrycodes['BP_TME'] = 'Total Middle East'
 countrycodes['BP_TNA'] = 'Total North America'
 countrycodes['BP_TSCA'] = 'Total South and Central America'
 countrycodes['BP_WORLD'] = 'World'
-var href = window.location.href
 
 d3.tsv('data/data.tsv', function(err, data) {
   var ccs = d3.set(data.map(function(d) { return d.country_code }))
-  var codes = ccs.values().filter(function(d) { return d!=='BP_WORLD' && d3.keys(countrycodes).indexOf(d) != -1 })
+  var codes = ccs.values().filter(function(d) { return d3.keys(countrycodes).indexOf(d) != -1 })
   var rev = {}
   codes.forEach(function(d) { return rev[countrycodes[d]] = d } )
 
@@ -265,10 +314,12 @@ d3.tsv('data/data.tsv', function(err, data) {
   names.forEach(function(d) {
     var code = rev[d]
     var id = code.indexOf('BP_') == 0 ? "#groups" : "#countries"
-    d3.select(id)
+    var option = d3.select(id)
       .append('option')
       .attr('value', rev[d])
       .text(d)
+    if (cc() == code)
+      option.attr('selected', 'selected')
   })
 
   data.forEach(function(d) {
@@ -299,25 +350,39 @@ d3.tsv('data/data.tsv', function(err, data) {
     .attr('transform', 'translate(0,' + height + ')') 
     .attr('dx', '.31em')
     .attr('dy', '-.31em')
+    .style('fill', '#fff')
   })
   .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum.',
              'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
-
 
   selectSingle(svg, '#contact')
   .enter(function(sel) { 
     sel
     .append('text')
     .attr('id', 'contact') 
-    .attr('transform', 'translate(' + (width) + ',' + (height) + ')') 
+    .attr('transform', 'translate(' + width + ',' + height + ')') 
     .attr('dx', '-.31em')
     .attr('dy', '-.31em')
     .style('text-anchor', 'end')
+    .style('fill', '#fff')
   })
   .text('refsdal.ivar@gmail.com')
 
-  d3.select('body').append('div').text('Permalink (URL, Image).')
-  d3.select('body').append('div').text('For further exploration go to Advanced Mode or get the data (Excel, TSV).')
+  var sel = selectSingle(d3.select('body'), '#furtherInfo')
+  .enter(function(sel) {
+    sel
+    .append('div')
+    .attr('id', 'furtherInfo')
+  }).selection()
+
+  var getdatainfo = 'get the data (<a href="data/energy_consumption.xls">Excel</a> or <a href="data/data.tsv">TSV</a>).'
+  sel.html('For further exploration go to <span class="advancedmode">Advanced Mode</span> or ' + getdatainfo)
+
+  sel.select('.advancedmode')
+  .on('click', function() {
+    console.log("clicked ...")
+  })
+  //d3.select('body').append('div').text('Permalink (URL, Image).')
 })
 })
 
