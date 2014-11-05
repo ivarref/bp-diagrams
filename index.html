@@ -46,8 +46,9 @@ function getURLParameter(name, default_value) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||default_value
 }
 
-function mode(default_value, other) {
-  return getURLParameter('mode', 'default') === 'default' ? default_value : other
+function mode(other, default_value) {
+  var mode = getURLParameter('mode', 'per_capita')
+  return (mode === 'per_capita') ? default_value : other
 }
 
 function since() { return format.parse(getURLParameter('since', '1965')) }
@@ -55,7 +56,7 @@ function since() { return format.parse(getURLParameter('since', '1965')) }
 function cc() { return getURLParameter('country_code', 'BP_WORLD') }
 
 
-var margin = {top: 55, right: 55, bottom: 50, left: 30},
+var margin = {top: 55, right: 55, bottom: 35, left: 30},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -129,20 +130,27 @@ function update(cc) {
   var minyear = d3.min(data.map(function(d) { return d.year }))
   var country_readable = countrycodes[data[0].country_code]
 
-  selectSingle(svg_root, '#heading')
+  selectSingle(svg, '#heading')
   .enter(function(sel) {
        sel.append('g')
       .attr('id', 'heading')
-      .attr('transform', 'translate(' + (margin.left) + ",0)")
       .append('text')
       .attr('class', 'heading')
-      .attr('dy', '1.71em')
+      .attr('dy', '-1.11em')
    })
    .update(function(sel) {
-      var infotext = mode("Energy Consumption", "Energy Consumption per Capita")
+      var infotext = mode("Energy Consumption", "Per Capita Energy Consumption")
       sel.select('text').text(country_readable + " " + infotext + " " + minyear.getFullYear() + " - 2013")
    })
 
+  selectSingle(svg, '#sourceExplanation')
+  .enter(function(sel) { 
+    sel
+    .append('text')
+    .attr('id', 'sourceExplanation') 
+    .attr('dy', '-.51em')
+  })
+  .text('Data from BP Statistical Review' + mode('', ' and World Bank') + '.')
 
   var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
   color.domain(resources)
@@ -283,17 +291,33 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   var body = d3.select('body')
 
-  selectSingle(body, '#unitExplanation')
-  .enter(function(sel) { sel.append('div').attr('id', 'unitExplanation') })
+  selectSingle(svg, '#unitExplanation')
+  .enter(function(sel) { 
+    sel
+    .append('text')
+    .attr('id', 'unitExplanation') 
+    .attr('transform', 'translate(0,' + height + ')') 
+    .attr('dx', '.31em')
+    .attr('dy', '-.31em')
+  })
   .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum.',
              'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
 
-  d3.select('body').append('div').text('Based on data from BP Statistical Review 2014.')
-  selectSingle(body, '#populationExplanation')
-  .enter(function(sel) { sel.append('div').attr('id', 'unitExplanation') })
-  .text(mode('',
-             'Population data from World Bank.'))
-  d3.select('body').append('div').text('refsdal.ivar@gmail.com')
+
+  selectSingle(svg, '#contact')
+  .enter(function(sel) { 
+    sel
+    .append('text')
+    .attr('id', 'contact') 
+    .attr('transform', 'translate(' + (width) + ',' + (height) + ')') 
+    .attr('dx', '-.31em')
+    .attr('dy', '-.31em')
+    .style('text-anchor', 'end')
+  })
+  .text('refsdal.ivar@gmail.com')
+
+  d3.select('body').append('div').text('Permalink (URL, Image).')
+  d3.select('body').append('div').text('For further exploration go to Advanced Mode or get the data (Excel, TSV).')
 })
 })
 
