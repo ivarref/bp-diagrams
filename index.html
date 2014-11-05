@@ -105,6 +105,14 @@ d3.select('#mode_select')
 .filter(function(d) { return this.value === yaxismode() })
 .attr('selected', 'selected')
 
+d3.select('#mode_select')
+  .on('change', function() { 
+    var sel = document.getElementById('mode_select');
+    var selected = sel.options[sel.selectedIndex].value
+    config['mode'] = selected
+    update(cc())
+  })
+
 var margin = {top: 55, right: 55, bottom: 35, left: 30},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -203,13 +211,18 @@ function update(cc) {
 
   var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
   color.domain(resources)
-  y.domain([0, d3.max(data.map(function(d) { return d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind }))])
+  y.domain([0, d3.max(data.map(function(d) { 
+    var p = mode(1.0, (d.population / 1000000.0))
+    return (d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind) / p
+  }))])
   x.domain(d3.extent(data.map(function(d) { return d.year })))
 
   var resource_stack = stack(resources.map(function(resource) {
     return {
       name: resource,
-      values: data.map(function(d) { return { year: d.year, y: d[resource] } })
+      values: data.map(function(d) { 
+        var p = mode(1.0, (d.population / 1000000.0))
+      return { year: d.year, y: d[resource]/p } })
       }
   }))
 
@@ -271,6 +284,19 @@ function update(cc) {
   resinfo
     .append('text')
     .text(name)
+
+  selectSingle(svg, '#unitExplanation')
+  .enter(function(sel) { 
+    sel
+    .append('text')
+    .attr('id', 'unitExplanation') 
+    .attr('transform', 'translate(0,' + height + ')') 
+    .attr('dx', '.31em')
+    .attr('dy', '-.31em')
+    .style('fill', '#fff')
+  })
+  .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum.',
+             'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
 }
 
 d3.select('#ccselect')
@@ -325,8 +351,7 @@ d3.tsv('data/data.tsv', function(err, data) {
   data.forEach(function(d) {
     d.year = format.parse(d.year)
     d.population = +d.population
-    var p = mode(1.0, (d.population / 1000000.0))
-    //p = 1.0
+    var p = 1.0
     d.coal = +d.coal / p
     d.gas = +d.gas / p
     d.hydro = +d.hydro / p
@@ -342,18 +367,6 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   var body = d3.select('body')
 
-  selectSingle(svg, '#unitExplanation')
-  .enter(function(sel) { 
-    sel
-    .append('text')
-    .attr('id', 'unitExplanation') 
-    .attr('transform', 'translate(0,' + height + ')') 
-    .attr('dx', '.31em')
-    .attr('dy', '-.31em')
-    .style('fill', '#fff')
-  })
-  .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum.',
-             'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
 
   selectSingle(svg, '#contact')
   .enter(function(sel) { 
