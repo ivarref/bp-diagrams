@@ -14,7 +14,6 @@ text.heading {
   font: 22px sans-serif;
 }
 
-
 .cmpdot {
   fill: lightsalmon;
   stroke: black;
@@ -44,9 +43,7 @@ span.advancedmode {
   cursor: pointer;
 }
 
-tr.advancedmode {
-  display: none;
-}
+tr.advancedmode { }
 
 </style>
 <title>Energy Consumption</title>
@@ -54,7 +51,7 @@ tr.advancedmode {
 <form method='GET' style='padding-bottom: 2px;'>
 <table>
   <tr>
-    <td>Choose country or group of nations: </td>
+    <td style="min-width: 201px;">Choose country or group of nations: </td>
     <td>
       <select id='ccselect' name='cc'>
         <optgroup id='groups' label="Group of nations">
@@ -62,9 +59,11 @@ tr.advancedmode {
         <optgroup id='countries' label="Country">
         </optgroup>
       </select>
+    <span id="showadvancedmode" class="advancedmode">Show extra options</span>
+    <span id="hideadvancedmode" class="advancedmode" style="display: none;" >Hide extra options</span>
     </td>
   </tr>
-  <tr>
+  <tr class="advancedmode" style="display: none">
     <td>Choose comparison country or group: </td>
     <td>
       <select id='ccselect_vs' name='vs_cc'>
@@ -76,7 +75,7 @@ tr.advancedmode {
       </select>
     </td>
   </tr>
-  <tr>
+  <tr class="advancedmode" style="display: none">
     <td>Choose what to show:</td>
     <td>
       <select id='mode_select' name=''>
@@ -85,12 +84,6 @@ tr.advancedmode {
       </select>
     </td>
   </tr>
-  <!--tr>
-    <td>Choose resources to include: </td>
-    <td>
-      <checkbox id='chk_coal' value='coal'>Coal</checkbox>
-    </td>
-  </tr-->
 </table>
 </form>
 <script src="d3.v3.min.js"></script>
@@ -113,6 +106,10 @@ function yaxismode() {
 
 function mode(other, default_value) {
   return (yaxismode() === 'per_capita') ? default_value : other
+}
+
+function advanced_mode() {
+  return getURLParameter('advanced_mode', 'false') === 'true';
 }
 
 function since() { return format.parse(getURLParameter('since', '1965')) }
@@ -145,6 +142,14 @@ d3.select('#ccselect_vs')
     config['country_code_vs'] = selected
     update()
   })
+
+function show_advanced_mode() {
+  d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
+  d3.selectAll('#showadvancedmode').style('display', !advanced_mode() ? '' : 'none')
+  d3.selectAll('#hideadvancedmode').style('display', advanced_mode() ? '' : 'none')
+}
+
+show_advanced_mode()
 
 var margin = {top: 55, right: 55, bottom: 35, left: 30},
     width = 960 - margin.left - margin.right,
@@ -222,6 +227,8 @@ function update() {
   var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
   var country_readable = countrycodes[data[0].country_code]
 
+  country_readable = country_readable.split(",")[0]
+
   selectSingle(svg, '#heading')
   .enter(function(sel) {
        sel.append('g')
@@ -276,6 +283,22 @@ function update() {
       })
     .text(mode('MTOE/a', 'TOE/a'))
 
+  selectSingle(svg, '.x.axis')
+  .enter(function(sel) {
+    sel.append('g')
+    .attr('class', 'x axis')
+    .attr("transform", "translate(0," + height + ")")
+  })
+  .call(d3.svg.axis().scale(x).orient("bottom"))
+
+  selectSingle(pal, '.y.axis')
+  .enter(function(sel) {
+    sel.append('g')
+    .attr('class', 'y axis')
+    .attr("transform", "translate(" + width + ",0)")
+  })
+  .call(d3.svg.axis().scale(y).orient("right"))
+
   var energy = pal.selectAll(".energy") .data(resource_stack)
   energy.enter().append("g")
   .attr("class", "energy")
@@ -316,21 +339,6 @@ function update() {
     .attr('r', 3.5)
   sel.exit().remove()
 
-  selectSingle(svg, '.x.axis')
-  .enter(function(sel) {
-    sel.append('g')
-    .attr('class', 'x axis')
-    .attr("transform", "translate(0," + height + ")")
-  })
-  .call(d3.svg.axis().scale(x).orient("bottom"))
-
-  selectSingle(svg, '.y.axis')
-  .enter(function(sel) {
-    sel.append('g')
-    .attr('class', 'y axis')
-    .attr("transform", "translate(" + width + ",0)")
-  })
-  .call(d3.svg.axis().scale(y).orient("right"))
 
   var resinfo = info.selectAll('g').data(resources)
     .enter()
@@ -452,20 +460,9 @@ d3.tsv('data/data.tsv', function(err, data) {
   })
   .text('refsdal.ivar@gmail.com')
 
-  var sel = selectSingle(d3.select('body'), '#furtherInfo')
-  .enter(function(sel) {
-    sel
-    .append('div')
-    .attr('id', 'furtherInfo')
-  }).selection()
+  d3.select('span#showadvancedmode').on('click', function() { config['advanced_mode'] = 'true'; show_advanced_mode() })
+  d3.select('span#hideadvancedmode').on('click', function() { config['advanced_mode'] = 'false'; show_advanced_mode() })
 
-  var getdatainfo = 'get the data (<a href="data/energy_consumption.xls">Excel</a> or <a href="data/data.tsv">TSV</a>).'
-  sel.html('For further exploration go to <span class="advancedmode">Advanced Mode</span> or ' + getdatainfo)
-
-  sel.select('.advancedmode')
-  .on('click', function() {
-    console.log("clicked ...")
-  })
   //d3.select('body').append('div').text('Permalink (URL, Image).')
 })
 })
