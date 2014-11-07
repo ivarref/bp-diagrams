@@ -52,6 +52,18 @@ tr.advancedmode {
     </td>
   </tr>
   <tr>
+    <td>Choose comparison country or group: </td>
+    <td>
+      <select id='ccselect_vs' name='vs_cc'>
+        <optgroup id='groups_vs' label="Group of nations">
+          <option value='none'>None</option>
+        </optgroup>
+        <optgroup id='countries_vs' label="Country">
+        </optgroup>
+      </select>
+    </td>
+  </tr>
+  <tr>
     <td>Choose what to show:</td>
     <td>
       <select id='mode_select' name=''>
@@ -60,18 +72,12 @@ tr.advancedmode {
       </select>
     </td>
   </tr>
-  <tr>
-    <td>Choose comparison country or group: </td>
+  <!--tr>
+    <td>Choose resources to include: </td>
     <td>
-      <select id='vs_ccselect' name='vs_cc'>
-        <optgroup id='groups' label="Group of nations">
-          <option value='NONE'>None</option>
-        </optgroup>
-        <optgroup id='countries' label="Country">
-        </optgroup>
-      </select>
+      <checkbox id='chk_coal' value='coal'>Coal</checkbox>
     </td>
-  </tr>
+  </tr-->
 </table>
 </form>
 <script src="d3.v3.min.js"></script>
@@ -97,20 +103,34 @@ function mode(other, default_value) {
 }
 
 function since() { return format.parse(getURLParameter('since', '1965')) }
-
 function cc() { return getURLParameter('country_code', 'BP_WORLD') }
-
-d3.select('#mode_select')
-.selectAll('option')
-.filter(function(d) { return this.value === yaxismode() })
-.attr('selected', 'selected')
+function cc_vs() { return getURLParameter('country_code_vs', 'none') }
 
 d3.select('#mode_select')
   .on('change', function() { 
     var sel = document.getElementById('mode_select');
     var selected = sel.options[sel.selectedIndex].value
     config['mode'] = selected
-    update(cc())
+    update()
+  })
+  .selectAll('option')
+  .filter(function(d) { return this.value === yaxismode() })
+  .attr('selected', 'selected')
+
+d3.select('#ccselect')
+  .on('change', function() { 
+    var sel = document.getElementById('ccselect');
+    var selected = sel.options[sel.selectedIndex].value
+    config['country_code'] = selected
+    update()
+  })
+
+d3.select('#ccselect_vs')
+  .on('change', function() { 
+    var sel = document.getElementById('ccselect_vs');
+    var selected = sel.options[sel.selectedIndex].value
+    config['country_code_vs'] = selected
+    update()
   })
 
 var margin = {top: 55, right: 55, bottom: 35, left: 30},
@@ -182,9 +202,11 @@ function selectSingle(root, id) {
     return t
 }
 
-function update(cc) {
-  var data = all_data.filter(function(d) { return d.country_code == cc && d.year >= since() })
+function update() {
+  var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
   var minyear = d3.min(data.map(function(d) { return d.year }))
+  var secondary_data = all_data.filter(function(d) { return d.country_code === cc_vs() && d.year >= minyear })
+  var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
   var country_readable = countrycodes[data[0].country_code]
 
   selectSingle(svg, '#heading')
@@ -196,7 +218,7 @@ function update(cc) {
       .attr('dy', '-1.11em')
    })
    .update(function(sel) {
-      var infotext = mode("Energy Consumption", "Per Capita Energy Consumption")
+      var infotext = mode("Total Energy Consumption", "Per Capita Energy Consumption")
       sel.select('text').text(country_readable + " " + infotext + " " + minyear.getFullYear() + " - 2013")
    })
 
@@ -211,11 +233,16 @@ function update(cc) {
 
   var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
   color.domain(resources)
-  y.domain([0, d3.max(data.map(function(d) { 
+  y.domain([0, d3.max(pas_data.map(function(d) { 
     var p = mode(1.0, (d.population / 1000000.0))
     return (d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind) / p
   }))])
   x.domain(d3.extent(data.map(function(d) { return d.year })))
+
+  var cmp_line = secondary_data.map(function(d) {
+    var p = mode(1.0, (d.population / 1000000.0))
+    return {x : d.year, y : ((d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind) / p) }
+  })
 
   var resource_stack = stack(resources.map(function(resource) {
     return {
@@ -245,6 +272,21 @@ function update(cc) {
   energy.select('path')
   .attr("d", function(d) { return area(d.values); })
   .style("fill", function(d) { return color(d.name); });
+
+  /*
+  selectSingle(svg, '#cmpLine')
+  .enter(function(sel) {
+    sel.append('path')
+    .attr('id', 'cmpLine')
+    .attr("class", "area")
+  })
+  .selection()
+  .attr('d', 
+    d3.svg.line(cmp_line)
+    .x(function(d) { return x(d) })
+    .y(function(d) { return y(d) })
+  )
+  */
 
   selectSingle(svg, '.x.axis')
   .enter(function(sel) {
@@ -299,13 +341,6 @@ function update(cc) {
              'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
 }
 
-d3.select('#ccselect')
-  .on('change', function() { 
-    var sel = document.getElementById('ccselect');
-    var selected = sel.options[sel.selectedIndex].value
-    config['country_code'] = selected
-    update(cc())
-  })
 
 d3.json('data/slim-2.json', function(error, codes) { 
 codes.forEach(function(d) {
@@ -344,6 +379,14 @@ d3.tsv('data/data.tsv', function(err, data) {
       .append('option')
       .attr('value', rev[d])
       .text(d)
+
+    var sel = d3.select(id + "_vs")
+      .append('option')
+      .attr('value', rev[d])
+      .text(d)
+    if (cc_vs() === code)
+      sel.attr('selected', 'selected')
+
     if (cc() == code)
       option.attr('selected', 'selected')
   })
@@ -363,7 +406,7 @@ d3.tsv('data/data.tsv', function(err, data) {
   })
 
   all_data = data
-  update(cc())
+  update()
 
   var body = d3.select('body')
 
