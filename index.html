@@ -14,6 +14,19 @@ text.heading {
   font: 22px sans-serif;
 }
 
+
+.cmpdot {
+  fill: lightsalmon;
+  stroke: black;
+  stroke-width: 1.0px;
+}
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 3.0px;
+}
+
 .axis path,
 .axis line {
   fill: none;
@@ -273,20 +286,35 @@ function update() {
   .attr("d", function(d) { return area(d.values); })
   .style("fill", function(d) { return color(d.name); });
 
-  /*
-  selectSingle(svg, '#cmpLine')
+  selectSingle(pal, '#cmpLine')
   .enter(function(sel) {
     sel.append('path')
     .attr('id', 'cmpLine')
-    .attr("class", "area")
+    .attr('class', 'line')
   })
   .selection()
+  .datum(cmp_line)
   .attr('d', 
     d3.svg.line(cmp_line)
-    .x(function(d) { return x(d) })
-    .y(function(d) { return y(d) })
+    .x(function(d) { return x(d.x) })
+    .y(function(d) { return y(d.y) })
   )
-  */
+
+  var sel = selectSingle(pal, '#cmpdots')
+  .enter(function(sel) {
+    sel.append('g')
+    .attr('id', 'cmpdots')
+  })
+  .selection()
+
+  sel = sel.selectAll('circle').data(cmp_line)
+  sel.enter().append('circle')
+  sel
+    .attr('class', 'cmpdot')
+    .attr('cx', function(d) { return x(d.x) })
+    .attr('cy', function(d) { return y(d.y) })
+    .attr('r', 3.5)
+  sel.exit().remove()
 
   selectSingle(svg, '.x.axis')
   .enter(function(sel) {
