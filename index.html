@@ -94,54 +94,33 @@ var format = d3.time.format("%Y")
 var config = {}
 
 function getURLParameter(name, default_value) {
-  if (name in config) {
-    return config[name]
-  }
-  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||default_value
+  return (name in config) ? config[name] : decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||default_value
 }
 
-function yaxismode() {
-  return getURLParameter('mode', 'per_capita')
-}
-
-function mode(other, default_value) {
-  return (yaxismode() === 'per_capita') ? default_value : other
-}
-
-function advanced_mode() {
-  return getURLParameter('advanced_mode', 'false') === 'true';
-}
-
+function yaxismode() { return getURLParameter('mode', 'per_capita') }
+function advanced_mode() { return getURLParameter('advanced_mode', 'false') === 'true'; }
 function since() { return format.parse(getURLParameter('since', '1965')) }
 function cc() { return getURLParameter('country_code', 'BP_WORLD') }
 function cc_vs() { return getURLParameter('country_code_vs', 'none') }
 
-d3.select('#mode_select')
-  .on('change', function() { 
-    var sel = document.getElementById('mode_select');
+function mode(other, default_value) { return (yaxismode() === 'per_capita') ? default_value : other }
+
+function set_selected(attr, from_id) {
+  return function() {
+    var sel = document.getElementById(from_id)
     var selected = sel.options[sel.selectedIndex].value
-    config['mode'] = selected
+    config[attr] = selected
     update()
-  })
+  }
+}
+
+d3.select('#ccselect').on('change', set_selected('country_code', 'ccselect'))
+d3.select('#ccselect_vs').on('change', set_selected('country_code_vs', 'ccselect_vs'))
+
+d3.select('#mode_select').on('change', set_selected('mode', 'mode_select'))
   .selectAll('option')
   .filter(function(d) { return this.value === yaxismode() })
   .attr('selected', 'selected')
-
-d3.select('#ccselect')
-  .on('change', function() { 
-    var sel = document.getElementById('ccselect');
-    var selected = sel.options[sel.selectedIndex].value
-    config['country_code'] = selected
-    update()
-  })
-
-d3.select('#ccselect_vs')
-  .on('change', function() { 
-    var sel = document.getElementById('ccselect_vs');
-    var selected = sel.options[sel.selectedIndex].value
-    config['country_code_vs'] = selected
-    update()
-  })
 
 function show_advanced_mode() {
   d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
@@ -156,28 +135,16 @@ var margin = {top: 55, right: 55, bottom: 35, left: 30},
     height = 500 - margin.top - margin.bottom;
 
 var color = d3.scale.ordinal()
-color.range(
-  ["gray"
-  ,d3.rgb(24, 116, 24)
-  ,d3.rgb(254, 24, 24)
-  ,"cyan"
-  ,"#36f"
-  ,"#c0f"
-  ,"yellow"
-  ,"#960"])
+color.range(["gray", d3.rgb(24, 116, 24),d3.rgb(254, 24, 24),"cyan","#36f","#c0f","yellow","#960"])
 
-var y = d3.scale.linear()
-    .range([height, 0])
-
-var x = d3.time.scale()
-    .range([0, width])
-
-var svg_root = d3.select("body").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-
-var svg = svg_root.append("g")
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+var y = d3.scale.linear().range([height, 0])
+var x = d3.time.scale().range([0, width])
 
 var area = d3.svg.area()
     .x(function(d) { return x(d.year); })
@@ -191,22 +158,12 @@ var countrycodes = {}
 
 var all_data = null;
 
-  var infoheight = 8 + 16*8
 
-  var pal = svg.append('g')
+var pal = svg.append('g')
 
-  var info = svg.append("g")
-    .attr("transform", "translate(20," + (20) + ")")
+var info = svg.append("g")
+  .attr("transform", "translate(20," + (20) + ")")
 
-  info.append('rect')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', 130)
-    .attr('height', infoheight)
-    .style('fill', '#eee')
-    .style('fill-opacity', '60%')
-    .style('stroke', 'black')
-    .style('stroke-opacity', '100%')
 
 function selectSingle(root, id) {
     var sel = root.selectAll(id).data([1]);
@@ -223,36 +180,113 @@ function selectSingle(root, id) {
 function update() {
   var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
   var minyear = d3.min(data.map(function(d) { return d.year }))
+  var maxyear = d3.max(data.map(function(d) { return d.year }))
   var secondary_data = all_data.filter(function(d) { return d.country_code === cc_vs() && d.year >= minyear })
   var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
-  var country_readable = countrycodes[data[0].country_code]
+  function countryname(cc) { return countrycodes[cc].split(",")[0] }
+  var country_readable = countryname(data[0].country_code)
 
-  country_readable = country_readable.split(",")[0]
+  var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
+  color.domain(resources)
 
   selectSingle(svg, '#heading')
   .enter(function(sel) {
-       sel.append('g')
+       sel.append('text')
       .attr('id', 'heading')
-      .append('text')
       .attr('class', 'heading')
       .attr('dy', '-1.11em')
    })
    .update(function(sel) {
       var infotext = mode("Total Energy Consumption", "Per Capita Energy Consumption")
-      sel.select('text').text(country_readable + " " + infotext + " " + minyear.getFullYear() + " - 2013")
+      sel.text(country_readable + " " + infotext + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
    })
 
   selectSingle(svg, '#sourceExplanation')
   .enter(function(sel) { 
-    sel
-    .append('text')
+    sel.append('text')
     .attr('id', 'sourceExplanation') 
     .attr('dy', '-.51em')
   })
-  .text('Data from BP Statistical Review' + mode('', ' and World Bank') + '.')
+  .text('Data from BP Statistical Review and World Bank')
 
-  var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
-  color.domain(resources)
+  function name(d) {
+    return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
+  }
+
+  var labels = resources.slice(0)
+  if (cc_vs()!=='none')
+    labels.unshift(cc_vs())
+  var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs())] : []
+
+  var infoheight = 8 + 16*(labels.length)
+
+  selectSingle(info, '#fadedbox')
+  .enter(function(sel) {
+    sel
+      .append('rect')
+      .attr('id', 'fadedbox')
+      .attr('width', 180)
+      .style('fill', '#eee')
+      .style('fill-opacity', '67%')
+      .style('stroke', 'black')
+  })
+  .selection()
+      .attr('height', infoheight)
+
+  var pad = selectSingle(info, '#padding')
+  .enter(function(sel) { sel.append('g').attr('id', 'padding').attr('transform', 'translate(7,0)') })
+  .selection()
+
+  var boxwidth = 20
+
+  var resinfo = pad.selectAll('g.resourcelegend').data(resources)
+    .enter()
+    .append('g')
+    .attr('class', 'resourcelegend')
+    .attr('transform', function(d, i) { return 'translate(0,' + (16*(resources.length-i)) + ')' })
+
+  resinfo
+    .append('rect')
+    .attr('x', 0)
+    .attr('y', -10)
+    .attr('width', boxwidth)
+    .attr('height', 12)
+    .style('fill', color)
+    .style('stroke', 'black')
+    .style('stroke-opacity', '100%')
+
+  resinfo
+    .append('text')
+    .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
+    .text(name)
+
+  var sel = pad.selectAll('g.vs_legend').data(cc_vs_name)
+  var entercontext = sel.enter()
+   .append('g')
+   .attr('class', 'vs_legend')
+   .attr('transform', 'translate(0,' + (16*(resources.length+1)) + ')')
+  entercontext
+   .append('text')
+    .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
+
+  entercontext
+   .append('line')
+   .attr('class', 'line')
+   .attr('x1', 0)
+   .attr('x2', boxwidth)
+   .attr('y1', -10 + 6)
+   .attr('y2', -10 + 6)
+
+  entercontext
+   .append('circle')
+   .attr('class', 'cmpdot')
+   .attr('cx', boxwidth/2)
+   .attr('cy', -10 + 6)
+   .attr('r', 3.5)
+  sel.select('text').text(Object)
+  sel.exit().remove()
+
+
   y.domain([0, d3.max(pas_data.map(function(d) { 
     var p = mode(1.0, (d.population / 1000000.0))
     return (d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind) / p
@@ -339,30 +373,6 @@ function update() {
     .attr('r', 3.5)
   sel.exit().remove()
 
-
-  var resinfo = info.selectAll('g').data(resources)
-    .enter()
-    .append('g')
-    .attr('transform', function(d, i) { return 'translate(25,' + (16*(resources.length-i)) + ')' })
-
-  resinfo
-    .append('rect')
-    .attr('x', -16)
-    .attr('y', -10)
-    .attr('width', 12)
-    .attr('height', 12)
-    .style('fill', color)
-    .style('stroke', 'black')
-    .style('stroke-opacity', '100%')
-
-  function name(d) {
-    return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
-  }
-
-  resinfo
-    .append('text')
-    .text(name)
-
   selectSingle(svg, '#unitExplanation')
   .enter(function(sel) { 
     sel
@@ -373,10 +383,9 @@ function update() {
     .attr('dy', '-.31em')
     .style('fill', '#fff')
   })
-  .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum.',
-             'TOE/a = Tonnes Oil Equivalents per capita per annum.'))
+  .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum',
+             'TOE/a = Tonnes Oil Equivalents per capita per annum'))
 }
-
 
 d3.json('data/slim-2.json', function(error, codes) { 
 codes.forEach(function(d) {
@@ -430,22 +439,18 @@ d3.tsv('data/data.tsv', function(err, data) {
   data.forEach(function(d) {
     d.year = format.parse(d.year)
     d.population = +d.population
-    var p = 1.0
-    d.coal = +d.coal / p
-    d.gas = +d.gas / p
-    d.hydro = +d.hydro / p
-    d.nuclear = +d.nuclear / p
-    d.oil = +d.oil / p
-    d.other_renewables = +d.other_renewables / p
-    d.solar = +d.solar / p
-    d.wind = +d.wind / p
+    d.coal = +d.coal
+    d.gas = +d.gas
+    d.hydro = +d.hydro
+    d.nuclear = +d.nuclear
+    d.oil = +d.oil
+    d.other_renewables = +d.other_renewables
+    d.solar = +d.solar
+    d.wind = +d.wind
   })
 
   all_data = data
   update()
-
-  var body = d3.select('body')
-
 
   selectSingle(svg, '#contact')
   .enter(function(sel) { 
@@ -462,7 +467,6 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   d3.select('span#showadvancedmode').on('click', function() { config['advanced_mode'] = 'true'; show_advanced_mode() })
   d3.select('span#hideadvancedmode').on('click', function() { config['advanced_mode'] = 'false'; show_advanced_mode() })
-
   //d3.select('body').append('div').text('Permalink (URL, Image).')
 })
 })
