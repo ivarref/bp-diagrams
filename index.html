@@ -2,17 +2,13 @@
 <meta charset="utf-8">
 <style>
 
-body {
-  font: 12px sans-serif;
-}
+body { font: 12px sans-serif; }
 svg {
   font: 12px sans-serif;
   border: 1px solid #000;
 }
 
-text.heading {
-  font: 22px sans-serif;
-}
+text.heading { font: 22px sans-serif; }
 
 .cmpdot {
   fill: lightsalmon;
@@ -33,9 +29,9 @@ text.heading {
   shape-rendering: crispEdges;
 }
 
-rect {
-  shape-rendering: crispEdges;
-}
+text.indiagram { fill: mintcream; }
+
+rect { shape-rendering: crispEdges; }
 
 span.advancedmode {
   color: -webkit-link;
@@ -53,7 +49,7 @@ tr.advancedmode { }
   <tr>
     <td style="min-width: 201px;">Choose country or group of nations: </td>
     <td>
-      <select id='ccselect' name='cc'>
+      <select id='ccselect' name='cc' style='min-width: 222px;'>
         <optgroup id='groups' label="Group of nations">
         </optgroup>
         <optgroup id='countries' label="Country">
@@ -66,7 +62,7 @@ tr.advancedmode { }
   <tr class="advancedmode" style="display: none">
     <td>Choose comparison country or group: </td>
     <td>
-      <select id='ccselect_vs' name='vs_cc'>
+      <select id='ccselect_vs' name='vs_cc' style='min-width: 222px;'>
         <optgroup id='groups_vs' label="Group of nations">
           <option value='none'>None</option>
         </optgroup>
@@ -78,7 +74,7 @@ tr.advancedmode { }
   <tr class="advancedmode" style="display: none">
     <td>Choose what to show:</td>
     <td>
-      <select id='mode_select' name=''>
+      <select id='mode_select' name='' style='min-width: 222px;'>
         <option value='per_capita'>Per capita energy consumption</option>
         <option value='total'>Total energy consumption</option>
       </select>
@@ -135,7 +131,7 @@ var margin = {top: 55, right: 55, bottom: 35, left: 30},
     height = 500 - margin.top - margin.bottom;
 
 var color = d3.scale.ordinal()
-color.range(["gray", d3.rgb(24, 116, 24),d3.rgb(254, 24, 24),"cyan","#36f","#c0f","yellow","#960"])
+color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f","#c0f","yellow","#960"])
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -381,7 +377,7 @@ function update() {
     .attr('transform', 'translate(0,' + height + ')') 
     .attr('dx', '.31em')
     .attr('dy', '-.31em')
-    .style('fill', '#fff')
+    .attr('class', 'indiagram')
   })
   .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum',
              'TOE/a = Tonnes Oil Equivalents per capita per annum'))
@@ -457,13 +453,13 @@ d3.tsv('data/data.tsv', function(err, data) {
     sel
     .append('text')
     .attr('id', 'contact') 
+    .attr('class', 'indiagram') 
     .attr('transform', 'translate(' + width + ',' + height + ')') 
-    .attr('dx', '-.31em')
+    .attr('dx', '-.21em')
     .attr('dy', '-.31em')
     .style('text-anchor', 'end')
-    .style('fill', '#fff')
   })
-  .text('refsdal.ivar@gmail.com')
+  .text('Diagram by refsdal.ivar@gmail.com')
 
   d3.select('span#showadvancedmode').on('click', function() { config['advanced_mode'] = 'true'; show_advanced_mode() })
   d3.select('span#hideadvancedmode').on('click', function() { config['advanced_mode'] = 'false'; show_advanced_mode() })
