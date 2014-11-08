@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
 body { font: 12px sans-serif; }
 svg { border: 1px solid #000; }
-
 text.heading { font: 22px sans-serif; }
 text.smallheading { font: 14px sans-serif; }
 
@@ -28,10 +26,8 @@ text.smallheading { font: 14px sans-serif; }
 }
 
 rect { shape-rendering: crispEdges; }
-
 tr.advancedmode { }
 tr.simpledmode { }
-
 </style>
 <title>Energy Consumption</title>
 <body>
@@ -75,6 +71,19 @@ tr.simpledmode { }
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
+    <td>Choose resources to include:</td>
+    <td id="resources_selection">
+      <label><input type="checkbox" name="resources" value="coal" checked="checked">Coal</input></label>
+      <label><input type="checkbox" name="resources" value="oil" checked="checked">Oil</input></label>
+      <label><input type="checkbox" name="resources" value="gas" checked="checked">Gas</input></label>
+      <label><input type="checkbox" name="resources" value="nuclear" checked="checked">Nuclear</input></label>
+      <label><input type="checkbox" name="resources" value="hydro" checked="checked">Hydro</input></label>
+      <label><input type="checkbox" name="resources" value="other_renewables" checked="checked">Other renewables</input></label>
+      <label><input type="checkbox" name="resources" value="solar" checked="checked">Solar</input></label>
+      <label><input type="checkbox" name="resources" value="wind" checked="checked">Wind</input></label>
+    </td>
+  </tr>
+  <tr class="advancedmode" style="display: none">
     <td> <a href="#" onclick="hideAdvancedMode(); return false;">Hide extra options</a> </td>
     <td> <a href="#" id="permalink">Permalink to this diagram</a></td>
   </tr>
@@ -82,10 +91,9 @@ tr.simpledmode { }
 </form>
 <script src="d3.v3.min.js"></script>
 <script>
-
 var format = d3.time.format("%Y")
-
 var config = {}
+var all_resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind"
 
 function getURLParameter(name, default_value) {
   var component = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))
@@ -116,6 +124,24 @@ d3.select('#mode_select').on('change', set_selected('mode', 'mode_select'))
   .selectAll('option')
   .filter(function(d) { return this.value === yaxismode() })
   .attr('selected', 'selected')
+
+d3.select('#resources_selection')
+  .selectAll('input')
+  .attr('checked', function(d) { return (getURLParameter('resources', all_resources).split(",").indexOf(this.value) != -1) ? 'checked' : null })
+  .on('change', function() { update() })
+
+function resources() {
+  var resources_txt = ""
+  d3.select('#resources_selection')
+  .selectAll('input')
+  .each(function(d) {
+    if (this.checked) 
+      resources_txt += "," + this.value
+  })
+  return resources_txt === "" ? "" : resources_txt.substring(1)
+}
+
+function resources_array() { return resources().split(',') }
 
 function show_advanced_mode() {
   d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
@@ -155,6 +181,7 @@ var countrycodes = {}
 var all_data = null;
 
 var pal = svg.append('g')
+var pal2 = svg.append('g')
 
 var info = svg.append("g")
   .attr("transform", "translate(20," + (20) + ")")
@@ -183,8 +210,7 @@ function update() {
   }
   var country_readable = countryname(data[0].country_code, false)
 
-  var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
-  color.domain(resources)
+  color.domain(all_resources.split(","))
 
   var headingMinusY = -28
 
@@ -197,7 +223,7 @@ function update() {
    })
    .update(function(sel) {
       var infotext = mode("Total Energy Consumption", "Per Capita Energy Consumption")
-      sel.text(country_readable) // + " " + infotext + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
+      sel.text(country_readable)
    })
    .selection()
 
@@ -226,7 +252,8 @@ function update() {
     return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
   }
 
-  var labels = resources.slice(0)
+  var curr_resources = resources_array()
+  var labels = curr_resources.slice(0)
   if (cc_vs()!=='none')
     labels.unshift(cc_vs())
   var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs(), true)] : []
@@ -252,13 +279,15 @@ function update() {
 
   var boxwidth = 20
 
-  var resinfo = pad.selectAll('g.resourcelegend').data(resources)
-    .enter()
+  var resinfo = pad.selectAll('g.resourcelegend').data(curr_resources, function(d) { return d })
+  
+  var res_enter = resinfo.enter()
     .append('g')
     .attr('class', 'resourcelegend')
-    .attr('transform', function(d, i) { return 'translate(0,' + (16*(resources.length-i)) + ')' })
 
-  resinfo
+  resinfo.attr('transform', function(d, i) { return 'translate(0,' + (16*(curr_resources.length-i)) + ')' })
+
+  res_enter
     .append('rect')
     .attr('x', 0)
     .attr('y', -10)
@@ -268,19 +297,20 @@ function update() {
     .style('stroke', 'black')
     .style('stroke-opacity', '100%')
 
-  resinfo
+  res_enter
     .append('text')
     .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
     .text(name)
+  resinfo.exit().remove()
 
   var sel = pad.selectAll('g.vs_legend').data(cc_vs_name)
   var entercontext = sel.enter()
    .append('g')
    .attr('class', 'vs_legend')
-   .attr('transform', 'translate(0,' + (16*(resources.length+1)) + ')')
   entercontext
    .append('text')
     .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
+  sel.attr('transform', 'translate(0,' + (16*(curr_resources.length+1)) + ')')
 
   entercontext
    .append('line')
@@ -304,18 +334,17 @@ function update() {
   fadedbox.attr('width', d3.max([135, vsTextWidth]))
 
 
-  y.domain([0, d3.max(pas_data.map(function(d) { 
+  function total_value(d) {
     var p = mode(1.0, (d.population / 1000000.0))
-    return (d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind) / p
-  }))])
+    var val = d3.sum(resources_array().map(function(res) { return d[res] }))
+    return val / p
+  } 
+  y.domain([0, d3.max(pas_data.map(total_value))])
   x.domain(d3.extent(data.map(function(d) { return d.year })))
 
-  var cmp_line = secondary_data.map(function(d) {
-    var p = mode(1.0, (d.population / 1000000.0))
-    return {x : d.year, y : ((d.coal + d.gas + d.hydro + d.nuclear + d.oil + d.other_renewables + d.solar + d.wind) / p) }
-  })
+  var cmp_line = secondary_data.map(function(d) { return {x : d.year, y : total_value(d)} })
 
-  var resource_stack = stack(resources.map(function(resource) {
+  var resource_stack = stack(curr_resources.map(function(resource) {
     return {
       name: resource,
       values: data.map(function(d) { 
@@ -361,7 +390,9 @@ function update() {
   .attr("d", function(d) { return area(d.values); })
   .style("fill", function(d) { return color(d.name); });
 
-  selectSingle(pal, '#cmpLine')
+  energy.exit().remove()
+
+  selectSingle(pal2, '#cmpLine')
   .enter(function(sel) {
     sel.append('path')
     .attr('id', 'cmpLine')
@@ -375,7 +406,7 @@ function update() {
     .y(function(d) { return y(d.y) })
   )
 
-  var sel = selectSingle(pal, '#cmpdots')
+  var sel = selectSingle(pal2, '#cmpdots')
   .enter(function(sel) {
     sel.append('g')
     .attr('id', 'cmpdots')
@@ -407,6 +438,11 @@ function update() {
   var permlink = window.location.href.split('?')[0] + '?country_code=' + cc()
   permlink += (cc_vs() !== 'none') ? ('&country_code_vs=' + cc_vs()) : ''
   permlink += (yaxismode() !== 'per_capita') ? ('&mode=' + yaxismode()) : ''
+
+  if (resources_array().length != all_resources.split(",").length) {
+    permlink += "&resources=" + resources()
+  }
+
   d3.select('#permalink')
   .attr('href', permlink)
 }
