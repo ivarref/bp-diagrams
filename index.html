@@ -3,10 +3,7 @@
 <style>
 
 body { font: 12px sans-serif; }
-svg {
-  font: 12px sans-serif;
-  border: 1px solid #000;
-}
+svg { border: 1px solid #000; }
 
 text.heading { font: 22px sans-serif; }
 
@@ -29,17 +26,10 @@ text.heading { font: 22px sans-serif; }
   shape-rendering: crispEdges;
 }
 
-text.indiagram { fill: mintcream; }
-
 rect { shape-rendering: crispEdges; }
 
-span.advancedmode {
-  color: -webkit-link;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 tr.advancedmode { }
+tr.simpledmode { }
 
 </style>
 <title>Energy Consumption</title>
@@ -55,8 +45,11 @@ tr.advancedmode { }
         <optgroup id='countries' label="Country">
         </optgroup>
       </select>
-    <span id="showadvancedmode" class="advancedmode">Show extra options</span>
-    <span id="hideadvancedmode" class="advancedmode" style="display: none;" >Hide extra options</span>
+    </td>
+  </tr>
+  <tr class="simplemode">
+    <td colspan="2">
+      <a href="#" onclick="showAdvancedMode(); return false;">Show more options</a>
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
@@ -80,6 +73,10 @@ tr.advancedmode { }
       </select>
     </td>
   </tr>
+  <tr class="advancedmode" style="display: none">
+    <td> <a href="#" onclick="hideAdvancedMode(); return false;">Hide extra options</a> </td>
+    <td> <a href="#" id="permalink">Permalink to this diagram</a></td>
+  </tr>
 </table>
 </form>
 <script src="d3.v3.min.js"></script>
@@ -90,7 +87,8 @@ var format = d3.time.format("%Y")
 var config = {}
 
 function getURLParameter(name, default_value) {
-  return (name in config) ? config[name] : decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||default_value
+  var component = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))
+  return (name in config) ? config[name] : (component||default_value).split('/')[0]
 }
 
 function yaxismode() { return getURLParameter('mode', 'per_capita') }
@@ -120,13 +118,14 @@ d3.select('#mode_select').on('change', set_selected('mode', 'mode_select'))
 
 function show_advanced_mode() {
   d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
-  d3.selectAll('#showadvancedmode').style('display', !advanced_mode() ? '' : 'none')
-  d3.selectAll('#hideadvancedmode').style('display', advanced_mode() ? '' : 'none')
+  d3.selectAll('tr.simplemode').style('display', !advanced_mode() ? '' : 'none')
 }
+
+config['advanced_mode'] = (yaxismode()==='total' || cc_vs() !== 'none') ? 'true' : 'false'
 
 show_advanced_mode()
 
-var margin = {top: 55, right: 55, bottom: 35, left: 30},
+var margin = {top: 65, right: 75, bottom: 35, left: 30},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -154,12 +153,10 @@ var countrycodes = {}
 
 var all_data = null;
 
-
 var pal = svg.append('g')
 
 var info = svg.append("g")
   .attr("transform", "translate(20," + (20) + ")")
-
 
 function selectSingle(root, id) {
     var sel = root.selectAll(id).data([1]);
@@ -179,8 +176,11 @@ function update() {
   var maxyear = d3.max(data.map(function(d) { return d.year }))
   var secondary_data = all_data.filter(function(d) { return d.country_code === cc_vs() && d.year >= minyear })
   var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
-  function countryname(cc) { return countrycodes[cc].split(",")[0] }
-  var country_readable = countryname(data[0].country_code)
+  function countryname(cc, make_short) { 
+    var name = countrycodes[cc].split(",")[0] 
+    return make_short===false ? name : name.replace('South and Central', 'S. and C.')
+  }
+  var country_readable = countryname(data[0].country_code, false)
 
   var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
   color.domain(resources)
@@ -190,7 +190,7 @@ function update() {
        sel.append('text')
       .attr('id', 'heading')
       .attr('class', 'heading')
-      .attr('dy', '-1.11em')
+      .attr('dy', '-1.21em')
    })
    .update(function(sel) {
       var infotext = mode("Total Energy Consumption", "Per Capita Energy Consumption")
@@ -201,7 +201,7 @@ function update() {
   .enter(function(sel) { 
     sel.append('text')
     .attr('id', 'sourceExplanation') 
-    .attr('dy', '-.51em')
+    .attr('dy', '-.71em')
   })
   .text('Data from BP Statistical Review and World Bank')
 
@@ -212,7 +212,7 @@ function update() {
   var labels = resources.slice(0)
   if (cc_vs()!=='none')
     labels.unshift(cc_vs())
-  var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs())] : []
+  var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs(), true)] : []
 
   var infoheight = 8 + 16*(labels.length)
 
@@ -310,8 +310,9 @@ function update() {
       .style('text-anchor', 'middle')
       .attr('transform', 'translate(' + width + ',0)')
       .attr('dy', '-.71em')
+      //.attr('dx', '2.01em')
       })
-    .text(mode('MTOE/a', 'TOE/a'))
+    .text(mode('MTOE/a', 'TOE/Capita/a'))
 
   selectSingle(svg, '.x.axis')
   .enter(function(sel) {
@@ -374,13 +375,19 @@ function update() {
     sel
     .append('text')
     .attr('id', 'unitExplanation') 
-    .attr('transform', 'translate(0,' + height + ')') 
-    .attr('dx', '.31em')
-    .attr('dy', '-.31em')
-    .attr('class', 'indiagram')
+    .attr('transform', 'translate('+ (width+margin.right) +',' + (height/2) + ') rotate(90)') 
+    //.attr('dx', '.31em')
+    .attr('dy', '1.51em')
+    .attr('text-anchor', 'middle')
   })
-  .text(mode('MTOE/a = Million Tonnes Oil Equivalents per annum',
-             'TOE/a = Tonnes Oil Equivalents per capita per annum'))
+  .text(mode('Million Tonnes Oil Equivalents per annum',
+             'Tonnes Oil Equivalents per Capita per annum'))
+
+  var permlink = window.location.href.split('?')[0] + '?country_code=' + cc()
+  permlink += (cc_vs() !== 'none') ? ('&country_code_vs=' + cc_vs()) : ''
+  permlink += (yaxismode() !== 'per_capita') ? ('&mode=' + yaxismode()) : ''
+  d3.select('#permalink')
+  .attr('href', permlink)
 }
 
 d3.json('data/slim-2.json', function(error, codes) { 
@@ -453,19 +460,16 @@ d3.tsv('data/data.tsv', function(err, data) {
     sel
     .append('text')
     .attr('id', 'contact') 
-    .attr('class', 'indiagram') 
-    .attr('transform', 'translate(' + width + ',' + height + ')') 
+    .attr('transform', 'translate(' + (width+margin.right) + ',' + (height+margin.bottom) + ')') 
     .attr('dx', '-.21em')
     .attr('dy', '-.31em')
     .style('text-anchor', 'end')
   })
   .text('Diagram by refsdal.ivar@gmail.com')
-
-  d3.select('span#showadvancedmode').on('click', function() { config['advanced_mode'] = 'true'; show_advanced_mode() })
-  d3.select('span#hideadvancedmode').on('click', function() { config['advanced_mode'] = 'false'; show_advanced_mode() })
-  //d3.select('body').append('div').text('Permalink (URL, Image).')
 })
 })
 
+function showAdvancedMode() { config['advanced_mode'] = 'true'; show_advanced_mode() }
+function hideAdvancedMode() { config['advanced_mode'] = 'false'; show_advanced_mode() }
 </script>
 </body>
