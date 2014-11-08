@@ -6,6 +6,7 @@ body { font: 12px sans-serif; }
 svg { border: 1px solid #000; }
 
 text.heading { font: 22px sans-serif; }
+text.smallheading { font: 14px sans-serif; }
 
 .cmpdot {
   fill: lightsalmon;
@@ -37,7 +38,7 @@ tr.simpledmode { }
 <form method='GET' style='padding-bottom: 2px;'>
 <table>
   <tr>
-    <td style="min-width: 201px;">Choose country or group of nations: </td>
+    <td>Choose country or group of nations: </td>
     <td>
       <select id='ccselect' name='cc' style='min-width: 222px;'>
         <optgroup id='groups' label="Group of nations">
@@ -53,7 +54,7 @@ tr.simpledmode { }
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
-    <td>Choose comparison country or group: </td>
+    <td>Choose reference country or group: </td>
     <td>
       <select id='ccselect_vs' name='vs_cc' style='min-width: 222px;'>
         <optgroup id='groups_vs' label="Group of nations">
@@ -185,25 +186,41 @@ function update() {
   var resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind".split(",")
   color.domain(resources)
 
-  selectSingle(svg, '#heading')
+  var headingMinusY = -28
+
+  var heading = selectSingle(svg, '#heading')
   .enter(function(sel) {
        sel.append('text')
       .attr('id', 'heading')
       .attr('class', 'heading')
-      .attr('dy', '-1.21em')
+      .attr('transform', 'translate(0, ' + headingMinusY + ')')
    })
    .update(function(sel) {
       var infotext = mode("Total Energy Consumption", "Per Capita Energy Consumption")
-      sel.text(country_readable + " " + infotext + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
+      sel.text(country_readable) // + " " + infotext + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
    })
+   .selection()
 
-  selectSingle(svg, '#sourceExplanation')
+  var sel = selectSingle(svg, '#vsCountryText')
   .enter(function(sel) { 
     sel.append('text')
-    .attr('id', 'sourceExplanation') 
-    .attr('dy', '-.71em')
+    .attr('id', 'vsCountryText') 
+    .attr('class', 'smallheading') 
+    .attr('dx', '.31em')
   })
-  .text('Data from BP Statistical Review and World Bank')
+   .update(function(sel) {
+    sel.attr('transform', 'translate(' + heading.node().getBBox().width + ','+headingMinusY+')')
+   })
+  .text(cc_vs() !== 'none' ? ('VS ' + countryname(cc_vs(), true)) : '')
+
+  selectSingle(svg, '#yaxisInfo')
+  .enter(function(sel) {
+       sel.append('text')
+      .attr('id', 'yaxisInfo')
+      .attr('class', 'smallheading')
+      .attr('dy', '-.71em')
+   })
+   .text(mode("Total Energy Consumption", "Per Capita Energy Consumption") + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
 
   function name(d) {
     return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
@@ -216,12 +233,12 @@ function update() {
 
   var infoheight = 8 + 16*(labels.length)
 
-  selectSingle(info, '#fadedbox')
+  var fadedbox = selectSingle(info, '#fadedbox')
   .enter(function(sel) {
     sel
       .append('rect')
       .attr('id', 'fadedbox')
-      .attr('width', 180)
+      .attr('width', 135)
       .style('fill', '#eee')
       .style('fill-opacity', '67%')
       .style('stroke', 'black')
@@ -281,6 +298,9 @@ function update() {
    .attr('r', 3.5)
   sel.select('text').text(Object)
   sel.exit().remove()
+
+  var vsTextWidth = 15 + boxwidth + sel.select('text').node().getBBox().width
+  fadedbox.attr('width', d3.max([135, vsTextWidth]))
 
 
   y.domain([0, d3.max(pas_data.map(function(d) { 
@@ -466,6 +486,18 @@ d3.tsv('data/data.tsv', function(err, data) {
     .style('text-anchor', 'end')
   })
   .text('Diagram by refsdal.ivar@gmail.com')
+
+  selectSingle(svg, '#sources')
+  .enter(function(sel) { 
+    sel
+    .append('text')
+    .attr('id', 'sources') 
+    .attr('transform', 'translate(' + (-margin.left) + ',' + (height+margin.bottom) + ')') 
+    .attr('dx', '.21em')
+    .attr('dy', '-.31em')
+    .style('text-anchor', 'start')
+  })
+  .text('Data from BP Statistical Review and World Bank')
 })
 })
 
