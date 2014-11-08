@@ -299,7 +299,8 @@ function update() {
   sel.select('text').text(Object)
   sel.exit().remove()
 
-  var vsTextWidth = 15 + boxwidth + sel.select('text').node().getBBox().width
+  var node = sel.select('text').node()
+  var vsTextWidth = 15 + boxwidth + (node != null ? node.getBBox().width : 0)
   fadedbox.attr('width', d3.max([135, vsTextWidth]))
 
 
