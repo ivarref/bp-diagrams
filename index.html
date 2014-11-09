@@ -3,21 +3,12 @@
 <style>
 body { font: 12px sans-serif; }
 svg { border: 1px solid #000; }
-text.heading { font: 22px sans-serif; }
+text.heading { font: 22px sans-serif; font-weight: bold; }
 text.smallheading { font: 14px sans-serif; }
-
-.cmpdot {
-  fill: lightsalmon;
-  stroke: black;
-  stroke-width: 1.0px;
-}
-
-.line {
-  fill: none;
-  stroke: black;
-  stroke-width: 3.0px;
-}
-
+.vsfill { fill: #c0f; /* c0f */ }
+.cmpdot { stroke: black; stroke-width: 1.0px; }
+.fadedbox { fill: #ddd; fill-opacity: 67%; stroke: black; }
+.line { fill: none; stroke: black; stroke-width: 3.0px; }
 .axis path,
 .axis line {
   fill: none;
@@ -37,10 +28,8 @@ tr.simpledmode { }
     <td>Choose country or group of nations: </td>
     <td>
       <select id='ccselect' name='cc' style='min-width: 222px;'>
-        <optgroup id='groups' label="Group of nations">
-        </optgroup>
-        <optgroup id='countries' label="Country">
-        </optgroup>
+        <optgroup id='groups' label="Group of nations"></optgroup>
+        <optgroup id='countries' label="Country"></optgroup>
       </select>
     </td>
   </tr>
@@ -56,8 +45,7 @@ tr.simpledmode { }
         <optgroup id='groups_vs' label="Group of nations">
           <option value='none'>None</option>
         </optgroup>
-        <optgroup id='countries_vs' label="Country">
-        </optgroup>
+        <optgroup id='countries_vs' label="Country"></optgroup>
       </select>
     </td>
   </tr>
@@ -91,6 +79,9 @@ tr.simpledmode { }
 </form>
 <script src="d3.v3.min.js"></script>
 <script>
+/*
+http://www.w3schools.com/tags/ref_color_tryit.asp?color=white
+*/
 var format = d3.time.format("%Y")
 var config = {}
 var all_resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind"
@@ -157,7 +148,9 @@ var margin = {top: 65, right: 75, bottom: 35, left: 30},
     height = 500 - margin.top - margin.bottom;
 
 var color = d3.scale.ordinal()
-color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f","#c0f","yellow","#960"])
+color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f",
+"darkorange"
+,"yellow","#960"])
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -227,17 +220,32 @@ function update() {
    })
    .selection()
 
-  var sel = selectSingle(svg, '#vsCountryText')
+  var vs = selectSingle(svg, '#vsCountryVsText')
   .enter(function(sel) { 
     sel.append('text')
-    .attr('id', 'vsCountryText') 
+    .attr('id', 'vsCountryVsText') 
     .attr('class', 'smallheading') 
     .attr('dx', '.31em')
   })
    .update(function(sel) {
     sel.attr('transform', 'translate(' + heading.node().getBBox().width + ','+headingMinusY+')')
    })
-  .text(cc_vs() !== 'none' ? ('VS ' + countryname(cc_vs(), true)) : '')
+  .text(cc_vs() !== 'none' ? 'VS' : '')
+  .selection()
+
+  selectSingle(svg, '#vsCountryText')
+  .enter(function(sel) { 
+    sel.append('text')
+    .attr('id', 'vsCountryText') 
+    .attr('class', 'smallheading vsfill') 
+    .style('font-weight', 'bold')
+    .style('font-size', '19px')
+    .attr('dx', '.45em')
+  })
+   .update(function(sel) {
+    sel.attr('transform', 'translate(' + (vs.node().getBBox().width + heading.node().getBBox().width) + ','+headingMinusY+')')
+   })
+  .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
 
   selectSingle(svg, '#yaxisInfo')
   .enter(function(sel) {
@@ -252,23 +260,18 @@ function update() {
     return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
   }
 
-  var curr_resources = resources_array()
-  var labels = curr_resources.slice(0)
-  if (cc_vs()!=='none')
-    labels.unshift(cc_vs())
+  var labelsLength = resources_array().length + (cc_vs()==='none' ? 0 : 1)
   var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs(), true)] : []
 
-  var infoheight = 8 + 16*(labels.length)
+  var infoheight = 8 + 16*(labelsLength)
 
   var fadedbox = selectSingle(info, '#fadedbox')
   .enter(function(sel) {
     sel
       .append('rect')
       .attr('id', 'fadedbox')
+      .attr('class', 'fadedbox')
       .attr('width', 135)
-      .style('fill', '#eee')
-      .style('fill-opacity', '67%')
-      .style('stroke', 'black')
   })
   .selection()
       .attr('height', infoheight)
@@ -279,13 +282,13 @@ function update() {
 
   var boxwidth = 20
 
-  var resinfo = pad.selectAll('g.resourcelegend').data(curr_resources, function(d) { return d })
+  var resinfo = pad.selectAll('g.resourcelegend').data(resources_array(), function(d) { return d })
   
   var res_enter = resinfo.enter()
     .append('g')
     .attr('class', 'resourcelegend')
 
-  resinfo.attr('transform', function(d, i) { return 'translate(0,' + (16*(curr_resources.length-i)) + ')' })
+  resinfo.attr('transform', function(d, i) { return 'translate(0,' + (16*(resources_array().length-i)) + ')' })
 
   res_enter
     .append('rect')
@@ -310,7 +313,9 @@ function update() {
   entercontext
    .append('text')
     .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
-  sel.attr('transform', 'translate(0,' + (16*(curr_resources.length+1)) + ')')
+    .attr('class', 'vsfill')
+    .style('font-weight', 'bold')
+  sel.attr('transform', 'translate(0,' + (16*(resources_array().length+1)) + ')')
 
   entercontext
    .append('line')
@@ -322,7 +327,7 @@ function update() {
 
   entercontext
    .append('circle')
-   .attr('class', 'cmpdot')
+   .attr('class', 'cmpdot vsfill')
    .attr('cx', boxwidth/2)
    .attr('cy', -10 + 6)
    .attr('r', 3.5)
@@ -332,7 +337,6 @@ function update() {
   var node = sel.select('text').node()
   var vsTextWidth = 15 + boxwidth + (node != null ? node.getBBox().width : 0)
   fadedbox.attr('width', d3.max([135, vsTextWidth]))
-
 
   function total_value(d) {
     var p = mode(1.0, (d.population / 1000000.0))
@@ -344,7 +348,7 @@ function update() {
 
   var cmp_line = secondary_data.map(function(d) { return {x : d.year, y : total_value(d)} })
 
-  var resource_stack = stack(curr_resources.map(function(resource) {
+  var resource_stack = stack(resources_array().map(function(resource) {
     return {
       name: resource,
       values: data.map(function(d) { 
@@ -416,7 +420,7 @@ function update() {
   sel = sel.selectAll('circle').data(cmp_line)
   sel.enter().append('circle')
   sel
-    .attr('class', 'cmpdot')
+    .attr('class', 'vsfill cmpdot')
     .attr('cx', function(d) { return x(d.x) })
     .attr('cy', function(d) { return y(d.y) })
     .attr('r', 3.5)
@@ -428,7 +432,6 @@ function update() {
     .append('text')
     .attr('id', 'unitExplanation') 
     .attr('transform', 'translate('+ (width+margin.right) +',' + (height/2) + ') rotate(90)') 
-    //.attr('dx', '.31em')
     .attr('dy', '1.51em')
     .attr('text-anchor', 'middle')
   })
@@ -447,28 +450,8 @@ function update() {
   .attr('href', permlink)
 }
 
-d3.json('data/slim-2.json', function(error, codes) { 
-codes.forEach(function(d) {
-  countrycodes[d['alpha-2']] = d.name
-})
-// "BP_OAF",
-// "BP_OAP",
-// "BP_OEE",
-// "BP_OME",
-// "BP_OSCA",
-countrycodes['BP_OECD'] = 'OECD'
-countrycodes['BP_NONOECD'] = 'Non OECD'
-countrycodes['BP_EU2'] = 'Eurozone'
-countrycodes['BP_FSU'] = 'Total Former Soviet Union'
-countrycodes['BP_TAF'] = 'Total Africa'
-countrycodes['BP_TAP'] = 'Total Asia-Pacific'
-countrycodes['BP_TEE'] = 'Total Europe and Eurasia'
-countrycodes['BP_TME'] = 'Total Middle East'
-countrycodes['BP_TNA'] = 'Total North America'
-countrycodes['BP_TSCA'] = 'Total South and Central America'
-countrycodes['BP_WORLD'] = 'World'
-
 d3.tsv('data/data.tsv', function(err, data) {
+  data.forEach(function(d) { countrycodes[d.country_code] = d.country })
   var ccs = d3.set(data.map(function(d) { return d.country_code }))
   var codes = ccs.values().filter(function(d) { return d3.keys(countrycodes).indexOf(d) != -1 })
   var rev = {}
@@ -535,7 +518,6 @@ d3.tsv('data/data.tsv', function(err, data) {
     .style('text-anchor', 'start')
   })
   .text('Data from BP Statistical Review and World Bank')
-})
 })
 
 function showAdvancedMode() { config['advanced_mode'] = 'true'; show_advanced_mode() }

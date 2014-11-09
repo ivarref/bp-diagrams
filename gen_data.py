@@ -8,6 +8,27 @@ def load_json(fil):
   with open(fil) as f:
     return json.load(f)
 
+countrycodes = {}
+# "BP_OAF",
+# "BP_OAP",
+# "BP_OEE",
+# "BP_OME",
+# "BP_OSCA",
+countrycodes['BP_OECD'] = 'OECD'
+countrycodes['BP_NONOECD'] = 'Non OECD'
+countrycodes['BP_EU2'] = 'Eurozone'
+countrycodes['BP_FSU'] = 'Total Former Soviet Union'
+countrycodes['BP_TAF'] = 'Total Africa'
+countrycodes['BP_TAP'] = 'Total Asia-Pacific'
+countrycodes['BP_TEE'] = 'Total Europe and Eurasia'
+countrycodes['BP_TME'] = 'Total Middle East'
+countrycodes['BP_TNA'] = 'Total North America'
+countrycodes['BP_TSCA'] = 'Total South and Central America'
+countrycodes['BP_WORLD'] = 'World'
+
+for entry in load_json('data/slim-2.json'):
+  countrycodes[entry['alpha-2']] = entry['name']
+
 # Goal:
 # bp country code friendly lookup table for population
 
@@ -126,7 +147,7 @@ groups = fields[1:]
 
 seengroups = []
 
-print "year\tcountry_code\tpopulation\t%s" % ("\t".join(resources))
+print "year\tcountry\tcountry_code\tpopulation\t%s" % ("\t".join(resources))
 
 while True:
   lines = [fd.readline().strip() for fd in fds]
@@ -159,7 +180,7 @@ while True:
     if len(matches)==0:
       raise ValueError("Missing keys [" + keys + "] group was " + group)
     key = matches[0]
-    print "%s\t%s\t%s\t%s" % (year, group, population_lookup[key], "\t".join(groupdata))
+    print "%s\t%s\t%s\t%s\t%s" % (year, countrycodes[group], group, population_lookup[key], "\t".join(groupdata))
 
 [fd.close() for fd in fds]
 
