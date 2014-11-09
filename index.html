@@ -73,7 +73,9 @@ tr.simpledmode { }
   </tr>
   <tr class="advancedmode" style="display: none">
     <td> <a href="#" onclick="hideAdvancedMode(); return false;">Hide extra options</a> </td>
-    <td> <a href="#" id="permalink">Permalink to this diagram</a></td>
+    <td> <a href="#" id="permalink">Permalink to this diagram</a>
+         <a href="#" id="permalink_printer">printer friendly</a>
+    </td>
   </tr>
 </table>
 </form>
@@ -137,6 +139,10 @@ function resources_array() { return resources().split(',') }
 function show_advanced_mode() {
   d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
   d3.selectAll('tr.simplemode').style('display', !advanced_mode() ? '' : 'none')
+
+  if (getURLParameter('printer', 'false') === 'true') {
+    d3.selectAll('tr').style('display', 'none')
+  }
 }
 
 config['advanced_mode'] = (yaxismode()==='total' || cc_vs() !== 'none') ? 'true' : 'false'
@@ -449,6 +455,8 @@ function update() {
 
   d3.select('#permalink')
   .attr('href', permlink)
+  d3.select('#permalink_printer')
+  .attr('href', permlink + "&printer=true")
 }
 
 d3.tsv('data/data.tsv', function(err, data) {
