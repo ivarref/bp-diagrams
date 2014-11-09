@@ -5,7 +5,7 @@ body { font: 12px sans-serif; }
 svg { border: 1px solid #000; }
 text.heading { font: 22px sans-serif; font-weight: bold; }
 text.smallheading { font: 14px sans-serif; }
-.vsfill { fill: #c0f; /* c0f */ }
+.vsfill { fill: Fuchsia; /* c0f */ }
 .cmpdot { stroke: black; stroke-width: 1.0px; }
 .fadedbox { fill: #ddd; fill-opacity: 67%; stroke: black; }
 .line { fill: none; stroke: black; stroke-width: 3.0px; }
@@ -421,6 +421,7 @@ function update() {
   sel.enter().append('circle')
   sel
     .attr('class', 'vsfill cmpdot')
+    //.style('fill', 'vsfill cmpdot')
     .attr('cx', function(d) { return x(d.x) })
     .attr('cy', function(d) { return y(d.y) })
     .attr('r', 3.5)
