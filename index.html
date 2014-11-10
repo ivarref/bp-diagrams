@@ -375,11 +375,8 @@ function update() {
     return {
       name: resource,
       values: data.map(function(d) { 
-      var total = d3.sum(data
-      .filter(function(dd) { return dd.year == d.year })
-      .map(function(dd) { 
-        return d3.sum(resources_array().map(function(resource) { return dd[resource] })) }))
-        var p = mode(1.0, (d.population / 1000000.0), total)
+      var total = d3.sum(resources_array().map(function(res) { return d[res] }))
+      var p = mode(1.0, (d.population / 1000000.0), total)
       return { year: d.year, y: (mode(1.0, 1.0, 100.0)*d[resource])/p }
       })
   }}))
