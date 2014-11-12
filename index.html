@@ -68,8 +68,8 @@ tr.simpledmode { }
       <label><input type="checkbox" name="resources" value="nuclear" checked="checked">Nuclear</input></label>
       <label><input type="checkbox" name="resources" value="hydro" checked="checked">Hydro</input></label>
       <label><input type="checkbox" name="resources" value="other_renewables" checked="checked">Other renewables</input></label>
-      <label><input type="checkbox" name="resources" value="solar" checked="checked">Solar</input></label>
-      <label><input type="checkbox" name="resources" value="wind" checked="checked">Wind</input></label>
+      <!--label><input type="checkbox" name="resources" value="solar" checked="checked">Solar</input></label>
+      <label><input type="checkbox" name="resources" value="wind" checked="checked">Wind</input></label-->
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
@@ -95,7 +95,8 @@ http://www.w3schools.com/tags/ref_color_tryit.asp?color=white
 */
 var format = d3.time.format("%Y")
 var config = {}
-var all_resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind"
+//var all_resources = "coal,oil,gas,nuclear,hydro,other_renewables,solar,wind"
+var all_resources = "coal,oil,gas,nuclear,hydro,other_renewables"
 
 function getURLParameter(name, default_value) {
   var component = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))
@@ -170,9 +171,10 @@ var margin = {top: 65, right: 75, bottom: 35, left: 30},
     height = 500 - margin.top - margin.bottom;
 
 var color = d3.scale.ordinal()
-color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f",
-"darkorange"
-,"yellow","#960"])
+color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f"
+,"darkorange"
+,"yellow"
+,"#960"])
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -521,9 +523,11 @@ d3.tsv('data/data.tsv', function(err, data) {
     d.hydro = +d.hydro
     d.nuclear = +d.nuclear
     d.oil = +d.oil
-    d.other_renewables = +d.other_renewables
     d.solar = +d.solar
     d.wind = +d.wind
+
+    //d.other_renewables = (+d.other_renewables) - (d.solar + d.wind)
+    d.other_renewables = +d.other_renewables
   })
 
   all_data = data
