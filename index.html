@@ -220,6 +220,7 @@ color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f"
 ,"darkorange"
 ,"yellow"
 ,"#960"])
+color.domain(all_resources.split(","))
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -248,13 +249,10 @@ var pal2 = svg.append('g')
 var info = svg.append("g")
   .attr("transform", "translate(20," + (20) + ")")
 
-function singleElement(root, elementtype) {
-  var id = "gen" + new Error().stack.hashCode()
-  var sel = root.selectAll(elementtype + "#" + id)
-            .data([1])
+function singleElement(root, elementtype, id) {
+  var sel = root.selectAll(elementtype + "#" + id).data([1])
   sel.enter().append(elementtype).attr('id', id)
   return sel
-  
 }
 function selectSingle(root, id) {
   var sel = root.selectAll(id).data([1]);
@@ -271,69 +269,47 @@ function selectSingle(root, id) {
 function info_boxes_with_shading() {
 }
 
+function countryname(cc, make_short) { 
+  var name = countrycodes[cc].split(",")[0] 
+  return make_short===false ? name : name.replace('South and Central', 'S. and C.')
+}
+
+function add_heading_and_subheading() {
+  var headingMinusY = -28
+
+  var heading = singleElement(svg, 'text', 'heading')
+  .attr('class', 'heading')
+  .attr('transform', 'translate(0, ' + headingMinusY + ')')
+  .text(countryname(cc(), false))
+
+  var vs = singleElement(svg, 'text', 'vstext')
+  .attr('class', 'smallheading') 
+  .attr('dx', '.31em')
+  .attr('transform', 'translate(' + heading.node().getBBox().width + ','+headingMinusY+')')
+  .text(cc_vs() !== 'none' ? 'VS' : '')
+
+  singleElement(svg, 'text', 'vscountrytext')
+  .attr('class', 'smallheading vsfill') 
+  .style('font-weight', 'bold')
+  .style('font-size', '19px')
+  .attr('dx', '.45em')
+  .attr('transform', 'translate(' + (vs.node().getBBox().width + heading.node().getBBox().width) + ','+headingMinusY+')')
+  .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
+}
+
 function update() {
   var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
   var minyear = d3.min(data.map(function(d) { return d.year }))
   var maxyear = d3.max(data.map(function(d) { return d.year }))
   var secondary_data = all_data.filter(function(d) { return d.country_code === cc_vs() && d.year >= minyear })
   var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
-  function countryname(cc, make_short) { 
-    var name = countrycodes[cc].split(",")[0] 
-    return make_short===false ? name : name.replace('South and Central', 'S. and C.')
-  }
   var country_readable = countryname(data[0].country_code, false)
 
-  color.domain(all_resources.split(","))
-
-  var headingMinusY = -28
-
-  var heading = selectSingle(svg, '#heading')
-  .enter(function(sel) {
-       sel.append('text')
-      .attr('id', 'heading')
-      .attr('class', 'heading')
-      .attr('transform', 'translate(0, ' + headingMinusY + ')')
-   })
-   .update(function(sel) {
-      sel.text(country_readable)
-   })
-   .selection()
-
-  var vs = selectSingle(svg, '#vsCountryVsText')
-  .enter(function(sel) { 
-    sel.append('text')
-    .attr('id', 'vsCountryVsText') 
-    .attr('class', 'smallheading') 
-    .attr('dx', '.31em')
-  })
-   .update(function(sel) {
-    sel.attr('transform', 'translate(' + heading.node().getBBox().width + ','+headingMinusY+')')
-   })
-  .text(cc_vs() !== 'none' ? 'VS' : '')
-  .selection()
-
-  selectSingle(svg, '#vsCountryText')
-  .enter(function(sel) { 
-    sel.append('text')
-    .attr('id', 'vsCountryText') 
-    .attr('class', 'smallheading vsfill') 
-    .style('font-weight', 'bold')
-    .style('font-size', '19px')
-    .attr('dx', '.45em')
-  })
-   .update(function(sel) {
-    sel.attr('transform', 'translate(' + (vs.node().getBBox().width + heading.node().getBBox().width) + ','+headingMinusY+')')
-   })
-  .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
-
-  selectSingle(svg, '#yaxisInfo')
-  .enter(function(sel) {
-       sel.append('text')
-      .attr('id', 'yaxisInfo')
-      .attr('class', 'smallheading')
-      .attr('dy', '-.71em')
-   })
-   .text(mode("Total Energy Consumption", "Per Capita Energy Consumption", "Relative share of energy consumption") + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
+  add_heading_and_subheading()
+  singleElement(svg, 'text', 'subheadingtext')
+  .attr('class', 'smallheading')
+  .attr('dy', '-.71em')
+  .text(mode("Total Energy Consumption", "Per Capita Energy Consumption", "Relative share of energy consumption") + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
 
   function name(d) {
     return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
