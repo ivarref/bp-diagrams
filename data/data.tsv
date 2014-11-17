@@ -1,9 +1,7 @@
 year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables	solar	wind
-1965	United Arab Emirates	AE	146387	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1965	Argentina	AR	22296628	0.9	3.8	0.3	0.0	22.1	0.0	0.0	0.0
 1965	Austria	AT	7270889	4.7	1.6	3.9	0.0	5.6	0.0	0.0	0.0
 1965	Australia	AU	11388000	16.0	0.0	1.7	0.0	16.8	0.1	0.0	0.0
-1965	Bangladesh	BD	57791778	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1965	Belgium	BE	9463667	19.2	0.1	0.1	0.0	15.9	0.0	0.0	0.0
 1965	Bulgaria	BG	8204168	6.0	0.1	0.5	0.0	3.7	0.0	0.0	0.0
 1965	Eurozone	BP_EU2	272389008	512.1	35.4	50.1	4.5	400.1	0.7	0.0	0.0
@@ -68,11 +66,9 @@ year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables
 1965	Venezuela, Bolivarian Republic of	VE	9067485	0.0	6.1	0.3	0.0	9.3	0.0	0.0	0.0
 1965	Viet Nam	VN	38341000	3.2	0.0	0.3	0.0	1.5	0.0	0.0	0.0
 1965	South Africa	ZA	19832000	24.7	0.0	0.0	0.0	5.6	0.0	0.0	0.0
-1966	United Arab Emirates	AE	156934	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1966	Argentina	AR	22622012	0.9	4.1	0.3	0.0	22.8	0.0	0.0	0.0
 1966	Austria	AT	7322066	4.4	1.8	3.9	0.0	6.1	0.0	0.0	0.0
 1966	Australia	AU	11651000	16.6	0.0	1.7	0.0	18.0	0.1	0.0	0.0
-1966	Bangladesh	BD	59681186	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1966	Belgium	BE	9527807	17.5	0.1	0.1	0.0	16.3	0.0	0.0	0.0
 1966	Bulgaria	BG	8258057	6.2	0.1	0.5	0.0	4.2	0.0	0.0	0.0
 1966	Eurozone	BP_EU2	274649191	489.8	40.2	54.2	5.9	438.5	0.9	0.0	0.0
@@ -141,7 +137,6 @@ year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables
 1967	Argentina	AR	22944941	0.9	4.3	0.3	0.0	23.3	0.0	0.0	0.0
 1967	Austria	AT	7376998	4.0	1.7	4.0	0.0	6.5	0.0	0.0	0.0
 1967	Australia	AU	11799000	17.1	0.0	1.7	0.0	19.7	0.1	0.0	0.0
-1967	Bangladesh	BD	61702785	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1967	Belgium	BE	9580991	17.2	0.4	0.1	0.0	17.9	0.0	0.0	0.0
 1967	Bulgaria	BG	8310226	6.7	0.2	0.5	0.0	5.3	0.0	0.0	0.0
 1967	Eurozone	BP_EU2	276601113	475.9	47.5	52.3	7.0	474.5	1.0	0.0	0.0
@@ -210,7 +205,6 @@ year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables
 1968	Argentina	AR	23273148	0.9	4.8	0.3	0.0	23.8	0.0	0.0	0.0
 1968	Austria	AT	7415403	4.0	1.8	4.1	0.0	7.5	0.0	0.0	0.0
 1968	Australia	AU	12009000	17.5	0.0	1.8	0.0	21.5	0.1	0.0	0.0
-1968	Bangladesh	BD	63703327	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1968	Belgium	BE	9618756	17.7	1.1	0.1	0.0	20.9	0.0	0.0	0.0
 1968	Bulgaria	BG	8369603	7.3	0.4	0.3	0.0	6.3	0.0	0.0	0.0
 1968	Eurozone	BP_EU2	278434336	483.3	60.0	53.1	7.8	521.0	1.1	0.0	0.0
@@ -279,7 +273,6 @@ year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables
 1969	Argentina	AR	23616971	0.9	4.8	0.3	0.0	24.7	0.0	0.0	0.0
 1969	Austria	AT	7441055	3.8	2.2	3.8	0.0	8.3	0.0	0.0	0.0
 1969	Australia	AU	12263000	18.0	0.4	2.0	0.0	22.1	0.1	0.0	0.0
-1969	Bangladesh	BD	65474474	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1969	Belgium	BE	9646032	17.3	2.2	0.1	0.0	24.1	0.0	0.0	0.0
 1969	Bulgaria	BG	8434172	7.3	0.4	0.4	0.0	7.7	0.0	0.0	0.0
 1969	Eurozone	BP_EU2	280295897	489.2	78.0	52.1	9.6	582.8	1.2	0.0	0.0
@@ -348,7 +341,6 @@ year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables
 1970	Argentina	AR	23983358	1.0	5.4	0.3	0.0	22.1	0.0	0.0	0.0
 1970	Austria	AT	7467086	4.0	2.6	4.8	0.0	9.1	0.0	0.0	0.0
 1970	Australia	AU	12507000	18.0	1.6	2.3	0.0	24.4	0.1	0.0	0.0
-1970	Bangladesh	BD	66881158	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1970	Belgium	BE	9655549	16.3	3.4	0.1	0.0	26.2	0.0	0.0	0.0
 1970	Bulgaria	BG	8489574	8.0	0.4	0.5	0.0	9.0	0.0	0.0	0.0
 1970	Eurozone	BP_EU2	281804083	480.2	97.2	55.1	9.7	645.4	1.6	0.0	0.0
@@ -417,7 +409,6 @@ year	country	country_code	population	coal	gas	hydro	nuclear	oil	other_renewables
 1971	Argentina	AR	24376109	0.9	5.8	0.3	0.0	23.5	0.0	0.0	0.0
 1971	Austria	AT	7500482	3.5	3.0	3.8	0.0	10.2	0.0	0.0	0.0
 1971	Australia	AU	12937000	17.9	2.3	2.6	0.0	25.7	0.1	0.0	0.0
-1971	Bangladesh	BD	67849312	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0
 1971	Belgium	BE	9673162	13.5	4.7	0.0	0.0	26.9	0.0	0.0	0.0
 1971	Bulgaria	BG	8536395	7.9	0.2	0.5	0.0	9.9	0.0	0.0	0.0
 1971	Eurozone	BP_EU2	283295830	457.0	118.8	54.6	11.2	674.3	1.6	0.0	0.0

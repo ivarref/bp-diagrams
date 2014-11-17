@@ -168,6 +168,9 @@ while True:
       continue
     if '"na"' in groupdata and len(Set(groupdata))>1:
       raise ValueError('Oops.')
+    group_sum = [Decimal(x) for x in groupdata]
+    if Decimal(0) == sum(group_sum) and group not in seengroups:
+      continue # drop data starting with zero
     seengroups.append(group)
     year = years[0]
     translated_key = group # default to no translation

@@ -217,12 +217,6 @@ function selectSingle(root, id) {
 
 function update() {
   var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
-  while (data.length > 0) {
-    var total = d3.sum(resources_array().map(function(res) { return data[0][res] }))
-    if (total == 0) data.shift()
-    else break
-  }
-
   var minyear = d3.min(data.map(function(d) { return d.year }))
   var maxyear = d3.max(data.map(function(d) { return d.year }))
   var secondary_data = all_data.filter(function(d) { return d.country_code === cc_vs() && d.year >= minyear })
