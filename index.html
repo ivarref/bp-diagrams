@@ -127,12 +127,12 @@ function cc() { return getURLParameter('country_code', 'BP_WORLD') }
 function cc_vs() { return yaxismode()==='share' ? 'none' : getURLParameter('country_code_vs', 'none') }
 
 function show_numbers() {
-  return d3.select('body')
+  return ('show_numbers' in config) ? config['show_numbers'] : (d3.select('body')
   .selectAll('input')
   .filter(function(d) { 
     return d3.select(this).attr('name') === 'show_numbers' 
     && d3.select(this).attr('checked') === 'checked' 
-  }).attr('value')
+  }).attr('value'))
 }
 
 function init_show_numbers() {
@@ -143,6 +143,14 @@ function init_show_numbers() {
     return node.attr('name') === 'show_numbers' && node.attr('value') === getURLParameter('numbers', 'false')
   })
   .attr('checked', 'checked')
+
+  d3.select('body')
+  .selectAll('input')
+  .filter(function(d) { return d3.select(this).attr('name') === 'show_numbers' })
+  .on('change', function(d) {
+    config['show_numbers'] = d3.select(this).attr('value')
+    update()
+  })
 }
 init_show_numbers()
 
@@ -199,7 +207,7 @@ function show_advanced_mode() {
   }
 }
 
-config['advanced_mode'] = (yaxismode()==='share' || yaxismode()==='total' || cc_vs() !== 'none') ? 'true' : 'false'
+config['advanced_mode'] = (show_numbers()==='true' || yaxismode()==='share' || yaxismode()==='total' || cc_vs() !== 'none') ? 'true' : 'false'
 
 show_advanced_mode()
 
@@ -510,6 +518,9 @@ function update() {
   if (resources_array().length != all_resources.split(",").length) {
     permlink += "&resources=" + resources()
   }
+  
+  if (show_numbers()==='true')
+    permlink += "&numbers=true"
 
   d3.select('#permalink')
   .attr('href', permlink)
