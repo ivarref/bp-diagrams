@@ -15,14 +15,13 @@ text.smallheading { font: 14px sans-serif; }
   stroke: #000;
   shape-rendering: crispEdges;
 }
-
 rect { shape-rendering: crispEdges; }
 tr.advancedmode { }
 tr.simpledmode { }
 </style>
 <title>Energy Consumption</title>
 <body>
-<form method='GET' style='padding-bottom: 2px;'>
+<form style='padding-bottom: 2px;'>
 <table>
   <tr>
     <td>Choose country or group of nations: </td>
@@ -73,22 +72,40 @@ tr.simpledmode { }
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
-    <td> <a href="#" onclick="hideAdvancedMode(); return false;">Hide extra options</a> </td>
-    <td> <a href="#" id="permalink">Permalink to this diagram</a>
-         <a href="#" id="permalink_printer">printer friendly</a>
+    <td>Show numbers</td>
+    <td>
+      <label><input type="radio" name="show_numbers" value="true">On</label>
+      <label><input type="radio" name="show_numbers" value="false" checked="checked">Off</label>
     </td>
+  </tr>
+  <tr class="advancedmode" style="display: none">
+    <td><a href="#" onclick="hideAdvancedMode(); return false;">Hide extra options</a></td>
+    <td><a href="#" id="permalink">Permalink to this diagram</a> <a href="#" id="permalink_printer">printer friendly</a></td>
   </tr>
 </table>
 </form>
 <script src="d3.v3.min.js"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  if (window.location.href.indexOf("localhost") == -1) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-56575481-1', 'auto');
-  ga('send', 'pageview');
+    ga('create', 'UA-56575481-1', 'auto');
+    ga('send', 'pageview');
+  }
+
+String.prototype.hashCode = function() {
+  var hash = 0, i, chr, len;
+  if (this.length == 0) return hash;
+  for (i = 0, len = this.length; i < len; i++) {
+    chr   = this.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
 
 /*
 http://www.w3schools.com/tags/ref_color_tryit.asp?color=white
@@ -108,6 +125,26 @@ function advanced_mode() { return getURLParameter('advanced_mode', 'false') === 
 function since() { return format.parse(getURLParameter('since', '1965')) }
 function cc() { return getURLParameter('country_code', 'BP_WORLD') }
 function cc_vs() { return yaxismode()==='share' ? 'none' : getURLParameter('country_code_vs', 'none') }
+
+function show_numbers() {
+  return d3.select('body')
+  .selectAll('input')
+  .filter(function(d) { 
+    return d3.select(this).attr('name') === 'show_numbers' 
+    && d3.select(this).attr('checked') === 'checked' 
+  }).attr('value')
+}
+
+function init_show_numbers() {
+  d3.select('body')
+  .selectAll('input')
+  .filter(function(d) { 
+    var node = d3.select(this)
+    return node.attr('name') === 'show_numbers' && node.attr('value') === getURLParameter('numbers', 'false')
+  })
+  .attr('checked', 'checked')
+}
+init_show_numbers()
 
 function mode(other, default_value, share_mode) { 
    if (yaxismode() === 'per_capita') 
@@ -204,15 +241,15 @@ var info = svg.append("g")
   .attr("transform", "translate(20," + (20) + ")")
 
 function selectSingle(root, id) {
-    var sel = root.selectAll(id).data([1]);
-    var t = {
-        'enter' : function(fn) { fn(sel.enter()); return t },
-        'update' : function(fn) { fn(sel); return t },
-        'call' : function(fn) { sel.call(fn); return t },
-        'selection' : function() { return sel },
-        'text' : function(txt) { sel.text(txt); return t }
-    }
-    return t
+  var sel = root.selectAll(id).data([1]);
+  var t = {
+    'enter' : function(fn) { fn(sel.enter()); return t },
+    'update' : function(fn) { fn(sel); return t },
+    'call' : function(fn) { sel.call(fn); return t },
+    'selection' : function() { return sel },
+    'text' : function(txt) { sel.text(txt); return t }
+  }
+  return t
 }
 
 function update() {
