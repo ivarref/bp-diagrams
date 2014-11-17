@@ -248,6 +248,14 @@ var pal2 = svg.append('g')
 var info = svg.append("g")
   .attr("transform", "translate(20," + (20) + ")")
 
+function singleElement(root, elementtype) {
+  var id = "gen" + new Error().stack.hashCode()
+  var sel = root.selectAll(elementtype + "#" + id)
+            .data([1])
+  sel.enter().append(elementtype).attr('id', id)
+  return sel
+  
+}
 function selectSingle(root, id) {
   var sel = root.selectAll(id).data([1]);
   var t = {
@@ -258,6 +266,9 @@ function selectSingle(root, id) {
     'text' : function(txt) { sel.text(txt); return t }
   }
   return t
+}
+
+function info_boxes_with_shading() {
 }
 
 function update() {
@@ -541,20 +552,17 @@ d3.tsv('data/data.tsv', function(err, data) {
   names.forEach(function(d) {
     var code = rev[d]
     var id = code.indexOf('BP_') == 0 ? "#groups" : "#countries"
-    var option = d3.select(id)
+    d3.select(id)
       .append('option')
       .attr('value', rev[d])
       .text(d)
+      .attr('selected', cc() === code ? 'selected' : null)
 
-    var sel = d3.select(id + "_vs")
+    d3.select(id + "_vs")
       .append('option')
       .attr('value', rev[d])
       .text(d)
-    if (cc_vs() === code)
-      sel.attr('selected', 'selected')
-
-    if (cc() == code)
-      option.attr('selected', 'selected')
+      .attr('selected', cc_vs() === code ? 'selected' : null)
   })
 
   data.forEach(function(d) {

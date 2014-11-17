@@ -17,6 +17,11 @@ Plans for new features
 * Add production data.
 * Add net import/export show.
 
+TODOs
+----------------------
+
+* Remove config variable.
+
 Comments
 --------
 refsdal.ivar@gmail.com
