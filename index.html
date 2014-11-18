@@ -96,17 +96,6 @@ tr.simpledmode { }
     ga('send', 'pageview');
   }
 
-String.prototype.hashCode = function() {
-  var hash = 0, i, chr, len;
-  if (this.length == 0) return hash;
-  for (i = 0, len = this.length; i < len; i++) {
-    chr   = this.charCodeAt(i);
-    hash  = ((hash << 5) - hash) + chr;
-    hash |= 0; // Convert to 32bit integer
-  }
-  return hash;
-};
-
 /*
 http://www.w3schools.com/tags/ref_color_tryit.asp?color=white
 */
@@ -162,6 +151,14 @@ function mode(other, default_value, share_mode) {
    else if (yaxismode() ==='share') 
     return share_mode
 }
+
+function mode_builder() { this.set = false; this.val = null }
+mode_builder.prototype.get = function() { if (this.set == false) { new Error("Value not set.") } else { return this.val } }
+var modes = "total,per_capita,share".split(",")
+modes.forEach(function(mode) {
+  mode_builder.prototype[mode] = function(val) { if (yaxismode() === mode) { this.set = true; this.val = val }; return this }
+})
+
 
 function set_selected(attr, from_id) {
   return function() {
@@ -254,6 +251,13 @@ function singleElement(root, elementtype, id) {
   sel.enter().append(elementtype).attr('id', id)
   return sel
 }
+
+function selectionMap(sel, fn) {
+  var result = []
+  sel.each(function(d) { result.push(fn(this, d)) })
+  return result
+}
+
 function selectSingle(root, id) {
   var sel = root.selectAll(id).data([1]);
   var t = {
@@ -274,7 +278,11 @@ function countryname(cc, make_short) {
   return make_short===false ? name : name.replace('South and Central', 'S. and C.')
 }
 
-function add_heading_and_subheading() {
+function resource_name(d) {
+  return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
+}
+
+function graph_add_heading_and_subheading() {
   var headingMinusY = -28
 
   var heading = singleElement(svg, 'text', 'heading')
@@ -297,6 +305,117 @@ function add_heading_and_subheading() {
   .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
 }
 
+function graph_add_resources_info_box(data, maxyear) {
+  var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs(), true)] : []
+
+  var box = {width:20, height: 14, padding:4}
+  var padding = {left: 7, top: 7}
+
+  var res = resources_array().reverse()
+  var translate = { }
+  if (show_numbers() === 'true') {
+    res.unshift('heading')
+    res.push('cc_total')
+    translate.heading = 'Resource / Country'
+    translate.cc_total = countryname(cc(), false) + " total"
+  }
+  if (cc_vs() !== 'none') {
+    res.push('cc_vs')
+    translate.cc_vs = countryname(cc_vs(), true) + " total"
+  }
+
+
+  var infoheight = (padding.top) + (padding.top-box.padding) + (box.height+box.padding)*(res.length)
+
+  /* faded background box */
+  var fadedbox = singleElement(info, 'rect', 'fadedbox')
+  .attr('class', 'fadedbox')
+  .attr('width', 135)
+  .attr('height', infoheight)
+
+  var boundary = singleElement(info, 'g', 'boundary')
+    .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
+  var infobox = singleElement(boundary, 'g', 'infobox_left')
+  var infobox_right = singleElement(boundary, 'g', 'infobox_right')
+
+  /* boxes and names of resource */
+
+  function is_resource(d) { return resources_array().indexOf(d) != -1 }
+  function not_resource(d) { return resources_array().indexOf(d) == -1 }
+  var resinfo = infobox.selectAll('g.resourcelegend').data(res, function(d) { return d })
+  var res_enter = resinfo.enter().append('g').attr('class', 'resourcelegend')
+  resinfo.attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*i + ')' })
+
+  res_enter
+    .filter(is_resource)
+    .append('rect')
+    .attr('width', box.width)
+    .attr('height', box.height)
+    .style('fill', color)
+    .style('stroke', 'black')
+    .style('stroke-opacity', '100%')
+
+  res_enter
+    .append('text')
+    .attr('y', box.height/2)
+    .attr('dy', '.35em')
+  resinfo.select('text').text(function(d) { return is_resource(d) ? resource_name(d) : translate[d] } )
+    .attr('transform', function(d) { return d === 'heading' ? null : 'translate(' + (box.width + 4) + ',0)' })
+  resinfo.exit().remove()
+
+  resinfo
+    .select('text')
+    .filter(function(d) { return d === 'cc_vs' } )
+    .attr('class', 'vsfill')
+
+  resinfo
+    .select('text')
+    .filter(not_resource)
+    .style('font-weight', 'bold')
+
+  res_enter.filter(function(d) { return d === 'cc_vs' })
+   .append('line')
+   .attr('class', 'line')
+   .attr('x1', 0)
+   .attr('x2', box.width)
+   .attr('y1', (box.height/2))
+   .attr('y2', (box.height/2))
+
+  res_enter.filter(function(d) { return d === 'cc_vs' })
+   .append('circle')
+   .attr('class', 'cmpdot vsfill')
+   .attr('cx', box.width/2)
+   .attr('cy', box.height/2)
+   .attr('r', 3.5)
+
+  var width_left = 2*padding.left + 4 + box.width + d3.max(selectionMap(infobox.selectAll('text'), function(node, d) { return node.getBBox().width }))
+
+  /* Unit heading */
+  var right_x = width_left + 75
+  data.heading = 'TOE/Capita/a'
+  data.cc_total = '1234'
+  data.cc_vs = '9999'
+
+  var data_for_last_year = infobox_right.selectAll('text.number').data(res, function(d) { return d })
+  data_for_last_year.enter().append('text').attr('class', 'number')
+  data_for_last_year
+  .style('text-anchor', 'end')
+  .attr('x', right_x)
+  .attr('y', box.height/2)
+  .attr('dy', '.35em')
+  .attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*(i) + ')' })
+  .text(function(d) { return data[d] })
+  .filter(not_resource)
+  .style('font-weight', 'bold')
+
+  data_for_last_year.exit().remove()
+
+  var width_right = 2*padding.left + d3.max(selectionMap(infobox_right.selectAll('text'), function(node, d) { return node.getBBox().width }))
+  
+  fadedbox.attr('width', width_right + width_left)
+}
+
+
 function update() {
   var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
   var minyear = d3.min(data.map(function(d) { return d.year }))
@@ -305,93 +424,13 @@ function update() {
   var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
   var country_readable = countryname(data[0].country_code, false)
 
-  add_heading_and_subheading()
+  graph_add_heading_and_subheading()
   singleElement(svg, 'text', 'subheadingtext')
   .attr('class', 'smallheading')
   .attr('dy', '-.71em')
   .text(mode("Total Energy Consumption", "Per Capita Energy Consumption", "Relative share of energy consumption") + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
 
-  function name(d) {
-    return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
-  }
-
-  var labelsLength = resources_array().length + (cc_vs()==='none' ? 0 : 1)
-  var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs(), true)] : []
-
-  var infoheight = 8 + 16*(labelsLength)
-
-  var fadedbox = selectSingle(info, '#fadedbox')
-  .enter(function(sel) {
-    sel
-      .append('rect')
-      .attr('id', 'fadedbox')
-      .attr('class', 'fadedbox')
-      .attr('width', 135)
-  })
-  .selection()
-      .attr('height', infoheight)
-
-  var pad = selectSingle(info, '#padding')
-  .enter(function(sel) { sel.append('g').attr('id', 'padding').attr('transform', 'translate(7,0)') })
-  .selection()
-
-  var boxwidth = 20
-
-  var resinfo = pad.selectAll('g.resourcelegend').data(resources_array(), function(d) { return d })
-  
-  var res_enter = resinfo.enter()
-    .append('g')
-    .attr('class', 'resourcelegend')
-
-  resinfo.attr('transform', function(d, i) { return 'translate(0,' + (16*(resources_array().length-i)) + ')' })
-
-  res_enter
-    .append('rect')
-    .attr('x', 0)
-    .attr('y', -10)
-    .attr('width', boxwidth)
-    .attr('height', 12)
-    .style('fill', color)
-    .style('stroke', 'black')
-    .style('stroke-opacity', '100%')
-
-  res_enter
-    .append('text')
-    .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
-    .text(name)
-  resinfo.exit().remove()
-
-  var sel = pad.selectAll('g.vs_legend').data(cc_vs_name)
-  var entercontext = sel.enter()
-   .append('g')
-   .attr('class', 'vs_legend')
-  entercontext
-   .append('text')
-    .attr('transform', 'translate(' + (boxwidth + 4) + ',0)')
-    .attr('class', 'vsfill')
-    .style('font-weight', 'bold')
-  sel.attr('transform', 'translate(0,' + (16*(resources_array().length+1)) + ')')
-
-  entercontext
-   .append('line')
-   .attr('class', 'line')
-   .attr('x1', 0)
-   .attr('x2', boxwidth)
-   .attr('y1', -10 + 6)
-   .attr('y2', -10 + 6)
-
-  entercontext
-   .append('circle')
-   .attr('class', 'cmpdot vsfill')
-   .attr('cx', boxwidth/2)
-   .attr('cy', -10 + 6)
-   .attr('r', 3.5)
-  sel.select('text').text(Object)
-  sel.exit().remove()
-
-  var node = sel.select('text').node()
-  var vsTextWidth = 15 + boxwidth + (node != null ? node.getBBox().width : 0)
-  fadedbox.attr('width', d3.max([135, vsTextWidth]))
+  graph_add_resources_info_box(data.filter(function(d) { return d.year == maxyear })[0], maxyear)
 
   function total_value(d) {
     var p = mode(1.0, (d.population / 1000000.0))
