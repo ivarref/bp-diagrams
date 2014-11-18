@@ -305,6 +305,10 @@ function graph_add_heading_and_subheading() {
   .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
 }
 
+function y_unit_text() {
+  return mode('MTOE/a', 'TOE/Capita/a', 'Percentage')
+}
+
 function graph_add_resources_info_box(data, maxyear) {
   var cc_vs_name = cc_vs()!=='none' ? [countryname(cc_vs(), true)] : []
 
@@ -313,15 +317,15 @@ function graph_add_resources_info_box(data, maxyear) {
 
   var res = resources_array().reverse()
   var translate = { }
-  if (show_numbers() === 'true') {
-    res.unshift('heading')
-    res.push('cc_total')
-    translate.heading = 'Resource / Country'
-    translate.cc_total = countryname(cc(), false) + " total"
-  }
   if (cc_vs() !== 'none') {
     res.push('cc_vs')
     translate.cc_vs = countryname(cc_vs(), true) + " total"
+  }
+  if (show_numbers() === 'true') {
+    res.unshift('heading')
+    res.push('cc_total')
+    translate.heading = 'Resource / Country (' + maxyear.getFullYear() + ')'
+    translate.cc_total = countryname(cc(), false) + " total"
   }
 
 
@@ -392,9 +396,11 @@ function graph_add_resources_info_box(data, maxyear) {
 
   /* Unit heading */
   var right_x = width_left + 75
-  data.heading = 'TOE/Capita/a'
+  data.heading = y_unit_text()
   data.cc_total = '1234'
   data.cc_vs = '9999'
+
+  res = (show_numbers() === 'true') ? res : []
 
   var data_for_last_year = infobox_right.selectAll('text.number').data(res, function(d) { return d })
   data_for_last_year.enter().append('text').attr('class', 'number')
@@ -410,9 +416,9 @@ function graph_add_resources_info_box(data, maxyear) {
 
   data_for_last_year.exit().remove()
 
-  var width_right = 2*padding.left + d3.max(selectionMap(infobox_right.selectAll('text'), function(node, d) { return node.getBBox().width }))
+  var width_right = 2*padding.left + d3.max([0].concat(selectionMap(infobox_right.selectAll('text'), function(node, d) { return node.getBBox().width })))
   
-  fadedbox.attr('width', width_right + width_left)
+  fadedbox.attr('width', width_left + (res.length==0 ? 0 : 90))
 }
 
 
