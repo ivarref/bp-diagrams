@@ -10,6 +10,13 @@ relative share of energy consumption and total energy consumption.
 [View result](http://ivarref.github.io/bp-diagrams/)
 
 
+Features
+--------
+
+* Compare countries or group of countries.
+* Toggle resources (coal, oil, gas, nuclear, hydro and other renewables).
+* Permalinks (normal and printer friendly).
+
 Plans for new features
 ----------------------
 
@@ -20,7 +27,7 @@ Plans for new features
 TODOs
 ----------------------
 
-* Remove config variable.
+* Remove config variable?
 
 Comments
 --------
