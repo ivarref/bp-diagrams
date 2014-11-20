@@ -478,7 +478,7 @@ function graph_add_resources_info_box(data, secondary_data) {
       .attr('dy', '.35em')
       .attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*(i) + ')' })
       .text(function(d) { return dat[d] })
-      .filter(not_resource)
+      .filter(function(d) { return resources_array().indexOf(d) == -1 })
       .style('font-weight', 'bold')
   }
   data_for_last_year.exit().remove()
