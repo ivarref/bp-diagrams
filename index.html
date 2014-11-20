@@ -5,9 +5,8 @@ body { font: 12px sans-serif; }
 svg { border: 1px solid #000; }
 text.heading { font: 22px sans-serif; font-variant: small-caps; font-weight: bold; }
 text.smallheading { font: 14px sans-serif; }
-/*.ccfill { fill: #7B3513; }*/
-.ccfill { fill: mediumblue; }
-.vsfill { fill: Fuchsia; /* c0f */ }
+.cc { fill: mediumblue; }
+.cc_vs { fill: Fuchsia; /* c0f */ }
 .cmpdot { stroke: black; stroke-width: 1.0px; }
 .fadedbox { fill: #eee; fill-opacity: 87%; stroke: black; }
 .line { fill: none; stroke: black; stroke-width: 3.0px; }
@@ -98,6 +97,37 @@ tr.simpledmode { }
     ga('create', 'UA-56575481-1', 'auto');
     ga('send', 'pageview');
   }
+
+function contains() { 
+  var list = []
+  for (var i = 0; i < arguments.length; i++) {
+    var argument = arguments[i]
+    if (typeof argument === 'string') {
+      list.push(argument)
+    }
+    else if ('push' in argument) {
+      list = list.concat(argument)
+    }
+  }
+  return function(d) { return list.indexOf(d) >= 0 } 
+}
+
+function not_contains() {
+  var list = []
+  for (var i = 0; i < arguments.length; i++) {
+    var argument = arguments[i]
+    if (typeof argument === 'string') {
+      list.push(argument)
+    }
+    else if ('push' in argument) {
+      list = list.concat(argument)
+    }
+  }
+  return function(d) { return !(list.indexOf(d) >= 0) } 
+}
+
+function attr(id) { return function(d) { return d[id] } }
+function compose(f1, f2) { return function(d) { return f2(f1(d)) } }
 
 /*
 http://www.w3schools.com/tags/ref_color_tryit.asp?color=white
@@ -278,9 +308,6 @@ function selectSingle(root, id) {
   return t
 }
 
-function info_boxes_with_shading() {
-}
-
 function countryname(cc, make_short) { 
   var name = countrycodes[cc].split(",")[0] 
   return make_short===false ? name : name.replace('South and Central', 'S. and C.')
@@ -299,7 +326,7 @@ function graph_add_heading_and_subheading() {
   var headingMinusY = -28
 
   var heading = singleElement(svg, 'text', 'heading')
-  .attr('class', 'heading ccfill')
+  .attr('class', 'heading cc')
   .attr('transform', 'translate(0, ' + headingMinusY + ')')
   .text(countryname(cc(), false))
 
@@ -310,7 +337,7 @@ function graph_add_heading_and_subheading() {
   .text(cc_vs() !== 'none' ? 'VS' : '')
 
   singleElement(svg, 'text', 'vscountrytext')
-  .attr('class', 'heading vsfill') 
+  .attr('class', 'heading cc_vs') 
   .attr('dx', '.43em')
   .attr('transform', 'translate(' + (vs.node().getBBox().width + heading.node().getBBox().width) + ','+headingMinusY+')')
   .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
@@ -344,10 +371,10 @@ function graph_add_resources_info_box(data, secondary_data) {
   if (is_show_numbers()) {
     res.unshift('heading')
     if (yaxismode() !== 'share') {
-      res.push('cc_total')
+      res.push('cc')
     }
     translate.heading = 'Resource' + (yaxismode() === 'share' ? '' : ' / Country')
-    translate.cc_total = countryname_total(cc())
+    translate.cc = countryname_total(cc())
   }
   if (cc_vs() !== 'none') {
     res.push('cc_vs')
@@ -388,7 +415,7 @@ function graph_add_resources_info_box(data, secondary_data) {
 
   var h = (box.height) / resources_array().length
   res_enter
-    .filter(function(d) { return d.key === 'cc_total' })
+    .filter(function(d) { return d.key === 'cc' })
     .append('g')
     .selectAll('rect').data(resources_array().reverse())
     .enter().append('rect')
@@ -400,7 +427,7 @@ function graph_add_resources_info_box(data, secondary_data) {
     .style('stroke', 'none')
 
   res_enter
-    .filter(function(d) { return d.key === 'cc_total' })
+    .filter(function(d) { return d.key === 'cc' })
     .append('rect')
     .attr('width', box.width)
     .attr('height', box.height)
@@ -417,13 +444,8 @@ function graph_add_resources_info_box(data, secondary_data) {
     .text(function(d) { return d.value })
     .filter(not_resource)
     .style('font-weight', 'bold')
-    //.filter(function(d) { return d.key === 'cc_vs' } )
-    .attr('class', function(d) { 
-      if (d.key === 'cc_vs') return 'vsfill'
-      else if (d.key === 'cc_total') return 'ccfill'
-      else return null
-      }
-    )
+    .filter(compose(attr('key'), contains('cc', 'cc_vs')))
+    .attr('class', attr('key'))
 
   res_enter
    .filter(function(d) { return d.key === 'cc_vs' })
@@ -437,7 +459,7 @@ function graph_add_resources_info_box(data, secondary_data) {
   res_enter
    .filter(function(d) { return d.key === 'cc_vs' })
    .append('circle')
-   .attr('class', 'cmpdot vsfill')
+   .attr('class', 'cmpdot cc_vs')
    .attr('cx', box.width/2)
    .attr('cy', box.height/2)
    .attr('r', 3.5)
@@ -450,40 +472,41 @@ function graph_add_resources_info_box(data, secondary_data) {
   /* Actual numbers and heading */
   var margin_left = 90
   var right_x = width_left + margin_left
-  data = data.filter(function(d) { return d.year.getFullYear()+"" == show_numbers() })[0]
 
   var dat = {}
   var decimals = { per_capita : 2, total : 1, share : 1}[yaxismode()]
 
   res = is_show_numbers() ? res : []
 
+  if (is_show_numbers()) {
+    data = data.filter(function(d) { return d.year.getFullYear()+"" == show_numbers() })[0]
+    var fn = resource_fn()
+    resources_array().forEach(function(res) { 
+      dat[res] = fn(data, res).toFixed(decimals)
+    })
+
+    secondary_data = secondary_data.filter(function(d) { return d.year.getFullYear()+"" == show_numbers() })
+    dat.heading = y_unit_text() + ' (' + show_numbers() + ')'
+    dat.cc = total_value(data).toFixed(decimals)
+    dat.cc_vs = secondary_data.length == 0 ? null : total_value(secondary_data[0]).toFixed(decimals)
+  }
+
   var data_for_last_year = infobox_right.selectAll('text').data(res, function(d) { return d })
   data_for_last_year.enter().append('text')
 
-  if (is_show_numbers()) {
-      var fn = resource_fn()
-      resources_array().forEach(function(res) { 
-        dat[res] = fn(data, res).toFixed(decimals)
-      })
+  data_for_last_year
+  .style('text-anchor', 'end')
+  .attr('x', right_x)
+  .attr('y', box.height/2)
+  .attr('dy', '.35em')
+  .attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*(i) + ')' })
+  .text(function(d) { return dat[d] })
+  .filter(not_contains(resources_array()))
+  .style('font-weight', 'bold')
+  .filter(contains('cc', 'cc_vs'))
+  .attr('class', Object)
 
-      secondary_data = secondary_data.filter(function(d) { return d.year.getFullYear()+"" == show_numbers() })
-      dat.heading = y_unit_text() + ' (' + show_numbers() + ')'
-      dat.cc_total = total_value(data).toFixed(decimals)
-      dat.cc_vs = secondary_data.length == 0 ? null : total_value(secondary_data[0]).toFixed(decimals)
-
-      data_for_last_year
-      .style('text-anchor', 'end')
-      .attr('x', right_x)
-      .attr('y', box.height/2)
-      .attr('dy', '.35em')
-      .attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*(i) + ')' })
-      .text(function(d) { return dat[d] })
-      .filter(function(d) { return resources_array().indexOf(d) == -1 })
-      .style('font-weight', 'bold')
-  }
   data_for_last_year.exit().remove()
-
-
 
   var width_right = 2*padding.left + d3.max([0].concat(selectionMap(infobox_right.selectAll('text'), function(node, d) { return node.getBBox().width })))
   
@@ -593,7 +616,7 @@ function update() {
   sel = sel.selectAll('circle').data(cmp_line)
   sel.enter().append('circle')
   sel
-    .attr('class', 'vsfill cmpdot')
+    .attr('class', 'cc_vs cmpdot')
     .attr('cx', function(d) { return x(d.x) })
     .attr('cy', function(d) { return y(d.y) })
     .attr('r', 3.5)

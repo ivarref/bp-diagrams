@@ -16,13 +16,12 @@ Features
 * Compare countries or group of countries.
 * Toggle resources (coal, oil, gas, nuclear, hydro and other renewables).
 * Permalinks (normal and printer friendly).
+* Show actual numbers option.
+* Choose year to show actual numbers.
 
 Plans for new features
 ----------------------
 
-* Show actual numbers option.
-* Choose year to show actual numbers.
-* Disable reference when in relative mode.
 * Add production data.
 * Add net import/export show.
 
