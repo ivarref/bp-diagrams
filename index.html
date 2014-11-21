@@ -35,7 +35,7 @@ tr.simpledmode { }
   </tr>
   <tr class="simplemode">
     <td colspan="2">
-      <a href="#" onclick="showAdvancedMode(); return false;">Show more options</a>
+      <a href="#" onclick="show_advanced_mode('true'); return false;">Show more options</a>
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
@@ -81,7 +81,7 @@ tr.simpledmode { }
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
-    <td><a href="#" onclick="hideAdvancedMode(); return false;">Hide extra options</a></td>
+    <td><a href="#" onclick="show_advanced_mode('false'); return false;">Hide extra options</a></td>
     <td><a href="#" id="permalink">Permalink to this diagram</a> <a href="#" id="permalink_printer">printer friendly</a></td>
   </tr>
 </table>
@@ -112,22 +112,7 @@ function contains() {
   return function(d) { return list.indexOf(d) >= 0 } 
 }
 
-function not_contains() {
-  var list = []
-  for (var i = 0; i < arguments.length; i++) {
-    var argument = arguments[i]
-    if (typeof argument === 'string') {
-      list.push(argument)
-    }
-    else if ('push' in argument) {
-      list = list.concat(argument)
-    }
-  }
-  return function(d) { return !(list.indexOf(d) >= 0) } 
-}
-
-function attr(id) { return function(d) { return d[id] } }
-function compose(f1, f2) { return function(d) { return f2(f1(d)) } }
+function not_contains() { var fn = contains.apply(null, arguments); return function(d) { return !fn(d) } }
 
 /*
 http://www.w3schools.com/tags/ref_color_tryit.asp?color=white
@@ -172,6 +157,8 @@ var cc_vs = cached('cc_vs', function() {
   var ccvs = getURLParameter('country_code_vs', 'none'); 
   return (yaxismode()==='share' || ccvs === cc()) ? 'none' : ccvs
 })
+
+function is_cc_vs() { return cc_vs() !== 'none' }
 
 function show_numbers() { return config['show_numbers'] }
 function is_show_numbers() { return show_numbers() !== 'none' }
@@ -233,7 +220,8 @@ function resources() {
 
 function resources_array() { return resources().split(',') }
 
-function show_advanced_mode() {
+function show_advanced_mode(hideOrShow) {
+  config['advanced_mode'] = hideOrShow
   d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
   d3.selectAll('tr.simplemode').style('display', !advanced_mode() ? '' : 'none')
 
@@ -241,10 +229,9 @@ function show_advanced_mode() {
     d3.selectAll('tr').style('display', 'none')
   }
 }
+config['advanced_mode'] = (is_show_numbers() || yaxismode()==='share' || yaxismode()==='total' || is_cc_vs()) ? 'true' : 'false'
 
-config['advanced_mode'] = (is_show_numbers() || yaxismode()==='share' || yaxismode()==='total' || cc_vs() !== 'none') ? 'true' : 'false'
-
-show_advanced_mode()
+show_advanced_mode(config['advanced_mode'])
 
 var margin = {top: 65, right: 75, bottom: 35, left: 30},
     width = 960 - margin.left - margin.right,
@@ -296,18 +283,6 @@ function selectionMap(sel, fn) {
   return result
 }
 
-function selectSingle(root, id) {
-  var sel = root.selectAll(id).data([1]);
-  var t = {
-    'enter' : function(fn) { fn(sel.enter()); return t },
-    'update' : function(fn) { fn(sel); return t },
-    'call' : function(fn) { sel.call(fn); return t },
-    'selection' : function() { return sel },
-    'text' : function(txt) { sel.text(txt); return t }
-  }
-  return t
-}
-
 function countryname(cc, make_short) { 
   var name = countrycodes[cc].split(",")[0] 
   return make_short===false ? name : name.replace('South and Central', 'S. and C.')
@@ -315,7 +290,7 @@ function countryname(cc, make_short) {
 
 function countryname_total(cc) {
   var name = countryname(cc, true)
-  return name.indexOf('Total') == 0 ? name.split("Total ")[1] + " total" : name + " total"
+  return (name.indexOf('Total') == 0 ? name.split("Total ")[1] : name) + " total"
 }
 
 function resource_name(d) {
@@ -334,13 +309,13 @@ function graph_add_heading_and_subheading() {
   .attr('class', 'smallheading') 
   .attr('dx', '.35em')
   .attr('transform', 'translate(' + heading.node().getBBox().width + ','+headingMinusY+')')
-  .text(cc_vs() !== 'none' ? 'VS' : '')
+  .text(is_cc_vs() ? 'VS' : '')
 
   singleElement(svg, 'text', 'vscountrytext')
   .attr('class', 'heading cc_vs') 
   .attr('dx', '.43em')
   .attr('transform', 'translate(' + (vs.node().getBBox().width + heading.node().getBBox().width) + ','+headingMinusY+')')
-  .text(cc_vs() !== 'none' ? countryname(cc_vs(), true) : '')
+  .text(is_cc_vs() ? countryname(cc_vs(), true) : '')
 }
 
 function y_unit_text() {
@@ -376,10 +351,11 @@ function graph_add_resources_info_box(data, secondary_data) {
     translate.heading = 'Resource' + (yaxismode() === 'share' ? '' : ' / Country')
     translate.cc = countryname_total(cc())
   }
-  if (cc_vs() !== 'none') {
+  if (is_cc_vs()) {
     res.push('cc_vs')
     translate.cc_vs = countryname_total(cc_vs())
   }
+  resources_array().forEach(function(res) { translate[res] = resource_name(res) })
 
   var infoheight = (padding.top) + (padding.top-box.padding) + (box.height+box.padding)*(res.length)
 
@@ -395,39 +371,42 @@ function graph_add_resources_info_box(data, secondary_data) {
   var infobox_right = singleElement(boundary, 'g', 'infobox_right')
 
   /* boxes and names of resource */
-  function is_resource(d) { return resources_array().indexOf(d.key) != -1 }
-  function not_resource(d) { return resources_array().indexOf(d.key) == -1 }
-  var labels = res.map(function(d) { return { key : d, value : (resources_array().indexOf(d)!=-1 ? resource_name(d) : translate[d]) } })
-
-  var resinfo = infobox.selectAll('g.resourcelegend').data(labels, function(d) { return d.key + "-" + d.value })
+  var resinfo = infobox.selectAll('g.resourcelegend').data(res, function(d) { return d })
   var res_enter = resinfo.enter().append('g').attr('class', 'resourcelegend')
   resinfo.attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*i + ')' })
 
   /* enter */
   res_enter
-    .filter(is_resource)
+    .filter(contains(resources_array()))
     .append('rect')
     .attr('width', box.width)
     .attr('height', box.height)
-    .style('fill', function(d) { return color(d.key) })
+    .style('fill', color)
     .style('stroke', 'black')
     .style('stroke-opacity', '100%')
 
   var h = (box.height) / resources_array().length
+
   res_enter
-    .filter(function(d) { return d.key === 'cc' })
+    .filter(contains('cc'))
     .append('g')
-    .selectAll('rect').data(resources_array().reverse())
-    .enter().append('rect')
+
+  var cc_box = resinfo.select('g')
+    .selectAll('rect').data(resources_array().reverse(), function(d) { return d })
+  cc_box.enter().append('rect')
     .attr('width', box.width)
+
+  cc_box
     .attr('height', h)
     .attr('y', function(d, i) { return i*h })
     .attr('x', 0)
     .style('fill', color)
     .style('stroke', 'none')
 
+  cc_box.exit().remove()
+
   res_enter
-    .filter(function(d) { return d.key === 'cc' })
+    .filter(contains('cc'))
     .append('rect')
     .attr('width', box.width)
     .attr('height', box.height)
@@ -440,15 +419,14 @@ function graph_add_resources_info_box(data, secondary_data) {
     .append('text')
     .attr('y', box.height/2 + .5)
     .attr('dy', '.355em')
-    .attr('transform', function(d) { return d.key === 'heading' ? null : 'translate(' + (box.width + 4) + ',0)' })
-    .text(function(d) { return d.value })
-    .filter(not_resource)
+    .attr('transform', function(d) { return d === 'heading' ? null : 'translate(' + (box.width + 4) + ',0)' })
+    .filter(not_contains(resources_array()))
     .style('font-weight', 'bold')
-    .filter(compose(attr('key'), contains('cc', 'cc_vs')))
-    .attr('class', attr('key'))
+    .filter(contains('cc', 'cc_vs'))
+    .attr('class', Object)
 
   res_enter
-   .filter(function(d) { return d.key === 'cc_vs' })
+   .filter(contains('cc_vs'))
    .append('line')
    .attr('class', 'line')
    .attr('x1', 0)
@@ -457,12 +435,15 @@ function graph_add_resources_info_box(data, secondary_data) {
    .attr('y2', (box.height/2))
 
   res_enter
-   .filter(function(d) { return d.key === 'cc_vs' })
+   .filter(contains('cc_vs'))
    .append('circle')
    .attr('class', 'cmpdot cc_vs')
    .attr('cx', box.width/2)
    .attr('cy', box.height/2)
    .attr('r', 3.5)
+
+  /* update */
+  resinfo.select('text').text(function(d) { return translate[d] })
 
   /* exit */
   resinfo.exit().remove()
@@ -488,7 +469,7 @@ function graph_add_resources_info_box(data, secondary_data) {
     secondary_data = secondary_data.filter(function(d) { return d.year.getFullYear()+"" == show_numbers() })
     dat.heading = y_unit_text() + ' (' + show_numbers() + ')'
     dat.cc = total_value(data).toFixed(decimals)
-    dat.cc_vs = secondary_data.length == 0 ? null : total_value(secondary_data[0]).toFixed(decimals)
+    dat.cc_vs = is_cc_vs() ? total_value(secondary_data[0]).toFixed(decimals) : null
   }
 
   var data_for_last_year = infobox_right.selectAll('text').data(res, function(d) { return d })
@@ -512,7 +493,6 @@ function graph_add_resources_info_box(data, secondary_data) {
   
   fadedbox.attr('width', width_left + (res.length==0 ? 0 : margin_left+15))
 }
-
 
 function update() {
   clear_cache()
@@ -553,31 +533,20 @@ function update() {
       })
   }}))
 
-  selectSingle(svg, '#yAxisLabel')
-    .enter(function(sel) { 
-      sel.append('text')
-      .attr('id', 'yAxisLabel')
-      .style('text-anchor', 'middle')
-      .attr('transform', 'translate(' + width + ',0)')
-      .attr('dy', '-.71em')
-      //.attr('dx', '2.01em')
-      })
-    .text(mode('MTOE/a', 'TOE/Capita/a', 'Percentage'))
+  singleElement(svg, 'text', 'yAxisLabel')
+  .style('text-anchor', 'middle')
+  .attr('transform', 'translate(' + width + ',0)')
+  .attr('dy', '-.71em')
+  .text(mode('MTOE/a', 'TOE/Capita/a', 'Percentage'))
 
-  selectSingle(svg, '.x.axis')
-  .enter(function(sel) {
-    sel.append('g')
-    .attr('class', 'x axis')
-    .attr("transform", "translate(0," + height + ")")
-  })
+  singleElement(svg, 'g', 'xAxis')
+  .attr('class', 'x axis')
+  .attr("transform", "translate(0," + height + ")")
   .call(d3.svg.axis().scale(x).orient("bottom"))
 
-  selectSingle(pal, '.y.axis')
-  .enter(function(sel) {
-    sel.append('g')
-    .attr('class', 'y axis')
-    .attr("transform", "translate(" + width + ",0)")
-  })
+  singleElement(pal, 'g', 'yAxis')
+  .attr('class', 'y axis')
+  .attr("transform", "translate(" + width + ",0)")
   .call(d3.svg.axis().scale(y).orient("right"))
 
   var energy = pal.selectAll(".energy") .data(resource_stack)
@@ -592,13 +561,7 @@ function update() {
 
   energy.exit().remove()
 
-  selectSingle(pal2, '#cmpLine')
-  .enter(function(sel) {
-    sel.append('path')
-    .attr('id', 'cmpLine')
-    .attr('class', 'line')
-  })
-  .selection()
+  singleElement(pal2, 'path', 'cmpLine').attr('class', 'line')
   .datum(cmp_line)
   .attr('d', 
     d3.svg.line(cmp_line)
@@ -606,37 +569,27 @@ function update() {
     .y(function(d) { return y(d.y) })
   )
 
-  var sel = selectSingle(pal2, '#cmpdots')
-  .enter(function(sel) {
-    sel.append('g')
-    .attr('id', 'cmpdots')
-  })
-  .selection()
-
-  sel = sel.selectAll('circle').data(cmp_line)
+  var sel = singleElement(pal2, 'g', 'cmpdots').selectAll('circle').data(cmp_line)
   sel.enter().append('circle')
   sel
     .attr('class', 'cc_vs cmpdot')
+    .style('cursor', 'pointer')
     .attr('cx', function(d) { return x(d.x) })
     .attr('cy', function(d) { return y(d.y) })
+    .on('click', function(d) { config['show_numbers'] = d.x.getFullYear() + ""; update(); })
     .attr('r', 3.5)
   sel.exit().remove()
 
-  selectSingle(svg, '#unitExplanation')
-  .enter(function(sel) { 
-    sel
-    .append('text')
-    .attr('id', 'unitExplanation') 
-    .attr('transform', 'translate('+ (width+margin.right) +',' + (height/2) + ') rotate(90)') 
-    .attr('dy', '1.51em')
-    .attr('text-anchor', 'middle')
-  })
+  singleElement(svg, 'text', 'unitExplanation')
+  .attr('transform', 'translate('+ (width+margin.right) +',' + (height/2) + ') rotate(90)') 
+  .attr('dy', '1.51em')
+  .attr('text-anchor', 'middle')
   .text(mode('Million Tonnes Oil Equivalents per annum',
              'Tonnes Oil Equivalents per Capita per annum',
              'Relative share of energy consumption'))
 
   var permlink = window.location.href.split('?')[0] + '?country_code=' + cc()
-  permlink += (cc_vs() !== 'none') ? ('&country_code_vs=' + cc_vs()) : ''
+  permlink += is_cc_vs() ? ('&country_code_vs=' + cc_vs()) : ''
   permlink += (yaxismode() !== 'per_capita') ? ('&mode=' + yaxismode()) : ''
 
   if (resources_array().length != all_resources.split(",").length) {
@@ -702,32 +655,20 @@ d3.tsv('data/data.tsv', function(err, data) {
   */
   update()
 
-  selectSingle(svg, '#contact')
-  .enter(function(sel) { 
-    sel
-    .append('text')
-    .attr('id', 'contact') 
-    .attr('transform', 'translate(' + (width+margin.right) + ',' + (height+margin.bottom) + ')') 
-    .attr('dx', '-.21em')
-    .attr('dy', '-.31em')
-    .style('text-anchor', 'end')
-  })
+  singleElement(svg, 'text', 'contact')
+  .attr('transform', 'translate(' + (width+margin.right) + ',' + (height+margin.bottom) + ')') 
+  .attr('dx', '-.21em')
+  .attr('dy', '-.31em')
+  .style('text-anchor', 'end')
   .text('Diagram by refsdal.ivar@gmail.com')
 
-  selectSingle(svg, '#sources')
-  .enter(function(sel) { 
-    sel
-    .append('text')
-    .attr('id', 'sources') 
-    .attr('transform', 'translate(' + (-margin.left) + ',' + (height+margin.bottom) + ')') 
-    .attr('dx', '.21em')
-    .attr('dy', '-.31em')
-    .style('text-anchor', 'start')
-  })
+  singleElement(svg, 'text', 'sources')
+  .attr('transform', 'translate(' + (-margin.left) + ',' + (height+margin.bottom) + ')') 
+  .attr('dx', '.21em')
+  .attr('dy', '-.31em')
+  .style('text-anchor', 'start')
   .text('Data from BP Statistical Review and World Bank')
 })
 
-function showAdvancedMode() { config['advanced_mode'] = 'true'; show_advanced_mode() }
-function hideAdvancedMode() { config['advanced_mode'] = 'false'; show_advanced_mode() }
 </script>
 </body>
