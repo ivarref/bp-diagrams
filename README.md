@@ -18,11 +18,11 @@ Features
 * Permalinks (normal and printer friendly).
 * Show actual numbers option.
 * Choose year to show actual numbers.
+* Show production data.
 
 Plans for new features
 ----------------------
 
-* Add production data.
 * Add net import/export show.
 
 TODOs

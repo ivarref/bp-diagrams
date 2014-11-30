@@ -8,7 +8,7 @@ text.smallheading { font: 14px sans-serif; }
 .cc { fill: mediumblue; }
 .cc_vs { fill: Fuchsia; /* c0f */ }
 .cmpdot { stroke: black; stroke-width: 1.0px; }
-.fadedbox { fill: #eee; fill-opacity: 87%; stroke: black; }
+.fadedbox { fill: #fff; fill-opacity: 87%; stroke: black; }
 .line { fill: none; stroke: black; stroke-width: 3.0px; }
 .axis path,
 .axis line {
@@ -53,9 +53,16 @@ tr.simpledmode { }
     <td>Choose what to show:</td>
     <td>
       <select id='mode_select' name='' style='min-width: 222px;'>
-        <option value='per_capita'>Per capita energy consumption</option>
-        <option value='total'>Total energy consumption</option>
-        <option value='share'>Relative share of energy consumption</option>
+        <optgroup label="Consumption">
+          <option value="per_capita">Per capita energy consumption</option>
+          <option value="total">Total energy consumption</option>
+          <option value="share">Relative share of energy consumption</option>
+        </optgroup>
+        <optgroup label="Production">
+          <option value="per_capita_prod">Per capita energy production</option>
+          <option value="total_prod">Total energy production</option>
+          <option value="share_prod">Relative share of energy production</option>
+        </optgroup>
       </select>
     </td>
   </tr>
@@ -153,9 +160,14 @@ function advanced_mode() { return getURLParameter('advanced_mode', 'false') === 
 function since() { return format.parse(getURLParameter('since', '1965')) }
 var cc = cached('cc', function() { return getURLParameter('country_code', 'BP_WORLD') })
 
+
+function is_share_mode() {
+  return yaxismode().indexOf('share') >= 0
+}
+
 var cc_vs = cached('cc_vs', function() { 
   var ccvs = getURLParameter('country_code_vs', 'none'); 
-  return (yaxismode()==='share' || ccvs === cc()) ? 'none' : ccvs
+  return (is_share_mode() || ccvs === cc()) ? 'none' : ccvs
 })
 
 function is_cc_vs() { return cc_vs() !== 'none' }
@@ -175,6 +187,7 @@ function update_show_numbers(data) {
   sel.exit().remove()
 }
 
+/*
 function mode(other, default_value, share_mode) { 
    if (yaxismode() === 'per_capita') 
     return default_value
@@ -183,6 +196,7 @@ function mode(other, default_value, share_mode) {
    else if (yaxismode() ==='share') 
     return share_mode
 }
+*/
 
 function set_selected(attr, from_id) {
   return function() {
@@ -209,11 +223,13 @@ d3.select('#resources_selection')
 
 function resources() {
   var resources_txt = ""
+  var postfix = majormode({'consumption' : "", 'production' : "_production"})
+  //var is_production = majormode({'consumption' : false, 'production' : true})
   d3.select('#resources_selection')
   .selectAll('input')
   .each(function(d) {
-    if (this.checked) 
-      resources_txt += "," + this.value
+    if (this.checked && this.disabled == false)
+      resources_txt += "," + this.value + postfix
   })
   return resources_txt === "" ? "" : resources_txt.substring(1)
 }
@@ -229,7 +245,7 @@ function show_advanced_mode(hideOrShow) {
     d3.selectAll('tr').style('display', 'none')
   }
 }
-config['advanced_mode'] = (is_show_numbers() || yaxismode()==='share' || yaxismode()==='total' || is_cc_vs()) ? 'true' : 'false'
+config['advanced_mode'] = (is_show_numbers() || is_share_mode() || yaxismode()==='total' || is_cc_vs()) ? 'true' : 'false'
 
 show_advanced_mode(config['advanced_mode'])
 
@@ -238,11 +254,15 @@ var margin = {top: 65, right: 75, bottom: 35, left: 30},
     height = 500 - margin.top - margin.bottom;
 
 var color = d3.scale.ordinal()
-color.range(["gray", "#187418", d3.rgb(254, 24, 24),"cyan","#36f"
+color.range([
+"gray", "gray", 
+"#187418", "#187418", 
+d3.rgb(254, 24, 24), d3.rgb(254, 24, 24),
+"cyan","#36f"
 ,"darkorange"
 ,"yellow"
 ,"#960"])
-color.domain(all_resources.split(","))
+color.domain("coal,coal_production,oil,oil_production,gas,gas_production,nuclear,hydro,other_renewables".split(","))
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -319,22 +339,39 @@ function graph_add_heading_and_subheading() {
 }
 
 function y_unit_text() {
-  return mode('MTOE/a', 'TOE/Capita/a', 'Percentage')
+  return yaxismodemap({'total' : 'MTOE/a', 'per_capita' : 'TOE/Capita/a', 'share' : 'Percentage' })
+}
+
+function yaxismodemap(map) {
+  var themode = yaxismode()
+  var res = map[themode.split("_prod")[0]]
+  if (res  === undefined) {
+    console.trace()
+    throw 'ERROR. Undefined mode: ' + yaxismode()
+  }
+  return res
+}
+
+function majormode(map) {
+  var is_production = yaxismode().indexOf('_prod') >= 0
+  return is_production ? map['production'] : map['consumption']
 }
 
 function total_value(d) {
   var sum = d3.sum(resources_array().map(function(res) { return d[res] }))
-  return {'per_capita' : function() { return sum / (d.population / 1000000.0) }
+  return yaxismodemap({
+         'per_capita' : function() { return sum / (d.population / 1000000.0) }
          ,'share' : function() { return 100.0 }
          ,'total' : function() { return sum }
-         }[yaxismode()]()
+         })()
 } 
 
 function resource_fn() {
-  return {'per_capita' : function(d, res) { return d[res] / (d.population / 1000000.0) }
+  return yaxismodemap({
+         'per_capita' : function(d, res) { return d[res] / (d.population / 1000000.0) }
          ,'share' : function(d, res) { return (100.0 * d[res]) / d3.sum(resources_array().map(function(rr) { return d[rr] })) }
          ,'total' : function(d, res) { return d[res] }
-         }[yaxismode()]
+         })
 }
 
 function graph_add_resources_info_box(data, secondary_data) {
@@ -345,10 +382,9 @@ function graph_add_resources_info_box(data, secondary_data) {
   var translate = { }
   if (is_show_numbers()) {
     res.unshift('heading')
-    if (yaxismode() !== 'share') {
+    if (!is_share_mode())
       res.push('cc')
-    }
-    translate.heading = 'Resource' + (yaxismode() === 'share' ? '' : ' / Country')
+    translate.heading = 'Resource' + (is_share_mode() ? '' : ' / Country')
     translate.cc = countryname_total(cc())
   }
   if (is_cc_vs()) {
@@ -368,7 +404,6 @@ function graph_add_resources_info_box(data, secondary_data) {
   var boundary = singleElement(info, 'g', 'boundary')
     .attr('transform', 'translate(' + padding.left + ',' + padding.top + ')')
   var infobox = singleElement(boundary, 'g', 'infobox_left')
-  var infobox_right = singleElement(boundary, 'g', 'infobox_right')
 
   /* boxes and names of resource */
   var resinfo = infobox.selectAll('g.resourcelegend').data(res, function(d) { return d })
@@ -455,7 +490,7 @@ function graph_add_resources_info_box(data, secondary_data) {
   var right_x = width_left + margin_left
 
   var dat = {}
-  var decimals = { per_capita : 2, total : 1, share : 1}[yaxismode()]
+  var decimals = yaxismodemap({ per_capita : 2, total : 1, share : 1})
 
   res = is_show_numbers() ? res : []
 
@@ -472,22 +507,27 @@ function graph_add_resources_info_box(data, secondary_data) {
     dat.cc_vs = is_cc_vs() ? total_value(secondary_data[0]).toFixed(decimals) : null
   }
 
-  var data_for_last_year = infobox_right.selectAll('text').data(res, function(d) { return d })
-  data_for_last_year.enter().append('text')
+  var infobox_right = singleElement(boundary, 'g', 'infobox_right')
 
-  data_for_last_year
-  .style('text-anchor', 'end')
-  .attr('x', right_x)
-  .attr('y', box.height/2)
-  .attr('dy', '.35em')
-  .attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*(i) + ')' })
-  .text(function(d) { return dat[d] })
-  .filter(not_contains(resources_array()))
-  .style('font-weight', 'bold')
-  .filter(contains('cc', 'cc_vs'))
-  .attr('class', Object)
-
-  data_for_last_year.exit().remove()
+  function add_numbers(sel) {
+    sel.enter().append('text')
+    sel
+    .style('text-anchor', 'end')
+    .attr('x', right_x)
+    .attr('y', box.height/2)
+    .attr('dy', '.35em')
+    .attr('transform', function(d, i) { return 'translate(0,' + (box.height + box.padding)*(i) + ')' })
+    .text(function(d) { return dat[d] })
+    .filter(not_contains(resources_array()))
+    .style('font-weight', 'bold')
+    .filter(contains('cc', 'cc_vs'))
+    .attr('class', Object)
+    sel
+    .filter(contains(resources_array()))
+    .attr('class', 'cc')
+    sel.exit().remove()
+  }
+  infobox_right.selectAll('text').data(res, function(d) { return d }).call(add_numbers)
 
   var width_right = 2*padding.left + d3.max([0].concat(selectionMap(infobox_right.selectAll('text'), function(node, d) { return node.getBBox().width })))
   
@@ -497,7 +537,15 @@ function graph_add_resources_info_box(data, secondary_data) {
 function update() {
   clear_cache()
   d3.select('#ccselect_vs')
-  .attr('disabled', function() { return yaxismode() === 'share' ? 'disabled' : null })
+  .attr('disabled', function() { return is_share_mode() ? 'disabled' : null })
+  d3.select('#resources_selection')
+  .selectAll('input')
+  .attr('disabled', function() {
+    if (majormode({'consumption' : true, 'production' : false}))
+      return null
+    else 
+      return 'oil,coal,gas'.indexOf(this.value) >= 0 ? null : "disabled"
+  })
 
   var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
   var minyear = d3.min(data.map(function(d) { return d.year }))
@@ -508,11 +556,13 @@ function update() {
 
   update_show_numbers(data)
 
+  var headingTxt = yaxismodemap({'per_capita' : "Per Capita Energy", "total" : "Total Energy", "share" : "Relative Share of Energy"})
+  + " " + majormode({'production' : 'Production', 'consumption' : 'Consumption'})
   graph_add_heading_and_subheading()
   singleElement(svg, 'text', 'subheadingtext')
   .attr('class', 'smallheading')
   .attr('dy', '-.71em')
-  .text(mode("Total Energy Consumption", "Per Capita Energy Consumption", "Relative share of energy consumption") + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
+  .text(headingTxt + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
 
   graph_add_resources_info_box(data, secondary_data)
 
@@ -527,9 +577,15 @@ function update() {
     return {
       name: resource,
       values: data.map(function(d) { 
-      var total = d3.sum(resources_array().map(function(res) { return d[res] }))
-      var p = mode(1.0, (d.population / 1000000.0), total)
-      return { year: d.year, y: p==0 ? 0 : (mode(1.0, 1.0, 100.0)*d[resource])/p }
+        var value = yaxismodemap({
+          'per_capita' : function() { return d[resource] / (d.population / 1000000.0) }
+          ,'total' : function() { return d[resource] }
+          ,'share' : function() { 
+            var sum = d3.sum(resources_array().map(function(res) { return d[res] }))
+            return sum == 0 ? 0 : (100.0 * (d[resource] / sum))
+          }
+        })()
+        return { year: d.year, y: value }
       })
   }}))
 
@@ -537,7 +593,7 @@ function update() {
   .style('text-anchor', 'middle')
   .attr('transform', 'translate(' + width + ',0)')
   .attr('dy', '-.71em')
-  .text(mode('MTOE/a', 'TOE/Capita/a', 'Percentage'))
+  .text(yaxismodemap({'total' : 'MTOE/a', 'per_capita' : 'TOE/Capita/a', 'share' : 'Percentage'}))
 
   singleElement(svg, 'g', 'xAxis')
   .attr('class', 'x axis')
@@ -584,20 +640,22 @@ function update() {
   .attr('transform', 'translate('+ (width+margin.right) +',' + (height/2) + ') rotate(90)') 
   .attr('dy', '1.51em')
   .attr('text-anchor', 'middle')
-  .text(mode('Million Tonnes Oil Equivalents per annum',
-             'Tonnes Oil Equivalents per Capita per annum',
-             'Relative share of energy consumption'))
+  .text(yaxismodemap({'total' : 'Million Tonnes Oil Equivalents per annum',
+                      'per_capita' : 'Tonnes Oil Equivalents per Capita per annum',
+                      'share' : 'Relative Share of Energy ' + majormode({'consumption': 'Consumption', 'production' : 'Production'})}))
 
   var permlink = window.location.href.split('?')[0] + '?country_code=' + cc()
   permlink += is_cc_vs() ? ('&country_code_vs=' + cc_vs()) : ''
   permlink += (yaxismode() !== 'per_capita') ? ('&mode=' + yaxismode()) : ''
 
   if (resources_array().length != all_resources.split(",").length) {
-    permlink += "&resources=" + resources()
+    permlink += "&resources=" + resources().replace(/_production/g, "")
   }
   
   if (is_show_numbers())
     permlink += "&numbers=" + show_numbers()
+  if (since().getFullYear() !== 1965)
+    permlink += "&since=" + since().getFullYear()
 
   d3.select('#permalink')
   .attr('href', permlink)
@@ -644,6 +702,9 @@ d3.tsv('data/data.tsv', function(err, data) {
 
     //d.other_renewables = (+d.other_renewables) - (d.solar + d.wind)
     d.other_renewables = +d.other_renewables
+    d.coal_production = +d.coal_production
+    d.oil_production = +d.oil_production
+    d.gas_production = +d.gas_production
   })
 
   all_data = data

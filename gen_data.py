@@ -132,13 +132,42 @@ for k in [x for x in population_lookup.keys() if x.startswith('WLD-')]:
 files = [f for f in glob("data/*consumption*.csv")]
 resources = [f.split('2014_')[1].split('_consumption')[0] for f in files]
 
-fds = [open(f, 'r') for f in files]
-
-
-# skip headers
-for fd in fds:
+def skip_headers(fd):
   while (fd.readline().strip() != ""):
     continue
+  return True
+
+def production_key(group, resource, year):
+  return group + "-" + resource + "-" + year
+
+production = {}
+
+for f in glob("data/*production*.csv"):
+  seengroups = []
+  fd = open(f, 'r')
+  skip_headers(fd)
+  fields = [x[1:-1] for x in fd.readline().strip().split(",")]
+  groups = fields[1:]
+  resource = f.split('_2014_')[1].split('_')[0]
+  for line in fd.readlines():
+    line = line.strip()
+    parts = line.split(",")
+    for (idx,group) in enumerate(groups):
+      value = None
+      try:
+        value = Decimal(parts[idx+1])
+      except:
+        if group in seengroups:
+          raise ValueError('Group already seen, but had NA in data...')
+      if value != None:
+        if group not in seengroups:
+          seengroups.append(group)
+        production[production_key(group, resource, parts[0])] = value
+  fd.close()
+
+fds = [open(f, 'r') for f in files]
+
+[skip_headers(fd) for fd in fds]
 
 fields = [x[1:-1] for x in fds[0].readline().strip().split(",")]
 groups = fields[1:]
@@ -147,43 +176,49 @@ groups = fields[1:]
 
 seengroups = []
 
-print "year\tcountry\tcountry_code\tpopulation\t%s" % ("\t".join(resources))
-
-while True:
-  lines = [fd.readline().strip() for fd in fds]
-  if not lines[0]:
-    break
-  years = [line.split(",")[0] for line in lines]
-  lengths_ok = 1 == len(Set([len(line.split(",")) for line in lines]))
-  if (not lengths_ok) or len(Set(years)) != 1:
-    raise ValueError('Oops.')
-  for group in groups:
-    if group in ignoregroups:
-      continue
-    idx = fields.index(group)
-    groupdata = [line.split(",")[idx] for line in lines]
-    if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups):
+with open('data/data.tsv', 'w') as out:
+  out.write("year\tcountry\tcountry_code\tpopulation\t%s\tcoal_production\toil_production\tgas_production\n" % ("\t".join(resources)))
+  while True:
+    lines = [fd.readline().strip() for fd in fds]
+    if not lines[0]:
+      break
+    years = [line.split(",")[0] for line in lines]
+    lengths_ok = 1 == len(Set([len(line.split(",")) for line in lines]))
+    if (not lengths_ok) or len(Set(years)) != 1:
       raise ValueError('Oops.')
-    if '"na"' in groupdata and len(Set(groupdata))==1:
-      continue
-    if '"na"' in groupdata and len(Set(groupdata))>1:
-      raise ValueError('Oops.')
-    group_sum = [Decimal(x) for x in groupdata]
-    if Decimal(0) == sum(group_sum) and group not in seengroups:
-      continue # drop data starting with zero
-    seengroups.append(group)
-    year = years[0]
-    translated_key = group # default to no translation
-    if group in c2_to_c3:
-      translated_key = c2_to_c3[group]
+    for group in groups:
+      if group in ignoregroups:
+        continue
+      idx = fields.index(group)
+      groupdata = [line.split(",")[idx] for line in lines]
+      if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups):
+        raise ValueError('Oops.')
+      if '"na"' in groupdata and len(Set(groupdata))==1:
+        continue
+      if '"na"' in groupdata and len(Set(groupdata))>1:
+        raise ValueError('Oops.')
+      group_sum = [Decimal(x) for x in groupdata]
+      if Decimal(0) == sum(group_sum) and group not in seengroups:
+        continue # drop data starting with zero
+      seengroups.append(group)
+      year = years[0]
+      translated_key = group # default to no translation
+      if group in c2_to_c3:
+        translated_key = c2_to_c3[group]
 
-    # search backwards in population data if missing data
-    keys = [translated_key + "-" + str(int(year)-x) for x in range(0, 5)]
-    matches = [key for key in keys if key in population_lookup]
-    if len(matches)==0:
-      raise ValueError("Missing keys [" + keys + "] group was " + group)
-    key = matches[0]
-    print "%s\t%s\t%s\t%s\t%s" % (year, countrycodes[group], group, population_lookup[key], "\t".join(groupdata))
+      # search backwards in population data if missing data
+      keys = [translated_key + "-" + str(int(year)-x) for x in range(0, 5)]
+      matches = [key for key in keys if key in population_lookup]
+      if len(matches)==0:
+        raise ValueError("Missing keys [" + keys + "] group was " + group)
+      key = matches[0]
+      def get_production(resource_type):
+        prod_key = production_key(group, resource_type, year)
+        if prod_key in production:
+          return production[prod_key]
+        else:
+          return 0
+      out.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (year, countrycodes[group], group, population_lookup[key], "\t".join(groupdata), get_production('coal'), get_production('oil'), get_production('gas')))
 
 [fd.close() for fd in fds]
 
