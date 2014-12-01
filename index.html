@@ -157,7 +157,6 @@ function clear_cache() {
 
 function yaxismode() { return getURLParameter('mode', 'per_capita') }
 function advanced_mode() { return getURLParameter('advanced_mode', 'false') === 'true'; }
-function since() { return format.parse(getURLParameter('since', '1965')) }
 var cc = cached('cc', function() { return getURLParameter('country_code', 'BP_WORLD') })
 
 
@@ -235,6 +234,13 @@ function resources() {
 }
 
 function resources_array() { return resources().split(',') }
+
+function since() { 
+  var default_since_year = d3.max(['1965',
+                                    resources_array().indexOf('gas_production')  >= 0 ? '1970' : '0',
+                                    resources_array().indexOf('coal_production') >= 0 ? '1981' : '0'])
+  return format.parse(getURLParameter('since', default_since_year))
+}
 
 function show_advanced_mode(hideOrShow) {
   config['advanced_mode'] = hideOrShow
