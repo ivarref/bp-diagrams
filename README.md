@@ -49,7 +49,7 @@ Acknowledgements
 
 [okfn](http://data.okfn.org/data/core/population) for World Bank data set.
 
-[Rune Likvern / Fractional Flow](http://fractionalflow.com/) for inspirings diagrams as well as feedback.
+[Rune Likvern / Fractional Flow](http://fractionalflow.com/) for inspiration as well as feedback.
 
 
 Comments
