@@ -9,11 +9,16 @@ relative share of energy consumption and total energy consumption.
 
 [View result](http://ivarref.github.io/bp-diagrams/)
 
+About the data
+--------------
+The data is available as a TSV (Tab Separated Values) file [here](https://github.com/ivarref/bp-diagrams/blob/master/data/data.tsv).
+The data is generated based on the [Mazama Science BP data set](http://mazamascience.com/OilExport/data.html) and the [okfn World Bank population data set](http://data.okfn.org/data/core/population).
+Mapping between the World Bank countries and BP groups is specified in [gen_data.py](https://github.com/ivarref/bp-diagrams/blob/master/gen_data.py).
 
 Notes
 --------
-* Gas production data available since 1970.
 * Coal production data available since 1980.
+* Gas production data available since 1970.
 
 Features
 --------
@@ -29,12 +34,22 @@ Features
 Plans for new features
 ----------------------
 
+* GDP/PPP as alternative left y-axis.
 
 TODOs
 ----------------------
 
 * Clean up data filtering.
 * Remove config variable?
+
+Acknowledgements
+----------------
+[Mazama Science](http://mazamascience.com/OilExport/) for BP data set.
+
+[okfn](http://data.okfn.org/data/core/population) for World Bank data set.
+
+[Rune Likvern / Fractional Flow](http://fractionalflow.com/) for inspirings diagrams as well as feedback.
+
 
 Comments
 --------
