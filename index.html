@@ -967,6 +967,10 @@ d3.tsv('data/data.tsv', function(err, data) {
   .attr('dy', '-.31em')
   .style('text-anchor', 'start')
   .text('Data from BP Statistical Review and World Bank')
+
+  d3.select('body')
+  .append('div')
+  .html('<a href="https://github.com/ivarref/bp-diagrams">More info about this diagram</a>.')
 })
 
 </script>
