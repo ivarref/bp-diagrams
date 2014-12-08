@@ -24,15 +24,16 @@ Features
 * Show actual numbers option.
 * Choose year to show actual numbers.
 * Show production data.
+* Net import/export show.
 
 Plans for new features
 ----------------------
 
-* Add net import/export show.
 
 TODOs
 ----------------------
 
+* Clean up data filtering.
 * Remove config variable?
 
 Comments

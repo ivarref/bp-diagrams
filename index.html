@@ -10,6 +10,8 @@ text.smallheading { font: 14px sans-serif; }
 .cmpdot { stroke: black; stroke-width: 1.0px; }
 .fadedbox { fill: #fff; fill-opacity: 87%; stroke: black; }
 .line { fill: none; stroke: black; stroke-width: 3.0px; }
+.export { fill: blue; }
+.import { fill: red; }
 .axis path,
 .axis line {
   fill: none;
@@ -63,6 +65,10 @@ tr.simpledmode { }
           <option value="total_prod">Total energy production</option>
           <option value="share_prod">Relative share of energy production</option>
         </optgroup>
+        <optgroup label="Net Import / Export">
+          <option value="per_capita_net">Per capita net energy Import / Export</option>
+          <option value="total_net">Total net energy Import / Export</option>
+        </optgroup>
       </select>
     </td>
   </tr>
@@ -104,6 +110,8 @@ tr.simpledmode { }
     ga('create', 'UA-56575481-1', 'auto');
     ga('send', 'pageview');
   }
+
+  function sign(x) { return x==0 ? 0 : (x>=0 ? 1 : -1) }
 
 function contains() { 
   var list = []
@@ -160,13 +168,13 @@ function advanced_mode() { return getURLParameter('advanced_mode', 'false') === 
 var cc = cached('cc', function() { return getURLParameter('country_code', 'BP_WORLD') })
 
 
-function is_share_mode() {
-  return yaxismode().indexOf('share') >= 0
-}
+function is_share_mode() { return yaxismode().indexOf('share') >= 0 }
+function is_net_mode() { return yaxismode().indexOf('_net') >= 0 }
 
 var cc_vs = cached('cc_vs', function() { 
   var ccvs = getURLParameter('country_code_vs', 'none'); 
-  return (is_share_mode() || ccvs === cc()) ? 'none' : ccvs
+  return (is_share_mode() || (!is_net_mode() && ccvs === cc())) ? 'none' : ccvs
+  //return (is_share_mode()) ? 'none' : ccvs
 })
 
 function is_cc_vs() { return cc_vs() !== 'none' }
@@ -185,17 +193,6 @@ function update_show_numbers(data) {
   sel.text(function(d) { return d.charAt(0).toUpperCase() + d.slice(1) } )
   sel.exit().remove()
 }
-
-/*
-function mode(other, default_value, share_mode) { 
-   if (yaxismode() === 'per_capita') 
-    return default_value
-   else if (yaxismode() ==='total') 
-    return other
-   else if (yaxismode() ==='share') 
-    return share_mode
-}
-*/
 
 function set_selected(attr, from_id) {
   return function() {
@@ -222,8 +219,7 @@ d3.select('#resources_selection')
 
 function resources() {
   var resources_txt = ""
-  var postfix = majormode({'consumption' : "", 'production' : "_production"})
-  //var is_production = majormode({'consumption' : false, 'production' : true})
+  var postfix = majormode({'consumption' : "", 'production' : "_production", 'net' : "_net"})
   d3.select('#resources_selection')
   .selectAll('input')
   .each(function(d) {
@@ -232,13 +228,22 @@ function resources() {
   })
   return resources_txt === "" ? "" : resources_txt.substring(1)
 }
-
 function resources_array() { return resources().split(',') }
+
+function has_resource(res) {
+  var rr = res.split(",")
+  var ress = resources_array()
+  for (var i=0; i<rr.length; i++) {
+    if (ress.indexOf(rr[i]) >= 0)
+      return true
+  }
+  return false
+}
 
 function since() { 
   var default_since_year = d3.max(['1965',
-                                    resources_array().indexOf('gas_production')  >= 0 ? '1970' : '0',
-                                    resources_array().indexOf('coal_production') >= 0 ? '1981' : '0'])
+                                    has_resource('gas_production,gas_net')  ? '1970' : '0',
+                                    has_resource('coal_production,coal_net') ? '1981' : '0'])
   return format.parse(getURLParameter('since', default_since_year))
 }
 
@@ -251,7 +256,7 @@ function show_advanced_mode(hideOrShow) {
     d3.selectAll('tr').style('display', 'none')
   }
 }
-config['advanced_mode'] = (is_show_numbers() || is_share_mode() || yaxismode()==='total' || is_cc_vs()) ? 'true' : 'false'
+config['advanced_mode'] = (is_show_numbers() || is_net_mode() || is_share_mode() || yaxismode()==='total' || is_cc_vs()) ? 'true' : 'false'
 
 show_advanced_mode(config['advanced_mode'])
 
@@ -261,14 +266,14 @@ var margin = {top: 65, right: 75, bottom: 35, left: 30},
 
 var color = d3.scale.ordinal()
 color.range([
-"gray", "gray", 
-"#187418", "#187418", 
-d3.rgb(254, 24, 24), d3.rgb(254, 24, 24),
+"gray", "gray", "gray",
+"#187418", "#187418", "#187418", 
+d3.rgb(254, 24, 24), d3.rgb(254, 24, 24), d3.rgb(254, 24, 24),
 "cyan","#36f"
 ,"darkorange"
 ,"yellow"
 ,"#960"])
-color.domain("coal,coal_production,oil,oil_production,gas,gas_production,nuclear,hydro,other_renewables".split(","))
+color.domain("coal,coal_production,coal_net,oil,oil_production,oil_net,gas,gas_production,gas_net,nuclear,hydro,other_renewables".split(","))
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -280,12 +285,11 @@ var y = d3.scale.linear().range([height, 0])
 var x = d3.time.scale().range([0, width])
 
 var area = d3.svg.area()
-    .x(function(d) { return x(d.year); })
-    .y0(function(d) { return y(d.y0); })
-    .y1(function(d) { return y(d.y0 + d.y); });
+    .x(function(d) { return x(d.year) })
+    .y0(function(d) { return y(d.y0) })
+    .y1(function(d) { return y(d.y0 + d.y) })
 
-var stack = d3.layout.stack()
-  .values(function(d) { return d.values; });
+var stack = d3.layout.stack().values(function(d) { return d.values; })
 
 var countrycodes = {}
 
@@ -320,11 +324,15 @@ function countryname_total(cc) {
 }
 
 function resource_name(d) {
-  return d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
+  d = d.split('_net')[0].split("_production")[0]
+  var n = d.charAt(0).toUpperCase() + d.slice(1).replace('_', ' ');
+  return n
 }
 
 function graph_add_heading_and_subheading() {
   var headingMinusY = -28
+
+  var showVs = is_cc_vs() ? (cc()!==cc_vs()) : false; //(is_net_mode() && is_cc_vs()) ? (cc()!==cc_vs()) : is_cc_vs()
 
   var heading = singleElement(svg, 'text', 'heading')
   .attr('class', 'heading cc')
@@ -335,13 +343,13 @@ function graph_add_heading_and_subheading() {
   .attr('class', 'smallheading') 
   .attr('dx', '.35em')
   .attr('transform', 'translate(' + heading.node().getBBox().width + ','+headingMinusY+')')
-  .text(is_cc_vs() ? 'VS' : '')
+  .text(showVs ? 'VS' : '')
 
   singleElement(svg, 'text', 'vscountrytext')
   .attr('class', 'heading cc_vs') 
   .attr('dx', '.43em')
   .attr('transform', 'translate(' + (vs.node().getBBox().width + heading.node().getBBox().width) + ','+headingMinusY+')')
-  .text(is_cc_vs() ? countryname(cc_vs(), true) : '')
+  .text(showVs ? countryname(cc_vs(), true) : '')
 }
 
 function y_unit_text() {
@@ -350,7 +358,7 @@ function y_unit_text() {
 
 function yaxismodemap(map) {
   var themode = yaxismode()
-  var res = map[themode.split("_prod")[0]]
+  var res = map[themode.split("_prod")[0].split("_net")[0]]
   if (res  === undefined) {
     console.trace()
     throw 'ERROR. Undefined mode: ' + yaxismode()
@@ -359,9 +367,36 @@ function yaxismodemap(map) {
 }
 
 function majormode(map) {
-  var is_production = yaxismode().indexOf('_prod') >= 0
-  return is_production ? map['production'] : map['consumption']
+  var key = "per_capita,total,share".split(",").indexOf(yaxismode()) >= 0 ? "consumption" : null
+  if (yaxismode().indexOf('_prod') >= 0)
+    key = "production"
+  if (yaxismode().indexOf('_net') >= 0)
+    key = "net"
+
+  if (!(key in map)) {
+    console.trace()
+    throw 'ERROR. Missing key: ' + key
+  }
+  return map[key]
 }
+
+function total_value_positive(d) {
+  var sum = d3.sum(resources_array().map(function(res) { return d[res] >=0 ? d[res] : 0 }))
+  return yaxismodemap({
+         'per_capita' : function() { return sum / (d.population / 1000000.0) }
+         ,'share' : function() { return 100.0 }
+         ,'total' : function() { return sum }
+         })()
+} 
+
+function total_value_negative(d) {
+  var sum = d3.sum(resources_array().map(function(res) { return d[res] <=0 ? d[res] : 0 }))
+  return yaxismodemap({
+         'per_capita' : function() { return sum / (d.population / 1000000.0) }
+         ,'share' : function() { return 100.0 }
+         ,'total' : function() { return sum }
+         })()
+} 
 
 function total_value(d) {
   var sum = d3.sum(resources_array().map(function(res) { return d[res] }))
@@ -386,10 +421,13 @@ function graph_add_resources_info_box(data, secondary_data) {
 
   var res = resources_array().reverse()
   var translate = { }
+  var skipCCname = is_cc_vs() && cc() === cc_vs() && is_net_mode()
   if (is_show_numbers()) {
     res.unshift('heading')
-    if (!is_share_mode())
+
+    if (!is_share_mode() && !skipCCname) {
       res.push('cc')
+    }
     translate.heading = 'Resource' + (is_share_mode() ? '' : ' / Country')
     translate.cc = countryname_total(cc())
   }
@@ -531,6 +569,10 @@ function graph_add_resources_info_box(data, secondary_data) {
     sel
     .filter(contains(resources_array()))
     .attr('class', 'cc')
+
+    sel.filter(function(d, i) { return i>0 && is_net_mode() && (+dat[d])>=0 }).attr('class', 'export')
+    sel.filter(function(d, i) { return i>0 && is_net_mode() && (+dat[d])<0 }).attr('class', 'import')
+
     sel.exit().remove()
   }
   infobox_right.selectAll('text').data(res, function(d) { return d }).call(add_numbers)
@@ -540,66 +582,186 @@ function graph_add_resources_info_box(data, secondary_data) {
   fadedbox.attr('width', width_left + (res.length==0 ? 0 : margin_left+15))
 }
 
+function show_subheading(minyear, maxyear) {
+  var headingTxt = yaxismodemap({'per_capita' : "Per Capita Energy", "total" : "Total Energy", "share" : "Relative Share of Energy"})
+  + " " + majormode({production : 'Production', consumption : 'Consumption', net : 'Net'}) //Import / Export'})
+  graph_add_heading_and_subheading()
+
+  var txts = []
+
+  function w() {
+    var tt = txts.filter(function(d) { return d.text().length > 0})
+    return 5*tt.length + d3.sum(tt.map(function(d) { return d.node().getBBox().width }))
+  }
+
+  txts.push( singleElement(svg, 'text', 'subheadingtext')
+  .attr('class', 'smallheading')
+  .attr('dy', '-.71em')
+  .text(headingTxt))
+
+  txts.push(singleElement(svg, 'text', 'subheadingtext_import').attr('dy', '-.71em')
+  .attr('transform', 'translate(' + w() + ',0)')
+  .style('font-weight', 'bold')
+  .attr('class', 'smallheading import')
+  .text(is_net_mode() ? 'Import' : ''))
+
+  txts.push(singleElement(svg, 'text', 'subheadingtext_slash').attr('class', 'smallheading').attr('dy', '-.71em')
+  .attr('transform', 'translate(' + w() + ',0)')
+  .text(is_net_mode() ? '/' : ''))
+
+  txts.push(singleElement(svg, 'text', 'subheadingtext_export').attr('dy', '-.71em')
+  .attr('transform', 'translate(' + w() + ',0)')
+  .style('font-weight', 'bold')
+  .attr('class', 'smallheading export')
+  .text(is_net_mode() ? 'Export' : ''))
+
+  txts.push(singleElement(svg, 'text', 'subheadingtext_years').attr('class', 'smallheading').attr('dy', '-.71em')
+  .attr('transform', 'translate(' + w() + ',0)')
+  .text(minyear + ' - ' + maxyear))
+
+}
+
 function update() {
   clear_cache()
   d3.select('#ccselect_vs')
   .attr('disabled', function() { return is_share_mode() ? 'disabled' : null })
+
   d3.select('#resources_selection')
   .selectAll('input')
   .attr('disabled', function() {
-    if (majormode({'consumption' : true, 'production' : false}))
+    if (majormode({'consumption' : true, 'production' : false, net : false}))
       return null
     else 
       return 'oil,coal,gas'.indexOf(this.value) >= 0 ? null : "disabled"
   })
 
-  var data = all_data.filter(function(d) { return d.country_code === cc() && d.year >= since() })
+  var filter_net_mode = function(d) { return is_net_mode() ? true : !('prop_change' in d) }
+
+  var data = all_data.filter(function(d) { return filter_net_mode(d) && d.country_code === cc() && d.year >= since() })
   var minyear = d3.min(data.map(function(d) { return d.year }))
   var maxyear = d3.max(data.map(function(d) { return d.year }))
-  var secondary_data = all_data.filter(function(d) { return d.country_code === cc_vs() && d.year >= minyear })
-  var pas_data = all_data.filter(function(d) { return (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
+  var secondary_data = all_data.filter(function(d) { return filter_net_mode(d) && d.country_code === cc_vs() && d.year >= minyear })
+  var pas_data = all_data.filter(function(d) { return filter_net_mode(d) && (d.country_code === cc() || d.country_code === cc_vs()) && d.year >= minyear })
   var country_readable = countryname(data[0].country_code, false)
 
   update_show_numbers(data)
 
-  var headingTxt = yaxismodemap({'per_capita' : "Per Capita Energy", "total" : "Total Energy", "share" : "Relative Share of Energy"})
-  + " " + majormode({'production' : 'Production', 'consumption' : 'Consumption'})
-  graph_add_heading_and_subheading()
-  singleElement(svg, 'text', 'subheadingtext')
-  .attr('class', 'smallheading')
-  .attr('dy', '-.71em')
-  .text(headingTxt + " " + minyear.getFullYear() + " - " + maxyear.getFullYear())
+  show_subheading(minyear.getFullYear(), maxyear.getFullYear())
 
   graph_add_resources_info_box(data, secondary_data)
 
-
-  var maxy = d3.max(pas_data.map(total_value))
-  y.domain([0, maxy])
+  var maxy = d3.max(pas_data.map(total_value_positive))
+  var miny = d3.min(pas_data.map(total_value_negative))
+  y.domain([d3.min([miny, 0]), d3.max([0, maxy])])
   x.domain(d3.extent(data.map(function(d) { return d.year })))
 
-  var cmp_line = secondary_data.map(function(d) { return {x : d.year, y : total_value(d)} })
+  var cmp_line = secondary_data.filter(function(d) { return !('prop_change' in d) }).map(function(d) { return {x : d.year, y : total_value(d)} })
 
-  var resource_stack = stack(resources_array().map(function(resource) {
-    return {
-      name: resource,
-      values: data.map(function(d) { 
-        var value = yaxismodemap({
-          'per_capita' : function() { return d[resource] / (d.population / 1000000.0) }
-          ,'total' : function() { return d[resource] }
-          ,'share' : function() { 
-            var sum = d3.sum(resources_array().map(function(res) { return d[res] }))
-            return sum == 0 ? 0 : (100.0 * (d[resource] / sum))
-          }
-        })()
-        return { year: d.year, y: value }
-      })
-  }}))
+  var y0neg = {}
+  var y0pos = {}
+  var resource_stack = []
+  resources_array().forEach(function(resource) {
+    var grouped = []
+    var val = function(d) {
+      var vv = yaxismodemap({
+        'per_capita' : function() { return d[resource] / (d.population / 1000000.0) }
+        ,'total' : function() { return d[resource] }
+        ,'share' : function() { 
+          var sum = d3.sum(resources_array().map(function(res) { return d[res] }))
+          return sum == 0 ? 0 : (100.0 * (d[resource] / sum))
+        }})()
+      if (vv === undefined) {
+        console.log('could not make value for ' + resource)
+        console.log('DATA:')
+        console.log(d)
+        console.log('End of DATA')
+        throw 'Error'
+      }
+      return vv
+    }
+
+    var build_point = function(d, curr_sign) {
+      var k = d.year.getTime()
+      if (!(k in y0neg)) y0neg[k] = 0
+      if (!(k in y0pos)) y0pos[k] = 0
+      var y = val(d)
+      var y0 = (curr_sign >= 0) ? y0pos[k] : y0neg[k]
+      if (curr_sign == 1) y0pos[k] += y
+      else y0neg[k] += y
+      return { year: d.year, y0: y0, y: y }
+    }
+
+    // TODO clean up this filtering...
+    var filtered = []
+    function is_zero(v) { return val(v) == 0 }
+    var vv = data.map(val)
+    //console.log(vv)
+
+    for (var i=0; i<data.length; i++) {
+      var c = data[i]
+      if (i>=1) {
+        var p =data[i-1]
+        //if (p.year.getTime() == c.year.getTime() && val(c) == val(p)) continue
+      }
+      filtered.push(c)
+    }
+    // Remove leading zeros
+    while (filtered.length >= 2 && is_zero(filtered[0]) && is_zero(filtered[1]))
+      filtered.shift()
+
+    // Remove trailing zeros
+    while (filtered.length >= 2 && is_zero(filtered[filtered.length-1]) && is_zero(filtered[filtered.length-2])) {
+      //console.log('pop ' + (filtered.length-1))
+      filtered.pop()
+    }
+
+    if (filtered.length == 1 && is_zero(filtered[0])) {
+      filtered.pop()
+    }
+
+    var last_sign = null
+    filtered.forEach(function(d, i) {
+      var curr_val = val(d)
+      var prev_data = filtered[(i==0) ? i : i-1]
+      var prev_val = val(prev_data)
+
+      var curr_sign = sign(curr_val)
+      curr_sign = curr_sign == 0 ? sign(prev_val) : curr_sign
+      if (sign(curr_val) == 0 && sign(prev_val) ==0 && i>=1) return
+      if (curr_sign == 0 && i==0) curr_sign = val(filtered[i+1])
+      if (curr_sign == 0) {
+        console.log(filtered)
+        console.log("i = " + i)
+        console.log(resource)
+        console.log(d.year)
+        throw 'Im sorry.'
+      }
+
+      if (sign(curr_val) != sign(prev_val) && sign(prev_val)==0) {
+        //console.log('change of sign at ' + i + ' for ' + resource + ' curr sign is ' + sign(curr_val))
+        resource_stack.push({name : resource, sg: last_sign, values: grouped})
+        //console.log(grouped.length)
+        grouped = [build_point(prev_data, curr_sign)]
+      }
+      grouped.push(build_point(d, curr_sign))
+      last_sign = curr_sign
+    })
+    resource_stack.push({name: resource, sg: last_sign, values: grouped})
+  })
 
   singleElement(svg, 'text', 'yAxisLabel')
   .style('text-anchor', 'middle')
   .attr('transform', 'translate(' + width + ',0)')
   .attr('dy', '-.71em')
   .text(yaxismodemap({'total' : 'MTOE/a', 'per_capita' : 'TOE/Capita/a', 'share' : 'Percentage'}))
+
+  singleElement(pal2, 'line', 'divider_line')
+  .attr('transform', 'translate(0,' + (y(0)) + ')')
+  .attr('x1', 0)
+  .attr('y1', 0)
+  .attr('x2', width)
+  .attr('y2', 0)
+  .style('stroke', function(d) { return is_net_mode() ? 'black' : null })
 
   singleElement(svg, 'g', 'xAxis')
   .attr('class', 'x axis')
@@ -610,16 +772,20 @@ function update() {
   .attr('class', 'y axis')
   .attr("transform", "translate(" + width + ",0)")
   .call(d3.svg.axis().scale(y).orient("right"))
+  .selectAll('text')
+  .attr('class', function(d) { return (!is_net_mode() || parseFloat(d3.select(this).text()) == 0.0)  ? null : d3.select(this).text().indexOf('-') == 0 ? 'import' : 'export' })
 
-  var energy = pal.selectAll(".energy") .data(resource_stack)
+  var energy = pal.selectAll(".energy").data(resource_stack)
   energy.enter().append("g")
   .attr("class", "energy")
   .append("path")
   .attr("class", "area")
-
   energy.select('path')
-  .attr("d", function(d) { return area(d.values); })
-  .style("fill", function(d) { return color(d.name); });
+  .attr("d", function(d) { return area(d.values) })
+  .style("fill", function(d) { return color(d.name) })
+  .style("fill-opacity", function(d) { return (d.sg>=0 ? null : '65%') })
+  //.on('mouseover', function(d) { d3.select(this).style('fill-opacity', '50%') .style('stroke', 'black') .style('stroke-width', '5px') })
+  //.on('mouseout', function(d) { d3.select(this).style('fill-opacity', '100%').style('stroke', null) })
 
   energy.exit().remove()
 
@@ -648,14 +814,14 @@ function update() {
   .attr('text-anchor', 'middle')
   .text(yaxismodemap({'total' : 'Million Tonnes Oil Equivalents per annum',
                       'per_capita' : 'Tonnes Oil Equivalents per Capita per annum',
-                      'share' : 'Relative Share of Energy ' + majormode({'consumption': 'Consumption', 'production' : 'Production'})}))
+                      'share' : 'Relative Share of Energy ' + majormode({'consumption': 'Consumption', 'production' : 'Production', net : 'Net Import / Export'})}))
 
   var permlink = window.location.href.split('?')[0] + '?country_code=' + cc()
   permlink += is_cc_vs() ? ('&country_code_vs=' + cc_vs()) : ''
   permlink += (yaxismode() !== 'per_capita') ? ('&mode=' + yaxismode()) : ''
 
   if (resources_array().length != all_resources.split(",").length) {
-    permlink += "&resources=" + resources().replace(/_production/g, "")
+    permlink += "&resources=" + resources().replace(/_production/g, "").replace(/_net/g, "")
   }
   
   if (is_show_numbers())
@@ -695,7 +861,11 @@ d3.tsv('data/data.tsv', function(err, data) {
       .attr('selected', cc_vs() === code ? 'selected' : null)
   })
 
+  var all_ccs = []
+
   data.forEach(function(d) {
+    if (all_ccs.indexOf(d.country_code) == -1)
+      all_ccs.push(d.country_code)
     d.year = format.parse(d.year)
     d.population = +d.population
     d.coal = +d.coal
@@ -706,20 +876,82 @@ d3.tsv('data/data.tsv', function(err, data) {
     d.solar = +d.solar
     d.wind = +d.wind
 
-    //d.other_renewables = (+d.other_renewables) - (d.solar + d.wind)
     d.other_renewables = +d.other_renewables
     d.coal_production = +d.coal_production
     d.oil_production = +d.oil_production
     d.gas_production = +d.gas_production
+
+    d.oil_net = d.oil_production - d.oil
+    d.gas_net = d.gas_production - d.gas
+    d.coal_net = d.coal_production - d.coal
   })
 
-  all_data = data
-  /*
-  config['country_code'] = 'SE'
-  config['country_code_vs'] = 'NO'
-  update()
-  config['country_code_vs'] = 'DK'
-  */
+  var newdata = []
+
+  //all_ccs = ['DZ', 'AR', 'AU', 'GB', 'AZ', 'TM']//, 'CN']
+
+  all_ccs.forEach(function(code) {
+    var filtered = data.filter(function(d) { return d.country_code === code && d.year >= since() })
+    filtered.forEach(function(d, i) {
+      if (i>0) {
+        var curr = filtered[i]
+        var prev = filtered[i-1]
+        var changes = []
+
+        if (sign(prev.coal_net) != sign(curr.coal_net)) changes.push('coal_net')
+        if (sign(prev.oil_net) != sign(curr.oil_net)) changes.push('oil_net')
+        if (sign(prev.gas_net) != sign(curr.gas_net)) changes.push('gas_net')
+
+        if (changes.length>1) {
+          //console.log(code)
+          //throw 'Whoops'
+        }
+
+        var ps = changes.map(function(prop_change) {
+          var dy = Math.abs(curr[prop_change] - prev[prop_change])
+          var dt = curr.year - prev.year
+          var dpopulation = curr.population - prev.population
+          var p = Math.abs(0-prev[prop_change]) / dy 
+          return {p: p, change : prop_change}
+        })
+        if (d3.set(ps.map(function(d) { return d.p })).size() != ps.length) {
+          console.log('fix the code...')
+          throw 'ERROR'
+        }
+        ps = ps.filter(function(d) { return prev[d.change] != 0 })
+        ps.sort(function(a,b) { return a.p-b.p })
+
+        for (var k=0; k<ps.length; k++) {
+          var p = ps[k].p
+          var prop_changes = ps.filter(function(d) { return d.p == p }).map(function(d) { return d.change })
+          if (prop_changes.length > 1) {
+            console.log('fix the code...')
+            throw 'ERROR'
+          }
+          var prop_change = prop_changes[0]
+          var dy = Math.abs(curr[prop_change] - prev[prop_change])
+          var dt = curr.year - prev.year
+          var dpopulation = curr.population - prev.population
+          var p = Math.abs(0-prev[prop_change]) / dy 
+          var newdate = new Date(prev.year.getTime() + parseInt((p*dt)))
+          var dat = {country_code: curr.country_code, 
+                     year : newdate, 
+                     population : curr.population,
+                     prop_change : true,
+                     oil_net: 'oil_net' === prop_change ? 0.0 : prev.oil_net + p*(curr.oil_net - prev.oil_net), 
+                     gas_net: 'gas_net' === prop_change ? 0.0 : prev.gas_net + p*(curr.gas_net - prev.gas_net), 
+                     coal_net: 'coal_net' === prop_change ? 0.0 : prev.coal_net + p*(curr.coal_net-prev.coal_net)}
+          if (p != 1.0 && p != 0.0)
+            newdata.push(dat)
+          else { //console.log('skipping ... ' + code) 
+          }
+        }
+      }
+      newdata.push(d)
+    })
+  })
+
+  all_data = newdata
   update()
 
   singleElement(svg, 'text', 'contact')
