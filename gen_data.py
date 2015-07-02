@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import json
 import sys
 from glob import glob
@@ -130,7 +132,7 @@ for k in [x for x in population_lookup.keys() if x.startswith('WLD-')]:
 
 
 files = [f for f in glob("data/*consumption*.csv")]
-resources = [f.split('2014_')[1].split('_consumption')[0] for f in files]
+resources = [f.split('BP_')[1].split('_consumption')[0] for f in files]
 
 def skip_headers(fd):
   while (fd.readline().strip() != ""):
@@ -148,7 +150,7 @@ for f in glob("data/*production*.csv"):
   skip_headers(fd)
   fields = [x[1:-1] for x in fd.readline().strip().split(",")]
   groups = fields[1:]
-  resource = f.split('_2014_')[1].split('_')[0]
+  resource = f.split('BP_')[1].split('_')[0]
   for line in fd.readlines():
     line = line.strip()
     parts = line.split(",")
