@@ -3,7 +3,7 @@ BP-diagrams
 
 Goal
 ----
-Visualize BP (British Petroleum) Statistical Review of the World.
+Visualize BP (British Petroleum) Statistical Review of the World 2015.
 Choose between resource usage per capita, 
 relative share of energy consumption and total energy consumption.
 
