@@ -280,7 +280,7 @@ function show_advanced_mode(hideOrShow) {
     d3.selectAll('tr').style('display', 'none')
   }
 }
-var advanced_bool = is_show_numbers() || is_net_mode() || is_share_mode() || (yaxismode()==='total') || is_cc_vs() || (left_y_axis() != 'none')
+var advanced_bool = is_show_numbers() || is_net_mode() || is_share_mode() || (yaxismode()==='total') || is_cc_vs() || (left_y_axis() != 'same')
 config['advanced_mode'] = advanced_bool ? 'true' : 'false'
 
 show_advanced_mode(config['advanced_mode'])
