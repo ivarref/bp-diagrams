@@ -6,6 +6,7 @@ svg { border: 1px solid #000; }
 text.heading { font: 22px sans-serif; font-variant: small-caps; font-weight: bold; }
 text.smallheading { font: 14px sans-serif; }
 .cc { fill: mediumblue; }
+.population { fill: mediumblue; }
 .cc_vs { fill: Fuchsia; /* c0f */ }
 .cmpdot { stroke: black; stroke-width: 1.0px; }
 .fadedbox { fill: #fff; fill-opacity: 87%; stroke: black; }
@@ -91,6 +92,18 @@ tr.simpledmode { }
       <label><input type="checkbox" name="resources" value="other_renewables" checked="checked">Other renewables</input></label>
       <!--label><input type="checkbox" name="resources" value="solar" checked="checked">Solar</input></label>
       <label><input type="checkbox" name="resources" value="wind" checked="checked">Wind</input></label-->
+    </td>
+  </tr>
+  <tr class="advancedmode" style="display: none">
+    <td>Choose extra left Y-axis:</td>
+    <td>
+      <select id='left_y_axis' name='left_y_axis' style='min-width: 222px;'>
+        <!--<option value='none' selected="selected">None</option>-->
+        <option value='same' selected="selected">Same as right y axis</option>
+        <option value='percentage'>Percentage of all time high</option>
+        <option value='population'>Population</option>
+        <option value='gdp_capita'>GDP per Capita</option>
+      </select>
     </td>
   </tr>
   <tr class="advancedmode" style="display: none">
@@ -206,6 +219,9 @@ function set_selected(attr, from_id) {
 d3.select('#show_numbers').on('change', set_selected('show_numbers', 'show_numbers'))
 d3.select('#ccselect').on('change', set_selected('country_code', 'ccselect'))
 d3.select('#ccselect_vs').on('change', set_selected('country_code_vs', 'ccselect_vs'))
+d3.select('#left_y_axis').on('change', set_selected('left_y_axis', 'left_y_axis'))
+  .selectAll('option').filter(function(d) { return this.value === left_y_axis() })
+  .attr('selected', 'selected')
 
 d3.select('#mode_select').on('change', set_selected('mode', 'mode_select'))
   .selectAll('option')
@@ -247,6 +263,14 @@ function since() {
   return format.parse(getURLParameter('since', default_since_year))
 }
 
+function left_y_axis() { 
+  var val = getURLParameter('left_y_axis', 'same') 
+  if ((val === 'percentage') && is_net_mode()) {
+    val = 'same'
+  }
+  return val
+}
+
 function show_advanced_mode(hideOrShow) {
   config['advanced_mode'] = hideOrShow
   d3.selectAll('tr.advancedmode').style('display', advanced_mode() ? '' : 'none')
@@ -256,11 +280,12 @@ function show_advanced_mode(hideOrShow) {
     d3.selectAll('tr').style('display', 'none')
   }
 }
-config['advanced_mode'] = (is_show_numbers() || is_net_mode() || is_share_mode() || yaxismode()==='total' || is_cc_vs()) ? 'true' : 'false'
+var advanced_bool = is_show_numbers() || is_net_mode() || is_share_mode() || (yaxismode()==='total') || is_cc_vs() || (left_y_axis() != 'none')
+config['advanced_mode'] = advanced_bool ? 'true' : 'false'
 
 show_advanced_mode(config['advanced_mode'])
 
-var margin = {top: 65, right: 75, bottom: 35, left: 30},
+var margin = {top: 65, right: 75, bottom: 35, left: 75},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -437,6 +462,12 @@ function graph_add_resources_info_box(data, secondary_data) {
   }
   resources_array().forEach(function(res) { translate[res] = resource_name(res) })
 
+  if (left_y_axis() != 'same' && left_y_axis() != 'percentage') {
+    res.push(left_y_axis())
+    translate.population = countryname(cc(), true) + ' population'
+    translate.gdp_capita = is_cc_vs() ? (countryname(cc(), true) + ' GDP/Capita') : 'GDP/Capita'
+  }
+
   var infoheight = (padding.top) + (padding.top-box.padding) + (box.height+box.padding)*(res.length)
 
   /* faded background box */
@@ -501,11 +532,11 @@ function graph_add_resources_info_box(data, secondary_data) {
     .attr('transform', function(d) { return d === 'heading' ? null : 'translate(' + (box.width + 4) + ',0)' })
     .filter(not_contains(resources_array()))
     .style('font-weight', 'bold')
-    .filter(contains('cc', 'cc_vs'))
+    .filter(contains('cc', 'cc_vs', 'population', 'gdp_capita'))
     .attr('class', Object)
 
   res_enter
-   .filter(contains('cc_vs'))
+   .filter(contains('cc_vs', 'population', 'gdp_capita'))
    .append('line')
    .attr('class', 'line')
    .attr('x1', 0)
@@ -520,6 +551,18 @@ function graph_add_resources_info_box(data, secondary_data) {
    .attr('cx', box.width/2)
    .attr('cy', box.height/2)
    .attr('r', 3.5)
+
+  res_enter
+   .filter(contains('population', 'gdp_capita'))
+   .append('rect')
+   .attr('class', 'cmpdot cc_vs')
+   .attr('transform', 'translate(' + (box.width/2) + ',' + (box.height/2) + ') rotate(45)')
+   .attr('x', -3)
+   .attr('y', -3)
+   .attr('width', 6)
+   .attr('height', 6)
+   .style('fill', 'yellow')
+   .style('stroke-width', '1.5px')
 
   /* update */
   resinfo.select('text').text(function(d) { return translate[d] })
@@ -656,6 +699,20 @@ function update() {
   x.domain(d3.extent(data.map(function(d) { return d.year })))
 
   var cmp_line = secondary_data.filter(function(d) { return !('prop_change' in d) }).map(function(d) { return {x : d.year, y : total_value(d)} })
+  var left_y_fn = {
+                   'none' : function() { return 0; },
+                   'percentage' : function() { return 0; },
+                   'population' : function(d) { return d.population / 1000000.0; },
+                   'gdp_capita' : function(d) { return d.gdp / d.population; },
+                   'same' : function(d) { return total_value(d) }
+                   }[left_y_axis()];
+
+  var filt = function(d) { return true; }
+  if (left_y_axis() ==='gdp_capita') {
+    filt = function(d) { return !isNaN(d.gdp) }
+  }
+
+  var pop_line = data.filter(function(d) { return !('prop_change' in d) }).filter(filt).map(function(d) { return {x : d.year, y : left_y_fn(d) } })
 
   var y0neg = {}
   var y0pos = {}
@@ -808,13 +865,86 @@ function update() {
     .attr('r', 3.5)
   sel.exit().remove()
 
-  singleElement(svg, 'text', 'unitExplanation')
+  var unitExp = singleElement(svg, 'text', 'unitExplanation')
   .attr('transform', 'translate('+ (width+margin.right) +',' + (height/2) + ') rotate(90)') 
   .attr('dy', '1.51em')
   .attr('text-anchor', 'middle')
   .text(yaxismodemap({'total' : 'Million Tonnes Oil Equivalents per annum',
                       'per_capita' : 'Tonnes Oil Equivalents per Capita per annum',
                       'share' : 'Relative Share of Energy ' + majormode({'consumption': 'Consumption', 'production' : 'Production', net : 'Net Import / Export'})}))
+
+  singleElement(svg, 'text', 'unitExplanationLeft')
+  .attr('transform', 'translate('+ (-margin.left) +',' + (height/2) + ') rotate(-90)') 
+  .attr('dy', '1.51em')
+  .attr('text-anchor', 'middle')
+  .text( {'none' : "",
+          'percentage' : !is_share_mode() ? "Percentage of All Time High" : unitExp.text(),
+          'gdp_capita' : "GDP/Capita in current US Dollars",
+          'same' : unitExp.text(),
+          'population' : "Population, Million number of People"
+          }[left_y_axis()]);
+
+  // newnew
+  var y2 = d3.scale.linear().range([height, 0])
+  y2.domain([0.0, d3.max(data.filter(function(d) { return !('prop_change' in d) }).map(function(d) { return left_y_fn(d) }))])
+  if (left_y_axis() === 'same') {
+    y2.domain(y.domain())
+  }
+  if (left_y_axis() === 'percentage') {
+    y2.domain([0.0, 100.0])
+  }
+
+  singleElement(pal, 'g', 'yAxisLeft')
+  .attr('class', 'y axis')
+  .attr("transform", "translate(0,0)")
+  .attr('display', left_y_axis() === 'none' ? 'none' : null)
+  .call(d3.svg.axis().scale(y2).orient("left"))
+  .selectAll('text')
+  .attr('class', function(d) { 
+    return (left_y_axis()==='same' && is_net_mode() && parseFloat(d3.select(this).text()) != 0.0)  ? (d3.select(this).text().indexOf('-') == 0 ? 'import' : 'export') : null })
+
+  function show_pop_line(idpostfix, pop_line) {
+    var show = (left_y_axis() === "same" || left_y_axis() === 'percentage') ? false : true;
+
+    singleElement(pal2, 'path', 'yAxisLeftLine' + idpostfix).attr('class', 'line')
+    .datum(pop_line)
+    .attr('d', 
+      d3.svg.line(pop_line)
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y2(d.y) })
+    )
+    .style('display', !show ? 'none' : null)
+
+    var sel = singleElement(pal2, 'g', 'leftYAxisLineDots' + idpostfix).selectAll('rect').data(pop_line)
+    sel.enter().append('rect')
+    var dw = 6;
+    var dh = 6;
+    sel
+      .attr('transform', function(d) { return 'translate(' + x(d.x) + ',' + y2(d.y) + ') rotate(45)' })
+      .attr('class', 'heading cc cmpdot')
+      .attr('x', function(d) { return -dw/2.0 })
+      .attr('y', function(d) { return -dh/2.0 })
+      .attr('width', dw)
+      .attr('height', dh)
+      .style('fill', 'yellow')
+      .style('stroke-width', '1.5px')
+    sel.exit().remove();
+    sel.style('display', !show ? 'none' : null)
+    return sel
+  }
+
+  show_pop_line('1', pop_line);
+
+  /*
+  singleElement(svg, 'g', 'percentage_lines').selectAll('line').data(d3.range(0, 110, 10))
+  .enter().append('line')
+  .attr('x1', 0).attr('x2', width)
+  .attr('y1', function(d) { return y2(d) })
+  .attr('y2', function(d) { return y2(d) })
+  .style('stroke', 'gray')
+  .style('stroke-opacity', '60%')
+  */
+
 
   var permlink = window.location.href.split('?')[0] + '?country_code=' + cc()
   permlink += is_cc_vs() ? ('&country_code_vs=' + cc_vs()) : ''
@@ -828,6 +958,8 @@ function update() {
     permlink += "&numbers=" + show_numbers()
   if (since().getFullYear() !== 1965)
     permlink += "&since=" + since().getFullYear()
+  if (left_y_axis() !== 'same')
+    permlink += "&left_y_axis=" + left_y_axis()
 
   d3.select('#permalink')
   .attr('href', permlink)
@@ -884,6 +1016,8 @@ d3.tsv('data/data.tsv', function(err, data) {
     d.oil_net = d.oil_production - d.oil
     d.gas_net = d.gas_production - d.gas
     d.coal_net = d.coal_production - d.coal
+
+    d.gdp = +d.gdp
   })
 
   var newdata = []
@@ -959,19 +1093,19 @@ d3.tsv('data/data.tsv', function(err, data) {
   .attr('dx', '-.21em')
   .attr('dy', '-.31em')
   .style('text-anchor', 'end')
-  .text('Diagram by refsdal.ivar@gmail.com')
+  .text('Diagram by Refsdal.Ivar@gmail.com')
 
   singleElement(svg, 'text', 'sources')
   .attr('transform', 'translate(' + (-margin.left) + ',' + (height+margin.bottom) + ')') 
   .attr('dx', '.21em')
   .attr('dy', '-.31em')
   .style('text-anchor', 'start')
-  .text('Data from BP Statistical Review and World Bank')
+  .text('Data from BP Statistical Review and World Bank (2015)')
 
   if (getURLParameter('printer', 'false') !== 'true') {
     d3.select('body')
     .append('div')
-    .html('<a href="https://github.com/ivarref/bp-diagrams">More info about this diagram</a>.')
+    .html('&quot;Other renewables&quot; includes wind, geothermal, solar, biomass and waste. <a href="https://github.com/ivarref/bp-diagrams">More info about this diagram</a>.')
   }
 })
 

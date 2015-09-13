@@ -11,6 +11,8 @@ relative share of energy consumption and total energy consumption.
 
 About the data
 --------------
+BP defines the `other renewables` numbers as the following: `Based on gross generation from renewable sources including wind, geothermal, solar, biomass and waste, and not accounting for cross-border electricity supply.`
+
 The data is available as a TSV (Tab Separated Values) file [here](https://github.com/ivarref/bp-diagrams/blob/master/data/data.tsv). This file contains BP energy data mapped to World Bank population data.
 
 The data is generated based on the [Mazama Science BP data set](http://mazamascience.com/OilExport/data.html) and the [okfn World Bank population data set](http://data.okfn.org/data/core/population).

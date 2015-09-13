@@ -35,6 +35,7 @@ for entry in load_json('data/slim-2.json'):
 # bp country code friendly lookup table for population
 
 population_lookup = {}
+gdp_lookup = {}
 
 def to_cc3(names):
   cc3_data = load_json('data/slim-3.json')
@@ -124,12 +125,30 @@ for x in load_json('data/population.json'):
         group_value = population_lookup[group_key]
       population_lookup[group_key] = group_value + value
 
+for x in load_json('data/gdp.json'):
+  cc = x['Country Code'] 
+  year = x['Year']
+  key = cc + "-" + year
+  value = Decimal(x['Value'])
+  gdp_lookup[key] = value
+  if cc in new_groups:
+    for group in new_groups[cc]:
+      group_key = group + "-" + year
+      group_value = Decimal(0)
+      if group_key in gdp_lookup:
+        group_value = gdp_lookup[group_key]
+      gdp_lookup[group_key] = group_value + value
+
 for k in [x for x in population_lookup.keys() if x.startswith('WLD-')]:
-  wld_value = population_lookup[k]
   year = k.split('-')[1]
+
+  wld_value = population_lookup[k]
   oed_value = population_lookup['OED-' + year]
   population_lookup['BP_NONOECD-' + year] = wld_value - oed_value
 
+  wld_value = gdp_lookup[k]
+  oed_value = gdp_lookup['OED-' + year]
+  gdp_lookup['BP_NONOECD-' + year] = wld_value - oed_value
 
 files = [f for f in glob("data/*consumption*.csv")]
 resources = [f.split('BP_')[1].split('_consumption')[0] for f in files]
@@ -179,7 +198,7 @@ groups = fields[1:]
 seengroups = []
 
 with open('data/data.tsv', 'w') as out:
-  out.write("year\tcountry\tcountry_code\tpopulation\t%s\tcoal_production\toil_production\tgas_production\n" % ("\t".join(resources)))
+  out.write("year\tcountry\tcountry_code\tpopulation\tgdp\t%s\tcoal_production\toil_production\tgas_production\n" % ("\t".join(resources)))
   while True:
     lines = [fd.readline().strip() for fd in fds]
     if not lines[0]:
@@ -210,17 +229,22 @@ with open('data/data.tsv', 'w') as out:
 
       # search backwards in population data if missing data
       keys = [translated_key + "-" + str(int(year)-x) for x in range(0, 5)]
+      gdp_key = translated_key + "-" + str(int(year))
       matches = [key for key in keys if key in population_lookup]
       if len(matches)==0:
         raise ValueError("Missing keys [" + keys + "] group was " + group)
       key = matches[0]
+      gdp = "NA"
+      if gdp_key in gdp_lookup:
+        gdp = gdp_lookup[gdp_key]
+      #key_gdp = matches_gdp[0]
       def get_production(resource_type):
         prod_key = production_key(group, resource_type, year)
         if prod_key in production:
           return production[prod_key]
         else:
           return 0
-      out.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (year, countrycodes[group], group, population_lookup[key], "\t".join(groupdata), get_production('coal'), get_production('oil'), get_production('gas')))
+      out.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (year, countrycodes[group], group, population_lookup[key], gdp, "\t".join(groupdata), get_production('coal'), get_production('oil'), get_production('gas')))
 
 [fd.close() for fd in fds]
 
