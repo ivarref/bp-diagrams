@@ -301,6 +301,7 @@ d3.rgb(254, 24, 24), d3.rgb(254, 24, 24), d3.rgb(254, 24, 24),
 color.domain("coal,coal_production,coal_net,oil,oil_production,oil_net,gas,gas_production,gas_net,nuclear,hydro,other_renewables".split(","))
 
 var svg = d3.select("body").append("svg")
+    .attr("xmlns", "http://www.w3.org/2000/svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -493,7 +494,7 @@ function graph_add_resources_info_box(data, secondary_data) {
     .attr('height', box.height)
     .style('fill', color)
     .style('stroke', 'black')
-    .style('stroke-opacity', '100%')
+    .style('stroke-opacity', '1.0')
 
   var h = (box.height) / resources_array().length
 
@@ -522,7 +523,7 @@ function graph_add_resources_info_box(data, secondary_data) {
     .attr('height', box.height)
     .style('fill', 'none')
     .style('stroke', 'black')
-    .style('stroke-opacity', '100%')
+    .style('stroke-opacity', '1.0')
     .style('stroke-width', '1px')
 
   res_enter
@@ -964,7 +965,7 @@ function update() {
   d3.select('#permalink')
   .attr('href', permlink)
   d3.select('#permalink_printer')
-  .attr('href', permlink + "&printer=true")
+  .attr('href', permlink + "&printer=true&image=true")
 }
 
 d3.tsv('data/data.tsv', function(err, data) {
