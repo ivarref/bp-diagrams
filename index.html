@@ -2,7 +2,6 @@
 <meta charset="utf-8">
 <style>
 body { font: 12px sans-serif; background-color: white; }
-svg { border: 1px solid #000; }
 text.heading { font: 22px sans-serif; font-variant: small-caps; font-weight: bold; }
 text.smallheading { font: 14px sans-serif; }
 .cc { fill: mediumblue; }
@@ -108,7 +107,7 @@ tr.simpledmode { }
   </tr>
   <tr class="advancedmode" style="display: none">
     <td><a href="#" onclick="show_advanced_mode('false'); return false;">Hide extra options</a></td>
-    <td><a href="#" id="permalink">Permalink to this diagram</a> / <a href="#" id="permalink_printer">image</a></td>
+    <td><a href="#" id="permalink">Permalink to this diagram</a> / <a href="#" id="permalink_printer">image</a> / <a href="#" id="permalink_download">download image</a></td>
   </tr>
 </table>
 </form>
@@ -278,6 +277,7 @@ function show_advanced_mode(hideOrShow) {
 
   if (getURLParameter('printer', 'false') === 'true') {
     d3.selectAll('tr').style('display', 'none')
+    d3.selectAll('form').style('display', 'none')
   }
 }
 var advanced_bool = is_show_numbers() || is_net_mode() || is_share_mode() || (yaxismode()==='total') || is_cc_vs() || (left_y_axis() != 'same')
@@ -304,6 +304,13 @@ var svg = d3.select("body").append("svg")
     .attr("xmlns", "http://www.w3.org/2000/svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+
+if (getURLParameter('printer', 'false') === 'false') {
+  svg.style('border', '1px solid #000')
+}
+svg.style('border', '1px solid #000')
+
+svg = svg
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
@@ -965,7 +972,9 @@ function update() {
   d3.select('#permalink')
   .attr('href', permlink)
   d3.select('#permalink_printer')
-  .attr('href', permlink + "&printer=true&image=true")
+  .attr('href', permlink + "&i=t")
+  d3.select('#permalink_download')
+  .attr('href', permlink + "&dl=t")
 }
 
 d3.tsv('data/data.tsv', function(err, data) {
