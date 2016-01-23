@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-body { font: 12px sans-serif; }
+body { font: 12px sans-serif; background-color: white; }
 svg { border: 1px solid #000; }
 text.heading { font: 22px sans-serif; font-variant: small-caps; font-weight: bold; }
 text.smallheading { font: 14px sans-serif; }
@@ -9,7 +9,7 @@ text.smallheading { font: 14px sans-serif; }
 .population { fill: mediumblue; }
 .cc_vs { fill: Fuchsia; /* c0f */ }
 .cmpdot { stroke: black; stroke-width: 1.0px; }
-.fadedbox { fill: #fff; fill-opacity: 87%; stroke: black; }
+.fadedbox { fill: #fff; fill-opacity: 0.87; stroke: black; }
 .line { fill: none; stroke: black; stroke-width: 3.0px; }
 .export { fill: blue; }
 .import { fill: red; }
@@ -108,7 +108,7 @@ tr.simpledmode { }
   </tr>
   <tr class="advancedmode" style="display: none">
     <td><a href="#" onclick="show_advanced_mode('false'); return false;">Hide extra options</a></td>
-    <td><a href="#" id="permalink">Permalink to this diagram</a> <a href="#" id="permalink_printer">printer friendly</a></td>
+    <td><a href="#" id="permalink">Permalink to this diagram</a> / <a href="#" id="permalink_printer">image</a></td>
   </tr>
 </table>
 </form>
