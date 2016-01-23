@@ -23,6 +23,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 public class PngServer {
@@ -73,9 +74,19 @@ public class PngServer {
                             }
                         });
 
+        AtomicLong counter = new AtomicLong(0);
+
         return new AbstractHandler() {
             @Override
             public void handle(String p, Request request, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException, ServletException {
+
+                System.out.println("req :: " + counter.incrementAndGet() + " " + request.getRequestURI() + "?" +
+                String.join("&", new TreeSet<>(request.getParameterMap().keySet())
+                    .stream()
+                        .map(s -> s + "=" + request.getParameter(s))
+                        .collect(Collectors.toList())
+                ));
+                
                 if ("true".equalsIgnoreCase(request.getParameter("image"))) {
                     request.setHandled(true);
                     String url = String.join("&", new TreeSet<>(request.getParameterMap().keySet())

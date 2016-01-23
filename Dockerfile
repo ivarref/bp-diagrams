@@ -17,6 +17,9 @@
 # build and run:
 # docker build --tag=ivarref/bp-diagrams . && docker run --publish=8080:8080 --link=phantomjs ivarref/bp-diagrams
 
+# run server as daemon at port 80:
+# docker build --tag=ivarref/bp-diagrams . && docker run -d --publish=80:8080 --name=bp-diagrams --link=phantomjs ivarref/bp-diagrams
+
 
 FROM picoded/ubuntu-openjdk-8-jdk
 
@@ -39,3 +42,5 @@ COPY . bp-diagrams/
 RUN cd bp-diagrams && mvn clean package
 
 CMD /bp-diagrams/target/appassembler/bin/app -DselfIp="$(hostname -i)"
+
+
