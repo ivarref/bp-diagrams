@@ -15,7 +15,7 @@
 # then you may access http://$(docker-machine ip default):8080/
 
 # build and run:
-# docker build --tag=ivarref/bp-diagrams . && docker run --publish=8080:8080 --link=phantomjs ivarref/bp-diagrams
+# docker build --tag=ivarref/bp-diagrams . && docker run --publish=8080:8080 --name=bp-diagrams --link=phantomjs ivarref/bp-diagrams
 
 # run server as daemon at port 80:
 # docker build --tag=ivarref/bp-diagrams . && docker run -d --publish=80:8080 --name=bp-diagrams --link=phantomjs ivarref/bp-diagrams

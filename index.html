@@ -308,7 +308,6 @@ var svg = d3.select("body").append("svg")
 if (getURLParameter('printer', 'false') === 'false') {
   svg.style('border', '1px solid #000')
 }
-svg.style('border', '1px solid #000')
 
 svg = svg
     .append("g")
@@ -1100,7 +1099,7 @@ d3.tsv('data/data.tsv', function(err, data) {
 
   singleElement(svg, 'text', 'contact')
   .attr('transform', 'translate(' + (width+margin.right) + ',' + (height+margin.bottom) + ')') 
-  .attr('dx', '-.21em')
+  .attr('dx', '-.61em')
   .attr('dy', '-.31em')
   .style('text-anchor', 'end')
   .text('Diagram by Refsdal.Ivar@gmail.com')
