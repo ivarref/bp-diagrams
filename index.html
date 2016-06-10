@@ -107,7 +107,9 @@ tr.simpledmode { }
   </tr>
   <tr class="advancedmode" style="display: none">
     <td><a href="#" onclick="show_advanced_mode('false'); return false;">Hide extra options</a></td>
-    <td><a href="#" id="permalink">Permalink to this diagram</a> / <a href="#" id="permalink_printer">image</a> / <a href="#" id="permalink_download">download image</a></td>
+    <td><a href="#" id="permalink">Permalink to this diagram</a> 
+      <a style="display: none;" href="#" id="permalink_printer">image</a> 
+      <a style="display: none;" href="#" id="permalink_download">download image</a></td>
   </tr>
 </table>
 </form>
@@ -1109,7 +1111,7 @@ d3.tsv('data/data.tsv', function(err, data) {
   .attr('dx', '.21em')
   .attr('dy', '-.31em')
   .style('text-anchor', 'start')
-  .text('Data from BP Statistical Review and World Bank (2015)')
+  .text('Data from BP Statistical Review (2016) and World Bank (2015)')
 
   if (getURLParameter('printer', 'false') !== 'true') {
     d3.select('body')

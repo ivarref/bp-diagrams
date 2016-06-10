@@ -2,7 +2,6 @@
 
 import json
 import sys
-from glob import glob
 from sets import Set
 from pprint import pprint
 
@@ -150,7 +149,17 @@ for k in [x for x in population_lookup.keys() if x.startswith('WLD-')]:
   oed_value = gdp_lookup['OED-' + year]
   gdp_lookup['BP_NONOECD-' + year] = wld_value - oed_value
 
-files = [f for f in glob("data/*consumption*.csv")]
+#coal    gas hydro   nuclear oil other_renewables#
+#files = [f for f in glob("data/*consumption*.csv")]
+files =["data/BP_coal_consumption_mtoe.csv",
+"data/BP_gas_consumption_mtoe.csv", 
+"data/BP_hydro_consumption_mtoe.csv", 
+"data/BP_nuclear_consumption_mtoe.csv", 
+"data/BP_oil_consumption_mtoe.csv", 
+"data/BP_other_renewables_consumption_mtoe.csv",
+"data/BP_solar_consumption_mtoe.csv",
+"data/BP_wind_consumption_mtoe.csv"]
+
 resources = [f.split('BP_')[1].split('_consumption')[0] for f in files]
 
 def skip_headers(fd):
@@ -163,7 +172,12 @@ def production_key(group, resource, year):
 
 production = {}
 
-for f in glob("data/*production*.csv"):
+prodfiles = ["data/BP_coal_production_mtoe.csv", 
+"data/BP_oil_production_mtoe.csv",
+"data/BP_gas_production_mtoe.csv"]
+
+for f in prodfiles:
+  print f
   seengroups = []
   fd = open(f, 'r')
   skip_headers(fd)
@@ -179,7 +193,9 @@ for f in glob("data/*production*.csv"):
         value = Decimal(parts[idx+1])
       except:
         if group in seengroups:
-          raise ValueError('Group already seen, but had NA in data...')
+          if group == 'BP_FSU':
+            continue
+          raise ValueError('Group %s already seen, but had NA in data...' % (group))
       if value != None:
         if group not in seengroups:
           seengroups.append(group)
@@ -208,21 +224,30 @@ with open('data/data.tsv', 'w') as out:
     if (not lengths_ok) or len(Set(years)) != 1:
       raise ValueError('Oops.')
     for group in groups:
+      year = years[0]
       if group in ignoregroups:
         continue
+      #print "Process group %s for year %s" % (group, year)
       idx = fields.index(group)
       groupdata = [line.split(",")[idx] for line in lines]
+      if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups) and group=='BP_FSU' and year >= '1985':
+        continue
       if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups):
-        raise ValueError('Oops.')
+        raise ValueError("Missing data for seen group %s and year %s" % (group, year))
       if '"na"' in groupdata and len(Set(groupdata))==1:
+        print "Skipping group %s for year %s" % (group, year)
+        continue
+      if '"na"' in groupdata and len(Set(groupdata))==2 and '0.0' in groupdata:
+        print "Skipping group %s for year %s" % (group, year)
         continue
       if '"na"' in groupdata and len(Set(groupdata))>1:
         raise ValueError('Oops.')
       group_sum = [Decimal(x) for x in groupdata]
       if Decimal(0) == sum(group_sum) and group not in seengroups:
         continue # drop data starting with zero
+      #print 'seen group %s' % (group)
+      #print groupdata
       seengroups.append(group)
-      year = years[0]
       translated_key = group # default to no translation
       if group in c2_to_c3:
         translated_key = c2_to_c3[group]
