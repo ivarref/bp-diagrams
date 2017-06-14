@@ -198,8 +198,11 @@ function is_show_numbers() { return show_numbers() !== 'none' }
 config['show_numbers'] = getURLParameter('numbers', 'none')
 
 function update_show_numbers(data) {
+  var years = data.map(function(d) { return "" + d.year.getFullYear() })
+  years.sort()
+  years.reverse()
   var sel = d3.select('#show_numbers')
-  .selectAll('option').data(['none'].concat(data.map(function(d) { return "" + d.year.getFullYear() }).reverse()), function(d) { return d; })
+  .selectAll('option').data(['none'].concat(years), function(d) { return d; })
   sel.enter().append('option')
 
   sel.attr('value', Object)
@@ -1111,7 +1114,7 @@ d3.tsv('data/data.tsv', function(err, data) {
   .attr('dx', '.21em')
   .attr('dy', '-.31em')
   .style('text-anchor', 'start')
-  .text('Data from BP Statistical Review (2016) and World Bank (2015)')
+  .text('Data from BP Statistical Review (2017) and World Bank (2017)')
 
   if (getURLParameter('printer', 'false') !== 'true') {
     d3.select('body')
