@@ -158,9 +158,10 @@ files =["data/BP_coal_consumption_mtoe.csv",
 "data/BP_oil_consumption_mtoe.csv", 
 "data/BP_other_renewables_consumption_mtoe.csv",
 "data/BP_solar_consumption_mtoe.csv",
-"data/BP_wind_consumption_mtoe.csv"]
+"data/BP_wind_consumption_mtoe.csv",
+"data/BP_co2_emissions.csv"]
 
-resources = ['coal', 'gas', 'hydro', 'nuclear', 'oil', 'other_renewables', 'solar', 'wind']
+resources = ['coal', 'gas', 'hydro', 'nuclear', 'oil', 'other_renewables', 'solar', 'wind', 'co2']
 
 def skip_headers(fd):
   while (fd.readline().strip() != ""):
