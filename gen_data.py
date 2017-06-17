@@ -160,7 +160,7 @@ files =["data/BP_coal_consumption_mtoe.csv",
 "data/BP_solar_consumption_mtoe.csv",
 "data/BP_wind_consumption_mtoe.csv"]
 
-resources = [f.split('BP_')[1].split('_consumption')[0] for f in files]
+resources = ['coal', 'gas', 'hydro', 'nuclear', 'oil', 'other_renewables', 'solar', 'wind']
 
 def skip_headers(fd):
   while (fd.readline().strip() != ""):
