@@ -214,7 +214,14 @@ groups = fields[1:]
 
 seengroups = []
 
-with open('data/data.tsv', 'w') as out:
+output_filename = "data/data.tsv"
+group_filter_fn = lambda x: True
+
+if "--filter" in sys.argv:
+  output_filename = 'data/country/' + sys.argv[-1] + '.csv'
+  group_filter_fn = lambda x: x == sys.argv[-1]
+
+with open(output_filename, 'w') as out:
   out.write("year\tcountry\tcountry_code\tpopulation\tgdp\t%s\tcoal_production\toil_production\tgas_production\n" % ("\t".join(resources)))
   while True:
     lines = [fd.readline().strip() for fd in fds]
@@ -270,7 +277,8 @@ with open('data/data.tsv', 'w') as out:
           return production[prod_key]
         else:
           return 0
-      out.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (year, countrycodes[group], group, population_lookup[key], gdp, "\t".join(groupdata), get_production('coal'), get_production('oil'), get_production('gas')))
+      if (group_filter_fn(group)):
+        out.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (year, countrycodes[group], group, population_lookup[key], gdp, "\t".join(groupdata), get_production('coal'), get_production('oil'), get_production('gas')))
 
 [fd.close() for fd in fds]
 
