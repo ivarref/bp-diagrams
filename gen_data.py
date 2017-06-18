@@ -218,7 +218,7 @@ output_filename = "data/data.tsv"
 group_filter_fn = lambda x: True
 
 if "--filter" in sys.argv:
-  output_filename = 'data/country/' + sys.argv[-1] + '.csv'
+  output_filename = 'data/country/' + sys.argv[-1] + '.tsv'
   group_filter_fn = lambda x: x == sys.argv[-1]
 
 with open(output_filename, 'w') as out:

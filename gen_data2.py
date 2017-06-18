@@ -2,11 +2,17 @@
 
 import sys
 import csv
+import json
+from decimal import Decimal
 
 def skip_headers(fd):
     while fd.readline().strip() != "":
         continue
     return True
+
+def load_json(fil):
+    with open(fil) as f:
+        return json.load(f)
 
 def csv2map_from_bp_csv(fil, property):
     fd = open(fil)
@@ -26,6 +32,22 @@ def csv2map_from_bp_csv(fil, property):
         res.append(dictrow)
     fd.close()
     return res
+
+def get_c3_to_c2_map():
+    res = {}
+    cc2 = load_json('data/slim-2.json')
+    cc3 = load_json('data/slim-3.json')
+
+    for c2 in cc2:
+        matches = [x for x in cc3 if x['name'] == c2['name']]
+        if len(matches)!=1:
+            raise ValueError('Could not find ' + str(c2))
+        else:
+            c3 = matches[0]['alpha-3']
+            res[c3] = c2['alpha-2']
+    return res
+
+c3_to_c2 = get_c3_to_c2_map()
 
 coal = csv2map_from_bp_csv('data/BP_coal_consumption_mtoe.csv', 'coal')
 gas = csv2map_from_bp_csv('data/BP_gas_consumption_mtoe.csv', 'gas')
@@ -69,9 +91,28 @@ def get_flat_values():
                                     "year": yr,
                                     "type": typ,
                                     "value": v})
+    wb_data = [('data/population.json', 'population'), ('data/gdp.json', 'gdp')]
+    for (fil, typ) in wb_data:
+        for row in load_json(fil):
+            cc = row['Country Code']
+            year = row['Year']
+            if cc in c3_to_c2:
+                values.append({"group": c3_to_c2[cc],
+                               "year": year,
+                               "type": typ,
+                               "value": row['Value']})
     return values
 
 flat_values = get_flat_values()
-import ipdb; ipdb.set_trace()
-print(get_country_codes())
+
+def make_group(group):
+    print("Making group %s ..." % (group))
+    for year in range(1965, 1+max([int(x['year']) for x in flat_values])):
+        properties = dict([(x['type'], x['value']) for x in flat_values if x['year'] == str(year) and x['group'] == group])
+        print("Making group %s ... year %s => %s" % (group, year, str(properties)))
+
+make_group(get_country_codes()[0])
+
+#import ipdb; ipdb.set_trace()
+#print(get_country_codes())
 
