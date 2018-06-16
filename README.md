@@ -58,10 +58,10 @@ Updating the data
 
 This is a yearly task.
 
-## Update EnergyExportDatabrowser
+### Update EnergyExportDatabrowser
 This will update the `BP_*` files in `data/`.
 
-## Update the population data
+### Update the population data
 
 `$ cd data; ./pull-population.py`
 
