@@ -53,6 +53,18 @@ Acknowledgements
 
 [Rune Likvern / Fractional Flow](http://fractionalflow.com/) for inspiration as well as feedback.
 
+Updating the data
+-----------------
+
+This is a yearly task.
+
+## Update EnergyExportDatabrowser
+This will update the `BP_*` files in `data/`.
+
+## Update the population data
+
+`$ cd data; ./pull-population.py`
+
 
 Comments
 --------
