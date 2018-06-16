@@ -58,13 +58,12 @@ Updating the data
 
 This is a yearly task.
 
-### Update EnergyExportDatabrowser
+### 1. Update EnergyExportDatabrowser
 This will update the `BP_*` files in `data/`.
 
-### Update the population data
+### 2. Update the rest of data
 
-`$ cd data; ./pull-population.py`
-
+`$ ./make.sh`
 
 Comments
 --------
