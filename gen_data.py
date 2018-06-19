@@ -10,11 +10,6 @@ def load_json(fil):
     return json.load(f)
 
 countrycodes = {}
-# "BP_OAF",
-# "BP_OAP",
-# "BP_OEE",
-# "BP_OME",
-# "BP_OSCA",
 countrycodes['BP_OECD'] = 'OECD'
 countrycodes['BP_NONOECD'] = 'Non OECD'
 countrycodes['BP_EU2'] = 'Eurozone'
@@ -67,7 +62,7 @@ for c2 in cc2:
   else:
     c2_to_c3[c2['alpha-2']] = matches[0]['alpha-3']
     
-ignoregroups = ['BP_OAF', 'BP_OAP', 'BP_OEE', 'BP_OME', 'BP_OSCA']
+ignoregroups = ['BP_OAF', 'BP_OAP', 'BP_OEE', 'BP_OME', 'BP_OSCA', 'BP_TEU', 'BP_FSU']
 ignoregroups.append('TW') # Ignore Taiwan, don't have population data
 
 c2_to_c3['BP_EU2'] = 'EMU'
@@ -149,10 +144,9 @@ for k in [x for x in population_lookup.keys() if x.startswith('WLD-')]:
   oed_value = gdp_lookup['OED-' + year]
   gdp_lookup['BP_NONOECD-' + year] = wld_value - oed_value
 
-#coal    gas hydro   nuclear oil other_renewables#
-#files = [f for f in glob("data/*consumption*.csv")]
-files =["data/BP_coal_consumption_mtoe.csv",
-"data/BP_gas_consumption_mtoe.csv", 
+files =[
+"data/BP_coal_consumption_mtoe.csv",
+"data/BP_gas_consumption_mtoe.csv",
 "data/BP_hydro_consumption_mtoe.csv", 
 "data/BP_nuclear_consumption_mtoe.csv", 
 "data/BP_oil_consumption_mtoe.csv", 
@@ -178,7 +172,6 @@ prodfiles = ["data/BP_coal_production_mtoe.csv",
 "data/BP_gas_production_mtoe.csv"]
 
 for f in prodfiles:
-  print f
   seengroups = []
   fd = open(f, 'r')
   skip_headers(fd)
@@ -210,6 +203,8 @@ fds = [open(f, 'r') for f in files]
 fields = [x[1:-1] for x in fds[0].readline().strip().split(",")]
 groups = fields[1:]
 
+print groups
+
 [fd.readline() for fd in fds[1:]] # skip groups
 
 seengroups = []
@@ -238,18 +233,26 @@ with open(output_filename, 'w') as out:
       #print "Process group %s for year %s" % (group, year)
       idx = fields.index(group)
       groupdata = [line.split(",")[idx] for line in lines]
-      if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups) and group=='BP_FSU' and year >= '1985':
-        continue
-      if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups):
-        raise ValueError("Missing data for seen group %s and year %s" % (group, year))
-      if '"na"' in groupdata and len(Set(groupdata))==1:
-        print "Skipping group %s for year %s" % (group, year)
-        continue
-      if '"na"' in groupdata and len(Set(groupdata))==2 and '0.0' in groupdata:
-        print "Skipping group %s for year %s" % (group, year)
-        continue
-      if '"na"' in groupdata and len(Set(groupdata))>1:
-        raise ValueError('Oops.')
+      gd = []
+      for d in groupdata:
+        if d == '"na"':
+          d = "0"
+        gd.append(d)
+      groupdata = gd
+      #if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups) and group=='BP_FSU' and year >= '1985':
+        #continue
+      #if '"na"' in groupdata and len(Set(groupdata))==1 and (group in seengroups):
+        #raise ValueError("Missing data for seen group %s and year %s" % (group, year))
+      #if '"na"' in groupdata and len(Set(groupdata))==1:
+        #print "Skipping group %s for year %s" % (group, year)
+        #continue
+      #if '"na"' in groupdata and len(Set(groupdata))==2 and '0.0' in groupdata:
+        #print "Skipping group %s for year %s" % (group, year)
+        #continue
+      #if '"na"' in groupdata and len(Set(groupdata))>1:
+        #print "group is %s, year is %s" % (group, year)
+        #print "groupdata: %s" % (str(groupdata))
+        #raise ValueError('Oops.')
       group_sum = [Decimal(x) for x in groupdata]
       if Decimal(0) == sum(group_sum) and group not in seengroups:
         continue # drop data starting with zero
@@ -265,7 +268,7 @@ with open(output_filename, 'w') as out:
       gdp_key = translated_key + "-" + str(int(year))
       matches = [key for key in keys if key in population_lookup]
       if len(matches)==0:
-        raise ValueError("Missing keys [" + keys + "] group was " + group)
+        raise ValueError("Missing keys [" + str(keys) + "] group was " + group)
       key = matches[0]
       gdp = "NA"
       if gdp_key in gdp_lookup:
@@ -278,6 +281,7 @@ with open(output_filename, 'w') as out:
         else:
           return 0
       if (group_filter_fn(group)):
+        print "writing row for group %s for year %s" %  (group, year)
         out.write("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" % (year, countrycodes[group], group, population_lookup[key], gdp, "\t".join(groupdata), get_production('coal'), get_production('oil'), get_production('gas')))
 
 [fd.close() for fd in fds]
