@@ -56,6 +56,7 @@ Arab World,ARB,2013,381702086
 Arab World,ARB,2014,390043028
 Arab World,ARB,2015,398304960
 Arab World,ARB,2016,406452690
+Arab World,ARB,2017,414491886
 Caribbean small states,CSS,1960,4198307
 Caribbean small states,CSS,1961,4277802
 Caribbean small states,CSS,1962,4357746
@@ -113,6 +114,7 @@ Caribbean small states,CSS,2013,7118888
 Caribbean small states,CSS,2014,7162679
 Caribbean small states,CSS,2015,7204948
 Caribbean small states,CSS,2016,7245472
+Caribbean small states,CSS,2017,7284294
 Central Europe and the Baltics,CEB,1960,91401583
 Central Europe and the Baltics,CEB,1961,92237118
 Central Europe and the Baltics,CEB,1962,93014890
@@ -169,7 +171,8 @@ Central Europe and the Baltics,CEB,2012,103935318
 Central Europe and the Baltics,CEB,2013,103713726
 Central Europe and the Baltics,CEB,2014,103496179
 Central Europe and the Baltics,CEB,2015,103257751
-Central Europe and the Baltics,CEB,2016,102991323
+Central Europe and the Baltics,CEB,2016,102994343
+Central Europe and the Baltics,CEB,2017,102727102
 Early-demographic dividend,EAR,1960,979287407
 Early-demographic dividend,EAR,1961,1002523576
 Early-demographic dividend,EAR,1962,1026586722
@@ -227,113 +230,115 @@ Early-demographic dividend,EAR,2013,3040700765
 Early-demographic dividend,EAR,2014,3084236443
 Early-demographic dividend,EAR,2015,3127578757
 Early-demographic dividend,EAR,2016,3170657660
+Early-demographic dividend,EAR,2017,3213426923
 East Asia & Pacific,EAS,1960,1039944591
-East Asia & Pacific,EAS,1961,1043546746
-East Asia & Pacific,EAS,1962,1058028198
-East Asia & Pacific,EAS,1963,1083802302
+East Asia & Pacific,EAS,1961,1043546747
+East Asia & Pacific,EAS,1962,1058028199
+East Asia & Pacific,EAS,1963,1083802299
 East Asia & Pacific,EAS,1964,1109204182
-East Asia & Pacific,EAS,1965,1135650893
-East Asia & Pacific,EAS,1966,1165517897
-East Asia & Pacific,EAS,1967,1194424325
-East Asia & Pacific,EAS,1968,1223721287
-East Asia & Pacific,EAS,1969,1256501005
-East Asia & Pacific,EAS,1970,1289258959
-East Asia & Pacific,EAS,1971,1322942752
+East Asia & Pacific,EAS,1965,1135650895
+East Asia & Pacific,EAS,1966,1165517894
+East Asia & Pacific,EAS,1967,1194424326
+East Asia & Pacific,EAS,1968,1223721283
+East Asia & Pacific,EAS,1969,1256501008
+East Asia & Pacific,EAS,1970,1289258962
+East Asia & Pacific,EAS,1971,1322942750
 East Asia & Pacific,EAS,1972,1354794332
-East Asia & Pacific,EAS,1973,1385052013
+East Asia & Pacific,EAS,1973,1385052014
 East Asia & Pacific,EAS,1974,1415128313
-East Asia & Pacific,EAS,1975,1442241327
-East Asia & Pacific,EAS,1976,1466464722
-East Asia & Pacific,EAS,1977,1489361664
-East Asia & Pacific,EAS,1978,1512159743
-East Asia & Pacific,EAS,1979,1535391297
+East Asia & Pacific,EAS,1975,1442241325
+East Asia & Pacific,EAS,1976,1466464716
+East Asia & Pacific,EAS,1977,1489361661
+East Asia & Pacific,EAS,1978,1512159741
+East Asia & Pacific,EAS,1979,1535391301
 East Asia & Pacific,EAS,1980,1558178982
-East Asia & Pacific,EAS,1981,1581806991
-East Asia & Pacific,EAS,1982,1607731271
-East Asia & Pacific,EAS,1983,1633628204
-East Asia & Pacific,EAS,1984,1658253760
-East Asia & Pacific,EAS,1985,1683448852
-East Asia & Pacific,EAS,1986,1710171173
-East Asia & Pacific,EAS,1987,1738276264
-East Asia & Pacific,EAS,1988,1766656200
-East Asia & Pacific,EAS,1989,1794408757
-East Asia & Pacific,EAS,1990,1821481248
-East Asia & Pacific,EAS,1991,1847530239
-East Asia & Pacific,EAS,1992,1871898266
+East Asia & Pacific,EAS,1981,1581806986
+East Asia & Pacific,EAS,1982,1607731269
+East Asia & Pacific,EAS,1983,1633628203
+East Asia & Pacific,EAS,1984,1658253758
+East Asia & Pacific,EAS,1985,1683448851
+East Asia & Pacific,EAS,1986,1710171170
+East Asia & Pacific,EAS,1987,1738276268
+East Asia & Pacific,EAS,1988,1766656203
+East Asia & Pacific,EAS,1989,1794408755
+East Asia & Pacific,EAS,1990,1821481246
+East Asia & Pacific,EAS,1991,1847530233
+East Asia & Pacific,EAS,1992,1871898268
 East Asia & Pacific,EAS,1993,1895356643
-East Asia & Pacific,EAS,1994,1918771293
-East Asia & Pacific,EAS,1995,1941918801
-East Asia & Pacific,EAS,1996,1964635062
-East Asia & Pacific,EAS,1997,1986799860
-East Asia & Pacific,EAS,1998,2008140149
-East Asia & Pacific,EAS,1999,2028095318
-East Asia & Pacific,EAS,2000,2047150750
-East Asia & Pacific,EAS,2001,2065521837
-East Asia & Pacific,EAS,2002,2082953520
-East Asia & Pacific,EAS,2003,2099545270
-East Asia & Pacific,EAS,2004,2115556602
-East Asia & Pacific,EAS,2005,2131361829
-East Asia & Pacific,EAS,2006,2147028911
-East Asia & Pacific,EAS,2007,2162102842
-East Asia & Pacific,EAS,2008,2177421109
-East Asia & Pacific,EAS,2009,2192351452
-East Asia & Pacific,EAS,2010,2207154891
-East Asia & Pacific,EAS,2011,2221934234
+East Asia & Pacific,EAS,1994,1918771287
+East Asia & Pacific,EAS,1995,1941918800
+East Asia & Pacific,EAS,1996,1964635058
+East Asia & Pacific,EAS,1997,1986799861
+East Asia & Pacific,EAS,1998,2008140141
+East Asia & Pacific,EAS,1999,2028095314
+East Asia & Pacific,EAS,2000,2047150745
+East Asia & Pacific,EAS,2001,2065521836
+East Asia & Pacific,EAS,2002,2082953527
+East Asia & Pacific,EAS,2003,2099545576
+East Asia & Pacific,EAS,2004,2115557365
+East Asia & Pacific,EAS,2005,2131363078
+East Asia & Pacific,EAS,2006,2147029631
+East Asia & Pacific,EAS,2007,2162104019
+East Asia & Pacific,EAS,2008,2177421759
+East Asia & Pacific,EAS,2009,2192352319
+East Asia & Pacific,EAS,2010,2207154641
+East Asia & Pacific,EAS,2011,2221934584
 East Asia & Pacific,EAS,2012,2237082761
-East Asia & Pacific,EAS,2013,2252310372
-East Asia & Pacific,EAS,2014,2267745316
-East Asia & Pacific,EAS,2015,2283107673
-East Asia & Pacific,EAS,2016,2298727229
+East Asia & Pacific,EAS,2013,2252311022
+East Asia & Pacific,EAS,2014,2267745366
+East Asia & Pacific,EAS,2015,2283108073
+East Asia & Pacific,EAS,2016,2298726779
+East Asia & Pacific,EAS,2017,2314364990
 East Asia & Pacific (excluding high income),EAP,1960,893956327
-East Asia & Pacific (excluding high income),EAP,1961,893537035
-East Asia & Pacific (excluding high income),EAP,1962,905445959
-East Asia & Pacific (excluding high income),EAP,1963,928641161
+East Asia & Pacific (excluding high income),EAP,1961,893537036
+East Asia & Pacific (excluding high income),EAP,1962,905445960
+East Asia & Pacific (excluding high income),EAP,1963,928641158
 East Asia & Pacific (excluding high income),EAP,1964,951477683
-East Asia & Pacific (excluding high income),EAP,1965,975325708
-East Asia & Pacific (excluding high income),EAP,1966,1002752094
-East Asia & Pacific (excluding high income),EAP,1967,1029286492
-East Asia & Pacific (excluding high income),EAP,1968,1056791466
-East Asia & Pacific (excluding high income),EAP,1969,1085996625
-East Asia & Pacific (excluding high income),EAP,1970,1116105175
-East Asia & Pacific (excluding high income),EAP,1971,1146850521
+East Asia & Pacific (excluding high income),EAP,1965,975325710
+East Asia & Pacific (excluding high income),EAP,1966,1002752091
+East Asia & Pacific (excluding high income),EAP,1967,1029286493
+East Asia & Pacific (excluding high income),EAP,1968,1056791462
+East Asia & Pacific (excluding high income),EAP,1969,1085996628
+East Asia & Pacific (excluding high income),EAP,1970,1116105178
+East Asia & Pacific (excluding high income),EAP,1971,1146850519
 East Asia & Pacific (excluding high income),EAP,1972,1175854628
-East Asia & Pacific (excluding high income),EAP,1973,1203905199
+East Asia & Pacific (excluding high income),EAP,1973,1203905200
 East Asia & Pacific (excluding high income),EAP,1974,1230436635
-East Asia & Pacific (excluding high income),EAP,1975,1254532837
-East Asia & Pacific (excluding high income),EAP,1976,1276763438
-East Asia & Pacific (excluding high income),EAP,1977,1297394584
-East Asia & Pacific (excluding high income),EAP,1978,1317994416
-East Asia & Pacific (excluding high income),EAP,1979,1338905400
+East Asia & Pacific (excluding high income),EAP,1975,1254532835
+East Asia & Pacific (excluding high income),EAP,1976,1276763432
+East Asia & Pacific (excluding high income),EAP,1977,1297394581
+East Asia & Pacific (excluding high income),EAP,1978,1317994414
+East Asia & Pacific (excluding high income),EAP,1979,1338905404
 East Asia & Pacific (excluding high income),EAP,1980,1359492990
-East Asia & Pacific (excluding high income),EAP,1981,1380818027
-East Asia & Pacific (excluding high income),EAP,1982,1404508193
-East Asia & Pacific (excluding high income),EAP,1983,1428333977
-East Asia & Pacific (excluding high income),EAP,1984,1451090682
-East Asia & Pacific (excluding high income),EAP,1985,1474560144
-East Asia & Pacific (excluding high income),EAP,1986,1499557433
-East Asia & Pacific (excluding high income),EAP,1987,1526044399
-East Asia & Pacific (excluding high income),EAP,1988,1552839425
-East Asia & Pacific (excluding high income),EAP,1989,1578979766
-East Asia & Pacific (excluding high income),EAP,1990,1604526531
-East Asia & Pacific (excluding high income),EAP,1991,1629001655
-East Asia & Pacific (excluding high income),EAP,1992,1651934414
+East Asia & Pacific (excluding high income),EAP,1981,1380818022
+East Asia & Pacific (excluding high income),EAP,1982,1404508191
+East Asia & Pacific (excluding high income),EAP,1983,1428333976
+East Asia & Pacific (excluding high income),EAP,1984,1451090680
+East Asia & Pacific (excluding high income),EAP,1985,1474560143
+East Asia & Pacific (excluding high income),EAP,1986,1499557430
+East Asia & Pacific (excluding high income),EAP,1987,1526044403
+East Asia & Pacific (excluding high income),EAP,1988,1552839428
+East Asia & Pacific (excluding high income),EAP,1989,1578979764
+East Asia & Pacific (excluding high income),EAP,1990,1604526529
+East Asia & Pacific (excluding high income),EAP,1991,1629001649
+East Asia & Pacific (excluding high income),EAP,1992,1651934416
 East Asia & Pacific (excluding high income),EAP,1993,1674021645
-East Asia & Pacific (excluding high income),EAP,1994,1695931771
-East Asia & Pacific (excluding high income),EAP,1995,1717381822
-East Asia & Pacific (excluding high income),EAP,1996,1738422949
-East Asia & Pacific (excluding high income),EAP,1997,1759201937
-East Asia & Pacific (excluding high income),EAP,1998,1779221744
-East Asia & Pacific (excluding high income),EAP,1999,1798083672
-East Asia & Pacific (excluding high income),EAP,2000,1815956216
-East Asia & Pacific (excluding high income),EAP,2001,1833033753
-East Asia & Pacific (excluding high income),EAP,2002,1849372891
-East Asia & Pacific (excluding high income),EAP,2003,1865072180
-East Asia & Pacific (excluding high income),EAP,2004,1880346866
-East Asia & Pacific (excluding high income),EAP,2005,1895491198
-East Asia & Pacific (excluding high income),EAP,2006,1910175449
-East Asia & Pacific (excluding high income),EAP,2007,1924328696
-East Asia & Pacific (excluding high income),EAP,2008,1938364036
-East Asia & Pacific (excluding high income),EAP,2009,1952308531
+East Asia & Pacific (excluding high income),EAP,1994,1695931765
+East Asia & Pacific (excluding high income),EAP,1995,1717381821
+East Asia & Pacific (excluding high income),EAP,1996,1738422945
+East Asia & Pacific (excluding high income),EAP,1997,1759201938
+East Asia & Pacific (excluding high income),EAP,1998,1779221736
+East Asia & Pacific (excluding high income),EAP,1999,1798083668
+East Asia & Pacific (excluding high income),EAP,2000,1815956211
+East Asia & Pacific (excluding high income),EAP,2001,1833033752
+East Asia & Pacific (excluding high income),EAP,2002,1849372898
+East Asia & Pacific (excluding high income),EAP,2003,1865072190
+East Asia & Pacific (excluding high income),EAP,2004,1880346879
+East Asia & Pacific (excluding high income),EAP,2005,1895491197
+East Asia & Pacific (excluding high income),EAP,2006,1910175419
+East Asia & Pacific (excluding high income),EAP,2007,1924328623
+East Asia & Pacific (excluding high income),EAP,2008,1938363936
+East Asia & Pacific (excluding high income),EAP,2009,1952308448
 East Asia & Pacific (excluding high income),EAP,2010,1966231608
 East Asia & Pacific (excluding high income),EAP,2011,1980303926
 East Asia & Pacific (excluding high income),EAP,2012,1994651365
@@ -341,56 +346,57 @@ East Asia & Pacific (excluding high income),EAP,2013,2009173000
 East Asia & Pacific (excluding high income),EAP,2014,2023837097
 East Asia & Pacific (excluding high income),EAP,2015,2038410865
 East Asia & Pacific (excluding high income),EAP,2016,2053299126
+East Asia & Pacific (excluding high income),EAP,2017,2068308373
 East Asia & Pacific (IDA & IBRD countries),TEA,1960,882521780
-East Asia & Pacific (IDA & IBRD countries),TEA,1961,881860854
-East Asia & Pacific (IDA & IBRD countries),TEA,1962,893563281
-East Asia & Pacific (IDA & IBRD countries),TEA,1963,916564189
+East Asia & Pacific (IDA & IBRD countries),TEA,1961,881860855
+East Asia & Pacific (IDA & IBRD countries),TEA,1962,893563282
+East Asia & Pacific (IDA & IBRD countries),TEA,1963,916564186
 East Asia & Pacific (IDA & IBRD countries),TEA,1964,939183159
-East Asia & Pacific (IDA & IBRD countries),TEA,1965,962765445
-East Asia & Pacific (IDA & IBRD countries),TEA,1966,989873765
-East Asia & Pacific (IDA & IBRD countries),TEA,1967,1016049762
-East Asia & Pacific (IDA & IBRD countries),TEA,1968,1043166804
-East Asia & Pacific (IDA & IBRD countries),TEA,1969,1071971003
-East Asia & Pacific (IDA & IBRD countries),TEA,1970,1101678963
-East Asia & Pacific (IDA & IBRD countries),TEA,1971,1132024738
+East Asia & Pacific (IDA & IBRD countries),TEA,1965,962765447
+East Asia & Pacific (IDA & IBRD countries),TEA,1966,989873762
+East Asia & Pacific (IDA & IBRD countries),TEA,1967,1016049763
+East Asia & Pacific (IDA & IBRD countries),TEA,1968,1043166800
+East Asia & Pacific (IDA & IBRD countries),TEA,1969,1071971006
+East Asia & Pacific (IDA & IBRD countries),TEA,1970,1101678966
+East Asia & Pacific (IDA & IBRD countries),TEA,1971,1132024736
 East Asia & Pacific (IDA & IBRD countries),TEA,1972,1160630217
-East Asia & Pacific (IDA & IBRD countries),TEA,1973,1188294880
+East Asia & Pacific (IDA & IBRD countries),TEA,1973,1188294881
 East Asia & Pacific (IDA & IBRD countries),TEA,1974,1214467266
-East Asia & Pacific (IDA & IBRD countries),TEA,1975,1238240443
-East Asia & Pacific (IDA & IBRD countries),TEA,1976,1260190656
-East Asia & Pacific (IDA & IBRD countries),TEA,1977,1280579542
-East Asia & Pacific (IDA & IBRD countries),TEA,1978,1300959484
-East Asia & Pacific (IDA & IBRD countries),TEA,1979,1321650185
+East Asia & Pacific (IDA & IBRD countries),TEA,1975,1238240441
+East Asia & Pacific (IDA & IBRD countries),TEA,1976,1260190650
+East Asia & Pacific (IDA & IBRD countries),TEA,1977,1280579539
+East Asia & Pacific (IDA & IBRD countries),TEA,1978,1300959482
+East Asia & Pacific (IDA & IBRD countries),TEA,1979,1321650189
 East Asia & Pacific (IDA & IBRD countries),TEA,1980,1342000587
-East Asia & Pacific (IDA & IBRD countries),TEA,1981,1363065691
-East Asia & Pacific (IDA & IBRD countries),TEA,1982,1386477554
-East Asia & Pacific (IDA & IBRD countries),TEA,1983,1410012615
-East Asia & Pacific (IDA & IBRD countries),TEA,1984,1432476228
-East Asia & Pacific (IDA & IBRD countries),TEA,1985,1455657361
-East Asia & Pacific (IDA & IBRD countries),TEA,1986,1480373786
-East Asia & Pacific (IDA & IBRD countries),TEA,1987,1506584203
-East Asia & Pacific (IDA & IBRD countries),TEA,1988,1533101545
-East Asia & Pacific (IDA & IBRD countries),TEA,1989,1558955175
-East Asia & Pacific (IDA & IBRD countries),TEA,1990,1584201527
-East Asia & Pacific (IDA & IBRD countries),TEA,1991,1608359604
-East Asia & Pacific (IDA & IBRD countries),TEA,1992,1630963311
+East Asia & Pacific (IDA & IBRD countries),TEA,1981,1363065686
+East Asia & Pacific (IDA & IBRD countries),TEA,1982,1386477552
+East Asia & Pacific (IDA & IBRD countries),TEA,1983,1410012614
+East Asia & Pacific (IDA & IBRD countries),TEA,1984,1432476226
+East Asia & Pacific (IDA & IBRD countries),TEA,1985,1455657360
+East Asia & Pacific (IDA & IBRD countries),TEA,1986,1480373783
+East Asia & Pacific (IDA & IBRD countries),TEA,1987,1506584207
+East Asia & Pacific (IDA & IBRD countries),TEA,1988,1533101548
+East Asia & Pacific (IDA & IBRD countries),TEA,1989,1558955173
+East Asia & Pacific (IDA & IBRD countries),TEA,1990,1584201525
+East Asia & Pacific (IDA & IBRD countries),TEA,1991,1608359598
+East Asia & Pacific (IDA & IBRD countries),TEA,1992,1630963313
 East Asia & Pacific (IDA & IBRD countries),TEA,1993,1652721433
-East Asia & Pacific (IDA & IBRD countries),TEA,1994,1674318792
-East Asia & Pacific (IDA & IBRD countries),TEA,1995,1695483908
-East Asia & Pacific (IDA & IBRD countries),TEA,1996,1716273163
-East Asia & Pacific (IDA & IBRD countries),TEA,1997,1736829481
-East Asia & Pacific (IDA & IBRD countries),TEA,1998,1756647031
-East Asia & Pacific (IDA & IBRD countries),TEA,1999,1775313796
-East Asia & Pacific (IDA & IBRD countries),TEA,2000,1792988795
-East Asia & Pacific (IDA & IBRD countries),TEA,2001,1809863172
-East Asia & Pacific (IDA & IBRD countries),TEA,2002,1825997053
-East Asia & Pacific (IDA & IBRD countries),TEA,2003,1841494223
-East Asia & Pacific (IDA & IBRD countries),TEA,2004,1856577908
-East Asia & Pacific (IDA & IBRD countries),TEA,2005,1871547819
-East Asia & Pacific (IDA & IBRD countries),TEA,2006,1886075714
-East Asia & Pacific (IDA & IBRD countries),TEA,2007,1900087620
-East Asia & Pacific (IDA & IBRD countries),TEA,2008,1913992088
-East Asia & Pacific (IDA & IBRD countries),TEA,2009,1927809625
+East Asia & Pacific (IDA & IBRD countries),TEA,1994,1674318786
+East Asia & Pacific (IDA & IBRD countries),TEA,1995,1695483907
+East Asia & Pacific (IDA & IBRD countries),TEA,1996,1716273159
+East Asia & Pacific (IDA & IBRD countries),TEA,1997,1736829482
+East Asia & Pacific (IDA & IBRD countries),TEA,1998,1756647023
+East Asia & Pacific (IDA & IBRD countries),TEA,1999,1775313792
+East Asia & Pacific (IDA & IBRD countries),TEA,2000,1792988790
+East Asia & Pacific (IDA & IBRD countries),TEA,2001,1809863171
+East Asia & Pacific (IDA & IBRD countries),TEA,2002,1825997060
+East Asia & Pacific (IDA & IBRD countries),TEA,2003,1841494233
+East Asia & Pacific (IDA & IBRD countries),TEA,2004,1856577921
+East Asia & Pacific (IDA & IBRD countries),TEA,2005,1871547818
+East Asia & Pacific (IDA & IBRD countries),TEA,2006,1886075684
+East Asia & Pacific (IDA & IBRD countries),TEA,2007,1900087547
+East Asia & Pacific (IDA & IBRD countries),TEA,2008,1913991988
+East Asia & Pacific (IDA & IBRD countries),TEA,2009,1927809542
 East Asia & Pacific (IDA & IBRD countries),TEA,2010,1941604842
 East Asia & Pacific (IDA & IBRD countries),TEA,2011,1955546907
 East Asia & Pacific (IDA & IBRD countries),TEA,2012,1969762859
@@ -398,6 +404,7 @@ East Asia & Pacific (IDA & IBRD countries),TEA,2013,1984152637
 East Asia & Pacific (IDA & IBRD countries),TEA,2014,1998686391
 East Asia & Pacific (IDA & IBRD countries),TEA,2015,2013132699
 East Asia & Pacific (IDA & IBRD countries),TEA,2016,2027896410
+East Asia & Pacific (IDA & IBRD countries),TEA,2017,2042783496
 Euro area,EMU,1960,265396502
 Euro area,EMU,1961,267825309
 Euro area,EMU,1962,270324828
@@ -449,12 +456,13 @@ Euro area,EMU,2007,332645166
 Euro area,EMU,2008,334274730
 Euro area,EMU,2009,335360887
 Euro area,EMU,2010,336151474
-Euro area,EMU,2011,335425830
-Euro area,EMU,2012,336167295
-Euro area,EMU,2013,337296876
-Euro area,EMU,2014,338429647.5
-Euro area,EMU,2015,339486064
-Euro area,EMU,2016,340762347
+Euro area,EMU,2011,335429120
+Euro area,EMU,2012,336180504
+Euro area,EMU,2013,337325526
+Euro area,EMU,2014,338466271
+Euro area,EMU,2015,339533474
+Euro area,EMU,2016,340617355
+Euro area,EMU,2017,341465149
 Europe & Central Asia,ECS,1960,667246384
 Europe & Central Asia,ECS,1961,674972972
 Europe & Central Asia,ECS,1962,682938669
@@ -504,71 +512,73 @@ Europe & Central Asia,ECS,2005,872661616
 Europe & Central Asia,ECS,2006,875343235
 Europe & Central Asia,ECS,2007,878465990
 Europe & Central Asia,ECS,2008,881965815
-Europe & Central Asia,ECS,2009,885591693
-Europe & Central Asia,ECS,2010,889016216
-Europe & Central Asia,ECS,2011,891094963
-Europe & Central Asia,ECS,2012,894666668
-Europe & Central Asia,ECS,2013,898855116
-Europe & Central Asia,ECS,2014,903094669.5
-Europe & Central Asia,ECS,2015,907393322
-Europe & Central Asia,ECS,2016,911847278
-Europe & Central Asia (excluding high income),ECA,1960,279087938
-Europe & Central Asia (excluding high income),ECA,1961,283416986
-Europe & Central Asia (excluding high income),ECA,1962,287761794
-Europe & Central Asia (excluding high income),ECA,1963,292120322
-Europe & Central Asia (excluding high income),ECA,1964,296463073
-Europe & Central Asia (excluding high income),ECA,1965,300740822
-Europe & Central Asia (excluding high income),ECA,1966,304356201
-Europe & Central Asia (excluding high income),ECA,1967,308039772
-Europe & Central Asia (excluding high income),ECA,1968,311636189
-Europe & Central Asia (excluding high income),ECA,1969,315162240
-Europe & Central Asia (excluding high income),ECA,1970,318699628
-Europe & Central Asia (excluding high income),ECA,1971,322234890
-Europe & Central Asia (excluding high income),ECA,1972,325762116
-Europe & Central Asia (excluding high income),ECA,1973,329267807
-Europe & Central Asia (excluding high income),ECA,1974,332789612
-Europe & Central Asia (excluding high income),ECA,1975,336330171
-Europe & Central Asia (excluding high income),ECA,1976,340024688
-Europe & Central Asia (excluding high income),ECA,1977,343646223
-Europe & Central Asia (excluding high income),ECA,1978,347250227
-Europe & Central Asia (excluding high income),ECA,1979,350823401
-Europe & Central Asia (excluding high income),ECA,1980,354494056
-Europe & Central Asia (excluding high income),ECA,1981,358233804
-Europe & Central Asia (excluding high income),ECA,1982,361802765
-Europe & Central Asia (excluding high income),ECA,1983,365350752
-Europe & Central Asia (excluding high income),ECA,1984,369141750
-Europe & Central Asia (excluding high income),ECA,1985,372949384
-Europe & Central Asia (excluding high income),ECA,1986,376730350
-Europe & Central Asia (excluding high income),ECA,1987,380496651
-Europe & Central Asia (excluding high income),ECA,1988,384146656
-Europe & Central Asia (excluding high income),ECA,1989,387627353
-Europe & Central Asia (excluding high income),ECA,1990,390207446
-Europe & Central Asia (excluding high income),ECA,1991,391907109
-Europe & Central Asia (excluding high income),ECA,1992,393481005
-Europe & Central Asia (excluding high income),ECA,1993,394905543
-Europe & Central Asia (excluding high income),ECA,1994,395568548
-Europe & Central Asia (excluding high income),ECA,1995,396053579
-Europe & Central Asia (excluding high income),ECA,1996,396285161
-Europe & Central Asia (excluding high income),ECA,1997,396772932
-Europe & Central Asia (excluding high income),ECA,1998,396999014
-Europe & Central Asia (excluding high income),ECA,1999,397071924
-Europe & Central Asia (excluding high income),ECA,2000,397083969
-Europe & Central Asia (excluding high income),ECA,2001,396886165
-Europe & Central Asia (excluding high income),ECA,2002,396574307
-Europe & Central Asia (excluding high income),ECA,2003,396720391
-Europe & Central Asia (excluding high income),ECA,2004,397064999
-Europe & Central Asia (excluding high income),ECA,2005,397469492
-Europe & Central Asia (excluding high income),ECA,2006,398011334
-Europe & Central Asia (excluding high income),ECA,2007,398693705
-Europe & Central Asia (excluding high income),ECA,2008,399739094
-Europe & Central Asia (excluding high income),ECA,2009,401472949
-Europe & Central Asia (excluding high income),ECA,2010,403470694
-Europe & Central Asia (excluding high income),ECA,2011,405521953
-Europe & Central Asia (excluding high income),ECA,2012,407706585
-Europe & Central Asia (excluding high income),ECA,2013,410126644
-Europe & Central Asia (excluding high income),ECA,2014,412510951
-Europe & Central Asia (excluding high income),ECA,2015,414975737
-Europe & Central Asia (excluding high income),ECA,2016,417406606
+Europe & Central Asia,ECS,2009,885591814
+Europe & Central Asia,ECS,2010,889016507
+Europe & Central Asia,ECS,2011,891098854
+Europe & Central Asia,ECS,2012,894679968
+Europe & Central Asia,ECS,2013,898881448
+Europe & Central Asia,ECS,2014,903123160
+Europe & Central Asia,ECS,2015,907426233
+Europe & Central Asia,ECS,2016,911686319
+Europe & Central Asia,ECS,2017,915545801
+Europe & Central Asia (excluding high income),ECA,1960,274947938
+Europe & Central Asia (excluding high income),ECA,1961,279245314
+Europe & Central Asia (excluding high income),ECA,1962,283559690
+Europe & Central Asia (excluding high income),ECA,1963,287888914
+Europe & Central Asia (excluding high income),ECA,1964,292203393
+Europe & Central Asia (excluding high income),ECA,1965,296453822
+Europe & Central Asia (excluding high income),ECA,1966,300043201
+Europe & Central Asia (excluding high income),ECA,1967,303700772
+Europe & Central Asia (excluding high income),ECA,1968,307272189
+Europe & Central Asia (excluding high income),ECA,1969,310775240
+Europe & Central Asia (excluding high income),ECA,1970,314288628
+Europe & Central Asia (excluding high income),ECA,1971,317799890
+Europe & Central Asia (excluding high income),ECA,1972,321305116
+Europe & Central Asia (excluding high income),ECA,1973,324789807
+Europe & Central Asia (excluding high income),ECA,1974,328292612
+Europe & Central Asia (excluding high income),ECA,1975,331816171
+Europe & Central Asia (excluding high income),ECA,1976,335494688
+Europe & Central Asia (excluding high income),ECA,1977,339114223
+Europe & Central Asia (excluding high income),ECA,1978,342694227
+Europe & Central Asia (excluding high income),ECA,1979,346252401
+Europe & Central Asia (excluding high income),ECA,1980,349906056
+Europe & Central Asia (excluding high income),ECA,1981,353625804
+Europe & Central Asia (excluding high income),ECA,1982,357167765
+Europe & Central Asia (excluding high income),ECA,1983,360691752
+Europe & Central Asia (excluding high income),ECA,1984,364461750
+Europe & Central Asia (excluding high income),ECA,1985,368248384
+Europe & Central Asia (excluding high income),ECA,1986,372008350
+Europe & Central Asia (excluding high income),ECA,1987,375756651
+Europe & Central Asia (excluding high income),ECA,1988,379389656
+Europe & Central Asia (excluding high income),ECA,1989,382860353
+Europe & Central Asia (excluding high income),ECA,1990,385427446
+Europe & Central Asia (excluding high income),ECA,1991,387397109
+Europe & Central Asia (excluding high income),ECA,1992,389011005
+Europe & Central Asia (excluding high income),ECA,1993,390265543
+Europe & Central Asia (excluding high income),ECA,1994,390918548
+Europe & Central Asia (excluding high income),ECA,1995,391384579
+Europe & Central Asia (excluding high income),ECA,1996,391791161
+Europe & Central Asia (excluding high income),ECA,1997,392200932
+Europe & Central Asia (excluding high income),ECA,1998,392498014
+Europe & Central Asia (excluding high income),ECA,1999,392517924
+Europe & Central Asia (excluding high income),ECA,2000,392657969
+Europe & Central Asia (excluding high income),ECA,2001,392446165
+Europe & Central Asia (excluding high income),ECA,2002,392134307
+Europe & Central Asia (excluding high income),ECA,2003,392280391
+Europe & Central Asia (excluding high income),ECA,2004,392625999
+Europe & Central Asia (excluding high income),ECA,2005,393027492
+Europe & Central Asia (excluding high income),ECA,2006,393571334
+Europe & Central Asia (excluding high income),ECA,2007,394257705
+Europe & Central Asia (excluding high income),ECA,2008,395304586
+Europe & Central Asia (excluding high income),ECA,2009,397043992
+Europe & Central Asia (excluding high income),ECA,2010,399053204
+Europe & Central Asia (excluding high income),ECA,2011,401241932
+Europe & Central Asia (excluding high income),ECA,2012,403439691
+Europe & Central Asia (excluding high income),ECA,2013,405871230
+Europe & Central Asia (excluding high income),ECA,2014,408271623
+Europe & Central Asia (excluding high income),ECA,2015,410770813
+Europe & Central Asia (excluding high income),ECA,2016,413234935
+Europe & Central Asia (excluding high income),ECA,2017,415546194
 Europe & Central Asia (IDA & IBRD countries),TEC,1960,308725388
 Europe & Central Asia (IDA & IBRD countries),TEC,1961,313380986
 Europe & Central Asia (IDA & IBRD countries),TEC,1962,318070294
@@ -618,14 +628,15 @@ Europe & Central Asia (IDA & IBRD countries),TEC,2005,435634937
 Europe & Central Asia (IDA & IBRD countries),TEC,2006,436152601
 Europe & Central Asia (IDA & IBRD countries),TEC,2007,436814265
 Europe & Central Asia (IDA & IBRD countries),TEC,2008,437864853
-Europe & Central Asia (IDA & IBRD countries),TEC,2009,439624552
-Europe & Central Asia (IDA & IBRD countries),TEC,2010,441513488
-Europe & Central Asia (IDA & IBRD countries),TEC,2011,443585208
-Europe & Central Asia (IDA & IBRD countries),TEC,2012,445769749
-Europe & Central Asia (IDA & IBRD countries),TEC,2013,448166840
-Europe & Central Asia (IDA & IBRD countries),TEC,2014,450522686
-Europe & Central Asia (IDA & IBRD countries),TEC,2015,452962149
-Europe & Central Asia (IDA & IBRD countries),TEC,2016,455376693
+Europe & Central Asia (IDA & IBRD countries),TEC,2009,439624673
+Europe & Central Asia (IDA & IBRD countries),TEC,2010,441513779
+Europe & Central Asia (IDA & IBRD countries),TEC,2011,443585809
+Europe & Central Asia (IDA & IBRD countries),TEC,2012,445770413
+Europe & Central Asia (IDA & IBRD countries),TEC,2013,448167115
+Europe & Central Asia (IDA & IBRD countries),TEC,2014,450521747
+Europe & Central Asia (IDA & IBRD countries),TEC,2015,452960829
+Europe & Central Asia (IDA & IBRD countries),TEC,2016,455379371
+Europe & Central Asia (IDA & IBRD countries),TEC,2017,457647735
 European Union,EUU,1960,409498463
 European Union,EUU,1961,413007006
 European Union,EUU,1962,416670637
@@ -677,69 +688,71 @@ European Union,EUU,2007,499916647
 European Union,EUU,2008,501808477
 European Union,EUU,2009,503317964
 European Union,EUU,2010,504421126
-European Union,EUU,2011,504012081
-European Union,EUU,2012,505104333
-European Union,EUU,2013,506592460
-European Union,EUU,2014,508157248.5
-European Union,EUU,2015,509670169
-European Union,EUU,2016,511360932
-Fragile and conflict affected situations,FCS,1960,121765037
-Fragile and conflict affected situations,FCS,1961,124558907
-Fragile and conflict affected situations,FCS,1962,127465500
-Fragile and conflict affected situations,FCS,1963,130492518
-Fragile and conflict affected situations,FCS,1964,133661787
-Fragile and conflict affected situations,FCS,1965,136988867
-Fragile and conflict affected situations,FCS,1966,140486338
-Fragile and conflict affected situations,FCS,1967,144152478
-Fragile and conflict affected situations,FCS,1968,147967143
-Fragile and conflict affected situations,FCS,1969,151904121
-Fragile and conflict affected situations,FCS,1970,155946806
-Fragile and conflict affected situations,FCS,1971,160072960
-Fragile and conflict affected situations,FCS,1972,164297540
-Fragile and conflict affected situations,FCS,1973,168673430
-Fragile and conflict affected situations,FCS,1974,173281249
-Fragile and conflict affected situations,FCS,1975,178166730
-Fragile and conflict affected situations,FCS,1976,183363175
-Fragile and conflict affected situations,FCS,1977,188827291
-Fragile and conflict affected situations,FCS,1978,194446551
-Fragile and conflict affected situations,FCS,1979,200065012
-Fragile and conflict affected situations,FCS,1980,205569660
-Fragile and conflict affected situations,FCS,1981,210939026
-Fragile and conflict affected situations,FCS,1982,216213145
-Fragile and conflict affected situations,FCS,1983,221432781
-Fragile and conflict affected situations,FCS,1984,226660414
-Fragile and conflict affected situations,FCS,1985,231956914
-Fragile and conflict affected situations,FCS,1986,237300542
-Fragile and conflict affected situations,FCS,1987,242711060
-Fragile and conflict affected situations,FCS,1988,248333373
-Fragile and conflict affected situations,FCS,1989,254349779
-Fragile and conflict affected situations,FCS,1990,262862202
-Fragile and conflict affected situations,FCS,1991,270090401
-Fragile and conflict affected situations,FCS,1992,277863547
-Fragile and conflict affected situations,FCS,1993,285986364
-Fragile and conflict affected situations,FCS,1994,294177517
-Fragile and conflict affected situations,FCS,1995,302240865
-Fragile and conflict affected situations,FCS,1996,310098332
-Fragile and conflict affected situations,FCS,1997,317827011
-Fragile and conflict affected situations,FCS,1998,325374011
-Fragile and conflict affected situations,FCS,1999,333069571
-Fragile and conflict affected situations,FCS,2000,341295147
-Fragile and conflict affected situations,FCS,2001,350015363
-Fragile and conflict affected situations,FCS,2002,359110192
-Fragile and conflict affected situations,FCS,2003,368514375
-Fragile and conflict affected situations,FCS,2004,378123879
-Fragile and conflict affected situations,FCS,2005,387862311
-Fragile and conflict affected situations,FCS,2006,397732436
-Fragile and conflict affected situations,FCS,2007,407747286
-Fragile and conflict affected situations,FCS,2008,417919663
-Fragile and conflict affected situations,FCS,2009,428246870
-Fragile and conflict affected situations,FCS,2010,438737943
-Fragile and conflict affected situations,FCS,2011,449398455
-Fragile and conflict affected situations,FCS,2012,460228236
-Fragile and conflict affected situations,FCS,2013,471253115
-Fragile and conflict affected situations,FCS,2014,482474449
-Fragile and conflict affected situations,FCS,2015,493919601
-Fragile and conflict affected situations,FCS,2016,505635987
+European Union,EUU,2011,504015371
+European Union,EUU,2012,505117542
+European Union,EUU,2013,506621110
+European Union,EUU,2014,508193872
+European Union,EUU,2015,509717579
+European Union,EUU,2016,511218960
+European Union,EUU,2017,512461290
+Fragile and conflict affected situations,FCS,1960,119967877
+Fragile and conflict affected situations,FCS,1961,122738548
+Fragile and conflict affected situations,FCS,1962,125620594
+Fragile and conflict affected situations,FCS,1963,128621853
+Fragile and conflict affected situations,FCS,1964,131764369
+Fragile and conflict affected situations,FCS,1965,135063791
+Fragile and conflict affected situations,FCS,1966,138532362
+Fragile and conflict affected situations,FCS,1967,142167980
+Fragile and conflict affected situations,FCS,1968,145950382
+Fragile and conflict affected situations,FCS,1969,149853252
+Fragile and conflict affected situations,FCS,1970,153859672
+Fragile and conflict affected situations,FCS,1971,157948126
+Fragile and conflict affected situations,FCS,1972,162133008
+Fragile and conflict affected situations,FCS,1973,166464128
+Fragile and conflict affected situations,FCS,1974,171018004
+Fragile and conflict affected situations,FCS,1975,175837838
+Fragile and conflict affected situations,FCS,1976,180955166
+Fragile and conflict affected situations,FCS,1977,186328587
+Fragile and conflict affected situations,FCS,1978,191851145
+Fragile and conflict affected situations,FCS,1979,197374705
+Fragile and conflict affected situations,FCS,1980,202791782
+Fragile and conflict affected situations,FCS,1981,208084754
+Fragile and conflict affected situations,FCS,1982,213292176
+Fragile and conflict affected situations,FCS,1983,218448678
+Fragile and conflict affected situations,FCS,1984,223607635
+Fragile and conflict affected situations,FCS,1985,228824309
+Fragile and conflict affected situations,FCS,1986,234072288
+Fragile and conflict affected situations,FCS,1987,239375914
+Fragile and conflict affected situations,FCS,1988,244894863
+Fragile and conflict affected situations,FCS,1989,250831755
+Fragile and conflict affected situations,FCS,1990,259301889
+Fragile and conflict affected situations,FCS,1991,266530173
+Fragile and conflict affected situations,FCS,1992,274337650
+Fragile and conflict affected situations,FCS,1993,282512676
+Fragile and conflict affected situations,FCS,1994,290750580
+Fragile and conflict affected situations,FCS,1995,298837493
+Fragile and conflict affected situations,FCS,1996,306691898
+Fragile and conflict affected situations,FCS,1997,314393550
+Fragile and conflict affected situations,FCS,1998,321885559
+Fragile and conflict affected situations,FCS,1999,329495037
+Fragile and conflict affected situations,FCS,2000,337602457
+Fragile and conflict affected situations,FCS,2001,346168747
+Fragile and conflict affected situations,FCS,2002,355076801
+Fragile and conflict affected situations,FCS,2003,364275678
+Fragile and conflict affected situations,FCS,2004,373680882
+Fragile and conflict affected situations,FCS,2005,383230416
+Fragile and conflict affected situations,FCS,2006,392932365
+Fragile and conflict affected situations,FCS,2007,402796842
+Fragile and conflict affected situations,FCS,2008,412832401
+Fragile and conflict affected situations,FCS,2009,423028631
+Fragile and conflict affected situations,FCS,2010,433388814
+Fragile and conflict affected situations,FCS,2011,443918286
+Fragile and conflict affected situations,FCS,2012,454618893
+Fragile and conflict affected situations,FCS,2013,465515402
+Fragile and conflict affected situations,FCS,2014,476608101
+Fragile and conflict affected situations,FCS,2015,487923553
+Fragile and conflict affected situations,FCS,2016,499508468
+Fragile and conflict affected situations,FCS,2017,511336623
 Heavily indebted poor countries (HIPC),HPC,1960,162495580
 Heavily indebted poor countries (HIPC),HPC,1961,166348536
 Heavily indebted poor countries (HIPC),HPC,1962,170348129
@@ -797,177 +810,181 @@ Heavily indebted poor countries (HIPC),HPC,2013,685401960
 Heavily indebted poor countries (HIPC),HPC,2014,704745420
 Heavily indebted poor countries (HIPC),HPC,2015,724482652
 Heavily indebted poor countries (HIPC),HPC,2016,744602976
-High income,HIC,1960,754609927
-High income,HIC,1961,765955145
-High income,HIC,1962,775950078
-High income,HIC,1963,785863206
-High income,HIC,1964,795664702
-High income,HIC,1965,805074670
-High income,HIC,1966,813852130
-High income,HIC,1967,822239552
-High income,HIC,1968,829646759
-High income,HIC,1969,838754708
-High income,HIC,1970,846883364
-High income,HIC,1971,855639233
-High income,HIC,1972,864539669
-High income,HIC,1973,872567781
-High income,HIC,1974,881670350
-High income,HIC,1975,890247204
-High income,HIC,1976,897372709
-High income,HIC,1977,904741849
-High income,HIC,1978,912161737
-High income,HIC,1979,919956023
-High income,HIC,1980,927555800
-High income,HIC,1981,935160587
-High income,HIC,1982,942353440
-High income,HIC,1983,949114272
-High income,HIC,1984,955524429
-High income,HIC,1985,961969171
-High income,HIC,1986,968703210
-High income,HIC,1987,975421581
-High income,HIC,1988,982288521
-High income,HIC,1989,989592440
-High income,HIC,1990,997353719
-High income,HIC,1991,1005572309
-High income,HIC,1992,1011955642
-High income,HIC,1993,1019867919
-High income,HIC,1994,1027255147
-High income,HIC,1995,1036155042
-High income,HIC,1996,1043361635
-High income,HIC,1997,1050343658
-High income,HIC,1998,1057108847
-High income,HIC,1999,1063829403
-High income,HIC,2000,1070496409
-High income,HIC,2001,1077634485
-High income,HIC,2002,1084822681
-High income,HIC,2003,1091996651
-High income,HIC,2004,1099536714
-High income,HIC,2005,1107240754
-High income,HIC,2006,1115521566
-High income,HIC,2007,1124300804
-High income,HIC,2008,1133635561
-High income,HIC,2009,1141986984
-High income,HIC,2010,1149513780
-High income,HIC,2011,1155001498
-High income,HIC,2012,1161912763
-High income,HIC,2013,1168863948
-High income,HIC,2014,1175992264.5
-High income,HIC,2015,1182932407
-High income,HIC,2016,1189954263
+Heavily indebted poor countries (HIPC),HPC,2017,765112280
+High income,HIC,1960,780501923
+High income,HIC,1961,792246929
+High income,HIC,1962,802642237
+High income,HIC,1963,812955277
+High income,HIC,1964,823154587
+High income,HIC,1965,832959686
+High income,HIC,1966,842127682
+High income,HIC,1967,850904554
+High income,HIC,1968,858706694
+High income,HIC,1969,868224174
+High income,HIC,1970,876786721
+High income,HIC,1971,886003787
+High income,HIC,1972,895387452
+High income,HIC,1973,903912425
+High income,HIC,1974,913510969
+High income,HIC,1975,922573384
+High income,HIC,1976,930171314
+High income,HIC,1977,937990304
+High income,HIC,1978,945879993
+High income,HIC,1979,954142946
+High income,HIC,1980,962228266
+High income,HIC,1981,970338016
+High income,HIC,1982,978056271
+High income,HIC,1983,985349949
+High income,HIC,1984,992295742
+High income,HIC,1985,999278230
+High income,HIC,1986,1006551028
+High income,HIC,1987,1013806386
+High income,HIC,1988,1021209656
+High income,HIC,1989,1029042492
+High income,HIC,1990,1037334467
+High income,HIC,1991,1045799408
+High income,HIC,1992,1052656811
+High income,HIC,1993,1061248480
+High income,HIC,1994,1069147445
+High income,HIC,1995,1078558586
+High income,HIC,1996,1086071661
+High income,HIC,1997,1093603568
+High income,HIC,1998,1100763765
+High income,HIC,1999,1108002668
+High income,HIC,2000,1115010208
+High income,HIC,2001,1122635089
+High income,HIC,2002,1130299527
+High income,HIC,2003,1137953182
+High income,HIC,2004,1145971873
+High income,HIC,2005,1154156034
+High income,HIC,2006,1162908282
+High income,HIC,2007,1172156434
+High income,HIC,2008,1181962982
+High income,HIC,2009,1190790909
+High income,HIC,2010,1198787232
+High income,HIC,2011,1204631343
+High income,HIC,2012,1212058100
+High income,HIC,2013,1219556921
+High income,HIC,2014,1227211897
+High income,HIC,2015,1234714041
+High income,HIC,2016,1242137612
+High income,HIC,2017,1249066228
 IBRD only,IBD,1960,1917374485
-IBRD only,IBD,1961,1938089344
-IBRD only,IBD,1962,1971767955
-IBRD only,IBD,1963,2017341252
+IBRD only,IBD,1961,1938089345
+IBRD only,IBD,1962,1971767956
+IBRD only,IBD,1963,2017341249
 IBRD only,IBD,1964,2063005443
-IBRD only,IBD,1965,2109873875
-IBRD only,IBD,1966,2159939615
-IBRD only,IBD,1967,2209648248
-IBRD only,IBD,1968,2260717669
-IBRD only,IBD,1969,2313952136
-IBRD only,IBD,1970,2368641001
-IBRD only,IBD,1971,2424660265
+IBRD only,IBD,1965,2109873877
+IBRD only,IBD,1966,2159939612
+IBRD only,IBD,1967,2209648249
+IBRD only,IBD,1968,2260717665
+IBRD only,IBD,1969,2313952139
+IBRD only,IBD,1970,2368641004
+IBRD only,IBD,1971,2424660263
 IBRD only,IBD,1972,2479752450
-IBRD only,IBD,1973,2534559970
+IBRD only,IBD,1973,2534559971
 IBRD only,IBD,1974,2588511538
-IBRD only,IBD,1975,2640675905
-IBRD only,IBD,1976,2691718266
-IBRD only,IBD,1977,2741668830
-IBRD only,IBD,1978,2792125961
-IBRD only,IBD,1979,2843527325
+IBRD only,IBD,1975,2640675903
+IBRD only,IBD,1976,2691718260
+IBRD only,IBD,1977,2741668827
+IBRD only,IBD,1978,2792125959
+IBRD only,IBD,1979,2843527329
 IBRD only,IBD,1980,2895417606
-IBRD only,IBD,1981,2948771308
-IBRD only,IBD,1982,3004918685
-IBRD only,IBD,1983,3061651492
-IBRD only,IBD,1984,3117857855
-IBRD only,IBD,1985,3174933340
-IBRD only,IBD,1986,3233584117
-IBRD only,IBD,1987,3293767158
-IBRD only,IBD,1988,3354131698
-IBRD only,IBD,1989,3413636633
-IBRD only,IBD,1990,3471574808
-IBRD only,IBD,1991,3527564523
-IBRD only,IBD,1992,3581733331
+IBRD only,IBD,1981,2948771303
+IBRD only,IBD,1982,3004918683
+IBRD only,IBD,1983,3061651491
+IBRD only,IBD,1984,3117857853
+IBRD only,IBD,1985,3174933339
+IBRD only,IBD,1986,3233584114
+IBRD only,IBD,1987,3293767162
+IBRD only,IBD,1988,3354131701
+IBRD only,IBD,1989,3413636631
+IBRD only,IBD,1990,3471574806
+IBRD only,IBD,1991,3527564517
+IBRD only,IBD,1992,3581733333
 IBRD only,IBD,1993,3634874959
-IBRD only,IBD,1994,3687117645
-IBRD only,IBD,1995,3738698416
-IBRD only,IBD,1996,3789573052
-IBRD only,IBD,1997,3840453295
-IBRD only,IBD,1998,3890434573
-IBRD only,IBD,1999,3939169004
-IBRD only,IBD,2000,3986056201
-IBRD only,IBD,2001,4032084834
-IBRD only,IBD,2002,4077072166
-IBRD only,IBD,2003,4121738813
-IBRD only,IBD,2004,4166120799
-IBRD only,IBD,2005,4210445216
-IBRD only,IBD,2006,4254416859
-IBRD only,IBD,2007,4297926889
-IBRD only,IBD,2008,4341646360
-IBRD only,IBD,2009,4385943437
-IBRD only,IBD,2010,4430022641
-IBRD only,IBD,2011,4474450394
-IBRD only,IBD,2012,4519551249
-IBRD only,IBD,2013,4564884790
-IBRD only,IBD,2014,4610016582
-IBRD only,IBD,2015,4654715802
-IBRD only,IBD,2016,4699229277
+IBRD only,IBD,1994,3687117639
+IBRD only,IBD,1995,3738698415
+IBRD only,IBD,1996,3789573048
+IBRD only,IBD,1997,3840453296
+IBRD only,IBD,1998,3890434565
+IBRD only,IBD,1999,3939169000
+IBRD only,IBD,2000,3986056196
+IBRD only,IBD,2001,4032084833
+IBRD only,IBD,2002,4077072173
+IBRD only,IBD,2003,4121738823
+IBRD only,IBD,2004,4166120812
+IBRD only,IBD,2005,4210445215
+IBRD only,IBD,2006,4254416829
+IBRD only,IBD,2007,4297926816
+IBRD only,IBD,2008,4341646260
+IBRD only,IBD,2009,4385943475
+IBRD only,IBD,2010,4430022932
+IBRD only,IBD,2011,4474450995
+IBRD only,IBD,2012,4519551913
+IBRD only,IBD,2013,4564885065
+IBRD only,IBD,2014,4610015643
+IBRD only,IBD,2015,4654714482
+IBRD only,IBD,2016,4699231955
+IBRD only,IBD,2017,4743263932
 IDA & IBRD total,IBT,1960,2299864225
-IDA & IBRD total,IBT,1961,2329888868
-IDA & IBRD total,IBT,1962,2373238348
-IDA & IBRD total,IBT,1963,2428869007
+IDA & IBRD total,IBT,1961,2329888869
+IDA & IBRD total,IBT,1962,2373238349
+IDA & IBRD total,IBT,1963,2428869004
 IDA & IBRD total,IBT,1964,2485008106
-IDA & IBRD total,IBT,1965,2542784927
-IDA & IBRD total,IBT,1966,2604231800
-IDA & IBRD total,IBT,1967,2665770489
-IDA & IBRD total,IBT,1968,2729022482
-IDA & IBRD total,IBT,1969,2794658513
-IDA & IBRD total,IBT,1970,2861878183
-IDA & IBRD total,IBT,1971,2930528767
+IDA & IBRD total,IBT,1965,2542784929
+IDA & IBRD total,IBT,1966,2604231797
+IDA & IBRD total,IBT,1967,2665770490
+IDA & IBRD total,IBT,1968,2729022478
+IDA & IBRD total,IBT,1969,2794658516
+IDA & IBRD total,IBT,1970,2861878186
+IDA & IBRD total,IBT,1971,2930528765
 IDA & IBRD total,IBT,1972,2998418215
-IDA & IBRD total,IBT,1973,3066318990
+IDA & IBRD total,IBT,1973,3066318991
 IDA & IBRD total,IBT,1974,3133856412
-IDA & IBRD total,IBT,1975,3200230102
-IDA & IBRD total,IBT,1976,3266159743
-IDA & IBRD total,IBT,1977,3331644565
-IDA & IBRD total,IBT,1978,3398253258
-IDA & IBRD total,IBT,1979,3466364393
+IDA & IBRD total,IBT,1975,3200230100
+IDA & IBRD total,IBT,1976,3266159737
+IDA & IBRD total,IBT,1977,3331644562
+IDA & IBRD total,IBT,1978,3398253256
+IDA & IBRD total,IBT,1979,3466364397
 IDA & IBRD total,IBT,1980,3535475763
-IDA & IBRD total,IBT,1981,3606560917
-IDA & IBRD total,IBT,1982,3680972749
-IDA & IBRD total,IBT,1983,3756519727
-IDA & IBRD total,IBT,1984,3832103030
-IDA & IBRD total,IBT,1985,3909126218
-IDA & IBRD total,IBT,1986,3988290158
-IDA & IBRD total,IBT,1987,4069534854
-IDA & IBRD total,IBT,1988,4151491690
-IDA & IBRD total,IBT,1989,4233121328
-IDA & IBRD total,IBT,1990,4313726004
-IDA & IBRD total,IBT,1991,4392785988
-IDA & IBRD total,IBT,1992,4470537757
+IDA & IBRD total,IBT,1981,3606560912
+IDA & IBRD total,IBT,1982,3680972747
+IDA & IBRD total,IBT,1983,3756519726
+IDA & IBRD total,IBT,1984,3832103028
+IDA & IBRD total,IBT,1985,3909126217
+IDA & IBRD total,IBT,1986,3988290155
+IDA & IBRD total,IBT,1987,4069534858
+IDA & IBRD total,IBT,1988,4151491693
+IDA & IBRD total,IBT,1989,4233121326
+IDA & IBRD total,IBT,1990,4313726002
+IDA & IBRD total,IBT,1991,4392785982
+IDA & IBRD total,IBT,1992,4470537759
 IDA & IBRD total,IBT,1993,4547598821
-IDA & IBRD total,IBT,1994,4623980436
-IDA & IBRD total,IBT,1995,4699923938
-IDA & IBRD total,IBT,1996,4775395704
-IDA & IBRD total,IBT,1997,4851072371
-IDA & IBRD total,IBT,1998,4925950751
-IDA & IBRD total,IBT,1999,4999779257
-IDA & IBRD total,IBT,2000,5072466723
-IDA & IBRD total,IBT,2001,5144856233
-IDA & IBRD total,IBT,2002,5216716196
-IDA & IBRD total,IBT,2003,5288758027
-IDA & IBRD total,IBT,2004,5361007541
-IDA & IBRD total,IBT,2005,5433668432
-IDA & IBRD total,IBT,2006,5506476139
-IDA & IBRD total,IBT,2007,5579375628
-IDA & IBRD total,IBT,2008,5653072235
-IDA & IBRD total,IBT,2009,5727963719
-IDA & IBRD total,IBT,2010,5803570732
-IDA & IBRD total,IBT,2011,5880130776
-IDA & IBRD total,IBT,2012,5957667513
-IDA & IBRD total,IBT,2013,6036112743
-IDA & IBRD total,IBT,2014,6114994143
-IDA & IBRD total,IBT,2015,6194063973
-IDA & IBRD total,IBT,2016,6273581970
+IDA & IBRD total,IBT,1994,4623980430
+IDA & IBRD total,IBT,1995,4699923937
+IDA & IBRD total,IBT,1996,4775395700
+IDA & IBRD total,IBT,1997,4851072372
+IDA & IBRD total,IBT,1998,4925950743
+IDA & IBRD total,IBT,1999,4999779253
+IDA & IBRD total,IBT,2000,5072466718
+IDA & IBRD total,IBT,2001,5144856232
+IDA & IBRD total,IBT,2002,5216716203
+IDA & IBRD total,IBT,2003,5288758037
+IDA & IBRD total,IBT,2004,5361007554
+IDA & IBRD total,IBT,2005,5433668431
+IDA & IBRD total,IBT,2006,5506476109
+IDA & IBRD total,IBT,2007,5579375555
+IDA & IBRD total,IBT,2008,5653072135
+IDA & IBRD total,IBT,2009,5727963757
+IDA & IBRD total,IBT,2010,5803571023
+IDA & IBRD total,IBT,2011,5880131377
+IDA & IBRD total,IBT,2012,5957668177
+IDA & IBRD total,IBT,2013,6036113018
+IDA & IBRD total,IBT,2014,6114993204
+IDA & IBRD total,IBT,2015,6194062653
+IDA & IBRD total,IBT,2016,6273584648
+IDA & IBRD total,IBT,2017,6353204601
 IDA blend,IDB,1960,123195063
 IDA blend,IDB,1961,126145959
 IDA blend,IDB,1962,129235885
@@ -1025,6 +1042,7 @@ IDA blend,IDB,2013,486261860
 IDA blend,IDB,2014,497751634
 IDA blend,IDB,2015,509396383
 IDA blend,IDB,2016,521159047
+IDA blend,IDB,2017,533023458
 IDA only,IDX,1960,259294677
 IDA only,IDX,1961,265653565
 IDA only,IDX,1962,272234508
@@ -1082,6 +1100,7 @@ IDA only,IDX,2013,984966093
 IDA only,IDX,2014,1007225927
 IDA only,IDX,2015,1029951788
 IDA only,IDX,2016,1053193646
+IDA only,IDX,2017,1076917211
 IDA total,IDA,1960,382489740
 IDA total,IDA,1961,391799524
 IDA total,IDA,1962,401470393
@@ -1139,6 +1158,7 @@ IDA total,IDA,2013,1471227953
 IDA total,IDA,2014,1504977561
 IDA total,IDA,2015,1539348171
 IDA total,IDA,2016,1574352693
+IDA total,IDA,2017,1609940669
 Late-demographic dividend,LTE,1960,1097220852
 Late-demographic dividend,LTE,1961,1099620212
 Late-demographic dividend,LTE,1962,1114283229
@@ -1182,20 +1202,21 @@ Late-demographic dividend,LTE,1999,2031620012
 Late-demographic dividend,LTE,2000,2047187331
 Late-demographic dividend,LTE,2001,2061986736
 Late-demographic dividend,LTE,2002,2075912406
-Late-demographic dividend,LTE,2003,2089475163
-Late-demographic dividend,LTE,2004,2102908619
-Late-demographic dividend,LTE,2005,2116450646
-Late-demographic dividend,LTE,2006,2129838874
-Late-demographic dividend,LTE,2007,2142907075
-Late-demographic dividend,LTE,2008,2156163629
-Late-demographic dividend,LTE,2009,2169772818
-Late-demographic dividend,LTE,2010,2182871599
-Late-demographic dividend,LTE,2011,2196126123
-Late-demographic dividend,LTE,2012,2209695204
-Late-demographic dividend,LTE,2013,2223430941
-Late-demographic dividend,LTE,2014,2237202264
-Late-demographic dividend,LTE,2015,2250758316
-Late-demographic dividend,LTE,2016,2264565982
+Late-demographic dividend,LTE,2003,2089475459
+Late-demographic dividend,LTE,2004,2102909369
+Late-demographic dividend,LTE,2005,2116451896
+Late-demographic dividend,LTE,2006,2129839624
+Late-demographic dividend,LTE,2007,2142908325
+Late-demographic dividend,LTE,2008,2156164379
+Late-demographic dividend,LTE,2009,2169773889
+Late-demographic dividend,LTE,2010,2182871640
+Late-demographic dividend,LTE,2011,2196130364
+Late-demographic dividend,LTE,2012,2209708504
+Late-demographic dividend,LTE,2013,2223457388
+Late-demographic dividend,LTE,2014,2237241890
+Late-demographic dividend,LTE,2015,2250812795
+Late-demographic dividend,LTE,2016,2264568981
+Late-demographic dividend,LTE,2017,2278227192
 Latin America & Caribbean,LCN,1960,220434662
 Latin America & Caribbean,LCN,1961,226564469
 Latin America & Caribbean,LCN,1962,232897323
@@ -1237,79 +1258,81 @@ Latin America & Caribbean,LCN,1997,501837820
 Latin America & Caribbean,LCN,1998,509664957
 Latin America & Caribbean,LCN,1999,517324344
 Latin America & Caribbean,LCN,2000,524829251
-Latin America & Caribbean,LCN,2001,532173298
-Latin America & Caribbean,LCN,2002,539373833
-Latin America & Caribbean,LCN,2003,546480980
-Latin America & Caribbean,LCN,2004,553565918
-Latin America & Caribbean,LCN,2005,560677885
-Latin America & Caribbean,LCN,2006,567826545
-Latin America & Caribbean,LCN,2007,575000048
-Latin America & Caribbean,LCN,2008,582186320
-Latin America & Caribbean,LCN,2009,589354222
-Latin America & Caribbean,LCN,2010,596479937
+Latin America & Caribbean,LCN,2001,532172709
+Latin America & Caribbean,LCN,2002,539372044
+Latin America & Caribbean,LCN,2003,546478662
+Latin America & Caribbean,LCN,2004,553563090
+Latin America & Caribbean,LCN,2005,560673962
+Latin America & Caribbean,LCN,2006,567821716
+Latin America & Caribbean,LCN,2007,574994397
+Latin America & Caribbean,LCN,2008,582179826
+Latin America & Caribbean,LCN,2009,589349327
+Latin America & Caribbean,LCN,2010,596478519
 Latin America & Caribbean,LCN,2011,603537118
 Latin America & Caribbean,LCN,2012,610547919
 Latin America & Caribbean,LCN,2013,617495658
 Latin America & Caribbean,LCN,2014,624335544
-Latin America & Caribbean,LCN,2015,631062661
-Latin America & Caribbean,LCN,2016,637668677
-Latin America & Caribbean (excluding high income),LAC,1960,206288466
-Latin America & Caribbean (excluding high income),LAC,1961,212141158
-Latin America & Caribbean (excluding high income),LAC,1962,218187764
-Latin America & Caribbean (excluding high income),LAC,1963,224397456
-Latin America & Caribbean (excluding high income),LAC,1964,230726737
-Latin America & Caribbean (excluding high income),LAC,1965,237143034
-Latin America & Caribbean (excluding high income),LAC,1966,243633320
-Latin America & Caribbean (excluding high income),LAC,1967,250203252
-Latin America & Caribbean (excluding high income),LAC,1968,256861866
-Latin America & Caribbean (excluding high income),LAC,1969,263625974
-Latin America & Caribbean (excluding high income),LAC,1970,270506235
-Latin America & Caribbean (excluding high income),LAC,1971,277502867
-Latin America & Caribbean (excluding high income),LAC,1972,284605846
-Latin America & Caribbean (excluding high income),LAC,1973,291803994
-Latin America & Caribbean (excluding high income),LAC,1974,299082201
-Latin America & Caribbean (excluding high income),LAC,1975,306429011
-Latin America & Caribbean (excluding high income),LAC,1976,313835275
-Latin America & Caribbean (excluding high income),LAC,1977,321300608
-Latin America & Caribbean (excluding high income),LAC,1978,328832663
-Latin America & Caribbean (excluding high income),LAC,1979,336443919
-Latin America & Caribbean (excluding high income),LAC,1980,344140576
-Latin America & Caribbean (excluding high income),LAC,1981,351924309
-Latin America & Caribbean (excluding high income),LAC,1982,359782679
-Latin America & Caribbean (excluding high income),LAC,1983,367690458
-Latin America & Caribbean (excluding high income),LAC,1984,375614401
-Latin America & Caribbean (excluding high income),LAC,1985,383529486
-Latin America & Caribbean (excluding high income),LAC,1986,391419929
-Latin America & Caribbean (excluding high income),LAC,1987,399287449
-Latin America & Caribbean (excluding high income),LAC,1988,407145597
-Latin America & Caribbean (excluding high income),LAC,1989,415016911
-Latin America & Caribbean (excluding high income),LAC,1990,422914642
-Latin America & Caribbean (excluding high income),LAC,1991,430838594
-Latin America & Caribbean (excluding high income),LAC,1992,438771695
-Latin America & Caribbean (excluding high income),LAC,1993,446689943
-Latin America & Caribbean (excluding high income),LAC,1994,454561464
-Latin America & Caribbean (excluding high income),LAC,1995,462360574
-Latin America & Caribbean (excluding high income),LAC,1996,470084837
-Latin America & Caribbean (excluding high income),LAC,1997,477732904
-Latin America & Caribbean (excluding high income),LAC,1998,485282781
-Latin America & Caribbean (excluding high income),LAC,1999,492708788
-Latin America & Caribbean (excluding high income),LAC,2000,499996505
-Latin America & Caribbean (excluding high income),LAC,2001,507131154
-Latin America & Caribbean (excluding high income),LAC,2002,514126613
-Latin America & Caribbean (excluding high income),LAC,2003,521033040
-Latin America & Caribbean (excluding high income),LAC,2004,527919692
-Latin America & Caribbean (excluding high income),LAC,2005,534836570
-Latin America & Caribbean (excluding high income),LAC,2006,541798268
-Latin America & Caribbean (excluding high income),LAC,2007,548789887
-Latin America & Caribbean (excluding high income),LAC,2008,555795034
-Latin America & Caribbean (excluding high income),LAC,2009,562785589
-Latin America & Caribbean (excluding high income),LAC,2010,569737872
-Latin America & Caribbean (excluding high income),LAC,2011,576648286
-Latin America & Caribbean (excluding high income),LAC,2012,583515410
-Latin America & Caribbean (excluding high income),LAC,2013,590319145
-Latin America & Caribbean (excluding high income),LAC,2014,597035363
-Latin America & Caribbean (excluding high income),LAC,2015,603644865
-Latin America & Caribbean (excluding high income),LAC,2016,610136397
+Latin America & Caribbean,LCN,2015,631062657
+Latin America & Caribbean,LCN,2016,637663890
+Latin America & Caribbean,LCN,2017,644137666
+Latin America & Caribbean (excluding high income),LAC,1960,184536470
+Latin America & Caribbean (excluding high income),LAC,1961,190021046
+Latin America & Caribbean (excluding high income),LAC,1962,195697709
+Latin America & Caribbean (excluding high income),LAC,1963,201536793
+Latin America & Caribbean (excluding high income),LAC,1964,207496532
+Latin America & Caribbean (excluding high income),LAC,1965,213545018
+Latin America & Caribbean (excluding high income),LAC,1966,219670768
+Latin America & Caribbean (excluding high income),LAC,1967,225877250
+Latin America & Caribbean (excluding high income),LAC,1968,232165931
+Latin America & Caribbean (excluding high income),LAC,1969,238543508
+Latin America & Caribbean (excluding high income),LAC,1970,245013878
+Latin America & Caribbean (excluding high income),LAC,1971,251573313
+Latin America & Caribbean (excluding high income),LAC,1972,258215063
+Latin America & Caribbean (excluding high income),LAC,1973,264937350
+Latin America & Caribbean (excluding high income),LAC,1974,271738582
+Latin America & Caribbean (excluding high income),LAC,1975,278616831
+Latin America & Caribbean (excluding high income),LAC,1976,285566670
+Latin America & Caribbean (excluding high income),LAC,1977,292584153
+Latin America & Caribbean (excluding high income),LAC,1978,299670407
+Latin America & Caribbean (excluding high income),LAC,1979,306827996
+Latin America & Caribbean (excluding high income),LAC,1980,314056110
+Latin America & Caribbean (excluding high income),LAC,1981,321354880
+Latin America & Caribbean (excluding high income),LAC,1982,328714848
+Latin America & Caribbean (excluding high income),LAC,1983,336113781
+Latin America & Caribbean (excluding high income),LAC,1984,343523088
+Latin America & Caribbean (excluding high income),LAC,1985,350921427
+Latin America & Caribbean (excluding high income),LAC,1986,358294111
+Latin America & Caribbean (excluding high income),LAC,1987,365642644
+Latin America & Caribbean (excluding high income),LAC,1988,372981462
+Latin America & Caribbean (excluding high income),LAC,1989,380333859
+Latin America & Caribbean (excluding high income),LAC,1990,387713894
+Latin America & Caribbean (excluding high income),LAC,1991,395121495
+Latin America & Caribbean (excluding high income),LAC,1992,402540526
+Latin America & Caribbean (excluding high income),LAC,1993,409949382
+Latin America & Caribbean (excluding high income),LAC,1994,417319166
+Latin America & Caribbean (excluding high income),LAC,1995,424626030
+Latin America & Caribbean (excluding high income),LAC,1996,431868811
+Latin America & Caribbean (excluding high income),LAC,1997,439044994
+Latin America & Caribbean (excluding high income),LAC,1998,446128863
+Latin America & Caribbean (excluding high income),LAC,1999,453089523
+Latin America & Caribbean (excluding high income),LAC,2000,459908706
+Latin America & Caribbean (excluding high income),LAC,2001,466569961
+Latin America & Caribbean (excluding high income),LAC,2002,473087978
+Latin America & Caribbean (excluding high income),LAC,2003,479514487
+Latin America & Caribbean (excluding high income),LAC,2004,485921455
+Latin America & Caribbean (excluding high income),LAC,2005,492360617
+Latin America & Caribbean (excluding high income),LAC,2006,498847473
+Latin America & Caribbean (excluding high income),LAC,2007,505365856
+Latin America & Caribbean (excluding high income),LAC,2008,511896377
+Latin America & Caribbean (excluding high income),LAC,2009,518406797
+Latin America & Caribbean (excluding high income),LAC,2010,524870761
+Latin America & Caribbean (excluding high income),LAC,2011,531283625
+Latin America & Caribbean (excluding high income),LAC,2012,537645733
+Latin America & Caribbean (excluding high income),LAC,2013,543940758
+Latin America & Caribbean (excluding high income),LAC,2014,550149862
+Latin America & Caribbean (excluding high income),LAC,2015,556257851
+Latin America & Caribbean (excluding high income),LAC,2016,562254848
+Latin America & Caribbean (excluding high income),LAC,2017,568136842
 Latin America & the Caribbean (IDA & IBRD countries),TLA,1960,210357620
 Latin America & the Caribbean (IDA & IBRD countries),TLA,1961,216285875
 Latin America & the Caribbean (IDA & IBRD countries),TLA,1962,222396518
@@ -1367,6 +1390,7 @@ Latin America & the Caribbean (IDA & IBRD countries),TLA,2013,601277206
 Latin America & the Caribbean (IDA & IBRD countries),TLA,2014,608136047
 Latin America & the Caribbean (IDA & IBRD countries),TLA,2015,614891969
 Latin America & the Caribbean (IDA & IBRD countries),TLA,2016,621534921
+Latin America & the Caribbean (IDA & IBRD countries),TLA,2017,628059792
 Least developed countries: UN classification,LDC,1960,240742196
 Least developed countries: UN classification,LDC,1961,246406470
 Least developed countries: UN classification,LDC,1962,252264341
@@ -1424,177 +1448,181 @@ Least developed countries: UN classification,LDC,2013,912093996
 Least developed countries: UN classification,LDC,2014,934192321
 Least developed countries: UN classification,LDC,2015,956631108
 Least developed countries: UN classification,LDC,2016,979387925
-Low & middle income,LMY,1960,2277550468
-Low & middle income,LMY,1961,2307413443
-Low & middle income,LMY,1962,2350559730
-Low & middle income,LMY,1963,2405923225
-Low & middle income,LMY,1964,2461795047
-Low & middle income,LMY,1965,2519470647
-Low & middle income,LMY,1966,2580931526
-Low & middle income,LMY,1967,2642449632
-Low & middle income,LMY,1968,2705708561
-Low & middle income,LMY,1969,2771424082
-Low & middle income,LMY,1970,2838869974
-Low & middle income,LMY,1971,2907753808
-Low & middle income,LMY,1972,2975730007
-Low & middle income,LMY,1973,3043675919
-Low & middle income,LMY,1974,3111200931
-Low & middle income,LMY,1975,3177493366
-Low & middle income,LMY,1976,3243274636
-Low & middle income,LMY,1977,3308563349
-Low & middle income,LMY,1978,3374993940
-Low & middle income,LMY,1979,3442907917
-Low & middle income,LMY,1980,3511781968
-Low & middle income,LMY,1981,3582642066
-Low & middle income,LMY,1982,3656828178
-Low & middle income,LMY,1983,3732147825
-Low & middle income,LMY,1984,3807518675
-Low & middle income,LMY,1985,3884369202
-Low & middle income,LMY,1986,3963410418
-Low & middle income,LMY,1987,4044579519
-Low & middle income,LMY,1988,4126524754
-Low & middle income,LMY,1989,4208165848
-Low & middle income,LMY,1990,4290749497
-Low & middle income,LMY,1991,4369916316
-Low & middle income,LMY,1992,4447798221
-Low & middle income,LMY,1993,4525005169
-Low & middle income,LMY,1994,4601536035
-Low & middle income,LMY,1995,4677639331
-Low & middle income,LMY,1996,4753270486
-Low & middle income,LMY,1997,4829090241
-Low & middle income,LMY,1998,4904057198
-Low & middle income,LMY,1999,4977989187
-Low & middle income,LMY,2000,5051186332
-Low & middle income,LMY,2001,5123706363
-Low & middle income,LMY,2002,5195709166
-Low & middle income,LMY,2003,5267904657
-Low & middle income,LMY,2004,5340290732
-Low & middle income,LMY,2005,5413060683
-Low & middle income,LMY,2006,5485959084
-Low & middle income,LMY,2007,5558927442
-Low & middle income,LMY,2008,5632666962
-Low & middle income,LMY,2009,5707586262
-Low & middle income,LMY,2010,5783367112
-Low & middle income,LMY,2011,5859997307
-Low & middle income,LMY,2012,5937636120
-Low & middle income,LMY,2013,6016214406
-Low & middle income,LMY,2014,6095235753
-Low & middle income,LMY,2015,6174437347
-Low & middle income,LMY,2016,6254072964
-Low income,LIC,1960,154670163
-Low income,LIC,1961,158069258
-Low income,LIC,1962,161549718
-Low income,LIC,1963,165151369
-Low income,LIC,1964,168931464
-Low income,LIC,1965,172929952
-Low income,LIC,1966,177159065
-Low income,LIC,1967,181601570
-Low income,LIC,1968,186231925
-Low income,LIC,1969,191011431
-Low income,LIC,1970,195910639
-Low income,LIC,1971,200923157
-Low income,LIC,1972,206053605
-Low income,LIC,1973,211296083
-Low income,LIC,1974,216646371
-Low income,LIC,1975,222101799
-Low income,LIC,1976,227669815
-Low income,LIC,1977,233352815
-Low income,LIC,1978,239138889
-Low income,LIC,1979,245012264
-Low income,LIC,1980,250969220
-Low income,LIC,1981,257008637
-Low income,LIC,1982,263158391
-Low income,LIC,1983,269480791
-Low income,LIC,1984,276057603
-Low income,LIC,1985,282952714
-Low income,LIC,1986,290181431
-Low income,LIC,1987,297743620
-Low income,LIC,1988,305666480
-Low income,LIC,1989,313976444
-Low income,LIC,1990,322686243
-Low income,LIC,1991,331828071
-Low income,LIC,1992,341387303
-Low income,LIC,1993,351272293
-Low income,LIC,1994,361356181
-Low income,LIC,1995,371552946
-Low income,LIC,1996,381823685
-Low income,LIC,1997,392209889
-Low income,LIC,1998,402805256
-Low income,LIC,1999,413745647
-Low income,LIC,2000,425129552
-Low income,LIC,2001,436993814
-Low income,LIC,2002,449310184
-Low income,LIC,2003,462034389
-Low income,LIC,2004,475094388
-Low income,LIC,2005,488440913
-Low income,LIC,2006,502059411
-Low income,LIC,2007,515977457
-Low income,LIC,2008,530237548
-Low income,LIC,2009,544900284
-Low income,LIC,2010,560007444
-Low income,LIC,2011,575572515
-Low income,LIC,2012,591576162
-Low income,LIC,2013,607987351
-Low income,LIC,2014,624759914
-Low income,LIC,2015,641858608
-Low income,LIC,2016,659272676
-Lower middle income,LMC,1960,953436474
-Lower middle income,LMC,1961,975335639
-Lower middle income,LMC,1962,997980664
-Lower middle income,LMC,1963,1021341761
-Lower middle income,LMC,1964,1045376895
-Lower middle income,LMC,1965,1070053365
-Lower middle income,LMC,1966,1095374266
-Lower middle income,LMC,1967,1121340587
-Lower middle income,LMC,1968,1147940213
-Lower middle income,LMC,1969,1175158989
-Lower middle income,LMC,1970,1202987544
-Lower middle income,LMC,1971,1231437682
-Lower middle income,LMC,1972,1260539515
-Lower middle income,LMC,1973,1290346039
-Lower middle income,LMC,1974,1320951099
-Lower middle income,LMC,1975,1352407131
-Lower middle income,LMC,1976,1384711293
-Lower middle income,LMC,1977,1417861934
-Lower middle income,LMC,1978,1451953608
-Lower middle income,LMC,1979,1487118655
-Lower middle income,LMC,1980,1523416607
-Lower middle income,LMC,1981,1560910438
-Lower middle income,LMC,1982,1599393541
-Lower middle income,LMC,1983,1638787693
-Lower middle income,LMC,1984,1678820678
-Lower middle income,LMC,1985,1719249257
-Lower middle income,LMC,1986,1760036890
-Lower middle income,LMC,1987,1801159728
-Lower middle income,LMC,1988,1842572071
-Lower middle income,LMC,1989,1884186007
-Lower middle income,LMC,1990,1927824229
-Lower middle income,LMC,1991,1969598498
-Lower middle income,LMC,1992,2011509898
-Lower middle income,LMC,1993,2053272520
-Lower middle income,LMC,1994,2094605577
-Lower middle income,LMC,1995,2135719600
-Lower middle income,LMC,1996,2176829052
-Lower middle income,LMC,1997,2217923536
-Lower middle income,LMC,1998,2258829833
-Lower middle income,LMC,1999,2299561619
-Lower middle income,LMC,2000,2340560455
-Lower middle income,LMC,2001,2381689042
-Lower middle income,LMC,2002,2422909082
-Lower middle income,LMC,2003,2464278409
-Lower middle income,LMC,2004,2505778340
-Lower middle income,LMC,2005,2547388074
-Lower middle income,LMC,2006,2589147803
-Lower middle income,LMC,2007,2631091627
-Lower middle income,LMC,2008,2673217147
-Lower middle income,LMC,2009,2715510241
-Lower middle income,LMC,2010,2758222110
-Lower middle income,LMC,2011,2801003868
-Lower middle income,LMC,2012,2843577252
-Lower middle income,LMC,2013,2886312231
-Lower middle income,LMC,2014,2929010331
-Lower middle income,LMC,2015,2971878425
-Lower middle income,LMC,2016,3014788232
+Least developed countries: UN classification,LDC,2017,1002485957
+Low & middle income,LMY,1960,2251658472
+Low & middle income,LMY,1961,2281121660
+Low & middle income,LMY,1962,2323867572
+Low & middle income,LMY,1963,2378831151
+Low & middle income,LMY,1964,2434305162
+Low & middle income,LMY,1965,2491585633
+Low & middle income,LMY,1966,2552655971
+Low & middle income,LMY,1967,2613784631
+Low & middle income,LMY,1968,2676648622
+Low & middle income,LMY,1969,2741954619
+Low & middle income,LMY,1970,2808966620
+Low & middle income,LMY,1971,2877389252
+Low & middle income,LMY,1972,2944882224
+Low & middle income,LMY,1973,3012331276
+Low & middle income,LMY,1974,3079360312
+Low & middle income,LMY,1975,3145167184
+Low & middle income,LMY,1976,3210476025
+Low & middle income,LMY,1977,3275314891
+Low & middle income,LMY,1978,3341275682
+Low & middle income,LMY,1979,3408720998
+Low & middle income,LMY,1980,3477109502
+Low & middle income,LMY,1981,3547464632
+Low & middle income,LMY,1982,3621125345
+Low & middle income,LMY,1983,3695912147
+Low & middle income,LMY,1984,3770747360
+Low & middle income,LMY,1985,3847060142
+Low & middle income,LMY,1986,3925562597
+Low & middle income,LMY,1987,4006194718
+Low & middle income,LMY,1988,4087603622
+Low & middle income,LMY,1989,4168715794
+Low & middle income,LMY,1990,4250768747
+Low & middle income,LMY,1991,4329689211
+Low & middle income,LMY,1992,4407097054
+Low & middle income,LMY,1993,4483624608
+Low & middle income,LMY,1994,4559643731
+Low & middle income,LMY,1995,4635235786
+Low & middle income,LMY,1996,4710560456
+Low & middle income,LMY,1997,4785830332
+Low & middle income,LMY,1998,4860402272
+Low & middle income,LMY,1999,4933815918
+Low & middle income,LMY,2000,5006672528
+Low & middle income,LMY,2001,5078705169
+Low & middle income,LMY,2002,5150230538
+Low & middle income,LMY,2003,5221946114
+Low & middle income,LMY,2004,5293853508
+Low & middle income,LMY,2005,5366142729
+Low & middle income,LMY,2006,5438568259
+Low & middle income,LMY,2007,5511067338
+Low & middle income,LMY,2008,5584333697
+Low & middle income,LMY,2009,5658778430
+Low & middle income,LMY,2010,5734082511
+Low & middle income,LMY,2011,5810352625
+Low & middle income,LMY,2012,5887499549
+Low & middle income,LMY,2013,5965580605
+Low & middle income,LMY,2014,6044110924
+Low & middle income,LMY,2015,6122845409
+Low & middle income,LMY,2016,6202019744
+Low & middle income,LMY,2017,6281293921
+Low income,LIC,1960,166502848
+Low income,LIC,1961,170210778
+Low income,LIC,1962,174013498
+Low income,LIC,1963,177950312
+Low income,LIC,1964,182077594
+Low income,LIC,1965,186434685
+Low income,LIC,1966,191035377
+Low income,LIC,1967,195863148
+Low income,LIC,1968,200890086
+Low income,LIC,1969,206074326
+Low income,LIC,1970,211385069
+Low income,LIC,1971,216814959
+Low income,LIC,1972,222372305
+Low income,LIC,1973,228060405
+Low income,LIC,1974,233887209
+Low income,LIC,1975,239859140
+Low income,LIC,1976,245986989
+Low income,LIC,1977,252271835
+Low income,LIC,1978,258700456
+Low income,LIC,1979,265253926
+Low income,LIC,1980,271925904
+Low income,LIC,1981,278716283
+Low income,LIC,1982,285653497
+Low income,LIC,1983,292795982
+Low income,LIC,1984,300220347
+Low income,LIC,1985,307987034
+Low income,LIC,1986,316105719
+Low income,LIC,1987,324577008
+Low income,LIC,1988,333438165
+Low income,LIC,1989,342729958
+Low income,LIC,1990,352473181
+Low income,LIC,1991,362705618
+Low income,LIC,1992,373402947
+Low income,LIC,1993,384447813
+Low income,LIC,1994,395678396
+Low income,LIC,1995,406983803
+Low income,LIC,1996,418317960
+Low income,LIC,1997,429730581
+Low income,LIC,1998,441325367
+Low income,LIC,1999,453254723
+Low income,LIC,2000,465631330
+Low income,LIC,2001,478477973
+Low income,LIC,2002,491764952
+Low income,LIC,2003,505488618
+Low income,LIC,2004,519630935
+Low income,LIC,2005,534172627
+Low income,LIC,2006,549135479
+Low income,LIC,2007,564514253
+Low income,LIC,2008,580229110
+Low income,LIC,2009,596172925
+Low income,LIC,2010,612274687
+Low income,LIC,2011,628504663
+Low income,LIC,2012,644901894
+Low income,LIC,2013,661550623
+Low income,LIC,2014,678572076
+Low income,LIC,2015,696058453
+Low income,LIC,2016,714022293
+Low income,LIC,2017,732448558
+Lower middle income,LMC,1960,934586665
+Lower middle income,LMC,1961,955943402
+Lower middle income,LMC,1962,978033376
+Lower middle income,LMC,1963,1000820431
+Lower middle income,LMC,1964,1024253768
+Lower middle income,LMC,1965,1048295050
+Lower middle income,LMC,1966,1072942964
+Lower middle income,LMC,1967,1098201811
+Lower middle income,LMC,1968,1124070988
+Lower middle income,LMC,1969,1150552380
+Lower middle income,LMC,1970,1177647344
+Lower middle income,LMC,1971,1205371089
+Lower middle income,LMC,1972,1233747550
+Lower middle income,LMC,1973,1262818780
+Lower middle income,LMC,1974,1292662974
+Lower middle income,LMC,1975,1323320387
+Lower middle income,LMC,1976,1354785257
+Lower middle income,LMC,1977,1387056884
+Lower middle income,LMC,1978,1420226130
+Lower middle income,LMC,1979,1454422088
+Lower middle income,LMC,1980,1489702291
+Lower middle income,LMC,1981,1526127019
+Lower middle income,LMC,1982,1563490212
+Lower middle income,LMC,1983,1601718966
+Lower middle income,LMC,1984,1640549014
+Lower middle income,LMC,1985,1679742957
+Lower middle income,LMC,1986,1719270442
+Lower middle income,LMC,1987,1759107373
+Lower middle income,LMC,1988,1799200488
+Lower middle income,LMC,1989,1839450536
+Lower middle income,LMC,1990,1881674731
+Lower middle income,LMC,1991,1921978997
+Lower middle income,LMC,1992,1962374702
+Lower middle income,LMC,1993,2002605779
+Lower middle income,LMC,1994,2042431452
+Lower middle income,LMC,1995,2082090008
+Lower middle income,LMC,1996,2121803515
+Lower middle income,LMC,1997,2161549857
+Lower middle income,LMC,1998,2201139625
+Lower middle income,LMC,1999,2240561424
+Lower middle income,LMC,2000,2280235216
+Lower middle income,LMC,2001,2320035800
+Lower middle income,LMC,2002,2359924081
+Lower middle income,LMC,2003,2399909122
+Lower middle income,LMC,2004,2439908661
+Lower middle income,LMC,2005,2479864962
+Lower middle income,LMC,2006,2519781995
+Lower middle income,LMC,2007,2559728298
+Lower middle income,LMC,2008,2599821177
+Lower middle income,LMC,2009,2640211692
+Lower middle income,LMC,2010,2681264749
+Lower middle income,LMC,2011,2722672277
+Lower middle income,LMC,2012,2764105969
+Lower middle income,LMC,2013,2805845772
+Lower middle income,LMC,2014,2847559084
+Lower middle income,LMC,2015,2889349899
+Lower middle income,LMC,2016,2931075528
+Lower middle income,LMC,2017,2972642807
 Middle East & North Africa,MEA,1960,105488678
 Middle East & North Africa,MEA,1961,108374227
 Middle East & North Africa,MEA,1962,111385940
@@ -1647,11 +1675,12 @@ Middle East & North Africa,MEA,2008,371999662
 Middle East & North Africa,MEA,2009,380192587
 Middle East & North Africa,MEA,2010,388376106
 Middle East & North Africa,MEA,2011,396573248
-Middle East & North Africa,MEA,2012,404782447
-Middle East & North Africa,MEA,2013,412950407
-Middle East & North Africa,MEA,2014,421022841
-Middle East & North Africa,MEA,2015,428961724
-Middle East & North Africa,MEA,2016,436720093
+Middle East & North Africa,MEA,2012,404783020
+Middle East & North Africa,MEA,2013,412953000
+Middle East & North Africa,MEA,2014,421030035
+Middle East & North Africa,MEA,2015,428974903
+Middle East & North Africa,MEA,2016,436738031
+Middle East & North Africa,MEA,2017,444322417
 Middle East & North Africa (excluding high income),MNA,1960,97837766
 Middle East & North Africa (excluding high income),MNA,1961,100458479
 Middle East & North Africa (excluding high income),MNA,1962,103147177
@@ -1709,6 +1738,7 @@ Middle East & North Africa (excluding high income),MNA,2013,354641044
 Middle East & North Africa (excluding high income),MNA,2014,361077997
 Middle East & North Africa (excluding high income),MNA,2015,367449306
 Middle East & North Africa (excluding high income),MNA,2016,373719055
+Middle East & North Africa (excluding high income),MNA,2017,379901782
 Middle East & North Africa (IDA & IBRD countries),TMN,1960,97837766
 Middle East & North Africa (IDA & IBRD countries),TMN,1961,100458479
 Middle East & North Africa (IDA & IBRD countries),TMN,1962,103147177
@@ -1766,63 +1796,65 @@ Middle East & North Africa (IDA & IBRD countries),TMN,2013,350471538
 Middle East & North Africa (IDA & IBRD countries),TMN,2014,356783315
 Middle East & North Africa (IDA & IBRD countries),TMN,2015,363027163
 Middle East & North Africa (IDA & IBRD countries),TMN,2016,369167489
-Middle income,MIC,1960,2122880305
-Middle income,MIC,1961,2149344185
-Middle income,MIC,1962,2189010012
-Middle income,MIC,1963,2240771856
-Middle income,MIC,1964,2292863583
-Middle income,MIC,1965,2346540695
-Middle income,MIC,1966,2403772461
-Middle income,MIC,1967,2460848062
-Middle income,MIC,1968,2519476636
-Middle income,MIC,1969,2580412651
-Middle income,MIC,1970,2642959335
-Middle income,MIC,1971,2706830651
-Middle income,MIC,1972,2769676402
-Middle income,MIC,1973,2832379836
-Middle income,MIC,1974,2894554560
-Middle income,MIC,1975,2955391567
-Middle income,MIC,1976,3015604821
-Middle income,MIC,1977,3075210534
-Middle income,MIC,1978,3135855051
-Middle income,MIC,1979,3197895653
-Middle income,MIC,1980,3260812748
-Middle income,MIC,1981,3325633429
-Middle income,MIC,1982,3393669787
-Middle income,MIC,1983,3462667034
-Middle income,MIC,1984,3531461072
-Middle income,MIC,1985,3601416488
-Middle income,MIC,1986,3673228987
-Middle income,MIC,1987,3746835899
-Middle income,MIC,1988,3820858274
-Middle income,MIC,1989,3894189404
-Middle income,MIC,1990,3968063254
-Middle income,MIC,1991,4038088245
-Middle income,MIC,1992,4106410918
-Middle income,MIC,1993,4173732876
-Middle income,MIC,1994,4240179854
-Middle income,MIC,1995,4306086385
-Middle income,MIC,1996,4371446801
-Middle income,MIC,1997,4436880352
-Middle income,MIC,1998,4501251942
-Middle income,MIC,1999,4564243540
-Middle income,MIC,2000,4626056780
-Middle income,MIC,2001,4686712549
-Middle income,MIC,2002,4746398982
-Middle income,MIC,2003,4805870268
-Middle income,MIC,2004,4865196344
-Middle income,MIC,2005,4924619770
-Middle income,MIC,2006,4983899673
-Middle income,MIC,2007,5042949985
-Middle income,MIC,2008,5102429414
-Middle income,MIC,2009,5162685978
-Middle income,MIC,2010,5223359668
-Middle income,MIC,2011,5284424792
-Middle income,MIC,2012,5346059958
-Middle income,MIC,2013,5408227055
-Middle income,MIC,2014,5470475839
-Middle income,MIC,2015,5532578739
-Middle income,MIC,2016,5594800288
+Middle East & North Africa (IDA & IBRD countries),TMN,2017,375217005
+Middle income,MIC,1960,2085155624
+Middle income,MIC,1961,2110910882
+Middle income,MIC,1962,2149854074
+Middle income,MIC,1963,2200880839
+Middle income,MIC,1964,2252227568
+Middle income,MIC,1965,2305150948
+Middle income,MIC,1966,2361620594
+Middle income,MIC,1967,2417921483
+Middle income,MIC,1968,2475758536
+Middle income,MIC,1969,2535880293
+Middle income,MIC,1970,2597581551
+Middle income,MIC,1971,2660574293
+Middle income,MIC,1972,2722509919
+Middle income,MIC,1973,2784270871
+Middle income,MIC,1974,2845473103
+Middle income,MIC,1975,2905308044
+Middle income,MIC,1976,2964489036
+Middle income,MIC,1977,3023043056
+Middle income,MIC,1978,3082575226
+Middle income,MIC,1979,3143467072
+Middle income,MIC,1980,3205183598
+Middle income,MIC,1981,3268748349
+Middle income,MIC,1982,3335471848
+Middle income,MIC,1983,3403116165
+Middle income,MIC,1984,3470527013
+Middle income,MIC,1985,3539073108
+Middle income,MIC,1986,3609456878
+Middle income,MIC,1987,3681617710
+Middle income,MIC,1988,3754165457
+Middle income,MIC,1989,3825985836
+Middle income,MIC,1990,3898295566
+Middle income,MIC,1991,3966983593
+Middle income,MIC,1992,4033694107
+Middle income,MIC,1993,4099176795
+Middle income,MIC,1994,4163965335
+Middle income,MIC,1995,4228251983
+Middle income,MIC,1996,4292242496
+Middle income,MIC,1997,4356099751
+Middle income,MIC,1998,4419076905
+Middle income,MIC,1999,4480561195
+Middle income,MIC,2000,4541041198
+Middle income,MIC,2001,4600227196
+Middle income,MIC,2002,4658465586
+Middle income,MIC,2003,4716457496
+Middle income,MIC,2004,4774222573
+Middle income,MIC,2005,4831970102
+Middle income,MIC,2006,4889432780
+Middle income,MIC,2007,4946553085
+Middle income,MIC,2008,5004104587
+Middle income,MIC,2009,5062605505
+Middle income,MIC,2010,5121807824
+Middle income,MIC,2011,5181847962
+Middle income,MIC,2012,5242597655
+Middle income,MIC,2013,5304029982
+Middle income,MIC,2014,5365538848
+Middle income,MIC,2015,5426786956
+Middle income,MIC,2016,5487997451
+Middle income,MIC,2017,5548845363
 North America,NAC,1960,198624409
 North America,NAC,1961,202007500
 North America,NAC,1962,205198600
@@ -1873,13 +1905,14 @@ North America,NAC,2006,331014940
 North America,NAC,2007,334184023
 North America,NAC,2008,337405012
 North America,NAC,2009,340465736
-North America,NAC,2010,343418591
-North America,NAC,2011,346070702
-North America,NAC,2012,348813722
-North America,NAC,2013,351422279
-North America,NAC,2014,354163943
-North America,NAC,2015,356794381
-North America,NAC,2016,359457493
+North America,NAC,2010,343408819
+North America,NAC,2011,346051624
+North America,NAC,2012,348808615
+North America,NAC,2013,351451876
+North America,NAC,2014,354223012
+North America,NAC,2015,356937591
+North America,NAC,2016,359735880
+North America,NAC,2017,362492702
 OECD members,OED,1960,788709114
 OECD members,OED,1961,801024442
 OECD members,OED,1962,811972766
@@ -1930,13 +1963,14 @@ OECD members,OED,2006,1206821081
 OECD members,OED,2007,1215883020
 OECD members,OED,2008,1225426691
 OECD members,OED,2009,1234203233
-OECD members,OED,2010,1242391518
-OECD members,OED,2011,1248769314
-OECD members,OED,2012,1256613484
-OECD members,OED,2013,1264720693
-OECD members,OED,2014,1273144196.5
-OECD members,OED,2015,1281415538
-OECD members,OED,2016,1289872625
+OECD members,OED,2010,1242381746
+OECD members,OED,2011,1248753526
+OECD members,OED,2012,1256621013
+OECD members,OED,2013,1264776347
+OECD members,OED,2014,1273232695
+OECD members,OED,2015,1281592990
+OECD members,OED,2016,1289987410
+OECD members,OED,2017,1298037534
 Other small states,OSS,1960,9196324
 Other small states,OSS,1961,9366201
 Other small states,OSS,1962,9539303
@@ -1989,61 +2023,62 @@ Other small states,OSS,2008,24955735
 Other small states,OSS,2009,25615419
 Other small states,OSS,2010,26267053
 Other small states,OSS,2011,26900149
-Other small states,OSS,2012,27529022
-Other small states,OSS,2013,28150486
-Other small states,OSS,2014,28766825
-Other small states,OSS,2015,29383324
-Other small states,OSS,2016,29994562
+Other small states,OSS,2012,27529595
+Other small states,OSS,2013,28153079
+Other small states,OSS,2014,28774019
+Other small states,OSS,2015,29396503
+Other small states,OSS,2016,30012500
+Other small states,OSS,2017,30621014
 Pacific island small states,PSS,1960,865809
-Pacific island small states,PSS,1961,894213
-Pacific island small states,PSS,1962,924220
-Pacific island small states,PSS,1963,955104
+Pacific island small states,PSS,1961,894214
+Pacific island small states,PSS,1962,924221
+Pacific island small states,PSS,1963,955101
 Pacific island small states,PSS,1964,985873
-Pacific island small states,PSS,1965,1015763
-Pacific island small states,PSS,1966,1044550
-Pacific island small states,PSS,1967,1072397
-Pacific island small states,PSS,1968,1099420
-Pacific island small states,PSS,1969,1125867
-Pacific island small states,PSS,1970,1152033
-Pacific island small states,PSS,1971,1177892
+Pacific island small states,PSS,1965,1015765
+Pacific island small states,PSS,1966,1044547
+Pacific island small states,PSS,1967,1072398
+Pacific island small states,PSS,1968,1099416
+Pacific island small states,PSS,1969,1125870
+Pacific island small states,PSS,1970,1152036
+Pacific island small states,PSS,1971,1177890
 Pacific island small states,PSS,1972,1203419
-Pacific island small states,PSS,1973,1228876
+Pacific island small states,PSS,1973,1228877
 Pacific island small states,PSS,1974,1254518
-Pacific island small states,PSS,1975,1280561
-Pacific island small states,PSS,1976,1306937
-Pacific island small states,PSS,1977,1333621
-Pacific island small states,PSS,1978,1361133
-Pacific island small states,PSS,1979,1390028
+Pacific island small states,PSS,1975,1280559
+Pacific island small states,PSS,1976,1306931
+Pacific island small states,PSS,1977,1333618
+Pacific island small states,PSS,1978,1361131
+Pacific island small states,PSS,1979,1390032
 Pacific island small states,PSS,1980,1420671
-Pacific island small states,PSS,1981,1453521
-Pacific island small states,PSS,1982,1488185
-Pacific island small states,PSS,1983,1523012
-Pacific island small states,PSS,1984,1555767
-Pacific island small states,PSS,1985,1585015
-Pacific island small states,PSS,1986,1609919
-Pacific island small states,PSS,1987,1631156
-Pacific island small states,PSS,1988,1650642
-Pacific island small states,PSS,1989,1671078
-Pacific island small states,PSS,1990,1694410
-Pacific island small states,PSS,1991,1721268
-Pacific island small states,PSS,1992,1750900
+Pacific island small states,PSS,1981,1453516
+Pacific island small states,PSS,1982,1488183
+Pacific island small states,PSS,1983,1523011
+Pacific island small states,PSS,1984,1555765
+Pacific island small states,PSS,1985,1585014
+Pacific island small states,PSS,1986,1609916
+Pacific island small states,PSS,1987,1631160
+Pacific island small states,PSS,1988,1650645
+Pacific island small states,PSS,1989,1671076
+Pacific island small states,PSS,1990,1694408
+Pacific island small states,PSS,1991,1721262
+Pacific island small states,PSS,1992,1750902
 Pacific island small states,PSS,1993,1782065
-Pacific island small states,PSS,1994,1812883
-Pacific island small states,PSS,1995,1841945
-Pacific island small states,PSS,1996,1869030
-Pacific island small states,PSS,1997,1894563
-Pacific island small states,PSS,1998,1918749
-Pacific island small states,PSS,1999,1941852
-Pacific island small states,PSS,2000,1964221
-Pacific island small states,PSS,2001,1985713
-Pacific island small states,PSS,2002,2006441
-Pacific island small states,PSS,2003,2027202
-Pacific island small states,PSS,2004,2049012
-Pacific island small states,PSS,2005,2072666
-Pacific island small states,PSS,2006,2098522
-Pacific island small states,PSS,2007,2126308
-Pacific island small states,PSS,2008,2155439
-Pacific island small states,PSS,2009,2184920
+Pacific island small states,PSS,1994,1812877
+Pacific island small states,PSS,1995,1841944
+Pacific island small states,PSS,1996,1869026
+Pacific island small states,PSS,1997,1894564
+Pacific island small states,PSS,1998,1918741
+Pacific island small states,PSS,1999,1941848
+Pacific island small states,PSS,2000,1964216
+Pacific island small states,PSS,2001,1985712
+Pacific island small states,PSS,2002,2006448
+Pacific island small states,PSS,2003,2027212
+Pacific island small states,PSS,2004,2049025
+Pacific island small states,PSS,2005,2072665
+Pacific island small states,PSS,2006,2098492
+Pacific island small states,PSS,2007,2126235
+Pacific island small states,PSS,2008,2155339
+Pacific island small states,PSS,2009,2184837
 Pacific island small states,PSS,2010,2214096
 Pacific island small states,PSS,2011,2242763
 Pacific island small states,PSS,2012,2271298
@@ -2051,6 +2086,7 @@ Pacific island small states,PSS,2013,2300045
 Pacific island small states,PSS,2014,2329458
 Pacific island small states,PSS,2015,2358955
 Pacific island small states,PSS,2016,2388875
+Pacific island small states,PSS,2017,2419188
 Post-demographic dividend,PST,1960,754705296
 Post-demographic dividend,PST,1961,765517069
 Post-demographic dividend,PST,1962,774970556
@@ -2101,13 +2137,14 @@ Post-demographic dividend,PST,2006,1052236684
 Post-demographic dividend,PST,2007,1058174510
 Post-demographic dividend,PST,2008,1064603304
 Post-demographic dividend,PST,2009,1070107590
-Post-demographic dividend,PST,2010,1075140980
-Post-demographic dividend,PST,2011,1078083258
-Post-demographic dividend,PST,2012,1082731938
-Post-demographic dividend,PST,2013,1087577484
-Post-demographic dividend,PST,2014,1092623698.5
-Post-demographic dividend,PST,2015,1097600621
-Post-demographic dividend,PST,2016,1102651400
+Post-demographic dividend,PST,2010,1075131208
+Post-demographic dividend,PST,2011,1078064180
+Post-demographic dividend,PST,2012,1082727404
+Post-demographic dividend,PST,2013,1087610209
+Post-demographic dividend,PST,2014,1092678876
+Post-demographic dividend,PST,2015,1097735849
+Post-demographic dividend,PST,2016,1102778565
+Post-demographic dividend,PST,2017,1107374909
 Pre-demographic dividend,PRE,1960,188636191
 Pre-demographic dividend,PRE,1961,192957526
 Pre-demographic dividend,PRE,1962,197466057
@@ -2165,63 +2202,65 @@ Pre-demographic dividend,PRE,2013,806705375
 Pre-demographic dividend,PRE,2014,830442736
 Pre-demographic dividend,PRE,2015,854646007
 Pre-demographic dividend,PRE,2016,879292453
+Pre-demographic dividend,PRE,2017,904399841
 Small states,SST,1960,14260440
-Small states,SST,1961,14538216
-Small states,SST,1962,14821269
-Small states,SST,1963,15107656
+Small states,SST,1961,14538217
+Small states,SST,1962,14821270
+Small states,SST,1963,15107653
 Small states,SST,1964,15397706
-Small states,SST,1965,15688246
-Small states,SST,1966,15976548
-Small states,SST,1967,16263696
-Small states,SST,1968,16556005
-Small states,SST,1969,16853977
-Small states,SST,1970,17159587
-Small states,SST,1971,17476363
+Small states,SST,1965,15688248
+Small states,SST,1966,15976545
+Small states,SST,1967,16263697
+Small states,SST,1968,16556001
+Small states,SST,1969,16853980
+Small states,SST,1970,17159590
+Small states,SST,1971,17476361
 Small states,SST,1972,17800127
-Small states,SST,1973,18127043
+Small states,SST,1973,18127044
 Small states,SST,1974,18456078
-Small states,SST,1975,18789044
-Small states,SST,1976,19120339
-Small states,SST,1977,19453893
-Small states,SST,1978,19794781
-Small states,SST,1979,20157724
+Small states,SST,1975,18789042
+Small states,SST,1976,19120333
+Small states,SST,1977,19453890
+Small states,SST,1978,19794779
+Small states,SST,1979,20157728
 Small states,SST,1980,20547258
-Small states,SST,1981,20963864
-Small states,SST,1982,21407908
-Small states,SST,1983,21865553
-Small states,SST,1984,22331262
-Small states,SST,1985,22806175
-Small states,SST,1986,23285887
-Small states,SST,1987,23770482
-Small states,SST,1988,24251662
-Small states,SST,1989,24726228
-Small states,SST,1990,25186923
-Small states,SST,1991,25642382
-Small states,SST,1992,26066185
+Small states,SST,1981,20963859
+Small states,SST,1982,21407906
+Small states,SST,1983,21865552
+Small states,SST,1984,22331260
+Small states,SST,1985,22806174
+Small states,SST,1986,23285884
+Small states,SST,1987,23770486
+Small states,SST,1988,24251665
+Small states,SST,1989,24726226
+Small states,SST,1990,25186921
+Small states,SST,1991,25642376
+Small states,SST,1992,26066187
 Small states,SST,1993,26471464
-Small states,SST,1994,26881001
-Small states,SST,1995,27284099
-Small states,SST,1996,27691622
-Small states,SST,1997,28107600
-Small states,SST,1998,28528159
-Small states,SST,1999,28976069
-Small states,SST,2000,29434284
-Small states,SST,2001,29887050
-Small states,SST,2002,30352298
-Small states,SST,2003,30838818
-Small states,SST,2004,31365905
-Small states,SST,2005,31947387
-Small states,SST,2006,32586925
-Small states,SST,2007,33278320
-Small states,SST,2008,34006489
-Small states,SST,2009,34739873
+Small states,SST,1994,26880995
+Small states,SST,1995,27284098
+Small states,SST,1996,27691618
+Small states,SST,1997,28107601
+Small states,SST,1998,28528151
+Small states,SST,1999,28976065
+Small states,SST,2000,29434279
+Small states,SST,2001,29887049
+Small states,SST,2002,30352305
+Small states,SST,2003,30838828
+Small states,SST,2004,31365918
+Small states,SST,2005,31947386
+Small states,SST,2006,32586895
+Small states,SST,2007,33278247
+Small states,SST,2008,34006389
+Small states,SST,2009,34739790
 Small states,SST,2010,35465245
 Small states,SST,2011,36171934
-Small states,SST,2012,36874449
-Small states,SST,2013,37569419
-Small states,SST,2014,38258962
-Small states,SST,2015,38947227
-Small states,SST,2016,39628909
+Small states,SST,2012,36875022
+Small states,SST,2013,37572012
+Small states,SST,2014,38266156
+Small states,SST,2015,38960406
+Small states,SST,2016,39646847
+Small states,SST,2017,40324496
 South Asia,SAS,1960,571835666
 South Asia,SAS,1961,583894094
 South Asia,SAS,1962,596413939
@@ -2279,6 +2318,7 @@ South Asia,SAS,2013,1699310450
 South Asia,SAS,2014,1721847786
 South Asia,SAS,2015,1744199944
 South Asia,SAS,2016,1766393714
+South Asia,SAS,2017,1788388852
 South Asia (IDA & IBRD),TSA,1960,571835666
 South Asia (IDA & IBRD),TSA,1961,583894094
 South Asia (IDA & IBRD),TSA,1962,596413939
@@ -2336,6 +2376,7 @@ South Asia (IDA & IBRD),TSA,2013,1699310450
 South Asia (IDA & IBRD),TSA,2014,1721847786
 South Asia (IDA & IBRD),TSA,2015,1744199944
 South Asia (IDA & IBRD),TSA,2016,1766393714
+South Asia (IDA & IBRD),TSA,2017,1788388852
 Sub-Saharan Africa,SSF,1960,228586005
 Sub-Saharan Africa,SSF,1961,234008580
 Sub-Saharan Africa,SSF,1962,239647139
@@ -2393,6 +2434,7 @@ Sub-Saharan Africa,SSF,2013,952734072
 Sub-Saharan Africa,SSF,2014,979017918
 Sub-Saharan Africa,SSF,2015,1005850049
 Sub-Saharan Africa,SSF,2016,1033212743
+Sub-Saharan Africa,SSF,2017,1061107721
 Sub-Saharan Africa (excluding high income),SSA,1960,228544305
 Sub-Saharan Africa (excluding high income),SSA,1961,233965691
 Sub-Saharan Africa (excluding high income),SSA,1962,239603097
@@ -2450,6 +2492,7 @@ Sub-Saharan Africa (excluding high income),SSA,2013,952644123
 Sub-Saharan Africa (excluding high income),SSA,2014,978926559
 Sub-Saharan Africa (excluding high income),SSA,2015,1005756630
 Sub-Saharan Africa (excluding high income),SSA,2016,1033118066
+Sub-Saharan Africa (excluding high income),SSA,2017,1061011878
 Sub-Saharan Africa (IDA & IBRD countries),TSS,1960,228586005
 Sub-Saharan Africa (IDA & IBRD countries),TSS,1961,234008580
 Sub-Saharan Africa (IDA & IBRD countries),TSS,1962,239647139
@@ -2507,120 +2550,123 @@ Sub-Saharan Africa (IDA & IBRD countries),TSS,2013,952734072
 Sub-Saharan Africa (IDA & IBRD countries),TSS,2014,979017918
 Sub-Saharan Africa (IDA & IBRD countries),TSS,2015,1005850049
 Sub-Saharan Africa (IDA & IBRD countries),TSS,2016,1033212743
-Upper middle income,UMC,1960,1169443831
-Upper middle income,UMC,1961,1174008546
-Upper middle income,UMC,1962,1191029348
-Upper middle income,UMC,1963,1219430095
-Upper middle income,UMC,1964,1247486688
-Upper middle income,UMC,1965,1276487330
-Upper middle income,UMC,1966,1308398195
-Upper middle income,UMC,1967,1339507475
-Upper middle income,UMC,1968,1371536423
-Upper middle income,UMC,1969,1405253662
-Upper middle income,UMC,1970,1439971791
-Upper middle income,UMC,1971,1475392969
-Upper middle income,UMC,1972,1509136887
-Upper middle income,UMC,1973,1542033797
-Upper middle income,UMC,1974,1573603461
-Upper middle income,UMC,1975,1602984436
-Upper middle income,UMC,1976,1630893528
-Upper middle income,UMC,1977,1657348600
-Upper middle income,UMC,1978,1683901443
-Upper middle income,UMC,1979,1710776998
-Upper middle income,UMC,1980,1737396141
-Upper middle income,UMC,1981,1764722991
-Upper middle income,UMC,1982,1794276246
-Upper middle income,UMC,1983,1823879341
-Upper middle income,UMC,1984,1852640394
-Upper middle income,UMC,1985,1882167231
-Upper middle income,UMC,1986,1913192097
-Upper middle income,UMC,1987,1945676171
-Upper middle income,UMC,1988,1978286203
-Upper middle income,UMC,1989,2010003397
-Upper middle income,UMC,1990,2040239025
-Upper middle income,UMC,1991,2068489747
-Upper middle income,UMC,1992,2094901020
-Upper middle income,UMC,1993,2120460356
-Upper middle income,UMC,1994,2145574277
-Upper middle income,UMC,1995,2170366785
-Upper middle income,UMC,1996,2194617749
-Upper middle income,UMC,1997,2218956816
-Upper middle income,UMC,1998,2242422109
-Upper middle income,UMC,1999,2264681921
-Upper middle income,UMC,2000,2285496325
-Upper middle income,UMC,2001,2305023507
-Upper middle income,UMC,2002,2323489900
-Upper middle income,UMC,2003,2341591859
-Upper middle income,UMC,2004,2359418004
-Upper middle income,UMC,2005,2377231696
-Upper middle income,UMC,2006,2394751870
-Upper middle income,UMC,2007,2411858358
-Upper middle income,UMC,2008,2429212267
-Upper middle income,UMC,2009,2447175737
-Upper middle income,UMC,2010,2465137558
-Upper middle income,UMC,2011,2483420924
-Upper middle income,UMC,2012,2502482706
-Upper middle income,UMC,2013,2521914824
-Upper middle income,UMC,2014,2541465508
-Upper middle income,UMC,2015,2560700314
-Upper middle income,UMC,2016,2580012056
+Sub-Saharan Africa (IDA & IBRD countries),TSS,2017,1061107721
+Upper middle income,UMC,1960,1150568959
+Upper middle income,UMC,1961,1154967480
+Upper middle income,UMC,1962,1171820698
+Upper middle income,UMC,1963,1200060408
+Upper middle income,UMC,1964,1227973800
+Upper middle income,UMC,1965,1256855898
+Upper middle income,UMC,1966,1288677630
+Upper middle income,UMC,1967,1319719672
+Upper middle income,UMC,1968,1351687548
+Upper middle income,UMC,1969,1385327913
+Upper middle income,UMC,1970,1419934207
+Upper middle income,UMC,1971,1455203204
+Upper middle income,UMC,1972,1488762369
+Upper middle income,UMC,1973,1521452091
+Upper middle income,UMC,1974,1552810129
+Upper middle income,UMC,1975,1581987657
+Upper middle income,UMC,1976,1609703779
+Upper middle income,UMC,1977,1635986172
+Upper middle income,UMC,1978,1662349096
+Upper middle income,UMC,1979,1689044984
+Upper middle income,UMC,1980,1715481307
+Upper middle income,UMC,1981,1742621330
+Upper middle income,UMC,1982,1771981636
+Upper middle income,UMC,1983,1801397199
+Upper middle income,UMC,1984,1829977999
+Upper middle income,UMC,1985,1859330151
+Upper middle income,UMC,1986,1890186436
+Upper middle income,UMC,1987,1922510337
+Upper middle income,UMC,1988,1954964969
+Upper middle income,UMC,1989,1986535300
+Upper middle income,UMC,1990,2016620835
+Upper middle income,UMC,1991,2045004596
+Upper middle income,UMC,1992,2071319405
+Upper middle income,UMC,1993,2096571016
+Upper middle income,UMC,1994,2121533883
+Upper middle income,UMC,1995,2146161975
+Upper middle income,UMC,1996,2170438981
+Upper middle income,UMC,1997,2194549894
+Upper middle income,UMC,1998,2217937280
+Upper middle income,UMC,1999,2239999771
+Upper middle income,UMC,2000,2260805982
+Upper middle income,UMC,2001,2280191396
+Upper middle income,UMC,2002,2298541505
+Upper middle income,UMC,2003,2316548374
+Upper middle income,UMC,2004,2334313912
+Upper middle income,UMC,2005,2352105140
+Upper middle income,UMC,2006,2369650785
+Upper middle income,UMC,2007,2386824787
+Upper middle income,UMC,2008,2404283410
+Upper middle income,UMC,2009,2422393813
+Upper middle income,UMC,2010,2440543075
+Upper middle income,UMC,2011,2459175685
+Upper middle income,UMC,2012,2478491686
+Upper middle income,UMC,2013,2498184210
+Upper middle income,UMC,2014,2517979764
+Upper middle income,UMC,2015,2537437057
+Upper middle income,UMC,2016,2556921923
+Upper middle income,UMC,2017,2576202556
 World,WLD,1960,3032160395
-World,WLD,1961,3073368588
-World,WLD,1962,3126509808
-World,WLD,1963,3191786431
+World,WLD,1961,3073368589
+World,WLD,1962,3126509809
+World,WLD,1963,3191786428
 World,WLD,1964,3257459749
-World,WLD,1965,3324545317
-World,WLD,1966,3394783656
-World,WLD,1967,3464689184
-World,WLD,1968,3535355320
-World,WLD,1969,3610178790
-World,WLD,1970,3685753338
-World,WLD,1971,3763393041
+World,WLD,1965,3324545319
+World,WLD,1966,3394783653
+World,WLD,1967,3464689185
+World,WLD,1968,3535355316
+World,WLD,1969,3610178793
+World,WLD,1970,3685753341
+World,WLD,1971,3763393039
 World,WLD,1972,3840269676
-World,WLD,1973,3916243700
+World,WLD,1973,3916243701
 World,WLD,1974,3992871281
-World,WLD,1975,4067740570
-World,WLD,1976,4140647345
-World,WLD,1977,4213305198
-World,WLD,1978,4287155677
-World,WLD,1979,4362863940
+World,WLD,1975,4067740568
+World,WLD,1976,4140647339
+World,WLD,1977,4213305195
+World,WLD,1978,4287155675
+World,WLD,1979,4362863944
 World,WLD,1980,4439337768
-World,WLD,1981,4517802653
-World,WLD,1982,4599181618
-World,WLD,1983,4681262097
-World,WLD,1984,4763043104
-World,WLD,1985,4846338373
-World,WLD,1986,4932113628
-World,WLD,1987,5020001100
-World,WLD,1988,5108813275
-World,WLD,1989,5197758288
-World,WLD,1990,5288103216
-World,WLD,1991,5375488625
-World,WLD,1992,5459753863
+World,WLD,1981,4517802648
+World,WLD,1982,4599181616
+World,WLD,1983,4681262096
+World,WLD,1984,4763043102
+World,WLD,1985,4846338372
+World,WLD,1986,4932113625
+World,WLD,1987,5020001104
+World,WLD,1988,5108813278
+World,WLD,1989,5197758286
+World,WLD,1990,5288103214
+World,WLD,1991,5375488619
+World,WLD,1992,5459753865
 World,WLD,1993,5544873088
-World,WLD,1994,5628791182
-World,WLD,1995,5713794373
-World,WLD,1996,5796632121
-World,WLD,1997,5879433899
-World,WLD,1998,5961166045
-World,WLD,1999,6041818590
-World,WLD,2000,6121682741
-World,WLD,2001,6201340848
-World,WLD,2002,6280531847
-World,WLD,2003,6359901308
-World,WLD,2004,6439827446
-World,WLD,2005,6520301437
-World,WLD,2006,6601480650
-World,WLD,2007,6683228246
-World,WLD,2008,6766302523
-World,WLD,2009,6849573246
-World,WLD,2010,6932880892
-World,WLD,2011,7014998805
-World,WLD,2012,7099548883
-World,WLD,2013,7185078354
-World,WLD,2014,7271228017.5
-World,WLD,2015,7357369754
-World,WLD,2016,7444027227
+World,WLD,1994,5628791176
+World,WLD,1995,5713794372
+World,WLD,1996,5796632117
+World,WLD,1997,5879433900
+World,WLD,1998,5961166037
+World,WLD,1999,6041818586
+World,WLD,2000,6121682736
+World,WLD,2001,6201340258
+World,WLD,2002,6280530065
+World,WLD,2003,6359899296
+World,WLD,2004,6439825381
+World,WLD,2005,6520298763
+World,WLD,2006,6601476541
+World,WLD,2007,6683223772
+World,WLD,2008,6766296679
+World,WLD,2009,6849569339
+World,WLD,2010,6932869743
+World,WLD,2011,7014983968
+World,WLD,2012,7099557649
+World,WLD,2013,7185137526
+World,WLD,2014,7271322821
+World,WLD,2015,7357559450
+World,WLD,2016,7444157356
+World,WLD,2017,7530360149
 Afghanistan,AFG,1960,8996351
 Afghanistan,AFG,1961,9166764
 Afghanistan,AFG,1962,9345868
@@ -2678,6 +2724,7 @@ Afghanistan,AFG,2013,31731688
 Afghanistan,AFG,2014,32758020
 Afghanistan,AFG,2015,33736494
 Afghanistan,AFG,2016,34656032
+Afghanistan,AFG,2017,35530081
 Albania,ALB,1960,1608800
 Albania,ALB,1961,1659800
 Albania,ALB,1962,1711319
@@ -2735,6 +2782,7 @@ Albania,ALB,2013,2895092
 Albania,ALB,2014,2889104
 Albania,ALB,2015,2880703
 Albania,ALB,2016,2876101
+Albania,ALB,2017,2873457
 Algeria,DZA,1960,11124888
 Algeria,DZA,1961,11404859
 Algeria,DZA,1962,11690153
@@ -2792,6 +2840,7 @@ Algeria,DZA,2013,38338562
 Algeria,DZA,2014,39113313
 Algeria,DZA,2015,39871528
 Algeria,DZA,2016,40606052
+Algeria,DZA,2017,41318142
 American Samoa,ASM,1960,20013
 American Samoa,ASM,1961,20486
 American Samoa,ASM,1962,21117
@@ -2849,6 +2898,7 @@ American Samoa,ASM,2013,55307
 American Samoa,ASM,2014,55437
 American Samoa,ASM,2015,55537
 American Samoa,ASM,2016,55599
+American Samoa,ASM,2017,55641
 Andorra,AND,1960,13411
 Andorra,AND,1961,14375
 Andorra,AND,1962,15370
@@ -2906,6 +2956,7 @@ Andorra,AND,2013,80788
 Andorra,AND,2014,79223
 Andorra,AND,2015,78014
 Andorra,AND,2016,77281
+Andorra,AND,2017,76965
 Angola,AGO,1960,5643182
 Angola,AGO,1961,5753024
 Angola,AGO,1962,5866061
@@ -2963,6 +3014,7 @@ Angola,AGO,2013,25998340
 Angola,AGO,2014,26920466
 Angola,AGO,2015,27859305
 Angola,AGO,2016,28813463
+Angola,AGO,2017,29784193
 Antigua and Barbuda,ATG,1960,55339
 Antigua and Barbuda,ATG,1961,56144
 Antigua and Barbuda,ATG,1962,57144
@@ -3020,6 +3072,7 @@ Antigua and Barbuda,ATG,2013,97824
 Antigua and Barbuda,ATG,2014,98875
 Antigua and Barbuda,ATG,2015,99923
 Antigua and Barbuda,ATG,2016,100963
+Antigua and Barbuda,ATG,2017,102012
 Argentina,ARG,1960,20619075
 Argentina,ARG,1961,20953077
 Argentina,ARG,1962,21287682
@@ -3077,6 +3130,7 @@ Argentina,ARG,2013,42539925
 Argentina,ARG,2014,42981515
 Argentina,ARG,2015,43417765
 Argentina,ARG,2016,43847430
+Argentina,ARG,2017,44271041
 Armenia,ARM,1960,1874120
 Armenia,ARM,1961,1941491
 Armenia,ARM,1962,2009526
@@ -3134,6 +3188,7 @@ Armenia,ARM,2013,2893509
 Armenia,ARM,2014,2906220
 Armenia,ARM,2015,2916950
 Armenia,ARM,2016,2924816
+Armenia,ARM,2017,2930450
 Aruba,ABW,1960,54211
 Aruba,ABW,1961,55438
 Aruba,ABW,1962,56225
@@ -3191,6 +3246,7 @@ Aruba,ABW,2013,103187
 Aruba,ABW,2014,103795
 Aruba,ABW,2015,104341
 Aruba,ABW,2016,104822
+Aruba,ABW,2017,105264
 Australia,AUS,1960,10276477
 Australia,AUS,1961,10483000
 Australia,AUS,1962,10742000
@@ -3248,6 +3304,7 @@ Australia,AUS,2013,23145901
 Australia,AUS,2014,23504138
 Australia,AUS,2015,23850784
 Australia,AUS,2016,24210809
+Australia,AUS,2017,24598933
 Austria,AUT,1960,7047539
 Austria,AUT,1961,7086299
 Austria,AUT,1962,7129864
@@ -3301,10 +3358,11 @@ Austria,AUT,2009,8343323
 Austria,AUT,2010,8363404
 Austria,AUT,2011,8391643
 Austria,AUT,2012,8429991
-Austria,AUT,2013,8479375
-Austria,AUT,2014,8541575
-Austria,AUT,2015,8633169
-Austria,AUT,2016,8731471
+Austria,AUT,2013,8479823
+Austria,AUT,2014,8546356
+Austria,AUT,2015,8642699
+Austria,AUT,2016,8736668
+Austria,AUT,2017,8809212
 Azerbaijan,AZE,1960,3895396
 Azerbaijan,AZE,1961,4030320
 Azerbaijan,AZE,1962,4171425
@@ -3362,6 +3420,7 @@ Azerbaijan,AZE,2013,9416801
 Azerbaijan,AZE,2014,9535079
 Azerbaijan,AZE,2015,9649341
 Azerbaijan,AZE,2016,9757812
+Azerbaijan,AZE,2017,9862429
 "Bahamas, The",BHS,1960,109528
 "Bahamas, The",BHS,1961,115108
 "Bahamas, The",BHS,1962,121083
@@ -3419,6 +3478,7 @@ Azerbaijan,AZE,2016,9757812
 "Bahamas, The",BHS,2014,382169
 "Bahamas, The",BHS,2015,386838
 "Bahamas, The",BHS,2016,391232
+"Bahamas, The",BHS,2017,395361
 Bahrain,BHR,1960,162427
 Bahrain,BHR,1961,167894
 Bahrain,BHR,1962,173144
@@ -3476,6 +3536,7 @@ Bahrain,BHR,2013,1315411
 Bahrain,BHR,2014,1336397
 Bahrain,BHR,2015,1371855
 Bahrain,BHR,2016,1425171
+Bahrain,BHR,2017,1492584
 Bangladesh,BGD,1960,48199747
 Bangladesh,BGD,1961,49592802
 Bangladesh,BGD,1962,51030137
@@ -3533,6 +3594,7 @@ Bangladesh,BGD,2013,157571292
 Bangladesh,BGD,2014,159405279
 Bangladesh,BGD,2015,161200886
 Bangladesh,BGD,2016,162951560
+Bangladesh,BGD,2017,164669751
 Barbados,BRB,1960,230939
 Barbados,BRB,1961,231678
 Barbados,BRB,1962,232586
@@ -3590,6 +3652,7 @@ Barbados,BRB,2013,282509
 Barbados,BRB,2014,283385
 Barbados,BRB,2015,284217
 Barbados,BRB,2016,284996
+Barbados,BRB,2017,285719
 Belarus,BLR,1960,8198000
 Belarus,BLR,1961,8271216
 Belarus,BLR,1962,8351928
@@ -3647,6 +3710,7 @@ Belarus,BLR,2013,9465997
 Belarus,BLR,2014,9474511
 Belarus,BLR,2015,9489616
 Belarus,BLR,2016,9501534
+Belarus,BLR,2017,9507875
 Belgium,BEL,1960,9153489
 Belgium,BEL,1961,9183948
 Belgium,BEL,1962,9220578
@@ -3703,7 +3767,8 @@ Belgium,BEL,2012,11128246
 Belgium,BEL,2013,11182817
 Belgium,BEL,2014,11209057
 Belgium,BEL,2015,11274196
-Belgium,BEL,2016,11338476
+Belgium,BEL,2016,11331422
+Belgium,BEL,2017,11372068
 Belize,BLZ,1960,92064
 Belize,BLZ,1961,94703
 Belize,BLZ,1962,97384
@@ -3761,6 +3826,7 @@ Belize,BLZ,2013,344181
 Belize,BLZ,2014,351694
 Belize,BLZ,2015,359288
 Belize,BLZ,2016,366954
+Belize,BLZ,2017,374681
 Benin,BEN,1960,2431622
 Benin,BEN,1961,2465867
 Benin,BEN,1962,2502896
@@ -3818,6 +3884,7 @@ Benin,BEN,2013,10004451
 Benin,BEN,2014,10286712
 Benin,BEN,2015,10575952
 Benin,BEN,2016,10872298
+Benin,BEN,2017,11175692
 Bermuda,BMU,1960,44400
 Bermuda,BMU,1961,45500
 Bermuda,BMU,1962,46600
@@ -3873,8 +3940,9 @@ Bermuda,BMU,2011,64564
 Bermuda,BMU,2012,64798
 Bermuda,BMU,2013,65001
 Bermuda,BMU,2014,65139
-Bermuda,BMU,2015,65250
-Bermuda,BMU,2016,65376
+Bermuda,BMU,2015,65239
+Bermuda,BMU,2016,65341
+Bermuda,BMU,2017,65441
 Bhutan,BTN,1960,223288
 Bhutan,BTN,1961,228918
 Bhutan,BTN,1962,234706
@@ -3932,6 +4000,7 @@ Bhutan,BTN,2013,764961
 Bhutan,BTN,2014,776448
 Bhutan,BTN,2015,787386
 Bhutan,BTN,2016,797765
+Bhutan,BTN,2017,807610
 Bolivia,BOL,1960,3693449
 Bolivia,BOL,1961,3764813
 Bolivia,BOL,1962,3838097
@@ -3989,6 +4058,7 @@ Bolivia,BOL,2013,10400264
 Bolivia,BOL,2014,10562159
 Bolivia,BOL,2015,10724705
 Bolivia,BOL,2016,10887882
+Bolivia,BOL,2017,11051600
 Bosnia and Herzegovina,BIH,1960,3225668
 Bosnia and Herzegovina,BIH,1961,3288602
 Bosnia and Herzegovina,BIH,1962,3353226
@@ -4046,6 +4116,7 @@ Bosnia and Herzegovina,BIH,2013,3604999
 Bosnia and Herzegovina,BIH,2014,3566002
 Bosnia and Herzegovina,BIH,2015,3535961
 Bosnia and Herzegovina,BIH,2016,3516816
+Bosnia and Herzegovina,BIH,2017,3507017
 Botswana,BWA,1960,524552
 Botswana,BWA,1961,537249
 Botswana,BWA,1962,550840
@@ -4103,6 +4174,7 @@ Botswana,BWA,2013,2128507
 Botswana,BWA,2014,2168573
 Botswana,BWA,2015,2209197
 Botswana,BWA,2016,2250260
+Botswana,BWA,2017,2291661
 Brazil,BRA,1960,72207554
 Brazil,BRA,1961,74351763
 Brazil,BRA,1962,76573248
@@ -4160,6 +4232,7 @@ Brazil,BRA,2013,202408632
 Brazil,BRA,2014,204213133
 Brazil,BRA,2015,205962108
 Brazil,BRA,2016,207652865
+Brazil,BRA,2017,209288278
 British Virgin Islands,VGB,1960,8033
 British Virgin Islands,VGB,1961,8155
 British Virgin Islands,VGB,1962,8298
@@ -4217,6 +4290,7 @@ British Virgin Islands,VGB,2013,29056
 British Virgin Islands,VGB,2014,29588
 British Virgin Islands,VGB,2015,30113
 British Virgin Islands,VGB,2016,30661
+British Virgin Islands,VGB,2017,31196
 Brunei Darussalam,BRN,1960,81745
 Brunei Darussalam,BRN,1961,85596
 Brunei Darussalam,BRN,1962,89516
@@ -4274,6 +4348,7 @@ Brunei Darussalam,BRN,2013,405716
 Brunei Darussalam,BRN,2014,411704
 Brunei Darussalam,BRN,2015,417542
 Brunei Darussalam,BRN,2016,423196
+Brunei Darussalam,BRN,2017,428697
 Bulgaria,BGR,1960,7867374
 Bulgaria,BGR,1961,7943118
 Bulgaria,BGR,1962,8012946
@@ -4331,6 +4406,7 @@ Bulgaria,BGR,2013,7265115
 Bulgaria,BGR,2014,7223938
 Bulgaria,BGR,2015,7177991
 Bulgaria,BGR,2016,7127822
+Bulgaria,BGR,2017,7075991
 Burkina Faso,BFA,1960,4829288
 Burkina Faso,BFA,1961,4894580
 Burkina Faso,BFA,1962,4960326
@@ -4388,6 +4464,7 @@ Burkina Faso,BFA,2013,17072723
 Burkina Faso,BFA,2014,17585977
 Burkina Faso,BFA,2015,18110624
 Burkina Faso,BFA,2016,18646433
+Burkina Faso,BFA,2017,19193382
 Burundi,BDI,1960,2786106
 Burundi,BDI,1961,2839666
 Burundi,BDI,1962,2893669
@@ -4445,6 +4522,7 @@ Burundi,BDI,2013,9600186
 Burundi,BDI,2014,9891790
 Burundi,BDI,2015,10199270
 Burundi,BDI,2016,10524117
+Burundi,BDI,2017,10864245
 Cabo Verde,CPV,1960,202310
 Cabo Verde,CPV,1961,205956
 Cabo Verde,CPV,1962,210867
@@ -4502,6 +4580,7 @@ Cabo Verde,CPV,2013,520106
 Cabo Verde,CPV,2014,526437
 Cabo Verde,CPV,2015,532913
 Cabo Verde,CPV,2016,539560
+Cabo Verde,CPV,2017,546388
 Cambodia,KHM,1960,5722370
 Cambodia,KHM,1961,5873015
 Cambodia,KHM,1962,6028551
@@ -4559,6 +4638,7 @@ Cambodia,KHM,2013,15022692
 Cambodia,KHM,2014,15270790
 Cambodia,KHM,2015,15517635
 Cambodia,KHM,2016,15762370
+Cambodia,KHM,2017,16005373
 Cameroon,CMR,1960,5176268
 Cameroon,CMR,1961,5285231
 Cameroon,CMR,1962,5399922
@@ -4616,6 +4696,7 @@ Cameroon,CMR,2013,21655715
 Cameroon,CMR,2014,22239904
 Cameroon,CMR,2015,22834522
 Cameroon,CMR,2016,23439189
+Cameroon,CMR,2017,24053727
 Canada,CAN,1960,17909009
 Canada,CAN,1961,18271000
 Canada,CAN,1962,18614000
@@ -4673,6 +4754,7 @@ Canada,CAN,2013,35152370
 Canada,CAN,2014,35535348
 Canada,CAN,2015,35832513
 Canada,CAN,2016,36264604
+Canada,CAN,2017,36708083
 Cayman Islands,CYM,1960,7865
 Cayman Islands,CYM,1961,8026
 Cayman Islands,CYM,1962,8146
@@ -4730,6 +4812,7 @@ Cayman Islands,CYM,2013,58371
 Cayman Islands,CYM,2014,59172
 Cayman Islands,CYM,2015,59963
 Cayman Islands,CYM,2016,60765
+Cayman Islands,CYM,2017,61559
 Central African Republic,CAF,1960,1503508
 Central African Republic,CAF,1961,1529227
 Central African Republic,CAF,1962,1556661
@@ -4787,6 +4870,7 @@ Central African Republic,CAF,2013,4499653
 Central African Republic,CAF,2014,4515392
 Central African Republic,CAF,2015,4546100
 Central African Republic,CAF,2016,4594621
+Central African Republic,CAF,2017,4659080
 Chad,TCD,1960,3001593
 Chad,TCD,1961,3060355
 Chad,TCD,1962,3121216
@@ -4844,6 +4928,7 @@ Chad,TCD,2013,13133589
 Chad,TCD,2014,13569438
 Chad,TCD,2015,14009413
 Chad,TCD,2016,14452543
+Chad,TCD,2017,14899994
 Channel Islands,CHI,1960,109420
 Channel Islands,CHI,1961,110399
 Channel Islands,CHI,1962,111457
@@ -4901,6 +4986,7 @@ Channel Islands,CHI,2013,162180
 Channel Islands,CHI,2014,162969
 Channel Islands,CHI,2015,163758
 Channel Islands,CHI,2016,164541
+Channel Islands,CHI,2017,165314
 Chile,CHL,1960,7716625
 Chile,CHL,1961,7890156
 Chile,CHL,1962,8067136
@@ -4958,6 +5044,7 @@ Chile,CHL,2013,17462982
 Chile,CHL,2014,17613798
 Chile,CHL,2015,17762681
 Chile,CHL,2016,17909754
+Chile,CHL,2017,18054726
 China,CHN,1960,667070000
 China,CHN,1961,660330000
 China,CHN,1962,665770000
@@ -5015,6 +5102,7 @@ China,CHN,2013,1357380000
 China,CHN,2014,1364270000
 China,CHN,2015,1371220000
 China,CHN,2016,1378665000
+China,CHN,2017,1386395000
 Colombia,COL,1960,16480383
 Colombia,COL,1961,16982315
 Colombia,COL,1962,17500171
@@ -5072,6 +5160,7 @@ Colombia,COL,2013,47342981
 Colombia,COL,2014,47791911
 Colombia,COL,2015,48228697
 Colombia,COL,2016,48653419
+Colombia,COL,2017,49065615
 Comoros,COM,1960,191121
 Comoros,COM,1961,194139
 Comoros,COM,1962,197198
@@ -5129,6 +5218,7 @@ Comoros,COM,2013,741500
 Comoros,COM,2014,759385
 Comoros,COM,2015,777424
 Comoros,COM,2016,795601
+Comoros,COM,2017,813912
 "Congo, Dem. Rep.",COD,1960,15248251
 "Congo, Dem. Rep.",COD,1961,15637733
 "Congo, Dem. Rep.",COD,1962,16041263
@@ -5186,6 +5276,7 @@ Comoros,COM,2016,795601
 "Congo, Dem. Rep.",COD,2014,73722860
 "Congo, Dem. Rep.",COD,2015,76196619
 "Congo, Dem. Rep.",COD,2016,78736153
+"Congo, Dem. Rep.",COD,2017,81339988
 "Congo, Rep.",COG,1960,1037220
 "Congo, Rep.",COG,1961,1064111
 "Congo, Rep.",COG,1962,1092292
@@ -5243,6 +5334,7 @@ Comoros,COM,2016,795601
 "Congo, Rep.",COG,2014,4871101
 "Congo, Rep.",COG,2015,4995648
 "Congo, Rep.",COG,2016,5125821
+"Congo, Rep.",COG,2017,5260750
 Costa Rica,CRI,1960,1333040
 Costa Rica,CRI,1961,1381917
 Costa Rica,CRI,1962,1432585
@@ -5300,6 +5392,7 @@ Costa Rica,CRI,2013,4706401
 Costa Rica,CRI,2014,4757575
 Costa Rica,CRI,2015,4807852
 Costa Rica,CRI,2016,4857274
+Costa Rica,CRI,2017,4905769
 Cote d'Ivoire,CIV,1960,3558988
 Cote d'Ivoire,CIV,1961,3694205
 Cote d'Ivoire,CIV,1962,3841071
@@ -5357,6 +5450,7 @@ Cote d'Ivoire,CIV,2013,21966312
 Cote d'Ivoire,CIV,2014,22531350
 Cote d'Ivoire,CIV,2015,23108472
 Cote d'Ivoire,CIV,2016,23695919
+Cote d'Ivoire,CIV,2017,24294750
 Croatia,HRV,1960,4140000
 Croatia,HRV,1961,4171672
 Croatia,HRV,1962,4202104
@@ -5414,6 +5508,7 @@ Croatia,HRV,2013,4255689
 Croatia,HRV,2014,4238389
 Croatia,HRV,2015,4203604
 Croatia,HRV,2016,4174349
+Croatia,HRV,2017,4125700
 Cuba,CUB,1960,7141135
 Cuba,CUB,1961,7289826
 Cuba,CUB,1962,7450402
@@ -5471,6 +5566,7 @@ Cuba,CUB,2013,11412167
 Cuba,CUB,2014,11439767
 Cuba,CUB,2015,11461432
 Cuba,CUB,2016,11475982
+Cuba,CUB,2017,11484636
 Curacao,CUW,1960,124826
 Curacao,CUW,1961,126125
 Curacao,CUW,1962,128414
@@ -5528,6 +5624,7 @@ Curacao,CUW,2013,153822
 Curacao,CUW,2014,155909
 Curacao,CUW,2015,157980
 Curacao,CUW,2016,159663
+Curacao,CUW,2017,161014
 Cyprus,CYP,1960,572930
 Cyprus,CYP,1961,576395
 Cyprus,CYP,1962,577691
@@ -5585,6 +5682,7 @@ Cyprus,CYP,2013,1143896
 Cyprus,CYP,2014,1152309
 Cyprus,CYP,2015,1160985
 Cyprus,CYP,2016,1170125
+Cyprus,CYP,2017,1179551
 Czech Republic,CZE,1960,9602006
 Czech Republic,CZE,1961,9586651
 Czech Republic,CZE,1962,9624660
@@ -5642,6 +5740,7 @@ Czech Republic,CZE,2013,10514272
 Czech Republic,CZE,2014,10525347
 Czech Republic,CZE,2015,10546059
 Czech Republic,CZE,2016,10566332
+Czech Republic,CZE,2017,10591323
 Denmark,DNK,1960,4579603
 Denmark,DNK,1961,4611687
 Denmark,DNK,1962,4647727
@@ -5699,6 +5798,7 @@ Denmark,DNK,2013,5614932
 Denmark,DNK,2014,5643475
 Denmark,DNK,2015,5683483
 Denmark,DNK,2016,5728010
+Denmark,DNK,2017,5769603
 Djibouti,DJI,1960,83636
 Djibouti,DJI,1961,88498
 Djibouti,DJI,1962,94204
@@ -5756,6 +5856,7 @@ Djibouti,DJI,2013,896688
 Djibouti,DJI,2014,912164
 Djibouti,DJI,2015,927414
 Djibouti,DJI,2016,942333
+Djibouti,DJI,2017,956985
 Dominica,DMA,1960,60011
 Dominica,DMA,1961,61032
 Dominica,DMA,1962,61982
@@ -5813,6 +5914,7 @@ Dominica,DMA,2013,72400
 Dominica,DMA,2014,72778
 Dominica,DMA,2015,73162
 Dominica,DMA,2016,73543
+Dominica,DMA,2017,73925
 Dominican Republic,DOM,1960,3294042
 Dominican Republic,DOM,1961,3406299
 Dominican Republic,DOM,1962,3521278
@@ -5870,6 +5972,7 @@ Dominican Republic,DOM,2013,10281296
 Dominican Republic,DOM,2014,10405844
 Dominican Republic,DOM,2015,10528394
 Dominican Republic,DOM,2016,10648791
+Dominican Republic,DOM,2017,10766998
 Ecuador,ECU,1960,4545550
 Ecuador,ECU,1961,4676859
 Ecuador,ECU,1962,4812890
@@ -5927,6 +6030,7 @@ Ecuador,ECU,2013,15661547
 Ecuador,ECU,2014,15903112
 Ecuador,ECU,2015,16144368
 Ecuador,ECU,2016,16385068
+Ecuador,ECU,2017,16624858
 "Egypt, Arab Rep.",EGY,1960,26996533
 "Egypt, Arab Rep.",EGY,1961,27744712
 "Egypt, Arab Rep.",EGY,1962,28506176
@@ -5984,6 +6088,7 @@ Ecuador,ECU,2016,16385068
 "Egypt, Arab Rep.",EGY,2014,91812566
 "Egypt, Arab Rep.",EGY,2015,93778172
 "Egypt, Arab Rep.",EGY,2016,95688681
+"Egypt, Arab Rep.",EGY,2017,97553151
 El Salvador,SLV,1960,2762899
 El Salvador,SLV,1961,2843240
 El Salvador,SLV,1962,2927857
@@ -6041,6 +6146,7 @@ El Salvador,SLV,2013,6250777
 El Salvador,SLV,2014,6281189
 El Salvador,SLV,2015,6312478
 El Salvador,SLV,2016,6344722
+El Salvador,SLV,2017,6377853
 Equatorial Guinea,GNQ,1960,255323
 Equatorial Guinea,GNQ,1961,258947
 Equatorial Guinea,GNQ,1962,262590
@@ -6098,6 +6204,7 @@ Equatorial Guinea,GNQ,2013,1083746
 Equatorial Guinea,GNQ,2014,1129424
 Equatorial Guinea,GNQ,2015,1175389
 Equatorial Guinea,GNQ,2016,1221490
+Equatorial Guinea,GNQ,2017,1267689
 Eritrea,ERI,1960,1397491
 Eritrea,ERI,1961,1432640
 Eritrea,ERI,1962,1469645
@@ -6207,6 +6314,7 @@ Estonia,EST,2013,1317997
 Estonia,EST,2014,1314545
 Estonia,EST,2015,1315407
 Estonia,EST,2016,1315790
+Estonia,EST,2017,1315480
 Ethiopia,ETH,1960,22151278
 Ethiopia,ETH,1961,22671190
 Ethiopia,ETH,1962,23221389
@@ -6264,6 +6372,7 @@ Ethiopia,ETH,2013,94887724
 Ethiopia,ETH,2014,97366774
 Ethiopia,ETH,2015,99873033
 Ethiopia,ETH,2016,102403196
+Ethiopia,ETH,2017,104957438
 Faroe Islands,FRO,1960,34661
 Faroe Islands,FRO,1961,35115
 Faroe Islands,FRO,1962,35570
@@ -6321,6 +6430,7 @@ Faroe Islands,FRO,2013,48747
 Faroe Islands,FRO,2014,48842
 Faroe Islands,FRO,2015,48965
 Faroe Islands,FRO,2016,49117
+Faroe Islands,FRO,2017,49290
 Fiji,FJI,1960,393386
 Fiji,FJI,1961,407156
 Fiji,FJI,1962,421577
@@ -6378,6 +6488,7 @@ Fiji,FJI,2013,879715
 Fiji,FJI,2014,885806
 Fiji,FJI,2015,892149
 Fiji,FJI,2016,898760
+Fiji,FJI,2017,905502
 Finland,FIN,1960,4429634
 Finland,FIN,1961,4461005
 Finland,FIN,1962,4491443
@@ -6435,6 +6546,7 @@ Finland,FIN,2013,5438972
 Finland,FIN,2014,5461512
 Finland,FIN,2015,5479531
 Finland,FIN,2016,5495303
+Finland,FIN,2017,5511303
 France,FRA,1960,46814237
 France,FRA,1961,47444751
 France,FRA,1962,48119649
@@ -6488,10 +6600,11 @@ France,FRA,2009,64707044
 France,FRA,2010,65027507
 France,FRA,2011,65342775
 France,FRA,2012,65659789
-France,FRA,2013,65998573
-France,FRA,2014,66331958.5
-France,FRA,2015,66624068
-France,FRA,2016,66892205
+France,FRA,2013,65998660
+France,FRA,2014,66316092
+France,FRA,2015,66593366
+France,FRA,2016,66859768
+France,FRA,2017,67118648
 French Polynesia,PYF,1960,78076
 French Polynesia,PYF,1961,80703
 French Polynesia,PYF,1962,83651
@@ -6549,6 +6662,7 @@ French Polynesia,PYF,2013,273528
 French Polynesia,PYF,2014,275484
 French Polynesia,PYF,2015,277690
 French Polynesia,PYF,2016,280208
+French Polynesia,PYF,2017,283007
 Gabon,GAB,1960,499184
 Gabon,GAB,1961,504167
 Gabon,GAB,1962,509806
@@ -6606,6 +6720,7 @@ Gabon,GAB,2013,1817271
 Gabon,GAB,2014,1875713
 Gabon,GAB,2015,1930175
 Gabon,GAB,2016,1979786
+Gabon,GAB,2017,2025137
 "Gambia, The",GMB,1960,367928
 "Gambia, The",GMB,1961,376737
 "Gambia, The",GMB,1962,383523
@@ -6663,6 +6778,7 @@ Gabon,GAB,2016,1979786
 "Gambia, The",GMB,2014,1917852
 "Gambia, The",GMB,2015,1977590
 "Gambia, The",GMB,2016,2038501
+"Gambia, The",GMB,2017,2100568
 Georgia,GEO,1960,3645600
 Georgia,GEO,1961,3703600
 Georgia,GEO,1962,3760300
@@ -6720,6 +6836,7 @@ Georgia,GEO,2013,3776000
 Georgia,GEO,2014,3727000
 Georgia,GEO,2015,3717100
 Georgia,GEO,2016,3719300
+Georgia,GEO,2017,3717100
 Germany,DEU,1960,72814900
 Germany,DEU,1961,73377632
 Germany,DEU,1962,74025784
@@ -6776,7 +6893,8 @@ Germany,DEU,2012,80425823
 Germany,DEU,2013,80645605
 Germany,DEU,2014,80982500
 Germany,DEU,2015,81686611
-Germany,DEU,2016,82487842
+Germany,DEU,2016,82348669
+Germany,DEU,2017,82695000
 Ghana,GHA,1960,6652287
 Ghana,GHA,1961,6866539
 Ghana,GHA,1962,7085464
@@ -6834,6 +6952,7 @@ Ghana,GHA,2013,26346251
 Ghana,GHA,2014,26962563
 Ghana,GHA,2015,27582821
 Ghana,GHA,2016,28206728
+Ghana,GHA,2017,28833629
 Gibraltar,GIB,1960,23394
 Gibraltar,GIB,1961,23786
 Gibraltar,GIB,1962,24284
@@ -6891,6 +7010,7 @@ Gibraltar,GIB,2013,33831
 Gibraltar,GIB,2014,34038
 Gibraltar,GIB,2015,34228
 Gibraltar,GIB,2016,34408
+Gibraltar,GIB,2017,34571
 Greece,GRC,1960,8331725
 Greece,GRC,1961,8398050
 Greece,GRC,1962,8448233
@@ -6947,7 +7067,8 @@ Greece,GRC,2012,11045011
 Greece,GRC,2013,10965211
 Greece,GRC,2014,10892413
 Greece,GRC,2015,10820883
-Greece,GRC,2016,10770521
+Greece,GRC,2016,10775971
+Greece,GRC,2017,10760421
 Greenland,GRL,1960,32500
 Greenland,GRL,1961,33700
 Greenland,GRL,1962,35000
@@ -7005,6 +7126,7 @@ Greenland,GRL,2013,56483
 Greenland,GRL,2014,56295
 Greenland,GRL,2015,56114
 Greenland,GRL,2016,56186
+Greenland,GRL,2017,56171
 Grenada,GRD,1960,89869
 Grenada,GRD,1961,91260
 Grenada,GRD,1962,92425
@@ -7062,6 +7184,7 @@ Grenada,GRD,2013,105909
 Grenada,GRD,2014,106360
 Grenada,GRD,2015,106823
 Grenada,GRD,2016,107317
+Grenada,GRD,2017,107825
 Guam,GUM,1960,66742
 Guam,GUM,1961,68072
 Guam,GUM,1962,69604
@@ -7119,6 +7242,7 @@ Guam,GUM,2013,160375
 Guam,GUM,2014,160967
 Guam,GUM,2015,161797
 Guam,GUM,2016,162896
+Guam,GUM,2017,164229
 Guatemala,GTM,1960,4210747
 Guatemala,GTM,1961,4336143
 Guatemala,GTM,1962,4464249
@@ -7176,6 +7300,7 @@ Guatemala,GTM,2013,15596214
 Guatemala,GTM,2014,15923559
 Guatemala,GTM,2015,16252429
 Guatemala,GTM,2016,16582469
+Guatemala,GTM,2017,16913503
 Guinea,GIN,1960,3577409
 Guinea,GIN,1961,3633652
 Guinea,GIN,1962,3690664
@@ -7233,6 +7358,7 @@ Guinea,GIN,2013,11536615
 Guinea,GIN,2014,11805509
 Guinea,GIN,2015,12091533
 Guinea,GIN,2016,12395924
+Guinea,GIN,2017,12717176
 Guinea-Bissau,GNB,1960,616409
 Guinea-Bissau,GNB,1961,623415
 Guinea-Bissau,GNB,1962,629969
@@ -7290,6 +7416,7 @@ Guinea-Bissau,GNB,2013,1681495
 Guinea-Bissau,GNB,2014,1725744
 Guinea-Bissau,GNB,2015,1770526
 Guinea-Bissau,GNB,2016,1815698
+Guinea-Bissau,GNB,2017,1861283
 Guyana,GUY,1960,571819
 Guyana,GUY,1961,589274
 Guyana,GUY,1962,606285
@@ -7347,6 +7474,7 @@ Guyana,GUY,2013,758081
 Guyana,GUY,2014,763393
 Guyana,GUY,2015,768514
 Guyana,GUY,2016,773303
+Guyana,GUY,2017,777859
 Haiti,HTI,1960,3866159
 Haiti,HTI,1961,3943364
 Haiti,HTI,1962,4022593
@@ -7404,6 +7532,7 @@ Haiti,HTI,2013,10431776
 Haiti,HTI,2014,10572466
 Haiti,HTI,2015,10711061
 Haiti,HTI,2016,10847334
+Haiti,HTI,2017,10981229
 Honduras,HND,1960,2038637
 Honduras,HND,1961,2096407
 Honduras,HND,1962,2155652
@@ -7461,6 +7590,7 @@ Honduras,HND,2013,8657785
 Honduras,HND,2014,8809216
 Honduras,HND,2015,8960829
 Honduras,HND,2016,9112867
+Honduras,HND,2017,9265067
 "Hong Kong SAR, China",HKG,1960,3075605
 "Hong Kong SAR, China",HKG,1961,3168100
 "Hong Kong SAR, China",HKG,1962,3305200
@@ -7518,6 +7648,7 @@ Honduras,HND,2016,9112867
 "Hong Kong SAR, China",HKG,2014,7229500
 "Hong Kong SAR, China",HKG,2015,7291300
 "Hong Kong SAR, China",HKG,2016,7336600
+"Hong Kong SAR, China",HKG,2017,7391700
 Hungary,HUN,1960,9983967
 Hungary,HUN,1961,10029321
 Hungary,HUN,1962,10061734
@@ -7575,6 +7706,7 @@ Hungary,HUN,2013,9893082
 Hungary,HUN,2014,9866468
 Hungary,HUN,2015,9843028
 Hungary,HUN,2016,9814023
+Hungary,HUN,2017,9781127
 Iceland,ISL,1960,175574
 Iceland,ISL,1961,179029
 Iceland,ISL,1962,182378
@@ -7632,6 +7764,7 @@ Iceland,ISL,2013,323764
 Iceland,ISL,2014,327386
 Iceland,ISL,2015,330815
 Iceland,ISL,2016,335439
+Iceland,ISL,2017,341284
 India,IND,1960,449480608
 India,IND,1961,458494963
 India,IND,1962,467852537
@@ -7689,6 +7822,7 @@ India,IND,2013,1278562207
 India,IND,2014,1293859294
 India,IND,2015,1309053980
 India,IND,2016,1324171354
+India,IND,2017,1339180127
 Indonesia,IDN,1960,87792515
 Indonesia,IDN,1961,90138235
 Indonesia,IDN,1962,92558005
@@ -7746,6 +7880,7 @@ Indonesia,IDN,2013,252032263
 Indonesia,IDN,2014,255131116
 Indonesia,IDN,2015,258162113
 Indonesia,IDN,2016,261115456
+Indonesia,IDN,2017,263991379
 "Iran, Islamic Rep.",IRN,1960,21906903
 "Iran, Islamic Rep.",IRN,1961,22480418
 "Iran, Islamic Rep.",IRN,1962,23071429
@@ -7803,6 +7938,7 @@ Indonesia,IDN,2016,261115456
 "Iran, Islamic Rep.",IRN,2014,78411092
 "Iran, Islamic Rep.",IRN,2015,79360487
 "Iran, Islamic Rep.",IRN,2016,80277428
+"Iran, Islamic Rep.",IRN,2017,81162788
 Iraq,IRQ,1960,7289761
 Iraq,IRQ,1961,7475352
 Iraq,IRQ,1962,7674223
@@ -7860,6 +7996,7 @@ Iraq,IRQ,2013,33883145
 Iraq,IRQ,2014,35006080
 Iraq,IRQ,2015,36115649
 Iraq,IRQ,2016,37202572
+Iraq,IRQ,2017,38274618
 Ireland,IRL,1960,2828600
 Ireland,IRL,1961,2824400
 Ireland,IRL,1962,2836050
@@ -7911,12 +8048,13 @@ Ireland,IRL,2007,4398942
 Ireland,IRL,2008,4489544
 Ireland,IRL,2009,4535375
 Ireland,IRL,2010,4560155
-Ireland,IRL,2011,4576794
-Ireland,IRL,2012,4586897
-Ireland,IRL,2013,4598294
-Ireland,IRL,2014,4617225
-Ireland,IRL,2015,4646554
-Ireland,IRL,2016,4749777
+Ireland,IRL,2011,4580084
+Ireland,IRL,2012,4599533
+Ireland,IRL,2013,4623816
+Ireland,IRL,2014,4657740
+Ireland,IRL,2015,4701957
+Ireland,IRL,2016,4755335
+Ireland,IRL,2017,4813608
 Isle of Man,IMN,1960,48442
 Isle of Man,IMN,1961,48281
 Isle of Man,IMN,1962,48418
@@ -7974,6 +8112,7 @@ Isle of Man,IMN,2013,82013
 Isle of Man,IMN,2014,82590
 Isle of Man,IMN,2015,83167
 Isle of Man,IMN,2016,83737
+Isle of Man,IMN,2017,84287
 Israel,ISR,1960,2114020
 Israel,ISR,1961,2185000
 Israel,ISR,1962,2293000
@@ -8031,6 +8170,7 @@ Israel,ISR,2013,8059500
 Israel,ISR,2014,8215700
 Israel,ISR,2015,8380100
 Israel,ISR,2016,8546000
+Israel,ISR,2017,8712400
 Italy,ITA,1960,50199700
 Italy,ITA,1961,50536350
 Italy,ITA,1962,50879450
@@ -8088,6 +8228,7 @@ Italy,ITA,2013,60233948
 Italy,ITA,2014,60789140
 Italy,ITA,2015,60730582
 Italy,ITA,2016,60627498
+Italy,ITA,2017,60551416
 Jamaica,JAM,1960,1628252
 Jamaica,JAM,1961,1650806
 Jamaica,JAM,1962,1676250
@@ -8145,6 +8286,7 @@ Jamaica,JAM,2013,2851807
 Jamaica,JAM,2014,2862087
 Jamaica,JAM,2015,2871934
 Jamaica,JAM,2016,2881355
+Jamaica,JAM,2017,2890299
 Japan,JPN,1960,92500572
 Japan,JPN,1961,94943000
 Japan,JPN,1962,95832000
@@ -8202,6 +8344,7 @@ Japan,JPN,2013,127445000
 Japan,JPN,2014,127276000
 Japan,JPN,2015,127141000
 Japan,JPN,2016,126994511
+Japan,JPN,2017,126785797
 Jordan,JOR,1960,932257
 Jordan,JOR,1961,973083
 Jordan,JOR,1962,1009733
@@ -8259,6 +8402,7 @@ Jordan,JOR,2013,8413464
 Jordan,JOR,2014,8809306
 Jordan,JOR,2015,9159302
 Jordan,JOR,2016,9455802
+Jordan,JOR,2017,9702353
 Kazakhstan,KAZ,1960,9714260
 Kazakhstan,KAZ,1961,10129861
 Kazakhstan,KAZ,1962,10532062
@@ -8308,14 +8452,15 @@ Kazakhstan,KAZ,2005,15147029
 Kazakhstan,KAZ,2006,15308084
 Kazakhstan,KAZ,2007,15484192
 Kazakhstan,KAZ,2008,15674000
-Kazakhstan,KAZ,2009,16092701
-Kazakhstan,KAZ,2010,16321581
-Kazakhstan,KAZ,2011,16556600
-Kazakhstan,KAZ,2012,16791425
-Kazakhstan,KAZ,2013,17035275
-Kazakhstan,KAZ,2014,17289224
-Kazakhstan,KAZ,2015,17544126
-Kazakhstan,KAZ,2016,17794397
+Kazakhstan,KAZ,2009,16092822
+Kazakhstan,KAZ,2010,16321872
+Kazakhstan,KAZ,2011,16557201
+Kazakhstan,KAZ,2012,16792089
+Kazakhstan,KAZ,2013,17035550
+Kazakhstan,KAZ,2014,17288285
+Kazakhstan,KAZ,2015,17542806
+Kazakhstan,KAZ,2016,17794055
+Kazakhstan,KAZ,2017,18037646
 Kenya,KEN,1960,8105440
 Kenya,KEN,1961,8361441
 Kenya,KEN,1962,8628972
@@ -8373,6 +8518,7 @@ Kenya,KEN,2013,44826849
 Kenya,KEN,2014,46024250
 Kenya,KEN,2015,47236259
 Kenya,KEN,2016,48461567
+Kenya,KEN,2017,49699862
 Kiribati,KIR,1960,41233
 Kiribati,KIR,1961,42257
 Kiribati,KIR,1962,43302
@@ -8430,6 +8576,7 @@ Kiribati,KIR,2013,108535
 Kiribati,KIR,2014,110458
 Kiribati,KIR,2015,112407
 Kiribati,KIR,2016,114395
+Kiribati,KIR,2017,116398
 "Korea, Dem. People’s Rep.",PRK,1960,11424176
 "Korea, Dem. People’s Rep.",PRK,1961,11665595
 "Korea, Dem. People’s Rep.",PRK,1962,11871712
@@ -8487,6 +8634,7 @@ Kiribati,KIR,2016,114395
 "Korea, Dem. People’s Rep.",PRK,2014,25116363
 "Korea, Dem. People’s Rep.",PRK,2015,25243917
 "Korea, Dem. People’s Rep.",PRK,2016,25368620
+"Korea, Dem. People’s Rep.",PRK,2017,25490965
 "Korea, Rep.",KOR,1960,25012374
 "Korea, Rep.",KOR,1961,25765673
 "Korea, Rep.",KOR,1962,26513030
@@ -8544,6 +8692,7 @@ Kiribati,KIR,2016,114395
 "Korea, Rep.",KOR,2014,50746659
 "Korea, Rep.",KOR,2015,51014947
 "Korea, Rep.",KOR,2016,51245707
+"Korea, Rep.",KOR,2017,51466201
 Kosovo,XKX,1960,947000
 Kosovo,XKX,1961,966000
 Kosovo,XKX,1962,994000
@@ -8601,6 +8750,7 @@ Kosovo,XKX,2013,1824100
 Kosovo,XKX,2014,1821800
 Kosovo,XKX,2015,1801800
 Kosovo,XKX,2016,1816200
+Kosovo,XKX,2017,1830700
 Kuwait,KWT,1960,269618
 Kuwait,KWT,1961,301336
 Kuwait,KWT,1962,338296
@@ -8655,6 +8805,7 @@ Kuwait,KWT,2013,3598385
 Kuwait,KWT,2014,3782450
 Kuwait,KWT,2015,3935794
 Kuwait,KWT,2016,4052584
+Kuwait,KWT,2017,4136528
 Kyrgyz Republic,KGZ,1960,2172300
 Kyrgyz Republic,KGZ,1961,2255900
 Kyrgyz Republic,KGZ,1962,2333400
@@ -8712,6 +8863,7 @@ Kyrgyz Republic,KGZ,2013,5719600
 Kyrgyz Republic,KGZ,2014,5835500
 Kyrgyz Republic,KGZ,2015,5956900
 Kyrgyz Republic,KGZ,2016,6079500
+Kyrgyz Republic,KGZ,2017,6201500
 Lao PDR,LAO,1960,2120896
 Lao PDR,LAO,1961,2170343
 Lao PDR,LAO,1962,2221122
@@ -8769,6 +8921,7 @@ Lao PDR,LAO,2013,6494557
 Lao PDR,LAO,2014,6576397
 Lao PDR,LAO,2015,6663967
 Lao PDR,LAO,2016,6758353
+Lao PDR,LAO,2017,6858160
 Latvia,LVA,1960,2120979
 Latvia,LVA,1961,2152681
 Latvia,LVA,1962,2181586
@@ -8826,6 +8979,7 @@ Latvia,LVA,2013,2012647
 Latvia,LVA,2014,1993782
 Latvia,LVA,2015,1977527
 Latvia,LVA,2016,1959537
+Latvia,LVA,2017,1940740
 Lebanon,LBN,1960,1804926
 Lebanon,LBN,1961,1864605
 Lebanon,LBN,1962,1925276
@@ -8883,6 +9037,7 @@ Lebanon,LBN,2013,5276102
 Lebanon,LBN,2014,5603279
 Lebanon,LBN,2015,5851479
 Lebanon,LBN,2016,6006668
+Lebanon,LBN,2017,6082357
 Lesotho,LSO,1960,851591
 Lesotho,LSO,1961,866462
 Lesotho,LSO,1962,882170
@@ -8940,6 +9095,7 @@ Lesotho,LSO,2013,2117361
 Lesotho,LSO,2014,2145785
 Lesotho,LSO,2015,2174645
 Lesotho,LSO,2016,2203821
+Lesotho,LSO,2017,2233339
 Liberia,LBR,1960,1120313
 Liberia,LBR,1961,1144986
 Liberia,LBR,1962,1170480
@@ -8997,6 +9153,7 @@ Liberia,LBR,2013,4286291
 Liberia,LBR,2014,4390737
 Liberia,LBR,2015,4499621
 Liberia,LBR,2016,4613823
+Liberia,LBR,2017,4731906
 Libya,LBY,1960,1448417
 Libya,LBY,1961,1498071
 Libya,LBY,1962,1550813
@@ -9054,6 +9211,7 @@ Libya,LBY,2013,6195970
 Libya,LBY,2014,6204108
 Libya,LBY,2015,6234955
 Libya,LBY,2016,6293253
+Libya,LBY,2017,6374616
 Liechtenstein,LIE,1960,16495
 Liechtenstein,LIE,1961,16894
 Liechtenstein,LIE,1962,17290
@@ -9111,6 +9269,7 @@ Liechtenstein,LIE,2013,36834
 Liechtenstein,LIE,2014,37127
 Liechtenstein,LIE,2015,37403
 Liechtenstein,LIE,2016,37666
+Liechtenstein,LIE,2017,37922
 Lithuania,LTU,1960,2778550
 Lithuania,LTU,1961,2823550
 Lithuania,LTU,1962,2863350
@@ -9168,6 +9327,7 @@ Lithuania,LTU,2013,2957689
 Lithuania,LTU,2014,2932367
 Lithuania,LTU,2015,2904910
 Lithuania,LTU,2016,2868231
+Lithuania,LTU,2017,2827721
 Luxembourg,LUX,1960,313970
 Luxembourg,LUX,1961,316845
 Luxembourg,LUX,1962,320750
@@ -9225,6 +9385,7 @@ Luxembourg,LUX,2013,543360
 Luxembourg,LUX,2014,556319
 Luxembourg,LUX,2015,569604
 Luxembourg,LUX,2016,582014
+Luxembourg,LUX,2017,599449
 "Macao SAR, China",MAC,1960,167796
 "Macao SAR, China",MAC,1961,170465
 "Macao SAR, China",MAC,1962,176188
@@ -9282,6 +9443,7 @@ Luxembourg,LUX,2016,582014
 "Macao SAR, China",MAC,2014,588781
 "Macao SAR, China",MAC,2015,600942
 "Macao SAR, China",MAC,2016,612167
+"Macao SAR, China",MAC,2017,622567
 "Macedonia, FYR",MKD,1960,1488667
 "Macedonia, FYR",MKD,1961,1507654
 "Macedonia, FYR",MKD,1962,1527111
@@ -9339,6 +9501,7 @@ Luxembourg,LUX,2016,582014
 "Macedonia, FYR",MKD,2014,2077495
 "Macedonia, FYR",MKD,2015,2079308
 "Macedonia, FYR",MKD,2016,2081206
+"Macedonia, FYR",MKD,2017,2083160
 Madagascar,MDG,1960,5099373
 Madagascar,MDG,1961,5223568
 Madagascar,MDG,1962,5352503
@@ -9396,6 +9559,7 @@ Madagascar,MDG,2013,22961146
 Madagascar,MDG,2014,23589801
 Madagascar,MDG,2015,24234088
 Madagascar,MDG,2016,24894551
+Madagascar,MDG,2017,25570895
 Malawi,MWI,1960,3618595
 Malawi,MWI,1961,3700023
 Malawi,MWI,1962,3784439
@@ -9453,6 +9617,7 @@ Malawi,MWI,2013,16577147
 Malawi,MWI,2014,17068838
 Malawi,MWI,2015,17573607
 Malawi,MWI,2016,18091575
+Malawi,MWI,2017,18622104
 Malaysia,MYS,1960,8157106
 Malaysia,MYS,1961,8418460
 Malaysia,MYS,1962,8692815
@@ -9510,6 +9675,7 @@ Malaysia,MYS,2013,29706724
 Malaysia,MYS,2014,30228017
 Malaysia,MYS,2015,30723155
 Malaysia,MYS,2016,31187265
+Malaysia,MYS,2017,31624264
 Maldives,MDV,1960,89887
 Maldives,MDV,1961,92350
 Maldives,MDV,1962,94938
@@ -9567,6 +9733,7 @@ Maldives,MDV,2013,397397
 Maldives,MDV,2014,408247
 Maldives,MDV,2015,418403
 Maldives,MDV,2016,427756
+Maldives,MDV,2017,436330
 Mali,MLI,1960,5263733
 Mali,MLI,1961,5322266
 Mali,MLI,1962,5381368
@@ -9624,6 +9791,7 @@ Mali,MLI,2013,16477818
 Mali,MLI,2014,16962846
 Mali,MLI,2015,17467905
 Mali,MLI,2016,17994837
+Mali,MLI,2017,18541980
 Malta,MLT,1960,326550
 Malta,MLT,1961,325250
 Malta,MLT,1962,323900
@@ -9676,11 +9844,12 @@ Malta,MLT,2008,409379
 Malta,MLT,2009,412477
 Malta,MLT,2010,414508
 Malta,MLT,2011,416268
-Malta,MLT,2012,419455
-Malta,MLT,2013,423374
-Malta,MLT,2014,427364
-Malta,MLT,2015,431874
-Malta,MLT,2016,437418
+Malta,MLT,2012,420028
+Malta,MLT,2013,425967
+Malta,MLT,2014,434558
+Malta,MLT,2015,445053
+Malta,MLT,2016,455356
+Malta,MLT,2017,465292
 Marshall Islands,MHL,1960,14662
 Marshall Islands,MHL,1961,15051
 Marshall Islands,MHL,1962,15547
@@ -9738,6 +9907,7 @@ Marshall Islands,MHL,2013,52793
 Marshall Islands,MHL,2014,52898
 Marshall Islands,MHL,2015,52994
 Marshall Islands,MHL,2016,53066
+Marshall Islands,MHL,2017,53127
 Mauritania,MRT,1960,858168
 Mauritania,MRT,1961,883221
 Mauritania,MRT,1962,909174
@@ -9795,6 +9965,7 @@ Mauritania,MRT,2013,3946170
 Mauritania,MRT,2014,4063920
 Mauritania,MRT,2015,4182341
 Mauritania,MRT,2016,4301018
+Mauritania,MRT,2017,4420184
 Mauritius,MUS,1960,659351
 Mauritius,MUS,1961,680757
 Mauritius,MUS,1962,700349
@@ -9852,6 +10023,7 @@ Mauritius,MUS,2013,1258653
 Mauritius,MUS,2014,1260934
 Mauritius,MUS,2015,1262605
 Mauritius,MUS,2016,1263473
+Mauritius,MUS,2017,1264613
 Mexico,MEX,1960,38174112
 Mexico,MEX,1961,39394126
 Mexico,MEX,1962,40649588
@@ -9909,6 +10081,7 @@ Mexico,MEX,2013,122535969
 Mexico,MEX,2014,124221600
 Mexico,MEX,2015,125890949
 Mexico,MEX,2016,127540423
+Mexico,MEX,2017,129163276
 "Micronesia, Fed. Sts.",FSM,1960,44537
 "Micronesia, Fed. Sts.",FSM,1961,45955
 "Micronesia, Fed. Sts.",FSM,1962,47388
@@ -9966,6 +10139,7 @@ Mexico,MEX,2016,127540423
 "Micronesia, Fed. Sts.",FSM,2014,104015
 "Micronesia, Fed. Sts.",FSM,2015,104433
 "Micronesia, Fed. Sts.",FSM,2016,104937
+"Micronesia, Fed. Sts.",FSM,2017,105544
 Moldova,MDA,1960,2544000
 Moldova,MDA,1961,2605000
 Moldova,MDA,1962,2664000
@@ -10023,6 +10197,7 @@ Moldova,MDA,2013,3558566
 Moldova,MDA,2014,3556397
 Moldova,MDA,2015,3554108
 Moldova,MDA,2016,3551954
+Moldova,MDA,2017,3549750
 Monaco,MCO,1960,22452
 Monaco,MCO,1961,22808
 Monaco,MCO,1962,23039
@@ -10080,6 +10255,7 @@ Monaco,MCO,2013,37971
 Monaco,MCO,2014,38132
 Monaco,MCO,2015,38307
 Monaco,MCO,2016,38499
+Monaco,MCO,2017,38695
 Mongolia,MNG,1960,955505
 Mongolia,MNG,1961,982178
 Mongolia,MNG,1962,1011324
@@ -10137,6 +10313,7 @@ Mongolia,MNG,2013,2869107
 Mongolia,MNG,2014,2923896
 Mongolia,MNG,2015,2976877
 Mongolia,MNG,2016,3027398
+Mongolia,MNG,2017,3075647
 Montenegro,MNE,1960,480579
 Montenegro,MNE,1961,491140
 Montenegro,MNE,1962,502558
@@ -10194,6 +10371,7 @@ Montenegro,MNE,2013,621207
 Montenegro,MNE,2014,621810
 Montenegro,MNE,2015,622159
 Montenegro,MNE,2016,622303
+Montenegro,MNE,2017,622471
 Morocco,MAR,1960,12328532
 Morocco,MAR,1961,12710547
 Morocco,MAR,1962,13094818
@@ -10251,6 +10429,7 @@ Morocco,MAR,2013,33824769
 Morocco,MAR,2014,34318082
 Morocco,MAR,2015,34803322
 Morocco,MAR,2016,35276786
+Morocco,MAR,2017,35739580
 Mozambique,MOZ,1960,7388695
 Mozambique,MOZ,1961,7541325
 Mozambique,MOZ,1962,7699139
@@ -10308,6 +10487,7 @@ Mozambique,MOZ,2013,26434372
 Mozambique,MOZ,2014,27212382
 Mozambique,MOZ,2015,28010691
 Mozambique,MOZ,2016,28829476
+Mozambique,MOZ,2017,29668834
 Myanmar,MMR,1960,20986123
 Myanmar,MMR,1961,21438025
 Myanmar,MMR,1962,21898020
@@ -10365,6 +10545,7 @@ Myanmar,MMR,2013,51448196
 Myanmar,MMR,2014,51924182
 Myanmar,MMR,2015,52403669
 Myanmar,MMR,2016,52885223
+Myanmar,MMR,2017,53370609
 Namibia,NAM,1960,602544
 Namibia,NAM,1961,617277
 Namibia,NAM,1962,632654
@@ -10422,56 +10603,57 @@ Namibia,NAM,2013,2316520
 Namibia,NAM,2014,2370992
 Namibia,NAM,2015,2425561
 Namibia,NAM,2016,2479713
+Namibia,NAM,2017,2533794
 Nauru,NRU,1960,4433
-Nauru,NRU,1961,4675
-Nauru,NRU,1962,4947
-Nauru,NRU,1963,5231
+Nauru,NRU,1961,4676
+Nauru,NRU,1962,4948
+Nauru,NRU,1963,5228
 Nauru,NRU,1964,5500
-Nauru,NRU,1965,5738
-Nauru,NRU,1966,5936
-Nauru,NRU,1967,6102
-Nauru,NRU,1968,6241
-Nauru,NRU,1969,6368
-Nauru,NRU,1970,6493
-Nauru,NRU,1971,6619
+Nauru,NRU,1965,5740
+Nauru,NRU,1966,5933
+Nauru,NRU,1967,6103
+Nauru,NRU,1968,6237
+Nauru,NRU,1969,6371
+Nauru,NRU,1970,6496
+Nauru,NRU,1971,6617
 Nauru,NRU,1972,6743
-Nauru,NRU,1973,6862
+Nauru,NRU,1973,6863
 Nauru,NRU,1974,6972
-Nauru,NRU,1975,7070
-Nauru,NRU,1976,7156
-Nauru,NRU,1977,7235
-Nauru,NRU,1978,7311
-Nauru,NRU,1979,7393
+Nauru,NRU,1975,7068
+Nauru,NRU,1976,7150
+Nauru,NRU,1977,7232
+Nauru,NRU,1978,7309
+Nauru,NRU,1979,7397
 Nauru,NRU,1980,7488
-Nauru,NRU,1981,7597
-Nauru,NRU,1982,7719
-Nauru,NRU,1983,7855
-Nauru,NRU,1984,8007
-Nauru,NRU,1985,8174
-Nauru,NRU,1986,8356
-Nauru,NRU,1987,8550
-Nauru,NRU,1988,8752
-Nauru,NRU,1989,8956
-Nauru,NRU,1990,9157
-Nauru,NRU,1991,9354
-Nauru,NRU,1992,9544
+Nauru,NRU,1981,7592
+Nauru,NRU,1982,7717
+Nauru,NRU,1983,7854
+Nauru,NRU,1984,8005
+Nauru,NRU,1985,8173
+Nauru,NRU,1986,8353
+Nauru,NRU,1987,8554
+Nauru,NRU,1988,8755
+Nauru,NRU,1989,8954
+Nauru,NRU,1990,9155
+Nauru,NRU,1991,9348
+Nauru,NRU,1992,9546
 Nauru,NRU,1993,9719
-Nauru,NRU,1994,9863
-Nauru,NRU,1995,9970
-Nauru,NRU,1996,10033
-Nauru,NRU,1997,10056
-Nauru,NRU,1998,10054
-Nauru,NRU,1999,10044
-Nauru,NRU,2000,10042
-Nauru,NRU,2001,10053
-Nauru,NRU,2002,10073
-Nauru,NRU,2003,10096
-Nauru,NRU,2004,10113
-Nauru,NRU,2005,10115
-Nauru,NRU,2006,10101
-Nauru,NRU,2007,10075
-Nauru,NRU,2008,10047
-Nauru,NRU,2009,10028
+Nauru,NRU,1994,9857
+Nauru,NRU,1995,9969
+Nauru,NRU,1996,10029
+Nauru,NRU,1997,10057
+Nauru,NRU,1998,10046
+Nauru,NRU,1999,10040
+Nauru,NRU,2000,10037
+Nauru,NRU,2001,10052
+Nauru,NRU,2002,10080
+Nauru,NRU,2003,10106
+Nauru,NRU,2004,10126
+Nauru,NRU,2005,10114
+Nauru,NRU,2006,10071
+Nauru,NRU,2007,10002
+Nauru,NRU,2008,9947
+Nauru,NRU,2009,9945
 Nauru,NRU,2010,10025
 Nauru,NRU,2011,10057
 Nauru,NRU,2012,10279
@@ -10479,6 +10661,7 @@ Nauru,NRU,2013,10821
 Nauru,NRU,2014,11853
 Nauru,NRU,2015,12475
 Nauru,NRU,2016,13049
+Nauru,NRU,2017,13649
 Nepal,NPL,1960,10063011
 Nepal,NPL,1961,10221759
 Nepal,NPL,1962,10384204
@@ -10536,6 +10719,7 @@ Nepal,NPL,2013,27985310
 Nepal,NPL,2014,28323241
 Nepal,NPL,2015,28656282
 Nepal,NPL,2016,28982771
+Nepal,NPL,2017,29304998
 Netherlands,NLD,1960,11486631
 Netherlands,NLD,1961,11638712
 Netherlands,NLD,1962,11805689
@@ -10593,6 +10777,7 @@ Netherlands,NLD,2013,16804432
 Netherlands,NLD,2014,16865008
 Netherlands,NLD,2015,16939923
 Netherlands,NLD,2016,17030314
+Netherlands,NLD,2017,17132854
 New Caledonia,NCL,1960,79000
 New Caledonia,NCL,1961,81200
 New Caledonia,NCL,1962,83400
@@ -10636,20 +10821,21 @@ New Caledonia,NCL,1999,209214
 New Caledonia,NCL,2000,213230
 New Caledonia,NCL,2001,217324
 New Caledonia,NCL,2002,221490
-New Caledonia,NCL,2003,225000
-New Caledonia,NCL,2004,228000
-New Caledonia,NCL,2005,231000
-New Caledonia,NCL,2006,235000
-New Caledonia,NCL,2007,238000
-New Caledonia,NCL,2008,242000
-New Caledonia,NCL,2009,245000
-New Caledonia,NCL,2010,250000
-New Caledonia,NCL,2011,254000
+New Caledonia,NCL,2003,225296
+New Caledonia,NCL,2004,228750
+New Caledonia,NCL,2005,232250
+New Caledonia,NCL,2006,235750
+New Caledonia,NCL,2007,239250
+New Caledonia,NCL,2008,242750
+New Caledonia,NCL,2009,245950
+New Caledonia,NCL,2010,249750
+New Caledonia,NCL,2011,254350
 New Caledonia,NCL,2012,259000
-New Caledonia,NCL,2013,263000
-New Caledonia,NCL,2014,268000
-New Caledonia,NCL,2015,272000
-New Caledonia,NCL,2016,277000
+New Caledonia,NCL,2013,263650
+New Caledonia,NCL,2014,268050
+New Caledonia,NCL,2015,272400
+New Caledonia,NCL,2016,276550
+New Caledonia,NCL,2017,280460
 New Zealand,NZL,1960,2371800
 New Zealand,NZL,1961,2419700
 New Zealand,NZL,1962,2482000
@@ -10707,6 +10893,7 @@ New Zealand,NZL,2013,4442100
 New Zealand,NZL,2014,4509700
 New Zealand,NZL,2015,4595700
 New Zealand,NZL,2016,4693200
+New Zealand,NZL,2017,4793900
 Nicaragua,NIC,1960,1774699
 Nicaragua,NIC,1961,1830400
 Nicaragua,NIC,1962,1886562
@@ -10764,6 +10951,7 @@ Nicaragua,NIC,2013,5945747
 Nicaragua,NIC,2014,6013997
 Nicaragua,NIC,2015,6082035
 Nicaragua,NIC,2016,6149928
+Nicaragua,NIC,2017,6217581
 Niger,NER,1960,3388764
 Niger,NER,1961,3486295
 Niger,NER,1962,3588156
@@ -10821,6 +11009,7 @@ Niger,NER,2013,18426372
 Niger,NER,2014,19148219
 Niger,NER,2015,19896965
 Niger,NER,2016,20672987
+Niger,NER,2017,21477348
 Nigeria,NGA,1960,45137812
 Nigeria,NGA,1961,46062905
 Nigeria,NGA,1962,47029140
@@ -10878,6 +11067,7 @@ Nigeria,NGA,2013,171829303
 Nigeria,NGA,2014,176460502
 Nigeria,NGA,2015,181181744
 Nigeria,NGA,2016,185989640
+Nigeria,NGA,2017,190886311
 Northern Mariana Islands,MNP,1960,10035
 Northern Mariana Islands,MNP,1961,10302
 Northern Mariana Islands,MNP,1962,10499
@@ -10935,6 +11125,7 @@ Northern Mariana Islands,MNP,2013,54036
 Northern Mariana Islands,MNP,2014,54468
 Northern Mariana Islands,MNP,2015,54816
 Northern Mariana Islands,MNP,2016,55023
+Northern Mariana Islands,MNP,2017,55144
 Norway,NOR,1960,3581239
 Norway,NOR,1961,3609800
 Norway,NOR,1962,3638918
@@ -10991,7 +11182,8 @@ Norway,NOR,2012,5018573
 Norway,NOR,2013,5079623
 Norway,NOR,2014,5137232
 Norway,NOR,2015,5190239
-Norway,NOR,2016,5236151
+Norway,NOR,2016,5234519
+Norway,NOR,2017,5282223
 Oman,OMN,1960,551740
 Oman,OMN,1961,564890
 Oman,OMN,1962,578824
@@ -11049,6 +11241,7 @@ Oman,OMN,2013,3711481
 Oman,OMN,2014,3960925
 Oman,OMN,2015,4199810
 Oman,OMN,2016,4424762
+Oman,OMN,2017,4636262
 Pakistan,PAK,1960,44908293
 Pakistan,PAK,1961,45984892
 Pakistan,PAK,1962,47119361
@@ -11106,6 +11299,7 @@ Pakistan,PAK,2013,181712595
 Pakistan,PAK,2014,185546257
 Pakistan,PAK,2015,189380513
 Pakistan,PAK,2016,193203476
+Pakistan,PAK,2017,197015955
 Palau,PLW,1960,9642
 Palau,PLW,1961,9900
 Palau,PLW,1962,10151
@@ -11163,6 +11357,7 @@ Palau,PLW,2013,20920
 Palau,PLW,2014,21094
 Palau,PLW,2015,21288
 Palau,PLW,2016,21503
+Palau,PLW,2017,21729
 Panama,PAN,1960,1132921
 Panama,PAN,1961,1167035
 Panama,PAN,1962,1202373
@@ -11220,6 +11415,7 @@ Panama,PAN,2013,3838462
 Panama,PAN,2014,3903986
 Panama,PAN,2015,3969249
 Panama,PAN,2016,4034119
+Panama,PAN,2017,4098587
 Papua New Guinea,PNG,1960,2010677
 Papua New Guinea,PNG,1961,2051947
 Papua New Guinea,PNG,1962,2094687
@@ -11277,6 +11473,7 @@ Papua New Guinea,PNG,2013,7592865
 Papua New Guinea,PNG,2014,7755785
 Papua New Guinea,PNG,2015,7919825
 Papua New Guinea,PNG,2016,8084991
+Papua New Guinea,PNG,2017,8251162
 Paraguay,PRY,1960,1902875
 Paraguay,PRY,1961,1953328
 Paraguay,PRY,1962,2005337
@@ -11334,6 +11531,7 @@ Paraguay,PRY,2013,6465740
 Paraguay,PRY,2014,6552584
 Paraguay,PRY,2015,6639119
 Paraguay,PRY,2016,6725308
+Paraguay,PRY,2017,6811297
 Peru,PER,1960,10061515
 Peru,PER,1961,10350242
 Peru,PER,1962,10650667
@@ -11391,6 +11589,7 @@ Peru,PER,2013,30565716
 Peru,PER,2014,30973354
 Peru,PER,2015,31376671
 Peru,PER,2016,31773839
+Peru,PER,2017,32165485
 Philippines,PHL,1960,26273025
 Philippines,PHL,1961,27164617
 Philippines,PHL,1962,28081231
@@ -11448,6 +11647,7 @@ Philippines,PHL,2013,98481032
 Philippines,PHL,2014,100102249
 Philippines,PHL,2015,101716359
 Philippines,PHL,2016,103320222
+Philippines,PHL,2017,104918090
 Poland,POL,1960,29637450
 Poland,POL,1961,29964000
 Poland,POL,1962,30308500
@@ -11505,6 +11705,7 @@ Poland,POL,2013,38040196
 Poland,POL,2014,38011735
 Poland,POL,2015,37986412
 Poland,POL,2016,37970087
+Poland,POL,2017,37975841
 Portugal,PRT,1960,8857716
 Portugal,PRT,1961,8929316
 Portugal,PRT,1962,8993985
@@ -11562,6 +11763,7 @@ Portugal,PRT,2013,10457295
 Portugal,PRT,2014,10401062
 Portugal,PRT,2015,10358076
 Portugal,PRT,2016,10325452
+Portugal,PRT,2017,10293718
 Puerto Rico,PRI,1960,2358000
 Puerto Rico,PRI,1961,2399722
 Puerto Rico,PRI,1962,2450322
@@ -11617,8 +11819,9 @@ Puerto Rico,PRI,2011,3678732
 Puerto Rico,PRI,2012,3634488
 Puerto Rico,PRI,2013,3593077
 Puerto Rico,PRI,2014,3534874
-Puerto Rico,PRI,2015,3473181
-Puerto Rico,PRI,2016,3411307
+Puerto Rico,PRI,2015,3473177
+Puerto Rico,PRI,2016,3406520
+Puerto Rico,PRI,2017,3337177
 Qatar,QAT,1960,47384
 Qatar,QAT,1961,51421
 Qatar,QAT,1962,56263
@@ -11676,6 +11879,7 @@ Qatar,QAT,2013,2250473
 Qatar,QAT,2014,2374419
 Qatar,QAT,2015,2481539
 Qatar,QAT,2016,2569804
+Qatar,QAT,2017,2639211
 Romania,ROU,1960,18406905
 Romania,ROU,1961,18555250
 Romania,ROU,1962,18676550
@@ -11732,7 +11936,8 @@ Romania,ROU,2012,20058035
 Romania,ROU,2013,19983693
 Romania,ROU,2014,19908979
 Romania,ROU,2015,19815481
-Romania,ROU,2016,19699312
+Romania,ROU,2016,19702332
+Romania,ROU,2017,19586539
 Russian Federation,RUS,1960,119897000
 Russian Federation,RUS,1961,121236000
 Russian Federation,RUS,1962,122591000
@@ -11790,6 +11995,7 @@ Russian Federation,RUS,2013,143506911
 Russian Federation,RUS,2014,143819666
 Russian Federation,RUS,2015,144096870
 Russian Federation,RUS,2016,144342396
+Russian Federation,RUS,2017,144495044
 Rwanda,RWA,1960,2933428
 Rwanda,RWA,1961,2996096
 Rwanda,RWA,1962,3050604
@@ -11847,6 +12053,7 @@ Rwanda,RWA,2013,11065151
 Rwanda,RWA,2014,11345357
 Rwanda,RWA,2015,11629553
 Rwanda,RWA,2016,11917508
+Rwanda,RWA,2017,12208407
 Samoa,WSM,1960,108646
 Samoa,WSM,1961,112119
 Samoa,WSM,1962,115788
@@ -11904,6 +12111,7 @@ Samoa,WSM,2013,190757
 Samoa,WSM,2014,192290
 Samoa,WSM,2015,193759
 Samoa,WSM,2016,195125
+Samoa,WSM,2017,196440
 San Marino,SMR,1960,15397
 San Marino,SMR,1961,15789
 San Marino,SMR,1962,16199
@@ -11961,6 +12169,7 @@ San Marino,SMR,2013,32303
 San Marino,SMR,2014,32657
 San Marino,SMR,2015,32960
 San Marino,SMR,2016,33203
+San Marino,SMR,2017,33400
 Sao Tome and Principe,STP,1960,64253
 Sao Tome and Principe,STP,1961,64551
 Sao Tome and Principe,STP,1962,64432
@@ -12018,6 +12227,7 @@ Sao Tome and Principe,STP,2013,187045
 Sao Tome and Principe,STP,2014,191266
 Sao Tome and Principe,STP,2015,195553
 Sao Tome and Principe,STP,2016,199910
+Sao Tome and Principe,STP,2017,204327
 Saudi Arabia,SAU,1960,4086539
 Saudi Arabia,SAU,1961,4218879
 Saudi Arabia,SAU,1962,4362864
@@ -12075,6 +12285,7 @@ Saudi Arabia,SAU,2013,29944476
 Saudi Arabia,SAU,2014,30776722
 Saudi Arabia,SAU,2015,31557144
 Saudi Arabia,SAU,2016,32275687
+Saudi Arabia,SAU,2017,32938213
 Senegal,SEN,1960,3206749
 Senegal,SEN,1961,3295293
 Senegal,SEN,1962,3386863
@@ -12132,6 +12343,7 @@ Senegal,SEN,2013,14120320
 Senegal,SEN,2014,14546111
 Senegal,SEN,2015,14976994
 Senegal,SEN,2016,15411614
+Senegal,SEN,2017,15850567
 Serbia,SRB,1990,7586000
 Serbia,SRB,1991,7595636
 Serbia,SRB,1992,7646424
@@ -12159,6 +12371,7 @@ Serbia,SRB,2013,7164132
 Serbia,SRB,2014,7130576
 Serbia,SRB,2015,7095383
 Serbia,SRB,2016,7058322
+Serbia,SRB,2017,7022268
 Seychelles,SYC,1960,41700
 Seychelles,SYC,1961,42889
 Seychelles,SYC,1962,44042
@@ -12216,6 +12429,7 @@ Seychelles,SYC,2013,89949
 Seychelles,SYC,2014,91359
 Seychelles,SYC,2015,93419
 Seychelles,SYC,2016,94677
+Seychelles,SYC,2017,95843
 Sierra Leone,SLE,1960,2297110
 Sierra Leone,SLE,1961,2329204
 Sierra Leone,SLE,1962,2363013
@@ -12273,6 +12487,7 @@ Sierra Leone,SLE,2013,6922079
 Sierra Leone,SLE,2014,7079162
 Sierra Leone,SLE,2015,7237025
 Sierra Leone,SLE,2016,7396190
+Sierra Leone,SLE,2017,7557212
 Singapore,SGP,1960,1646400
 Singapore,SGP,1961,1702400
 Singapore,SGP,1962,1750200
@@ -12330,25 +12545,27 @@ Singapore,SGP,2013,5399162
 Singapore,SGP,2014,5469724
 Singapore,SGP,2015,5535002
 Singapore,SGP,2016,5607283
+Singapore,SGP,2017,5612253
 Sint Maarten (Dutch part),SXM,1998,31240
 Sint Maarten (Dutch part),SXM,1999,31084
 Sint Maarten (Dutch part),SXM,2000,30519
-Sint Maarten (Dutch part),SXM,2001,31189
-Sint Maarten (Dutch part),SXM,2002,32566
-Sint Maarten (Dutch part),SXM,2003,33790
-Sint Maarten (Dutch part),SXM,2004,35316
-Sint Maarten (Dutch part),SXM,2005,36934
-Sint Maarten (Dutch part),SXM,2006,38270
-Sint Maarten (Dutch part),SXM,2007,39462
-Sint Maarten (Dutch part),SXM,2008,40458
-Sint Maarten (Dutch part),SXM,2009,39133
-Sint Maarten (Dutch part),SXM,2010,35474
+Sint Maarten (Dutch part),SXM,2001,30600
+Sint Maarten (Dutch part),SXM,2002,30777
+Sint Maarten (Dutch part),SXM,2003,31472
+Sint Maarten (Dutch part),SXM,2004,32488
+Sint Maarten (Dutch part),SXM,2005,33011
+Sint Maarten (Dutch part),SXM,2006,33441
+Sint Maarten (Dutch part),SXM,2007,33811
+Sint Maarten (Dutch part),SXM,2008,33964
+Sint Maarten (Dutch part),SXM,2009,34238
+Sint Maarten (Dutch part),SXM,2010,34056
 Sint Maarten (Dutch part),SXM,2011,33435
 Sint Maarten (Dutch part),SXM,2012,34640
 Sint Maarten (Dutch part),SXM,2013,36607
 Sint Maarten (Dutch part),SXM,2014,37685
 Sint Maarten (Dutch part),SXM,2015,38824
 Sint Maarten (Dutch part),SXM,2016,39969
+Sint Maarten (Dutch part),SXM,2017,41109
 Slovak Republic,SVK,1960,4068095
 Slovak Republic,SVK,1961,4191667
 Slovak Republic,SVK,1962,4238188
@@ -12406,6 +12623,7 @@ Slovak Republic,SVK,2013,5413393
 Slovak Republic,SVK,2014,5418649
 Slovak Republic,SVK,2015,5423801
 Slovak Republic,SVK,2016,5430798
+Slovak Republic,SVK,2017,5439892
 Slovenia,SVN,1960,1584720
 Slovenia,SVN,1961,1594131
 Slovenia,SVN,1962,1603649
@@ -12463,6 +12681,7 @@ Slovenia,SVN,2013,2059953
 Slovenia,SVN,2014,2061980
 Slovenia,SVN,2015,2063531
 Slovenia,SVN,2016,2065042
+Slovenia,SVN,2017,2066748
 Solomon Islands,SLB,1960,117866
 Solomon Islands,SLB,1961,121396
 Solomon Islands,SLB,1962,125064
@@ -12520,6 +12739,7 @@ Solomon Islands,SLB,2013,563513
 Solomon Islands,SLB,2014,575504
 Solomon Islands,SLB,2015,587482
 Solomon Islands,SLB,2016,599419
+Solomon Islands,SLB,2017,611343
 Somalia,SOM,1960,2755947
 Somalia,SOM,1961,2814096
 Somalia,SOM,1962,2874190
@@ -12577,6 +12797,7 @@ Somalia,SOM,2013,13132349
 Somalia,SOM,2014,13513125
 Somalia,SOM,2015,13908129
 Somalia,SOM,2016,14317996
+Somalia,SOM,2017,14742523
 South Africa,ZAF,1960,17456855
 South Africa,ZAF,1961,17920673
 South Africa,ZAF,1962,18401608
@@ -12634,6 +12855,7 @@ South Africa,ZAF,2013,53767396
 South Africa,ZAF,2014,54539571
 South Africa,ZAF,2015,55291225
 South Africa,ZAF,2016,56015473
+South Africa,ZAF,2017,56717156
 South Sudan,SSD,1960,2955152
 South Sudan,SSD,1961,3011110
 South Sudan,SSD,1962,3069913
@@ -12691,6 +12913,7 @@ South Sudan,SSD,2013,11177490
 South Sudan,SSD,2014,11530971
 South Sudan,SSD,2015,11882136
 South Sudan,SSD,2016,12230730
+South Sudan,SSD,2017,12575714
 Spain,ESP,1960,30455000
 Spain,ESP,1961,30739250
 Spain,ESP,1962,31023366
@@ -12747,7 +12970,8 @@ Spain,ESP,2012,46773055
 Spain,ESP,2013,46620045
 Spain,ESP,2014,46480882
 Spain,ESP,2015,46444832
-Spain,ESP,2016,46484533
+Spain,ESP,2016,46484062
+Spain,ESP,2017,46572028
 Sri Lanka,LKA,1960,9874481
 Sri Lanka,LKA,1961,10111646
 Sri Lanka,LKA,1962,10352188
@@ -12805,6 +13029,7 @@ Sri Lanka,LKA,2013,20585000
 Sri Lanka,LKA,2014,20771000
 Sri Lanka,LKA,2015,20966000
 Sri Lanka,LKA,2016,21203000
+Sri Lanka,LKA,2017,21444000
 St. Kitts and Nevis,KNA,1960,51195
 St. Kitts and Nevis,KNA,1961,51193
 St. Kitts and Nevis,KNA,1962,50966
@@ -12862,6 +13087,7 @@ St. Kitts and Nevis,KNA,2013,53169
 St. Kitts and Nevis,KNA,2014,53739
 St. Kitts and Nevis,KNA,2015,54288
 St. Kitts and Nevis,KNA,2016,54821
+St. Kitts and Nevis,KNA,2017,55345
 St. Lucia,LCA,1960,89897
 St. Lucia,LCA,1961,90914
 St. Lucia,LCA,1962,92084
@@ -12919,6 +13145,7 @@ St. Lucia,LCA,2013,175660
 St. Lucia,LCA,2014,176421
 St. Lucia,LCA,2015,177206
 St. Lucia,LCA,2016,178015
+St. Lucia,LCA,2017,178844
 St. Martin (French part),MAF,1960,4279
 St. Martin (French part),MAF,1961,4453
 St. Martin (French part),MAF,1962,4566
@@ -12976,6 +13203,7 @@ St. Martin (French part),MAF,2013,31264
 St. Martin (French part),MAF,2014,31530
 St. Martin (French part),MAF,2015,31754
 St. Martin (French part),MAF,2016,31949
+St. Martin (French part),MAF,2017,32125
 St. Vincent and the Grenadines,VCT,1960,80949
 St. Vincent and the Grenadines,VCT,1961,82142
 St. Vincent and the Grenadines,VCT,1962,83206
@@ -13033,6 +13261,7 @@ St. Vincent and the Grenadines,VCT,2013,109320
 St. Vincent and the Grenadines,VCT,2014,109357
 St. Vincent and the Grenadines,VCT,2015,109455
 St. Vincent and the Grenadines,VCT,2016,109643
+St. Vincent and the Grenadines,VCT,2017,109897
 Sudan,SDN,1960,7544491
 Sudan,SDN,1961,7769482
 Sudan,SDN,1962,8004121
@@ -13090,6 +13319,7 @@ Sudan,SDN,2013,36849918
 Sudan,SDN,2014,37737913
 Sudan,SDN,2015,38647803
 Sudan,SDN,2016,39578828
+Sudan,SDN,2017,40533330
 Suriname,SUR,1960,289966
 Suriname,SUR,1961,298188
 Suriname,SUR,1962,306328
@@ -13147,6 +13377,7 @@ Suriname,SUR,2013,542540
 Suriname,SUR,2014,547928
 Suriname,SUR,2015,553208
 Suriname,SUR,2016,558368
+Suriname,SUR,2017,563402
 Swaziland,SWZ,1960,349174
 Swaziland,SWZ,1961,357453
 Swaziland,SWZ,1962,365636
@@ -13204,6 +13435,7 @@ Swaziland,SWZ,2013,1271456
 Swaziland,SWZ,2014,1295097
 Swaziland,SWZ,2015,1319011
 Swaziland,SWZ,2016,1343098
+Swaziland,SWZ,2017,1367254
 Sweden,SWE,1960,7484656
 Sweden,SWE,1961,7519998
 Sweden,SWE,1962,7561588
@@ -13261,6 +13493,7 @@ Sweden,SWE,2013,9600379
 Sweden,SWE,2014,9696110
 Sweden,SWE,2015,9799186
 Sweden,SWE,2016,9923085
+Sweden,SWE,2017,10067744
 Switzerland,CHE,1960,5327827
 Switzerland,CHE,1961,5434294
 Switzerland,CHE,1962,5573815
@@ -13317,7 +13550,8 @@ Switzerland,CHE,2012,7996861
 Switzerland,CHE,2013,8089346
 Switzerland,CHE,2014,8188649
 Switzerland,CHE,2015,8282396
-Switzerland,CHE,2016,8372413
+Switzerland,CHE,2016,8373338
+Switzerland,CHE,2017,8466017
 Syrian Arab Republic,SYR,1960,4573512
 Syrian Arab Republic,SYR,1961,4721896
 Syrian Arab Republic,SYR,1962,4875422
@@ -13375,6 +13609,7 @@ Syrian Arab Republic,SYR,2013,19809141
 Syrian Arab Republic,SYR,2014,19203090
 Syrian Arab Republic,SYR,2015,18734987
 Syrian Arab Republic,SYR,2016,18430453
+Syrian Arab Republic,SYR,2017,18269868
 Tajikistan,TJK,1960,2087038
 Tajikistan,TJK,1961,2159123
 Tajikistan,TJK,1962,2236559
@@ -13432,6 +13667,7 @@ Tajikistan,TJK,2013,8177809
 Tajikistan,TJK,2014,8362745
 Tajikistan,TJK,2015,8548651
 Tajikistan,TJK,2016,8734951
+Tajikistan,TJK,2017,8921343
 Tanzania,TZA,1960,10074507
 Tanzania,TZA,1961,10373398
 Tanzania,TZA,1962,10683906
@@ -13489,6 +13725,7 @@ Tanzania,TZA,2013,50636595
 Tanzania,TZA,2014,52234869
 Tanzania,TZA,2015,53879957
 Tanzania,TZA,2016,55572201
+Tanzania,TZA,2017,57310019
 Thailand,THA,1960,27397175
 Thailand,THA,1961,28224204
 Thailand,THA,1962,29081034
@@ -13546,6 +13783,7 @@ Thailand,THA,2013,68143065
 Thailand,THA,2014,68416772
 Thailand,THA,2015,68657600
 Thailand,THA,2016,68863514
+Thailand,THA,2017,69037513
 Timor-Leste,TLS,1960,499950
 Timor-Leste,TLS,1961,508845
 Timor-Leste,TLS,1962,518107
@@ -13603,6 +13841,7 @@ Timor-Leste,TLS,2013,1184366
 Timor-Leste,TLS,2014,1212814
 Timor-Leste,TLS,2015,1240977
 Timor-Leste,TLS,2016,1268671
+Timor-Leste,TLS,2017,1296311
 Togo,TGO,1960,1580513
 Togo,TGO,1961,1597526
 Togo,TGO,1962,1612755
@@ -13660,6 +13899,7 @@ Togo,TGO,2013,7042948
 Togo,TGO,2014,7228915
 Togo,TGO,2015,7416802
 Togo,TGO,2016,7606374
+Togo,TGO,2017,7797694
 Tonga,TON,1960,61601
 Tonga,TON,1961,63745
 Tonga,TON,1962,66259
@@ -13717,6 +13957,7 @@ Tonga,TON,2013,105328
 Tonga,TON,2014,105782
 Tonga,TON,2015,106364
 Tonga,TON,2016,107122
+Tonga,TON,2017,108020
 Trinidad and Tobago,TTO,1960,848479
 Trinidad and Tobago,TTO,1961,865360
 Trinidad and Tobago,TTO,1962,880023
@@ -13774,6 +14015,7 @@ Trinidad and Tobago,TTO,2013,1348248
 Trinidad and Tobago,TTO,2014,1354493
 Trinidad and Tobago,TTO,2015,1360092
 Trinidad and Tobago,TTO,2016,1364962
+Trinidad and Tobago,TTO,2017,1369125
 Tunisia,TUN,1960,4176266
 Tunisia,TUN,1961,4235937
 Tunisia,TUN,1962,4303131
@@ -13831,6 +14073,7 @@ Tunisia,TUN,2013,11014558
 Tunisia,TUN,2014,11143908
 Tunisia,TUN,2015,11273661
 Tunisia,TUN,2016,11403248
+Tunisia,TUN,2017,11532127
 Turkey,TUR,1960,27472331
 Turkey,TUR,1961,28146893
 Turkey,TUR,1962,28832805
@@ -13888,6 +14131,7 @@ Turkey,TUR,2013,75787333
 Turkey,TUR,2014,77030628
 Turkey,TUR,2015,78271472
 Turkey,TUR,2016,79512426
+Turkey,TUR,2017,80745020
 Turkmenistan,TKM,1960,1603258
 Turkmenistan,TKM,1961,1658362
 Turkmenistan,TKM,1962,1715408
@@ -13945,6 +14189,7 @@ Turkmenistan,TKM,2013,5366277
 Turkmenistan,TKM,2014,5466241
 Turkmenistan,TKM,2015,5565284
 Turkmenistan,TKM,2016,5662544
+Turkmenistan,TKM,2017,5758075
 Turks and Caicos Islands,TCA,1960,5726
 Turks and Caicos Islands,TCA,1961,5763
 Turks and Caicos Islands,TCA,1962,5763
@@ -14002,6 +14247,7 @@ Turks and Caicos Islands,TCA,2013,33108
 Turks and Caicos Islands,TCA,2014,33739
 Turks and Caicos Islands,TCA,2015,34339
 Turks and Caicos Islands,TCA,2016,34900
+Turks and Caicos Islands,TCA,2017,35446
 Tuvalu,TUV,1960,6104
 Tuvalu,TUV,1961,6246
 Tuvalu,TUV,1962,6389
@@ -14059,6 +14305,7 @@ Tuvalu,TUV,2013,10819
 Tuvalu,TUV,2014,10908
 Tuvalu,TUV,2015,11001
 Tuvalu,TUV,2016,11097
+Tuvalu,TUV,2017,11192
 Uganda,UGA,1960,6788214
 Uganda,UGA,1961,7006633
 Uganda,UGA,1962,7240174
@@ -14116,6 +14363,7 @@ Uganda,UGA,2013,37553726
 Uganda,UGA,2014,38833338
 Uganda,UGA,2015,40144870
 Uganda,UGA,2016,41487965
+Uganda,UGA,2017,42862958
 Ukraine,UKR,1960,42662149
 Ukraine,UKR,1961,43203635
 Ukraine,UKR,1962,43749470
@@ -14173,6 +14421,7 @@ Ukraine,UKR,2013,45489600
 Ukraine,UKR,2014,45271947
 Ukraine,UKR,2015,45154029
 Ukraine,UKR,2016,45004645
+Ukraine,UKR,2017,44831159
 United Arab Emirates,ARE,1960,92634
 United Arab Emirates,ARE,1961,101078
 United Arab Emirates,ARE,1962,112472
@@ -14230,6 +14479,7 @@ United Arab Emirates,ARE,2013,9006263
 United Arab Emirates,ARE,2014,9070867
 United Arab Emirates,ARE,2015,9154302
 United Arab Emirates,ARE,2016,9269612
+United Arab Emirates,ARE,2017,9400145
 United Kingdom,GBR,1960,52400000
 United Kingdom,GBR,1961,52800000
 United Kingdom,GBR,1962,53250000
@@ -14287,6 +14537,7 @@ United Kingdom,GBR,2013,64128226
 United Kingdom,GBR,2014,64613160
 United Kingdom,GBR,2015,65128861
 United Kingdom,GBR,2016,65595565
+United Kingdom,GBR,2017,66022273
 United States,USA,1960,180671000
 United States,USA,1961,183691000
 United States,USA,1962,186538000
@@ -14337,13 +14588,14 @@ United States,USA,2006,298379912
 United States,USA,2007,301231207
 United States,USA,2008,304093966
 United States,USA,2009,306771529
-United States,USA,2010,309348193
-United States,USA,2011,311663358
-United States,USA,2012,313998379
-United States,USA,2013,316204908
-United States,USA,2014,318563456
-United States,USA,2015,320896618
-United States,USA,2016,323127513
+United States,USA,2010,309338421
+United States,USA,2011,311644280
+United States,USA,2012,313993272
+United States,USA,2013,316234505
+United States,USA,2014,318622525
+United States,USA,2015,321039839
+United States,USA,2016,323405935
+United States,USA,2017,325719178
 Uruguay,URY,1960,2538651
 Uruguay,URY,1961,2571690
 Uruguay,URY,1962,2603887
@@ -14401,6 +14653,7 @@ Uruguay,URY,2013,3408005
 Uruguay,URY,2014,3419546
 Uruguay,URY,2015,3431552
 Uruguay,URY,2016,3444006
+Uruguay,URY,2017,3456750
 Uzbekistan,UZB,1960,8549493
 Uzbekistan,UZB,1961,8837349
 Uzbekistan,UZB,1962,9138097
@@ -14458,6 +14711,7 @@ Uzbekistan,UZB,2013,30243200
 Uzbekistan,UZB,2014,30757700
 Uzbekistan,UZB,2015,31298900
 Uzbekistan,UZB,2016,31847900
+Uzbekistan,UZB,2017,32387200
 Vanuatu,VUT,1960,63699
 Vanuatu,VUT,1961,65713
 Vanuatu,VUT,1962,67808
@@ -14515,6 +14769,7 @@ Vanuatu,VUT,2013,253142
 Vanuatu,VUT,2014,258850
 Vanuatu,VUT,2015,264603
 Vanuatu,VUT,2016,270402
+Vanuatu,VUT,2017,276244
 "Venezuela, RB",VEN,1960,8146847
 "Venezuela, RB",VEN,1961,8461685
 "Venezuela, RB",VEN,1962,8790589
@@ -14572,6 +14827,7 @@ Vanuatu,VUT,2016,270402
 "Venezuela, RB",VEN,2014,30738378
 "Venezuela, RB",VEN,2015,31155134
 "Venezuela, RB",VEN,2016,31568179
+"Venezuela, RB",VEN,2017,31977065
 Vietnam,VNM,1960,32670629
 Vietnam,VNM,1961,33666772
 Vietnam,VNM,1962,34684165
@@ -14629,6 +14885,7 @@ Vietnam,VNM,2013,91497725
 Vietnam,VNM,2014,92544915
 Vietnam,VNM,2015,93571567
 Vietnam,VNM,2016,94569072
+Vietnam,VNM,2017,95540800
 Virgin Islands (U.S.),VIR,1960,32500
 Virgin Islands (U.S.),VIR,1961,34300
 Virgin Islands (U.S.),VIR,1962,35000
@@ -14686,6 +14943,7 @@ Virgin Islands (U.S.),VIR,2013,108044
 Virgin Islands (U.S.),VIR,2014,107884
 Virgin Islands (U.S.),VIR,2015,107710
 Virgin Islands (U.S.),VIR,2016,107510
+Virgin Islands (U.S.),VIR,2017,107268
 West Bank and Gaza,PSE,1990,1978248
 West Bank and Gaza,PSE,1991,2068845
 West Bank and Gaza,PSE,1992,2163591
@@ -14713,6 +14971,7 @@ West Bank and Gaza,PSE,2013,4169506
 West Bank and Gaza,PSE,2014,4294682
 West Bank and Gaza,PSE,2015,4422143
 West Bank and Gaza,PSE,2016,4551566
+West Bank and Gaza,PSE,2017,4684777
 "Yemen, Rep.",YEM,1960,5172135
 "Yemen, Rep.",YEM,1961,5260501
 "Yemen, Rep.",YEM,1962,5351799
@@ -14770,6 +15029,7 @@ West Bank and Gaza,PSE,2016,4551566
 "Yemen, Rep.",YEM,2014,26246327
 "Yemen, Rep.",YEM,2015,26916207
 "Yemen, Rep.",YEM,2016,27584213
+"Yemen, Rep.",YEM,2017,28250420
 Zambia,ZMB,1960,3044846
 Zambia,ZMB,1961,3140264
 Zambia,ZMB,1962,3240587
@@ -14827,6 +15087,7 @@ Zambia,ZMB,2013,15153210
 Zambia,ZMB,2014,15620974
 Zambia,ZMB,2015,16100587
 Zambia,ZMB,2016,16591390
+Zambia,ZMB,2017,17094130
 Zimbabwe,ZWE,1960,3747369
 Zimbabwe,ZWE,1961,3870756
 Zimbabwe,ZWE,1962,3999419
@@ -14884,3 +15145,4 @@ Zimbabwe,ZWE,2013,15054506
 Zimbabwe,ZWE,2014,15411675
 Zimbabwe,ZWE,2015,15777451
 Zimbabwe,ZWE,2016,16150362
+Zimbabwe,ZWE,2017,16529904
